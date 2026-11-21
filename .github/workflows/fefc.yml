@@ -1,0 +1,48 @@
+name: FEFC checked artifacts
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['efc/**','tests/**','scripts/**','requirements.txt','.github/workflows/fefc.yml','article/*.tex']
+permissions:
+  contents: write
+concurrency:
+  group: fefc-night-v3
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: night/fefc-v3
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - name: TeX only when article source is present
+        run: |
+          if [ -f scripts/write_article.py ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq texlive-latex-extra texlive-lang-cyrillic texlive-fonts-extra
+          fi
+      - name: Execute tests and notebooks
+        run: python scripts/build_artifacts.py
+      - name: Publish only generated research artifacts to the same branch
+        run: |
+          test "$(git branch --show-current)" = night/fefc-v3
+          git diff --exit-code -- v2 docs/Журнал_проверок_Perplexity.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add colab article results docs/STATUS.md
+          git diff --cached --quiet || git commit -m 'FEFC: проверенные тетради и результаты из чистого checkout'
+          git push origin HEAD:night/fefc-v3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fefc-checked-output
+          path: |
+            results/
+            colab/
+            article/

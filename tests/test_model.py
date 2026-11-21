@@ -43,3 +43,14 @@ class ModelTests(unittest.TestCase):
   for p in [0.,1.]:
    r=simulate(Config(mobile_fraction=p));self.assertTrue(all(x['mobile']==bool(p) for x in r['tasks']))
 if __name__=='__main__':unittest.main()
+
+class ArrivalOrderingTests(unittest.TestCase):
+ def test_ef_link_fifo_by_ready_time(self):
+  r=simulate(Config(n_edge=20,n_fog=1,n_tasks=200,arrival_rate_s=300))
+  ready=sorted(r['tasks'],key=lambda x:(x['edge_end_s'],x['task_id']))
+  starts=[x['edge_end_s']+x['ef_link_wait_ms']/1000 for x in ready]
+  self.assertEqual(starts,sorted(starts))
+ def test_cloud_fifo_by_arrival_not_fog_completion(self):
+  r=simulate(Config(n_edge=200,n_fog=20,n_cloud=1,n_tasks=200,arrival_rate_s=1000))
+  tasks=sorted([x for x in r['tasks'] if x['status']=='completed'],key=lambda x:(x['cloud_arrival_s'],x['task_id']))
+  starts=[x['cloud_start_s'] for x in tasks];self.assertEqual(starts,sorted(starts))

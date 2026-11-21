@@ -105,15 +105,12 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
         fc = rng_duration.uniform(*c.fog_cloud_ms)/1000
         cs = rng_duration.uniform(*c.cloud_service_ms)/1000
         edge_start=max(release,edge_free[sensor]); edge_end=edge_start+ed; edge_free[sensor]=edge_end
-        link_start=max(edge_end,ef_free[f]); fa=link_start+ef; ef_free[f]=fa
-        busy['edge_fog_s'][f]+=ef
         task=dict(task_id=i,sensor=sensor,fog=f,mobile=mobile[sensor],release_s=release,
-                  edge_start_s=edge_start,edge_end_s=edge_end,fog_arrival_s=fa,
-                  edge_ms=1000*(edge_end-release),edge_fog_ms=1000*(fa-edge_end),
-                  edge_wait_ms=1000*(edge_start-release),ef_link_wait_ms=1000*(link_start-edge_end),
+                  edge_start_s=edge_start,edge_end_s=edge_end,ef_service_ms=1000*ef,
+                  edge_ms=1000*(edge_end-release),edge_wait_ms=1000*(edge_start-release),
                   fog_service_ms=1000*fs,fc_service_ms=1000*fc,cloud_service_ms=1000*cs,
                   status='pending')
-        tasks.append(task);heapq.heappush(events,(fa,1,i,'arrival'))
+        tasks.append(task);heapq.heappush(events,(edge_end,1,i,'edge_done'))
     def start_job(i,t):
         r=tasks[i];f=r['fog'];active[f]=i
         r['fog_start_s']=t;r['fog_wait_ms']=1000*(t-r['fog_arrival_s'])
@@ -122,6 +119,20 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
         heapq.heappush(events,(end,0,i,'done'))
     while events:
         t,_,i,kind=heapq.heappop(events);r=tasks[i];f=r['fog']
+        if kind=='edge_done':
+            link_start=max(t,ef_free[f]);fa=link_start+r['ef_service_ms']/1000;ef_free[f]=fa
+            busy['edge_fog_s'][f]+=r['ef_service_ms']/1000
+            r['fog_arrival_s']=fa;r['edge_fog_ms']=1000*(fa-t);r['ef_link_wait_ms']=1000*(link_start-t)
+            heapq.heappush(events,(fa,2,i,'arrival'))
+            continue
+        if kind=='cloud_arrival':
+            cloud=min(range(c.n_cloud),key=lambda j:(max(t,cloud_free[j]),j))
+            start=max(t,cloud_free[cloud]);end=start+r['cloud_service_ms']/1000
+            cloud_free[cloud]=end;r['cloud']=cloud;r['cloud_start_s']=start;r['end_s']=end
+            r['cloud_ms']=1000*(end-t);r['cloud_wait_ms']=1000*(start-t)
+            r['latency_ms']=1000*(end-r['release_s']);r['status']='completed'
+            busy['cloud_s'][cloud]+=r['cloud_service_ms']/1000
+            continue
         if kind=='arrival':
             prior=last_arrival[f]
             if prior is not None and t>prior:
@@ -143,12 +154,8 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
             r['fog_end_s']=t
             link_start=max(t,fc_free[f]);ce=link_start+r['fc_service_ms']/1000;fc_free[f]=ce
             r['fog_cloud_ms']=1000*(ce-t);r['fc_link_wait_ms']=1000*(link_start-t)
-            cloud=min(range(c.n_cloud),key=lambda j:(max(ce,cloud_free[j]),j))
-            cloud_start=max(ce,cloud_free[cloud]);end=cloud_start+r['cloud_service_ms']/1000
-            cloud_free[cloud]=end;r['cloud']=cloud;r['cloud_start_s']=cloud_start;r['end_s']=end
-            r['cloud_ms']=1000*(end-ce);r['cloud_wait_ms']=1000*(cloud_start-ce)
-            r['latency_ms']=1000*(end-r['release_s']);r['status']='completed'
-            busy['fog_cloud_s'][f]+=r['fc_service_ms']/1000;busy['cloud_s'][cloud]+=r['cloud_service_ms']/1000
+            busy['fog_cloud_s'][f]+=r['fc_service_ms']/1000
+            r['cloud_arrival_s']=ce;heapq.heappush(events,(ce,3,i,'cloud_arrival'))
             active[f]=None;busy_until[f]=t
             if waiting[f]:start_job(waiting[f].popleft(),t)
         queue_trace.append({'time_s':t,'fog':f,'waiting':len(waiting[f]),'busy':int(active[f] is not None),'event':kind,'task_id':i})
