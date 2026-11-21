@@ -1,0 +1,2 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_notebooks.py
+Created clean notebooks 00 and 01

@@ -1,0 +1,4 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/01_Среда_и_конфигурация.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=240
+[NbConvertApp] Converting notebook /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/01_Среда_и_конфигурация.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 587744 bytes to /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/01_Среда_и_конфигурация.ipynb

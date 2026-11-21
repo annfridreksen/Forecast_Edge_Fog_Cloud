@@ -1,7 +1,23 @@
-Local execution: Python 3.13.5, numpy 2.3.5.
-Command: python -m unittest discover -s tests -v
-15 tests: configuration, independent Fog queues, FIFO, finite buffer, drop accounting,
-completion-before-arrival ties, six-component conservation, repeatability, empty input,
-invalid arrivals, utilization bounds, paired Cloud scaling, non-overlap, sensor types.
-Ran 15 tests in 0.049s
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
+test_cloud_fifo_by_arrival_not_fog_completion (test_model.ArrivalOrderingTests.test_cloud_fifo_by_arrival_not_fog_completion) ... ok
+test_ef_link_fifo_by_ready_time (test_model.ArrivalOrderingTests.test_ef_link_fifo_by_ready_time) ... ok
+test_bad_arrivals (test_model.ModelTests.test_bad_arrivals) ... ok
+test_bad_config (test_model.ModelTests.test_bad_config) ... ok
+test_cloud_scaling_paired (test_model.ModelTests.test_cloud_scaling_paired) ... ok
+test_conservation (test_model.ModelTests.test_conservation) ... ok
+test_default_all_zones (test_model.ModelTests.test_default_all_zones) ... ok
+test_deterministic (test_model.ModelTests.test_deterministic) ... ok
+test_each_fog_independent (test_model.ModelTests.test_each_fog_independent) ... ok
+test_empty (test_model.ModelTests.test_empty) ... ok
+test_fifo_capacity (test_model.ModelTests.test_fifo_capacity) ... ok
+test_node_queues_do_not_overlap (test_model.ModelTests.test_node_queues_do_not_overlap) ... ok
+test_raw_queue_capacity (test_model.ModelTests.test_raw_queue_capacity) ... ok
+test_sensor_types (test_model.ModelTests.test_sensor_types) ... ok
+test_sum_six (test_model.ModelTests.test_sum_six) ... ok
+test_tied_completion_before_arrival (test_model.ModelTests.test_tied_completion_before_arrival) ... ok
+test_utilization_bounds (test_model.ModelTests.test_utilization_bounds) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.105s
+
 OK

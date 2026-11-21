@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-21T23:59:26.792530+00:00",
+  "source_commit": "bd6d4c5d5121756918c86497f3e0705176f959f3",
+  "python": "3.13.18 (main, Oct 26 2026, 14:19:33) [GCC 15.2.0]",
+  "notebooks": {
+    "00_Старт.ipynb": 16.82117884099999,
+    "01_Среда_и_конфигурация.ipynb": 4.874756400999999
+  },
+  "all_available_stages_passed": true,
+  "article_built": false,
+  "cloud_colab_run": false
+}
