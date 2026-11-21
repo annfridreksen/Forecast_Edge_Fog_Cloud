@@ -1,0 +1,7 @@
+Local execution: Python 3.13.5, numpy 2.3.5.
+Command: python -m unittest discover -s tests -v
+15 tests: configuration, independent Fog queues, FIFO, finite buffer, drop accounting,
+completion-before-arrival ties, six-component conservation, repeatability, empty input,
+invalid arrivals, utilization bounds, paired Cloud scaling, non-overlap, sensor types.
+Ran 15 tests in 0.049s
+OK
