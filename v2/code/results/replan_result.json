@@ -1,0 +1,92 @@
+{
+  "action": "RESELECT",
+  "reason": "previous_plan_infeasible",
+  "search": {
+    "status": "FEASIBLE_CERTIFIED",
+    "requested_method": "P",
+    "effective_method": "P",
+    "method": "P",
+    "forecast_status": "synthetic_control",
+    "plan": {
+      "fingerprint": "c4f5d5e57d9e24893cf423baaf865ef5619df5f2a9fae9b36ff16a7668407f0e",
+      "assignment": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "F"
+        ],
+        [
+          "C",
+          "F"
+        ]
+      ],
+      "runs": [
+        {
+          "block": "A",
+          "device": "E",
+          "start": "0",
+          "end": "1/500"
+        },
+        {
+          "block": "B",
+          "device": "F",
+          "start": "1/250",
+          "end": "3/500"
+        },
+        {
+          "block": "C",
+          "device": "F",
+          "start": "3/500",
+          "end": "7/1000"
+        }
+      ],
+      "transfers": [
+        {
+          "src": "A",
+          "dst": "B",
+          "bits": 8000,
+          "hops": [
+            {
+              "link": "EF",
+              "start": "1/500",
+              "end": "3/1000",
+              "arrival": "3/1000"
+            }
+          ],
+          "arrival": "3/1000"
+        },
+        {
+          "src": "B",
+          "dst": "C",
+          "bits": 8000,
+          "hops": [],
+          "arrival": "3/500"
+        }
+      ],
+      "makespan": "7/1000"
+    },
+    "certified": true,
+    "stats": {
+      "expanded": 11,
+      "enqueued": 12,
+      "memory_pruned": 1,
+      "complete_checked": 5,
+      "feasible": 1,
+      "peak_frontier": 4,
+      "schedule_wall_seconds": 0.00036499199995887466,
+      "verify_wall_seconds": 0.0008072000000538537,
+      "stop_reason": "ordinal_bound",
+      "elapsed_wall_seconds": 0.001386373999935131,
+      "preparation_and_search_wall_seconds": 0.0002141819999224026
+    },
+    "rejected": {
+      "deadline": 4
+    },
+    "partial_rejections": {
+      "joint_memory": 1
+    }
+  }
+}

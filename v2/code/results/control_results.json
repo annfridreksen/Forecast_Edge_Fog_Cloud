@@ -1,0 +1,1139 @@
+{
+  "minimal": {
+    "P": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "P",
+      "effective_method": "P",
+      "method": "P",
+      "forecast_status": "synthetic_control",
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "E"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "E",
+            "start": "0",
+            "end": "1/500"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/200"
+          },
+          {
+            "block": "C",
+            "device": "E",
+            "start": "3/500",
+            "end": "1/125"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "1/500",
+                "end": "3/1000",
+                "arrival": "3/1000"
+              }
+            ],
+            "arrival": "3/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "FE",
+                "start": "1/200",
+                "end": "3/500",
+                "arrival": "3/500"
+              }
+            ],
+            "arrival": "3/500"
+          }
+        ],
+        "makespan": "1/125"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 7,
+        "enqueued": 10,
+        "memory_pruned": 1,
+        "complete_checked": 2,
+        "feasible": 2,
+        "peak_frontier": 4,
+        "schedule_wall_seconds": 0.00015048800003114593,
+        "verify_wall_seconds": 0.0003020160000914984,
+        "stop_reason": "ordinal_bound",
+        "elapsed_wall_seconds": 0.0005857049999349329,
+        "preparation_and_search_wall_seconds": 0.0001332009998122885
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "B": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "B",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "not_used",
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F",
+            "start": "0",
+            "end": "1/1000"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "1/1000",
+            "end": "3/1000"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/250"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "3/1000"
+          }
+        ],
+        "makespan": "1/250"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 6,
+        "peak_frontier": 3,
+        "schedule_wall_seconds": 0.0002608240000654405,
+        "verify_wall_seconds": 0.0006612500001210719,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.0009762650000766371,
+        "preparation_and_search_wall_seconds": 5.419099989012466e-05
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "D": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "D",
+      "effective_method": "D",
+      "method": "D",
+      "forecast_status": "synthetic_control",
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "E"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "E",
+            "start": "0",
+            "end": "1/500"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/200"
+          },
+          {
+            "block": "C",
+            "device": "E",
+            "start": "3/500",
+            "end": "1/125"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "1/500",
+                "end": "3/1000",
+                "arrival": "3/1000"
+              }
+            ],
+            "arrival": "3/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "FE",
+                "start": "1/200",
+                "end": "3/500",
+                "arrival": "3/500"
+              }
+            ],
+            "arrival": "3/500"
+          }
+        ],
+        "makespan": "1/125"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 6,
+        "peak_frontier": 3,
+        "schedule_wall_seconds": 0.00022075300000778952,
+        "verify_wall_seconds": 0.0006128149997266519,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.0009190080000962553,
+        "preparation_and_search_wall_seconds": 8.544000036181387e-05
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    }
+  },
+  "no_feasible": {
+    "P": {
+      "status": "NO_PLAN_IN_CLASS",
+      "requested_method": "P",
+      "effective_method": "P",
+      "method": "P",
+      "forecast_status": "synthetic_control",
+      "plan": null,
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 0,
+        "peak_frontier": 4,
+        "schedule_wall_seconds": 0.00023739899995689484,
+        "verify_wall_seconds": 0.0009780460000001767,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.0013755869999840797,
+        "preparation_and_search_wall_seconds": 0.00016014200002700818
+      },
+      "rejected": {
+        "deadline": 6
+      },
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "B": {
+      "status": "NO_PLAN_IN_CLASS",
+      "requested_method": "B",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "not_used",
+      "plan": null,
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 0,
+        "peak_frontier": 3,
+        "schedule_wall_seconds": 0.00020859500000369735,
+        "verify_wall_seconds": 0.0007373429999688597,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.0009826149999980771,
+        "preparation_and_search_wall_seconds": 3.66770000255201e-05
+      },
+      "rejected": {
+        "deadline": 6
+      },
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "D": {
+      "status": "NO_PLAN_IN_CLASS",
+      "requested_method": "D",
+      "effective_method": "D",
+      "method": "D",
+      "forecast_status": "synthetic_control",
+      "plan": null,
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 0,
+        "peak_frontier": 3,
+        "schedule_wall_seconds": 0.00020450600015919917,
+        "verify_wall_seconds": 0.0007128160000320349,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.0009676710000121602,
+        "preparation_and_search_wall_seconds": 5.034899982092611e-05
+      },
+      "rejected": {
+        "deadline": 6
+      },
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    }
+  },
+  "deadline_filter": {
+    "P": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "P",
+      "effective_method": "P",
+      "method": "P",
+      "forecast_status": "synthetic_control",
+      "plan": {
+        "fingerprint": "1d80fe907e05a4baf7f76514663f51e6703e4868696db5e1c3c81a9071876f5e",
+        "assignment": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "E",
+            "start": "0",
+            "end": "1/500"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/200"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "1/200",
+            "end": "3/500"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "1/500",
+                "end": "3/1000",
+                "arrival": "3/1000"
+              }
+            ],
+            "arrival": "3/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/200"
+          }
+        ],
+        "makespan": "3/500"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 11,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 5,
+        "feasible": 2,
+        "peak_frontier": 4,
+        "schedule_wall_seconds": 0.00018355700001393416,
+        "verify_wall_seconds": 0.0005947379999042823,
+        "stop_reason": "ordinal_bound",
+        "elapsed_wall_seconds": 0.0008837240000048041,
+        "preparation_and_search_wall_seconds": 0.00010542900008658762
+      },
+      "rejected": {
+        "deadline": 3
+      },
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "B": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "B",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "not_used",
+      "plan": {
+        "fingerprint": "1d80fe907e05a4baf7f76514663f51e6703e4868696db5e1c3c81a9071876f5e",
+        "assignment": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F",
+            "start": "0",
+            "end": "1/1000"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "1/1000",
+            "end": "3/1000"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/250"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "3/1000"
+          }
+        ],
+        "makespan": "1/250"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 3,
+        "peak_frontier": 3,
+        "schedule_wall_seconds": 0.00023160000000643777,
+        "verify_wall_seconds": 0.0010374859998592,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.001313524000011057,
+        "preparation_and_search_wall_seconds": 4.443800014541921e-05
+      },
+      "rejected": {
+        "deadline": 3
+      },
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "D": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "D",
+      "effective_method": "D",
+      "method": "D",
+      "forecast_status": "synthetic_control",
+      "plan": {
+        "fingerprint": "1d80fe907e05a4baf7f76514663f51e6703e4868696db5e1c3c81a9071876f5e",
+        "assignment": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "E",
+            "start": "0",
+            "end": "1/500"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/200"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "1/200",
+            "end": "3/500"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "1/500",
+                "end": "3/1000",
+                "arrival": "3/1000"
+              }
+            ],
+            "arrival": "3/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/200"
+          }
+        ],
+        "makespan": "3/500"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 12,
+        "enqueued": 12,
+        "memory_pruned": 1,
+        "complete_checked": 6,
+        "feasible": 3,
+        "peak_frontier": 3,
+        "schedule_wall_seconds": 0.0001930319997427432,
+        "verify_wall_seconds": 0.0006263150000904716,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 0.0008824730000469572,
+        "preparation_and_search_wall_seconds": 6.312600021374237e-05
+      },
+      "rejected": {
+        "deadline": 3
+      },
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    }
+  },
+  "failed_node": {
+    "P": {
+      "status": "NO_PLAN_IN_CLASS",
+      "requested_method": "P",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "single_relevant_device",
+      "plan": null,
+      "certified": true,
+      "stats": {
+        "expanded": 2,
+        "enqueued": 2,
+        "memory_pruned": 1,
+        "complete_checked": 0,
+        "feasible": 0,
+        "peak_frontier": 1,
+        "schedule_wall_seconds": 0.0,
+        "verify_wall_seconds": 0.0,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 1.95599999415208e-05,
+        "preparation_and_search_wall_seconds": 1.95599999415208e-05
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "B": {
+      "status": "NO_PLAN_IN_CLASS",
+      "requested_method": "B",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "not_used",
+      "plan": null,
+      "certified": true,
+      "stats": {
+        "expanded": 2,
+        "enqueued": 2,
+        "memory_pruned": 1,
+        "complete_checked": 0,
+        "feasible": 0,
+        "peak_frontier": 1,
+        "schedule_wall_seconds": 0.0,
+        "verify_wall_seconds": 0.0,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 5.397999984779744e-06,
+        "preparation_and_search_wall_seconds": 5.397999984779744e-06
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    },
+    "D": {
+      "status": "NO_PLAN_IN_CLASS",
+      "requested_method": "D",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "single_relevant_device",
+      "plan": null,
+      "certified": true,
+      "stats": {
+        "expanded": 2,
+        "enqueued": 2,
+        "memory_pruned": 1,
+        "complete_checked": 0,
+        "feasible": 0,
+        "peak_frontier": 1,
+        "schedule_wall_seconds": 0.0,
+        "verify_wall_seconds": 0.0,
+        "stop_reason": "exhausted",
+        "elapsed_wall_seconds": 1.3299999977789412e-05,
+        "preparation_and_search_wall_seconds": 1.3299999977789412e-05
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 1
+      }
+    }
+  },
+  "enumerated_minimal": [
+    {
+      "assignment": {
+        "A": "E",
+        "B": "E",
+        "C": "E"
+      },
+      "rejection": "joint memory exceeded"
+    },
+    {
+      "assignment": {
+        "A": "E",
+        "B": "E",
+        "C": "F"
+      },
+      "rejection": "joint memory exceeded"
+    },
+    {
+      "assignment": {
+        "A": "E",
+        "B": "F",
+        "C": "E"
+      },
+      "duration_ms": 8.0,
+      "violations": [],
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "E"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "E",
+            "start": "0",
+            "end": "1/500"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/200"
+          },
+          {
+            "block": "C",
+            "device": "E",
+            "start": "3/500",
+            "end": "1/125"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "1/500",
+                "end": "3/1000",
+                "arrival": "3/1000"
+              }
+            ],
+            "arrival": "3/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "FE",
+                "start": "1/200",
+                "end": "3/500",
+                "arrival": "3/500"
+              }
+            ],
+            "arrival": "3/500"
+          }
+        ],
+        "makespan": "1/125"
+      }
+    },
+    {
+      "assignment": {
+        "A": "E",
+        "B": "F",
+        "C": "F"
+      },
+      "duration_ms": 6.0,
+      "violations": [],
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "E",
+            "start": "0",
+            "end": "1/500"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/200"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "1/200",
+            "end": "3/500"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "1/500",
+                "end": "3/1000",
+                "arrival": "3/1000"
+              }
+            ],
+            "arrival": "3/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/200"
+          }
+        ],
+        "makespan": "3/500"
+      }
+    },
+    {
+      "assignment": {
+        "A": "F",
+        "B": "E",
+        "C": "E"
+      },
+      "duration_ms": 9.0,
+      "violations": [],
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "E"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F",
+            "start": "0",
+            "end": "1/1000"
+          },
+          {
+            "block": "B",
+            "device": "E",
+            "start": "1/500",
+            "end": "7/1000"
+          },
+          {
+            "block": "C",
+            "device": "E",
+            "start": "7/1000",
+            "end": "9/1000"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "FE",
+                "start": "1/1000",
+                "end": "1/500",
+                "arrival": "1/500"
+              }
+            ],
+            "arrival": "1/500"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "7/1000"
+          }
+        ],
+        "makespan": "9/1000"
+      }
+    },
+    {
+      "assignment": {
+        "A": "F",
+        "B": "E",
+        "C": "F"
+      },
+      "duration_ms": 9.0,
+      "violations": [],
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F",
+            "start": "0",
+            "end": "1/1000"
+          },
+          {
+            "block": "B",
+            "device": "E",
+            "start": "1/500",
+            "end": "7/1000"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "1/125",
+            "end": "9/1000"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "FE",
+                "start": "1/1000",
+                "end": "1/500",
+                "arrival": "1/500"
+              }
+            ],
+            "arrival": "1/500"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "EF",
+                "start": "7/1000",
+                "end": "1/125",
+                "arrival": "1/125"
+              }
+            ],
+            "arrival": "1/125"
+          }
+        ],
+        "makespan": "9/1000"
+      }
+    },
+    {
+      "assignment": {
+        "A": "F",
+        "B": "F",
+        "C": "E"
+      },
+      "duration_ms": 6.0,
+      "violations": [],
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "E"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F",
+            "start": "0",
+            "end": "1/1000"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "1/1000",
+            "end": "3/1000"
+          },
+          {
+            "block": "C",
+            "device": "E",
+            "start": "1/250",
+            "end": "3/500"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "FE",
+                "start": "3/1000",
+                "end": "1/250",
+                "arrival": "1/250"
+              }
+            ],
+            "arrival": "1/250"
+          }
+        ],
+        "makespan": "3/500"
+      }
+    },
+    {
+      "assignment": {
+        "A": "F",
+        "B": "F",
+        "C": "F"
+      },
+      "duration_ms": 4.0,
+      "violations": [],
+      "plan": {
+        "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+        "assignment": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "F"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F",
+            "start": "0",
+            "end": "1/1000"
+          },
+          {
+            "block": "B",
+            "device": "F",
+            "start": "1/1000",
+            "end": "3/1000"
+          },
+          {
+            "block": "C",
+            "device": "F",
+            "start": "3/1000",
+            "end": "1/250"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1/1000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "3/1000"
+          }
+        ],
+        "makespan": "1/250"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "base_commit": "80d6c08a14f23058e23e38ff236afc309e48b381",
+  "revision": "0.2.0/local",
+  "same_original_input_records": 60,
+  "same_original_selected_plans": 180,
+  "same_original_replay_means": true,
+  "max_planned_ms_all_memory_feasible_original60": 51.1,
+  "max_replay_ms_original60": 54.4,
+  "all_98_tests_passed": true,
+  "new_diagnostics": "results/review_checks/review_summary.json",
+  "clock": "perf_counter elapsed wall time; no CPU-time measurement"
+}

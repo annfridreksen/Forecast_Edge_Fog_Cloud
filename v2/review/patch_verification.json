@@ -1,0 +1,21 @@
+{
+  "base_commit": "80d6c08a14f23058e23e38ff236afc309e48b381",
+  "base_python_blobs_verified": 10,
+  "changed_paths": [
+    "bt26/__init__.py",
+    "bt26/__main__.py",
+    "bt26/model.py",
+    "bt26/search.py",
+    "bt26/verify.py",
+    "pyproject.toml",
+    "run_review_checks.py",
+    "run_study.py",
+    "tests/test_core.py",
+    "tests/test_extended.py",
+    "tests/test_review.py"
+  ],
+  "git_apply_check": "PASS",
+  "applied_bytes_match_local": true,
+  "scope": "Python source/tests/study scripts and pyproject only; README, paper and results are supplied in the archive, not in this patch",
+  "remote_updated_this_step": false
+}

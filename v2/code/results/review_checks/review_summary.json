@@ -1,0 +1,128 @@
+{
+  "data_status": "SYNTHETIC_POST_REVIEW_DIAGNOSTICS_NOT_NSKF_OR_NEURAL",
+  "seed_range": [
+    0,
+    79
+  ],
+  "deadlines_s": {
+    "0.060": {
+      "runs": 80,
+      "matches_reference": 80,
+      "coverage_ok": 80,
+      "active_forecast_runs": 79,
+      "no_plan_runs": 0,
+      "deadline_rejected_reference": 0,
+      "deadline_rejected_P": 0,
+      "mean_checks": 6.275
+    },
+    "0.030": {
+      "runs": 80,
+      "matches_reference": 80,
+      "coverage_ok": 80,
+      "active_forecast_runs": 79,
+      "no_plan_runs": 10,
+      "deadline_rejected_reference": 4914,
+      "deadline_rejected_P": 1779,
+      "mean_checks": 23.9
+    },
+    "0.035": {
+      "runs": 80,
+      "matches_reference": 80,
+      "coverage_ok": 80,
+      "active_forecast_runs": 79,
+      "no_plan_runs": 0,
+      "deadline_rejected_reference": 2991,
+      "deadline_rejected_P": 456,
+      "mean_checks": 9.325
+    }
+  },
+  "bound_pairs_checked": 31995,
+  "bound_failures": 0,
+  "device_id_sensitivity": {
+    "1": {
+      "P": {
+        "permutations": 6,
+        "runs_per_permutation": 60,
+        "matches_by_permutation": [
+          17,
+          17,
+          17,
+          11,
+          14,
+          12
+        ],
+        "mean_matches": 14.666666666666666
+      },
+      "D": {
+        "permutations": 6,
+        "runs_per_permutation": 60,
+        "matches_by_permutation": [
+          2,
+          7,
+          2,
+          3,
+          2,
+          4
+        ],
+        "mean_matches": 3.3333333333333335
+      }
+    },
+    "4": {
+      "P": {
+        "permutations": 6,
+        "runs_per_permutation": 60,
+        "matches_by_permutation": [
+          54,
+          53,
+          51,
+          51,
+          49,
+          48
+        ],
+        "mean_matches": 51
+      },
+      "D": {
+        "permutations": 6,
+        "runs_per_permutation": 60,
+        "matches_by_permutation": [
+          12,
+          13,
+          7,
+          7,
+          8,
+          8
+        ],
+        "mean_matches": 9.166666666666666
+      }
+    },
+    "16": {
+      "P": {
+        "permutations": 6,
+        "runs_per_permutation": 60,
+        "matches_by_permutation": [
+          59,
+          59,
+          60,
+          59,
+          59,
+          59
+        ],
+        "mean_matches": 59.166666666666664
+      },
+      "D": {
+        "permutations": 6,
+        "runs_per_permutation": 60,
+        "matches_by_permutation": [
+          19,
+          20,
+          15,
+          11,
+          19,
+          11
+        ],
+        "mean_matches": 15.833333333333334
+      }
+    }
+  },
+  "verification_failures": []
+}

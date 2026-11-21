@@ -1,0 +1,156 @@
+{
+  "data_status": "ALL_NEW_INPUTS_SYNTHETIC; NO_NEURAL_NETWORK_EVALUATED",
+  "seed_range": [
+    0,
+    59
+  ],
+  "reference": {
+    "P": {
+      "runs": 60,
+      "reference_matches": 60,
+      "mean_checks": 6.8,
+      "mean_expanded": 18.483333333333334,
+      "median_elapsed_wall_ms": 1.3958034999745905,
+      "mean_planned_ms": 29.241666666666667,
+      "effective_mode_counts": {
+        "P": 59,
+        "B": 1
+      },
+      "forecast_status_counts": {
+        "synthetic_control": 59,
+        "constant": 1
+      },
+      "active_forecast_runs": 59,
+      "mean_checks_active_forecast": 5.593220338983051
+    },
+    "B": {
+      "runs": 60,
+      "reference_matches": 60,
+      "mean_checks": 78,
+      "mean_expanded": 118,
+      "median_elapsed_wall_ms": 21.549820000075215,
+      "mean_planned_ms": 24.34,
+      "effective_mode_counts": {
+        "B": 60
+      },
+      "forecast_status_counts": {
+        "not_used": 60
+      },
+      "active_forecast_runs": 0,
+      "mean_checks_active_forecast": null
+    },
+    "D": {
+      "runs": 60,
+      "reference_matches": 60,
+      "mean_checks": 78,
+      "mean_expanded": 118,
+      "median_elapsed_wall_ms": 22.189244000003328,
+      "mean_planned_ms": 29.241666666666667,
+      "effective_mode_counts": {
+        "D": 59,
+        "B": 1
+      },
+      "forecast_status_counts": {
+        "synthetic_control": 59,
+        "constant": 1
+      },
+      "active_forecast_runs": 59,
+      "mean_checks_active_forecast": 78
+    }
+  },
+  "order_ablation": {
+    "1": {
+      "P": {
+        "found": 60,
+        "matches_full": 17
+      },
+      "D": {
+        "found": 60,
+        "matches_full": 2
+      }
+    },
+    "4": {
+      "P": {
+        "found": 60,
+        "matches_full": 54
+      },
+      "D": {
+        "found": 60,
+        "matches_full": 12
+      }
+    },
+    "16": {
+      "P": {
+        "found": 60,
+        "matches_full": 59
+      },
+      "D": {
+        "found": 60,
+        "matches_full": 19
+      }
+    }
+  },
+  "replay": {
+    "persistent": {
+      "methods": {
+        "P": {
+          "mean_actual_ms": 33.35666666666667,
+          "mean_planned_ms": 29.241666666666667,
+          "deadline_met": 60
+        },
+        "B": {
+          "mean_actual_ms": 32.16166666666667,
+          "mean_planned_ms": 24.34,
+          "deadline_met": 60
+        }
+      },
+      "paired_runs": 60,
+      "mean_P_minus_B_ms": 1.1950000000000005,
+      "P_faster": 19,
+      "ties": 7,
+      "P_slower": 34
+    },
+    "reversed": {
+      "methods": {
+        "P": {
+          "mean_actual_ms": 41.23833333333334,
+          "mean_planned_ms": 29.241666666666667,
+          "deadline_met": 60
+        },
+        "B": {
+          "mean_actual_ms": 33.165,
+          "mean_planned_ms": 24.34,
+          "deadline_met": 60
+        }
+      },
+      "paired_runs": 60,
+      "mean_P_minus_B_ms": 8.073333333333334,
+      "P_faster": 0,
+      "ties": 6,
+      "P_slower": 54
+    },
+    "constant_commands": {
+      "methods": {
+        "P": {
+          "mean_actual_ms": 32.16166666666667,
+          "mean_planned_ms": 24.34,
+          "deadline_met": 60
+        },
+        "B": {
+          "mean_actual_ms": 32.16166666666667,
+          "mean_planned_ms": 24.34,
+          "deadline_met": 60
+        }
+      },
+      "paired_runs": 60,
+      "mean_P_minus_B_ms": 0.0,
+      "P_faster": 0,
+      "ties": 60,
+      "P_slower": 0
+    }
+  },
+  "elapsed_wall_seconds": 13.450446076000048,
+  "verification_failures": [],
+  "all_comparisons_match": true,
+  "interpretation": "Diagnostics in a finite synthetic class; not universal superiority or real-neural forecast validation."
+}

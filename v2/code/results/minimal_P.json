@@ -1,0 +1,89 @@
+{
+  "status": "FEASIBLE_CERTIFIED",
+  "requested_method": "P",
+  "effective_method": "P",
+  "method": "P",
+  "forecast_status": "synthetic_control",
+  "plan": {
+    "fingerprint": "938f2ed83193c02ca2782f460a4e929039153652bc0e1ad8be8631c7b6ca976c",
+    "assignment": [
+      [
+        "A",
+        "E"
+      ],
+      [
+        "B",
+        "F"
+      ],
+      [
+        "C",
+        "E"
+      ]
+    ],
+    "runs": [
+      {
+        "block": "A",
+        "device": "E",
+        "start": "0",
+        "end": "1/500"
+      },
+      {
+        "block": "B",
+        "device": "F",
+        "start": "3/1000",
+        "end": "1/200"
+      },
+      {
+        "block": "C",
+        "device": "E",
+        "start": "3/500",
+        "end": "1/125"
+      }
+    ],
+    "transfers": [
+      {
+        "src": "A",
+        "dst": "B",
+        "bits": 8000,
+        "hops": [
+          {
+            "link": "EF",
+            "start": "1/500",
+            "end": "3/1000",
+            "arrival": "3/1000"
+          }
+        ],
+        "arrival": "3/1000"
+      },
+      {
+        "src": "B",
+        "dst": "C",
+        "bits": 8000,
+        "hops": [
+          {
+            "link": "FE",
+            "start": "1/200",
+            "end": "3/500",
+            "arrival": "3/500"
+          }
+        ],
+        "arrival": "3/500"
+      }
+    ],
+    "makespan": "1/125"
+  },
+  "certified": true,
+  "stats": {
+    "expanded": 7,
+    "enqueued": 10,
+    "memory_pruned": 1,
+    "complete_checked": 2,
+    "feasible": 2,
+    "peak_frontier": 4,
+    "stop_reason": "ordinal_bound"
+  },
+  "rejected": {},
+  "partial_rejections": {
+    "joint_memory": 1
+  }
+}

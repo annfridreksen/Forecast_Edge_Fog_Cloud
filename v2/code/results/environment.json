@@ -1,0 +1,24 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "date": "2026-11-21",
+  "command": "python run_study.py --seeds 60 --out results",
+  "units": "seconds, exact Fraction arithmetic; summary in ms",
+  "randomness": "independent random.Random(seed), seeds 0..59",
+  "clock": "time.perf_counter; elapsed wall time, not CPU time",
+  "source_version": "0.2.0; local SHA-256 below; Git commit recorded separately",
+  "files": {
+    "bt26/__init__.py": "ede48fba731c8a6544426caaec98c1c511c902b022e7f7ddc8d3182ce4f37ebc",
+    "bt26/__main__.py": "af8856c949fcbbb563291a6a8d607571e7bebfd06b2266255d3f56f9bd4a5c80",
+    "bt26/model.py": "2d80b30d2041849f666d6290a470ac9bd74f5617f64ef5e08287cf7c45c52f18",
+    "bt26/replay.py": "336f82eaca54dbf9d69de0a3237534ee4b62bfa56a3ca54497d90029aa4c643e",
+    "bt26/scheduler.py": "0d077787aee0226c4218f3b540c2f001b115fa7e5d0af340cc3363a3c0975cb1",
+    "bt26/search.py": "f3e3c6dbfa93f74345f5fa042c8b0d7f2512f17707a325df94169601ace6a044",
+    "bt26/verify.py": "674b340dd2434592cd95a6a388aeee08c90a07b66bd40c6536d9b10fa638a30f",
+    "run_review_checks.py": "0e8054b7e1a5fcacddecae4305008c94ff7acb427e263bceab707c30df46a3ba",
+    "run_study.py": "ec50f3ab2f24fb1b545db97b2b53bf9df422912605dc4b948a27d4db923a8a8c",
+    "tests/test_core.py": "8efe8ce86021df72033b9cbfd15050219fa7594fd48a74613c0de0f035c907ab",
+    "tests/test_extended.py": "0e29798c3e94315b4443ced9cdce5295e1963016821983cd1c64233ee8959644",
+    "tests/test_review.py": "2f66636ca7719f2c19b8bba75b3976a39e3348d2708789c7768d57a068ccdccb"
+  }
+}
