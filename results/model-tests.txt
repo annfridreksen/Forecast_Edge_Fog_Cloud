@@ -1,4 +1,14 @@
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
+test_frozen_export (test_forecast.ExportTests.test_frozen_export) ... ok
+test_interface_baselines (test_forecast.ForecastTests.test_interface_baselines) ... ok
+test_invalid_prediction (test_forecast.ForecastTests.test_invalid_prediction) ... ok
+test_little (test_forecast.ForecastTests.test_little) ... ok
+test_network_adapter (test_forecast.ForecastTests.test_network_adapter) ... ok
+test_queue_empty (test_forecast.ForecastTests.test_queue_empty) ... ok
+test_queue_rho_one (test_forecast.ForecastTests.test_queue_rho_one) ... ok
+test_ranks (test_forecast.ForecastTests.test_ranks) ... ok
+test_target_not_a_feature (test_forecast.ForecastTests.test_target_not_a_feature) ... ok
+test_temporal_split (test_forecast.ForecastTests.test_temporal_split) ... ok
 test_cloud_fifo_by_arrival_not_fog_completion (test_model.ArrivalOrderingTests.test_cloud_fifo_by_arrival_not_fog_completion) ... ok
 test_ef_link_fifo_by_ready_time (test_model.ArrivalOrderingTests.test_ef_link_fifo_by_ready_time) ... ok
 test_bad_arrivals (test_model.ModelTests.test_bad_arrivals) ... ok
@@ -18,6 +28,6 @@ test_tied_completion_before_arrival (test_model.ModelTests.test_tied_completion_
 test_utilization_bounds (test_model.ModelTests.test_utilization_bounds) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.105s
+Ran 27 tests in 0.307s
 
 OK
