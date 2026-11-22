@@ -69,10 +69,40 @@ def mm1k(rate,service_mean_s,capacity):
     return {'rho':rho,'blocking':float(p[-1]),'L':L,'lambda_eff':accepted,'W_s':L/accepted if accepted>0 else service_mean_s}
 
 class Queueing(HistoryBase):
-    def __init__(self,buffer=50,service_mean_ms=55):super().__init__();self.buffer=buffer;self.service_mean_ms=service_mean_ms
+    """Conditional queue-state baseline, not an artificially blind comparator.
+
+    Remaining service is approximated by half the configured mean; it is not
+    an observed future completion and not the exact uniform residual lifetime.
+    """
+    def __init__(self,config=None):
+        super().__init__()
+        from ..model import Config
+        self.config=Config() if config is None else config
+        self.buffer=self.config.buffer
+        self.service_mean_ms=sum(self.config.fog_service_ms)/2
+        self.downstream_ms=(sum(self.config.fog_cloud_ms)+sum(self.config.cloud_service_ms))/2
+    def mean(self,state):
+        q=max(0.,state['queue_before']);b=float(bool(state['busy_before']))
+        return state['edge_known_ms']+(q+.5*b+1)*self.service_mean_ms+self.downstream_ms
+
+class QueueingMM1K(Queueing):
+    """Unconditional stationary comparator, with the same Config-derived means."""
     def mean(self,state):
         q=mm1k(max(0.,state['observed_rate_s']),self.service_mean_ms/1000,self.buffer+1)
-        return state['edge_known_ms']+q['W_s']*1000+35+20
+        return state['edge_known_ms']+q['W_s']*1000+self.downstream_ms
+
+
+def conformal_margin(residuals,alpha=.05):
+    """One-sided split-conformal order statistic; no test targets are inputs.
+
+    Finite-sample coverage requires exchangeability, NOT assumed for queue time
+    series here. Small calibration sets with rank n+1 return infinity explicitly.
+    """
+    scores=np.asarray(residuals,dtype=float)
+    if scores.ndim!=1 or not len(scores) or not np.isfinite(scores).all() or not 0<alpha<1:
+        raise ValueError('invalid calibration scores or alpha')
+    k=math.ceil((len(scores)+1)*(1-alpha))
+    return (math.inf if k>len(scores) else max(0.,float(np.sort(scores)[k-1]))),k
 
 class NeuralNet(HistoryBase):
     def fit(self,history):

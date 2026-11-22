@@ -4,9 +4,9 @@ import json
 import numpy as np
 import pandas as pd
 from ..model import Config,simulate
-from .models import Naive,MovingAverage,EWMA,Queueing,NeuralNet,state_of,export_network
+from .models import Naive,MovingAverage,EWMA,Queueing,QueueingMM1K,NeuralNet,state_of,export_network,conformal_margin
 
-FACTORIES={'Naive':Naive,'MovingAverage':MovingAverage,'EWMA':EWMA,'Queueing':Queueing,'NeuralNet':NeuralNet}
+FACTORIES={'Naive':Naive,'MovingAverage':MovingAverage,'EWMA':EWMA,'QueueingMM1K':QueueingMM1K,'Queueing':Queueing,'NeuralNet':NeuralNet}
 
 def data_for_forecast():
     c=Config(n_edge=80,n_fog=4,n_cloud=8,buffer=50,n_tasks=6000,arrival_rate_s=60,
@@ -29,26 +29,31 @@ def forecast_study(output='results'):
     all_completed=sorted([r for r in sim['tasks'] if r['status']=='completed'],key=lambda r:(r['end_s'],r['task_id']))
     rows=[];summary=[];models={}
     for name,factory in FACTORIES.items():
-        model=factory().fit(train)
+        model=(factory(Config(**sim['config'])) if name.startswith('Queueing') else factory()).fit(train)
         future=[r for r in all_completed if r['end_s']>=cut1];pointer=0
         cal_residual=[]
         for target in cal:
             while pointer<len(future) and future[pointer]['end_s']<target['fog_arrival_s']:
                 model.observe(future[pointer]);pointer+=1
             pred=model.predict(state_of(target));cal_residual.append(target['latency_ms']-pred['mean_ms'])
-        model.q=max(0.,float(np.quantile(cal_residual,.95,method='higher')))
+        before_margin=max(0.,float(np.quantile(cal_residual,.95,method='higher')))
+        model.q,conformal_k=conformal_margin(cal_residual)
+        if not np.isfinite(model.q):raise ValueError('calibration set too small for finite 95% upper bound')
         for target in test:
             while pointer<len(future) and future[pointer]['end_s']<target['fog_arrival_s']:
                 model.observe(future[pointer]);pointer+=1
             pred=model.predict(state_of(target))
             rows.append({'method':name,'task_id':target['task_id'],'fog':target['fog'],
                          'query_s':target['fog_arrival_s'],'truth_ms':target['latency_ms'],**pred,
+                         'p95_before_ms':pred['mean_ms']+before_margin,
                          'last_observed_completion_s':future[pointer-1]['end_s'] if pointer else max(r['end_s'] for r in train)})
         part=[x for x in rows if x['method']==name]
         summary.append({'method':name,'train_n':len(train),'calibration_n':len(cal),'test_n':len(test),
                         'mae_ms':float(np.mean([abs(x['truth_ms']-x['mean_ms']) for x in part])),
                         'coverage_p95':float(np.mean([x['truth_ms']<=x['p95_ms'] for x in part])),
-                        'residual_margin_ms':model.q})
+                        'coverage_before':float(np.mean([x['truth_ms']<=x['p95_before_ms'] for x in part])),
+                        'residual_margin_before_ms':before_margin,'residual_margin_ms':model.q,
+                        'conformal_order_k':conformal_k})
         models[name]=model
     frame=pd.DataFrame(rows);metrics=pd.DataFrame(summary)
     assert (frame.last_observed_completion_s<frame.query_s).all()
@@ -56,7 +61,9 @@ def forecast_study(output='results'):
     pd.DataFrame(sim['tasks']).to_csv(out/'forecast_tasks.csv',index=False)
     metadata={'config':sim['config'],'cut_train_s':cut1,'cut_test_s':cut2,'dropped':sim['metrics']['dropped'],
               'train_end_max_s':max(r['end_s'] for r in train),'calibration_end_max_s':max(r['end_s'] for r in cal),
-              'notes':'MLP fit and scaling: train only. Calibration residual95: calibration only. Online baselines see completed past outcomes; dropped jobs have no latency target. Coverage is conditional on completed jobs, not a guarantee.',
+              'notes':'MLP fit/scaling: train only. Before: empirical higher 95th residual percentile; after: rank ceil((n+1)*.95) of calibration residuals only. Frozen margin before test. Online baselines observe past completions. Queue time series are dependent and shifted: no finite-sample coverage guarantee is claimed; coverage is empirical and conditional on completion.',
+              'queueing':'Queueing uses (q+0.5*b+1)*configured mean service plus configured downstream means; QueueingMM1K retained separately. Neither observes future calendars.',
+              'conformal':'one-sided split-conformal residual rule, alpha=.05; finite-sample theorem requires exchangeability, not established here' ,
               'network_warnings':models['NeuralNet'].training_warnings}
     (out/'forecast_metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
     (out/'demo_network.json').write_text(json.dumps(export_network(models['NeuralNet']),indent=2))
