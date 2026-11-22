@@ -26,8 +26,9 @@ test_sensor_types (test_model.ModelTests.test_sensor_types) ... ok
 test_sum_six (test_model.ModelTests.test_sum_six) ... ok
 test_tied_completion_before_arrival (test_model.ModelTests.test_tied_completion_before_arrival) ... ok
 test_utilization_bounds (test_model.ModelTests.test_utilization_bounds) ... ok
+test_control_adapter (test_placement.PlacementTests.test_control_adapter) ... ok
 
 ----------------------------------------------------------------------
-Ran 27 tests in 0.307s
+Ran 28 tests in 0.376s
 
 OK

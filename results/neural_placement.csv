@@ -1,0 +1,3 @@
+requested_method,effective_method,forecast_status,assignment,planned_ms,actual_ms,checked
+P,P,external_neural,"F1,F0,F1",2888.5,2921.4096727925594,2
+B,B,not_used,"F1,F0,F0",2887.5,2920.4096727925594,4

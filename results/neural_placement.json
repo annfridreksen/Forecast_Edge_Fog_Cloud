@@ -1,0 +1,796 @@
+{
+  "input_status": "SYNTHETIC_BRIDGE_DEMONSTRATION_NOT_REAL_MIGRATION",
+  "query_time_s": 82.38851137729432,
+  "states": {
+    "F0": {
+      "queue_before": 50,
+      "busy_before": 1,
+      "rho_feature": 1.540563973043429,
+      "observed_rate_s": 28.010254055335075,
+      "mobile": 0.0,
+      "edge_known_ms": 10.0,
+      "fog": 0
+    },
+    "F1": {
+      "queue_before": 3,
+      "busy_before": 1,
+      "rho_feature": 1.0151863873743217,
+      "observed_rate_s": 18.457934315896757,
+      "mobile": 0.0,
+      "edge_known_ms": 10.0,
+      "fog": 1
+    }
+  },
+  "predictions": {
+    "F0": {
+      "mean_ms": 2850.6593075625333,
+      "p95_ms": 2985.10985873879
+    },
+    "F1": {
+      "mean_ms": 327.37219660755034,
+      "p95_ms": 461.82274778380713
+    }
+  },
+  "ranks": {
+    "F0": 2,
+    "F1": 1
+  },
+  "estimated_busy_s": {
+    "F0": 2.7775,
+    "F1": 0.1925
+  },
+  "actual_busy_s": {
+    "F0": 2.8104096727925594,
+    "F1": 0.15923138041299012
+  },
+  "problem": {
+    "data_status": "SYNTHETIC_TEST_DATA_NOT_NSKF_MEASUREMENTS",
+    "task_version": "v3-adapter-small-chain",
+    "partition_version": "A2-B1-C1-v1",
+    "infrastructure_version": "v3-common-estimated-backlog",
+    "task_class": "same-monitoring-request-demo",
+    "load_scope": "v3-two-fog-synthetic",
+    "decision_time_s": "82.38851137729432",
+    "planning_delay_s": "0",
+    "apply_delay_s": "0",
+    "deadline_s": "10",
+    "devices": [
+      {
+        "id": "F0",
+        "layer": "fog",
+        "memory_bytes": 4000000,
+        "available": true,
+        "features": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "F1",
+        "layer": "fog",
+        "memory_bytes": 4000000,
+        "available": true,
+        "features": [
+          "runtime"
+        ]
+      }
+    ],
+    "operations": [
+      {
+        "id": "a1",
+        "memory_bytes": 1000000,
+        "duration_s": {
+          "F0": "0.0275",
+          "F1": "0.0275"
+        },
+        "requires": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "a2",
+        "memory_bytes": 1000000,
+        "duration_s": {
+          "F0": "0.0275",
+          "F1": "0.0275"
+        },
+        "requires": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "b",
+        "memory_bytes": 3000000,
+        "duration_s": {
+          "F0": "0.055",
+          "F1": "0.055"
+        },
+        "requires": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "c",
+        "memory_bytes": 1000000,
+        "duration_s": {
+          "F0": "0.055",
+          "F1": "0.055"
+        },
+        "requires": [
+          "runtime"
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "A",
+        "operations": [
+          "a1",
+          "a2"
+        ]
+      },
+      {
+        "id": "B",
+        "operations": [
+          "b"
+        ]
+      },
+      {
+        "id": "C",
+        "operations": [
+          "c"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "src": "a1",
+        "dst": "a2",
+        "bits": 0
+      },
+      {
+        "src": "a2",
+        "dst": "b",
+        "bits": 8000
+      },
+      {
+        "src": "b",
+        "dst": "c",
+        "bits": 8000
+      }
+    ],
+    "links": [
+      {
+        "id": "F0_F1",
+        "src": "F0",
+        "dst": "F1",
+        "bandwidth_bps": 8000000,
+        "latency_s": "0"
+      },
+      {
+        "id": "F1_F0",
+        "src": "F1",
+        "dst": "F0",
+        "bandwidth_bps": 8000000,
+        "latency_s": "0"
+      }
+    ],
+    "busy": {
+      "cpu:F0": [
+        [
+          "0",
+          "2.7775"
+        ]
+      ],
+      "cpu:F1": [
+        [
+          "0",
+          "0.1925"
+        ]
+      ]
+    }
+  },
+  "forecast": {
+    "kind": "external_neural",
+    "provenance": "demonstration MLP, synthetic training data; results/demo_network.json",
+    "scale_id": "dense-mean-rank-v1",
+    "direction": "smaller_is_preferred",
+    "task_class": "same-monitoring-request-demo",
+    "partition_version": "A2-B1-C1-v1",
+    "load_scope": "v3-two-fog-synthetic",
+    "issued_at_s": "82.38851137729432",
+    "valid_until_s": "83.38851137729432",
+    "commands": {
+      "F0": 2,
+      "F1": 1
+    }
+  },
+  "executor_problem": {
+    "data_status": "SYNTHETIC_TEST_DATA_NOT_NSKF_MEASUREMENTS",
+    "task_version": "v3-adapter-small-chain",
+    "partition_version": "A2-B1-C1-v1",
+    "infrastructure_version": "executor-realized-backlog",
+    "task_class": "same-monitoring-request-demo",
+    "load_scope": "v3-two-fog-synthetic",
+    "decision_time_s": "82.38851137729432",
+    "planning_delay_s": "0",
+    "apply_delay_s": "0",
+    "deadline_s": "10",
+    "devices": [
+      {
+        "id": "F0",
+        "layer": "fog",
+        "memory_bytes": 4000000,
+        "available": true,
+        "features": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "F1",
+        "layer": "fog",
+        "memory_bytes": 4000000,
+        "available": true,
+        "features": [
+          "runtime"
+        ]
+      }
+    ],
+    "operations": [
+      {
+        "id": "a1",
+        "memory_bytes": 1000000,
+        "duration_s": {
+          "F0": "0.0275",
+          "F1": "0.0275"
+        },
+        "requires": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "a2",
+        "memory_bytes": 1000000,
+        "duration_s": {
+          "F0": "0.0275",
+          "F1": "0.0275"
+        },
+        "requires": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "b",
+        "memory_bytes": 3000000,
+        "duration_s": {
+          "F0": "0.055",
+          "F1": "0.055"
+        },
+        "requires": [
+          "runtime"
+        ]
+      },
+      {
+        "id": "c",
+        "memory_bytes": 1000000,
+        "duration_s": {
+          "F0": "0.055",
+          "F1": "0.055"
+        },
+        "requires": [
+          "runtime"
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "A",
+        "operations": [
+          "a1",
+          "a2"
+        ]
+      },
+      {
+        "id": "B",
+        "operations": [
+          "b"
+        ]
+      },
+      {
+        "id": "C",
+        "operations": [
+          "c"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "src": "a1",
+        "dst": "a2",
+        "bits": 0
+      },
+      {
+        "src": "a2",
+        "dst": "b",
+        "bits": 8000
+      },
+      {
+        "src": "b",
+        "dst": "c",
+        "bits": 8000
+      }
+    ],
+    "links": [
+      {
+        "id": "F0_F1",
+        "src": "F0",
+        "dst": "F1",
+        "bandwidth_bps": 8000000,
+        "latency_s": "0"
+      },
+      {
+        "id": "F1_F0",
+        "src": "F1",
+        "dst": "F0",
+        "bandwidth_bps": 8000000,
+        "latency_s": "0"
+      }
+    ],
+    "busy": {
+      "cpu:F0": [
+        [
+          "0",
+          "2.8104096727925594"
+        ]
+      ],
+      "cpu:F1": [
+        [
+          "0",
+          "0.15923138041299012"
+        ]
+      ]
+    }
+  },
+  "results": [
+    {
+      "requested_method": "P",
+      "effective_method": "P",
+      "forecast_status": "external_neural",
+      "assignment": "F1,F0,F1",
+      "planned_ms": 2888.5,
+      "actual_ms": 2921.4096727925594,
+      "checked": 2
+    },
+    {
+      "requested_method": "B",
+      "effective_method": "B",
+      "forecast_status": "not_used",
+      "assignment": "F1,F0,F0",
+      "planned_ms": 2887.5,
+      "actual_ms": 2920.4096727925594,
+      "checked": 4
+    }
+  ],
+  "plans": {
+    "P": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "P",
+      "effective_method": "P",
+      "method": "P",
+      "forecast_status": "external_neural",
+      "plan": {
+        "fingerprint": "705844b8b46bfb0500dc5d9d4e5c6e8d6e63595d92018467029ade8cbad23a55",
+        "assignment": [
+          [
+            "A",
+            "F1"
+          ],
+          [
+            "B",
+            "F0"
+          ],
+          [
+            "C",
+            "F1"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F1",
+            "start": "77/400",
+            "end": "99/400"
+          },
+          {
+            "block": "B",
+            "device": "F0",
+            "start": "1111/400",
+            "end": "1133/400"
+          },
+          {
+            "block": "C",
+            "device": "F1",
+            "start": "5667/2000",
+            "end": "5777/2000"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "F1_F0",
+                "start": "99/400",
+                "end": "497/2000",
+                "arrival": "497/2000"
+              }
+            ],
+            "arrival": "497/2000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "F0_F1",
+                "start": "1133/400",
+                "end": "5667/2000",
+                "arrival": "5667/2000"
+              }
+            ],
+            "arrival": "5667/2000"
+          }
+        ],
+        "makespan": "5777/2000"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 7,
+        "enqueued": 9,
+        "memory_pruned": 2,
+        "complete_checked": 2,
+        "feasible": 2,
+        "peak_frontier": 3,
+        "stop_reason": "ordinal_bound"
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 2
+      }
+    },
+    "B": {
+      "status": "FEASIBLE_CERTIFIED",
+      "requested_method": "B",
+      "effective_method": "B",
+      "method": "B",
+      "forecast_status": "not_used",
+      "plan": {
+        "fingerprint": "705844b8b46bfb0500dc5d9d4e5c6e8d6e63595d92018467029ade8cbad23a55",
+        "assignment": [
+          [
+            "A",
+            "F1"
+          ],
+          [
+            "B",
+            "F0"
+          ],
+          [
+            "C",
+            "F0"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F1",
+            "start": "77/400",
+            "end": "99/400"
+          },
+          {
+            "block": "B",
+            "device": "F0",
+            "start": "1111/400",
+            "end": "1133/400"
+          },
+          {
+            "block": "C",
+            "device": "F0",
+            "start": "1133/400",
+            "end": "231/80"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "F1_F0",
+                "start": "99/400",
+                "end": "497/2000",
+                "arrival": "497/2000"
+              }
+            ],
+            "arrival": "497/2000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "1133/400"
+          }
+        ],
+        "makespan": "231/80"
+      },
+      "certified": true,
+      "stats": {
+        "expanded": 9,
+        "enqueued": 9,
+        "memory_pruned": 2,
+        "complete_checked": 4,
+        "feasible": 4,
+        "peak_frontier": 3,
+        "stop_reason": "exhausted"
+      },
+      "rejected": {},
+      "partial_rejections": {
+        "joint_memory": 2
+      }
+    }
+  },
+  "replay": {
+    "P": {
+      "plan": {
+        "fingerprint": "b2a735224a150a091a0498b2165d3334551b005b66e6b0f93ef455a474a03a6d",
+        "assignment": [
+          [
+            "A",
+            "F1"
+          ],
+          [
+            "B",
+            "F0"
+          ],
+          [
+            "C",
+            "F1"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F1",
+            "start": "77/400",
+            "end": "99/400"
+          },
+          {
+            "block": "B",
+            "device": "F0",
+            "start": "14052048363962797/5000000000000000",
+            "end": "14327048363962797/5000000000000000"
+          },
+          {
+            "block": "C",
+            "device": "F1",
+            "start": "14332048363962797/5000000000000000",
+            "end": "14607048363962797/5000000000000000"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "F1_F0",
+                "start": "99/400",
+                "end": "497/2000",
+                "arrival": "497/2000"
+              }
+            ],
+            "arrival": "497/2000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "F0_F1",
+                "start": "14327048363962797/5000000000000000",
+                "end": "14332048363962797/5000000000000000",
+                "arrival": "14332048363962797/5000000000000000"
+              }
+            ],
+            "arrival": "14332048363962797/5000000000000000"
+          }
+        ],
+        "makespan": "14607048363962797/5000000000000000"
+      },
+      "events": [
+        [
+          "77/400",
+          "compute_start",
+          "A",
+          "F1"
+        ],
+        [
+          "99/400",
+          "compute_end",
+          "A",
+          "F1"
+        ],
+        [
+          "99/400",
+          "send_start",
+          "A->B",
+          "F1_F0"
+        ],
+        [
+          "497/2000",
+          "arrival",
+          "A->B",
+          "F1_F0"
+        ],
+        [
+          "14052048363962797/5000000000000000",
+          "compute_start",
+          "B",
+          "F0"
+        ],
+        [
+          "14327048363962797/5000000000000000",
+          "compute_end",
+          "B",
+          "F0"
+        ],
+        [
+          "14327048363962797/5000000000000000",
+          "send_start",
+          "B->C",
+          "F0_F1"
+        ],
+        [
+          "14332048363962797/5000000000000000",
+          "arrival",
+          "B->C",
+          "F0_F1"
+        ],
+        [
+          "14332048363962797/5000000000000000",
+          "compute_start",
+          "C",
+          "F1"
+        ],
+        [
+          "14607048363962797/5000000000000000",
+          "compute_end",
+          "C",
+          "F1"
+        ]
+      ],
+      "violations": []
+    },
+    "B": {
+      "plan": {
+        "fingerprint": "b2a735224a150a091a0498b2165d3334551b005b66e6b0f93ef455a474a03a6d",
+        "assignment": [
+          [
+            "A",
+            "F1"
+          ],
+          [
+            "B",
+            "F0"
+          ],
+          [
+            "C",
+            "F0"
+          ]
+        ],
+        "runs": [
+          {
+            "block": "A",
+            "device": "F1",
+            "start": "77/400",
+            "end": "99/400"
+          },
+          {
+            "block": "B",
+            "device": "F0",
+            "start": "14052048363962797/5000000000000000",
+            "end": "14327048363962797/5000000000000000"
+          },
+          {
+            "block": "C",
+            "device": "F0",
+            "start": "14327048363962797/5000000000000000",
+            "end": "14602048363962797/5000000000000000"
+          }
+        ],
+        "transfers": [
+          {
+            "src": "A",
+            "dst": "B",
+            "bits": 8000,
+            "hops": [
+              {
+                "link": "F1_F0",
+                "start": "99/400",
+                "end": "497/2000",
+                "arrival": "497/2000"
+              }
+            ],
+            "arrival": "497/2000"
+          },
+          {
+            "src": "B",
+            "dst": "C",
+            "bits": 8000,
+            "hops": [],
+            "arrival": "14327048363962797/5000000000000000"
+          }
+        ],
+        "makespan": "14602048363962797/5000000000000000"
+      },
+      "events": [
+        [
+          "77/400",
+          "compute_start",
+          "A",
+          "F1"
+        ],
+        [
+          "99/400",
+          "compute_end",
+          "A",
+          "F1"
+        ],
+        [
+          "99/400",
+          "send_start",
+          "A->B",
+          "F1_F0"
+        ],
+        [
+          "497/2000",
+          "arrival",
+          "A->B",
+          "F1_F0"
+        ],
+        [
+          "14052048363962797/5000000000000000",
+          "compute_start",
+          "B",
+          "F0"
+        ],
+        [
+          "14327048363962797/5000000000000000",
+          "compute_end",
+          "B",
+          "F0"
+        ],
+        [
+          "14327048363962797/5000000000000000",
+          "compute_start",
+          "C",
+          "F0"
+        ],
+        [
+          "14602048363962797/5000000000000000",
+          "compute_end",
+          "C",
+          "F0"
+        ]
+      ],
+      "violations": []
+    }
+  },
+  "scope": "Forecast model trained on Fog requests, therefore this bridge uses two Fog nodes, a subset of allowed E/F devices. No extrapolation to untrained Edge hardware. Graph and message sizes are explicit synthetic additions; predictions supply ranks only, never block durations. Existing background is frozen; no new arrivals during this short graph execution."
+}
