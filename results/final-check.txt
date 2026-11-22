@@ -88,3 +88,9 @@ cited DOI: all verified, supplied thesis explicitly incomplete
 PDF rendered for inspection; automatic numeric checks do not imply manual review
 Google Colab UI: NOT directly tested
 FINAL CHECK: PASS
+
+AUTHENTICATED HISTORY AUDIT: PASS
+audit_source_commit=310ee2c757fc45861c7ed91285b1f3583e9603c1
+audit_utc=2026-11-22T10:40:33.594174+00:00
+scientific_runs_not_repeated=True
+history_runs=17

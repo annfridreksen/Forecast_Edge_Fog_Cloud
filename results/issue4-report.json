@@ -83,6 +83,9 @@
       "evidence": "work-history.json; этот отчёт"
     }
   },
-  "history_api_error": "HTTP Error 403: rate limit exceeded",
-  "publication_ready": false
+  "history_api_error": null,
+  "publication_ready": false,
+  "history_audit_commit": "310ee2c757fc45861c7ed91285b1f3583e9603c1",
+  "history_runs": 17,
+  "history_commits": 42
 }

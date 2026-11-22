@@ -1,4 +1,10 @@
 {
+  "utc": "2026-11-22T10:40:33.594174+00:00",
+  "audit_source_commit": "310ee2c757fc45861c7ed91285b1f3583e9603c1",
+  "scientific_source_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+  "previous_unauthenticated_api_error": "HTTP Error 403: rate limit exceeded",
+  "api_error": null,
+  "authenticated_history_complete_at_snapshot": true,
   "commits": [
     {
       "sha": "3bc7c2864f82ce08a0daf0ac6dcc696727be3923",
@@ -806,9 +812,411 @@
       "files": [
         "scripts/render_references.py"
       ]
+    },
+    {
+      "sha": "4c8b105408b5581054b84002cd649bae7ab3a27a",
+      "time": "2026-11-22T10:33:42Z",
+      "title": "FEFC: Issue #4 — выполненные серии, согласованная статья и ответ на все пункты",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "MANIFEST.sha256",
+        "article/availability.tex",
+        "article/figures/architecture.pdf",
+        "article/figures/buffer.pdf",
+        "article/figures/components.pdf",
+        "article/figures/forecast_calibration.pdf",
+        "article/figures/forecast_calibration.png",
+        "article/figures/forecast_coverage.pdf",
+        "article/figures/forecast_mae.pdf",
+        "article/figures/forecast_socket.pdf",
+        "article/figures/forecast_trace.pdf",
+        "article/figures/gantt_B.pdf",
+        "article/figures/gantt_P.pdf",
+        "article/figures/graph_B.pdf",
+        "article/figures/graph_P.pdf",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/neural_placement.pdf",
+        "article/figures/placement_chain.pdf",
+        "article/figures/queue.pdf",
+        "article/figures/ratio.pdf",
+        "article/figures/rho_latency.pdf",
+        "article/figures/rho_latency.png",
+        "article/figures/rho_wait.pdf",
+        "article/figures/rho_wait.png",
+        "article/figures/sensitivity_edge.pdf",
+        "article/figures/sensitivity_edge.png",
+        "article/figures/sensitivity_link.pdf",
+        "article/figures/sensitivity_link.png",
+        "article/figures/six_path.pdf",
+        "article/figures/stationary_buffer.pdf",
+        "article/figures/stationary_buffer.png",
+        "article/figures/stationary_losses.pdf",
+        "article/figures/stationary_losses.png",
+        "article/figures/stationary_ratio.pdf",
+        "article/figures/stationary_ratio.png",
+        "article/main.pdf",
+        "article/main.template.tex",
+        "article/main.tex",
+        "article/references_verified.tex",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/clean/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "docs/STATUS.md",
+        "\"docs/\\320\\222\\320\\267\\320\\260\\320\\270\\320\\274\\320\\276\\320\\264\\320\\265\\320\\271\\321\\201\\321\\202\\320\\262\\320\\270\\320\\265_\\321\\201_\\320\\277\\321\\200\\320\\276\\320\\262\\320\\265\\321\\200\\321\\217\\321\\216\\321\\211\\320\\270\\320\\274.md\"",
+        "\"docs/\\320\\232\\320\\260\\320\\272_\\320\\277\\320\\276\\320\\273\\321\\214\\320\\267\\320\\276\\320\\262\\320\\260\\321\\202\\321\\214\\321\\201\\321\\217.md\"",
+        "\"docs/\\320\\232\\321\\200\\320\\260\\321\\202\\320\\272\\320\\270\\320\\271_\\320\\277\\320\\273\\320\\260\\320\\275_\\321\\201\\321\\202\\320\\260\\321\\202\\321\\214\\320\\270.md\"",
+        "\"docs/\\320\\236\\321\\202\\320\\262\\320\\265\\321\\202_\\320\\275\\320\\260_\\320\\267\\320\\260\\320\\274\\320\\265\\321\\207\\320\\260\\320\\275\\320\\270\\321\\217.md\"",
+        "\"docs/\\320\\236\\321\\202\\321\\207\\321\\221\\321\\202_\\320\\275\\320\\276\\321\\207\\320\\270.md\"",
+        "\"docs/\\320\\243\\321\\202\\320\\262\\320\\265\\321\\200\\320\\266\\320\\264\\320\\265\\320\\275\\320\\270\\321\\217.md\"",
+        "\"results/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202-execution.txt\"",
+        "\"results/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217-execution.txt\"",
+        "\"results/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214-execution.txt\"",
+        "\"results/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217-execution.txt\"",
+        "results/add_placement_diagnostics.py.txt",
+        "results/article-claims-original.json",
+        "results/article-data.json",
+        "results/article-extension.txt",
+        "results/article-extracted.txt",
+        "results/article-generation.txt",
+        "results/article-provenance-intermediate.json",
+        "results/article-provenance.json",
+        "results/article-review.txt",
+        "results/build-summary.json",
+        "results/citation-check.json",
+        "results/claims-check.json",
+        "results/claims.json",
+        "results/complete_notebooks.py.txt",
+        "results/component_shares.csv",
+        "results/doi-check.json",
+        "results/doi-check.txt",
+        "results/event_animation.html",
+        "results/figure-check.json",
+        "results/figure-check.txt",
+        "results/final-check.txt",
+        "results/issue4-article-check.json",
+        "results/issue4-report.json",
+        "results/latex-pass1.txt",
+        "results/latex-pass2.txt",
+        "results/level_shares.csv",
+        "results/model-tests.txt",
+        "results/neural_placement.csv",
+        "results/neural_placement.json",
+        "results/notebook-claims.json",
+        "results/notebook-times.json",
+        "results/pdf-info.txt",
+        "results/pdf-render.txt",
+        "results/pdf-review/page-01.png",
+        "results/pdf-review/page-02.png",
+        "results/pdf-review/page-03.png",
+        "results/pdf-review/page-04.png",
+        "results/pdf-review/page-05.png",
+        "results/pdf-review/page-06.png",
+        "results/pdf-review/page-07.png",
+        "results/pdf-review/page-08.png",
+        "results/pdf-review/page-09.png",
+        "results/pdf-review/page-10.png",
+        "results/pdf-review/page-11.png",
+        "results/pdf-review/page-12.png",
+        "results/pdf-review/page-13.png",
+        "results/pdf-review/page-14.png",
+        "results/pdf-review/page-15.png",
+        "results/pdf-review/page-16.png",
+        "results/pdf-review/page-17.png",
+        "results/pdf-review/page-18.png",
+        "results/pdf-review/page-19.png",
+        "results/pdf-review/page-20.png",
+        "results/pdf-review/page-21.png",
+        "results/pdf-review/page-22.png",
+        "results/pdf-review/page-23.png",
+        "results/pdf-review/page-24.png",
+        "results/pdf-review/page-25.png",
+        "results/pdf-review/page-26.png",
+        "results/pdf-text.txt",
+        "results/report-generation.txt",
+        "results/sensitivity_replicates.csv",
+        "results/sensitivity_summary.csv",
+        "results/source-hashes.json",
+        "results/startup_metrics.json",
+        "results/stationary_metadata.json",
+        "results/stationary_replicates.csv",
+        "results/stationary_summary.csv",
+        "results/v2-tests.txt",
+        "results/warmup_replicates.csv",
+        "results/work-history.json"
+      ]
+    },
+    {
+      "sha": "bdc8091553ef25298a3c86808f6bba5996432592",
+      "time": "2026-11-22T13:39:59+03:00",
+      "title": "FEFC: Issue #4 п.15 — авторизованная история Actions без повторения вычислительных серий [skip ci]",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "scripts/collect_actions_history.py"
+      ]
+    },
+    {
+      "sha": "310ee2c757fc45861c7ed91285b1f3583e9603c1",
+      "time": "2026-11-22T13:40:26+03:00",
+      "title": "FEFC: Issue #4 п.15 — проверка истории авторизованным API, без повторного моделирования",
+      "stages": [
+        "9"
+      ],
+      "files": [
+        ".github/workflows/history-audit.yml"
+      ]
     }
   ],
-  "runs": [],
+  "runs": [
+    {
+      "id": 45013582424,
+      "name": "FEFC history-only audit",
+      "head_sha": "310ee2c757fc45861c7ed91285b1f3583e9603c1",
+      "head_branch": "night/fefc-v3",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_attempt": 1,
+      "created_at": "2026-11-22T10:40:28Z",
+      "run_started_at": "2026-11-22T10:40:28Z",
+      "updated_at": "2026-11-22T10:40:31Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/45013582424"
+    },
+    {
+      "id": 45012597897,
+      "name": "FEFC checked artifacts",
+      "head_sha": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T10:28:24Z",
+      "run_started_at": "2026-11-22T10:28:24Z",
+      "updated_at": "2026-11-22T10:33:50Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/45012597897",
+      "elapsed_metadata_seconds": 326.0
+    },
+    {
+      "id": 45012444096,
+      "name": "FEFC checked artifacts",
+      "head_sha": "278b21034ca7dc653815b106d2a3fee2a271e3a3",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T10:26:24Z",
+      "run_started_at": "2026-11-22T10:26:24Z",
+      "updated_at": "2026-11-22T10:28:41Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/45012444096",
+      "elapsed_metadata_seconds": 137.0
+    },
+    {
+      "id": 45011382317,
+      "name": "FEFC checked artifacts",
+      "head_sha": "7de02e1b2562f1493beb48285967569561f1b647",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T10:13:32Z",
+      "run_started_at": "2026-11-22T10:13:32Z",
+      "updated_at": "2026-11-22T10:19:05Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/45011382317",
+      "elapsed_metadata_seconds": 333.0
+    },
+    {
+      "id": 45011357511,
+      "name": "FEFC checked artifacts",
+      "head_sha": "6ac948078cc4ba6b2f45fcdc0b10e6968e0933ec",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T10:13:13Z",
+      "run_started_at": "2026-11-22T10:13:13Z",
+      "updated_at": "2026-11-22T10:13:48Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/45011357511",
+      "elapsed_metadata_seconds": 35.0
+    },
+    {
+      "id": 44999195910,
+      "name": "FEFC checked artifacts",
+      "head_sha": "1294a989b5212043695d6fbe00bffc25e32b1dec",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T07:39:08Z",
+      "run_started_at": "2026-11-22T07:39:08Z",
+      "updated_at": "2026-11-22T07:44:53Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44999195910",
+      "elapsed_metadata_seconds": 345.0
+    },
+    {
+      "id": 44999057019,
+      "name": "FEFC checked artifacts",
+      "head_sha": "94eaec6b65973867889338c8e82c2ce27bfe3b40",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T07:37:09Z",
+      "run_started_at": "2026-11-22T07:37:09Z",
+      "updated_at": "2026-11-22T07:39:27Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44999057019",
+      "elapsed_metadata_seconds": 138.0
+    },
+    {
+      "id": 44997666869,
+      "name": "FEFC checked artifacts",
+      "head_sha": "f74734d014ed57b9a90de13393b67e75f940aaf1",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T07:18:59Z",
+      "run_started_at": "2026-11-22T07:18:59Z",
+      "updated_at": "2026-11-22T07:23:34Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44997666869",
+      "elapsed_metadata_seconds": 275.0
+    },
+    {
+      "id": 44997493192,
+      "name": "FEFC checked artifacts",
+      "head_sha": "fafd98a489020c2d86bcac3f15cda15bad509c2e",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T07:16:40Z",
+      "run_started_at": "2026-11-22T07:16:40Z",
+      "updated_at": "2026-11-22T07:19:18Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44997493192",
+      "elapsed_metadata_seconds": 158.0
+    },
+    {
+      "id": 44996826725,
+      "name": "FEFC checked artifacts",
+      "head_sha": "e5fcbe515fc9333174665a517b55755d9c2156de",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T07:08:00Z",
+      "run_started_at": "2026-11-22T07:08:00Z",
+      "updated_at": "2026-11-22T07:10:46Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44996826725",
+      "elapsed_metadata_seconds": 166.0
+    },
+    {
+      "id": 44996649589,
+      "name": "FEFC checked artifacts",
+      "head_sha": "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T07:05:42Z",
+      "run_started_at": "2026-11-22T07:05:42Z",
+      "updated_at": "2026-11-22T07:08:19Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44996649589",
+      "elapsed_metadata_seconds": 157.0
+    },
+    {
+      "id": 44967416879,
+      "name": "FEFC checked artifacts",
+      "head_sha": "e6d7b41e03230223a81094d82d942d27314d8246",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T00:36:10Z",
+      "run_started_at": "2026-11-22T00:36:10Z",
+      "updated_at": "2026-11-22T00:38:45Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44967416879",
+      "elapsed_metadata_seconds": 155.0
+    },
+    {
+      "id": 44966025407,
+      "name": "FEFC checked artifacts",
+      "head_sha": "f63da6c71643f5c8043cf69c7879190e11d791eb",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T00:19:05Z",
+      "run_started_at": "2026-11-22T00:19:05Z",
+      "updated_at": "2026-11-22T00:21:59Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44966025407",
+      "elapsed_metadata_seconds": 174.0
+    },
+    {
+      "id": 44965408677,
+      "name": "FEFC checked artifacts",
+      "head_sha": "eb875c50f10e254f40ee63bb5f6de43cef2e032d",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T00:11:28Z",
+      "run_started_at": "2026-11-22T00:11:28Z",
+      "updated_at": "2026-11-22T00:12:43Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44965408677",
+      "elapsed_metadata_seconds": 75.0
+    },
+    {
+      "id": 44964963403,
+      "name": "FEFC checked artifacts",
+      "head_sha": "287ce815c2c099ce449e5e95091d0cc9fc451eb1",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T00:06:01Z",
+      "run_started_at": "2026-11-22T00:06:01Z",
+      "updated_at": "2026-11-22T00:07:30Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44964963403",
+      "elapsed_metadata_seconds": 89.0
+    },
+    {
+      "id": 44964671882,
+      "name": "FEFC checked artifacts",
+      "head_sha": "5b23adeff4b58813b46de1186dbd015c93059aea",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-22T00:02:28Z",
+      "run_started_at": "2026-11-22T00:02:28Z",
+      "updated_at": "2026-11-22T00:03:51Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44964671882",
+      "elapsed_metadata_seconds": 83.0
+    },
+    {
+      "id": 44964328827,
+      "name": "FEFC checked artifacts",
+      "head_sha": "bd6d4c5d5121756918c86497f3e0705176f959f3",
+      "head_branch": "night/fefc-v3",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-21T23:58:14Z",
+      "run_started_at": "2026-11-21T23:58:14Z",
+      "updated_at": "2026-11-21T23:59:32Z",
+      "html_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/actions/runs/44964328827",
+      "elapsed_metadata_seconds": 78.0
+    }
+  ],
   "stages": {
     "1": {
       "commits": [
@@ -821,7 +1229,9 @@
         "a396593be783b58df98e68c7258916a0c6ac7e99",
         "bd6d4c5d5121756918c86497f3e0705176f959f3"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        44964328827
+      ]
     },
     "3": {
       "commits": [
@@ -830,7 +1240,12 @@
         "f74734d014ed57b9a90de13393b67e75f940aaf1",
         "94eaec6b65973867889338c8e82c2ce27bfe3b40"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        44999057019,
+        44997666869,
+        44996649589,
+        44964328827
+      ]
     },
     "4": {
       "commits": [
@@ -838,14 +1253,21 @@
         "e5fcbe515fc9333174665a517b55755d9c2156de",
         "94eaec6b65973867889338c8e82c2ce27bfe3b40"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        44999057019,
+        44996826725,
+        44964671882
+      ]
     },
     "5": {
       "commits": [
         "287ce815c2c099ce449e5e95091d0cc9fc451eb1",
         "1294a989b5212043695d6fbe00bffc25e32b1dec"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        44999195910,
+        44964963403
+      ]
     },
     "6": {
       "commits": [
@@ -860,9 +1282,17 @@
         "06de23ca758ae09bb2daeeb960119510d5214d25",
         "8a430026fbb4beb1244d6a2dcf400b2cfc7c5c70",
         "f74734d014ed57b9a90de13393b67e75f940aaf1",
-        "94eaec6b65973867889338c8e82c2ce27bfe3b40"
+        "94eaec6b65973867889338c8e82c2ce27bfe3b40",
+        "4c8b105408b5581054b84002cd649bae7ab3a27a"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        44999057019,
+        44997666869,
+        44965408677,
+        44964963403,
+        44964671882,
+        44964328827
+      ]
     },
     "7": {
       "commits": [
@@ -877,9 +1307,17 @@
         "fafd98a489020c2d86bcac3f15cda15bad509c2e",
         "6ac948078cc4ba6b2f45fcdc0b10e6968e0933ec",
         "7de02e1b2562f1493beb48285967569561f1b647",
-        "fc75e2a5119ed0b3d691961094fcc62998caf276"
+        "fc75e2a5119ed0b3d691961094fcc62998caf276",
+        "4c8b105408b5581054b84002cd649bae7ab3a27a"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        45012597897,
+        45011382317,
+        45011357511,
+        44997493192,
+        44967416879,
+        44966025407
+      ]
     },
     "8": {
       "commits": [
@@ -907,9 +1345,20 @@
         "54992f94346a4e8be2d364ba8de0312f83cb804d",
         "9acf5b7341c760d42d5bc1da3251d7eb39ce4255",
         "09ec076b27473333a6487e49654cdd562a3053e2",
-        "6aefa9749d283ce8f4ea08f6bc50a9f1b3ed4f9f"
+        "6aefa9749d283ce8f4ea08f6bc50a9f1b3ed4f9f",
+        "4c8b105408b5581054b84002cd649bae7ab3a27a",
+        "bdc8091553ef25298a3c86808f6bba5996432592"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        44996826725,
+        44996649589,
+        44967416879,
+        44966025407,
+        44965408677,
+        44964963403,
+        44964671882,
+        44964328827
+      ]
     },
     "9": {
       "commits": [
@@ -926,11 +1375,36 @@
         "fafd98a489020c2d86bcac3f15cda15bad509c2e",
         "f74734d014ed57b9a90de13393b67e75f940aaf1",
         "c7d16699cbaca8af43c25103f364d2905af8631a",
-        "278b21034ca7dc653815b106d2a3fee2a271e3a3"
+        "278b21034ca7dc653815b106d2a3fee2a271e3a3",
+        "4c8b105408b5581054b84002cd649bae7ab3a27a",
+        "310ee2c757fc45861c7ed91285b1f3583e9603c1"
       ],
-      "actions_runs": []
+      "actions_runs": [
+        45013582424,
+        45012597897,
+        45012444096,
+        45011382317,
+        45011357511,
+        44999195910,
+        44999057019,
+        44997666869,
+        44997493192,
+        44996826725,
+        44996649589,
+        44967416879,
+        44966025407,
+        44965408677,
+        44964963403,
+        44964671882,
+        44964328827
+      ]
     }
   },
-  "api_error": "HTTP Error 403: rate limit exceeded",
-  "note": "Stage tags overlap: counts are not additive. Includes failures/cancellations; current run may be in progress. Commit timestamps and run durations are not active human working time."
+  "conclusions": {
+    "in_progress": 1,
+    "success": 7,
+    "cancelled": 5,
+    "failure": 4
+  },
+  "note": "Stage groups overlap and are not additive. Includes failed/cancelled runs; this audit can still be in progress at snapshot. Times are metadata intervals, not CPU or active human time."
 }

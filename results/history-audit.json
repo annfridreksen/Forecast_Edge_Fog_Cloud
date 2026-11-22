@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-22T10:40:33.594174+00:00",
+  "source_commit": "310ee2c757fc45861c7ed91285b1f3583e9603c1",
+  "scientific_source_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+  "workflow_run_id": "45013582424",
+  "history_runs": 17,
+  "history_commits": 42,
+  "scientific_artifacts_rerun": false,
+  "protected_sources_unchanged": true
+}
