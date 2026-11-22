@@ -1,64 +1,64 @@
 CLEAN CHECKOUT VERIFICATION
-source_commit=e6d7b41e03230223a81094d82d942d27314d8246
+source_commit=e5fcbe515fc9333174665a517b55755d9c2156de
 branch=night/fefc-v3
-utc=2026-11-22T00:38:39.311354+00:00
+utc=2026-11-22T07:10:39.013209+00:00
 
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
-exit=0; elapsed_wall_seconds=1.9099766030000183
+exit=0; elapsed_wall_seconds=2.1514892349999855
 log=results/model-tests.txt
 $ sha256sum -c MANIFEST.sha256
-exit=0; elapsed_wall_seconds=0.005062404999989667
+exit=0; elapsed_wall_seconds=0.004726291999986643
 log=results/v2-manifest-before.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
-exit=0; elapsed_wall_seconds=10.81740867900001
+exit=0; elapsed_wall_seconds=12.163628635999999
 log=results/v2-tests.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_notebooks.py
-exit=0; elapsed_wall_seconds=0.18618994999999927
+exit=0; elapsed_wall_seconds=0.1617995819999578
 log=results/make_notebooks.py.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_forecast_notebook.py
-exit=0; elapsed_wall_seconds=0.12749377899999104
+exit=0; elapsed_wall_seconds=0.15224808199997142
 log=results/make_forecast_notebook.py.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_placement_notebook.py
-exit=0; elapsed_wall_seconds=0.1252846510000154
+exit=0; elapsed_wall_seconds=0.15240699000003133
 log=results/make_placement_notebook.py.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/00_Старт.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=240
-exit=0; elapsed_wall_seconds=13.165448340000012
+exit=0; elapsed_wall_seconds=15.05773046600001
 log=results/00_Старт-execution.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/01_Среда_и_конфигурация.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=240
-exit=0; elapsed_wall_seconds=5.402649589999982
+exit=0; elapsed_wall_seconds=4.467722974000026
 log=results/01_Среда_и_конфигурация-execution.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/02_Прогноз_и_нейросеть.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=240
-exit=0; elapsed_wall_seconds=3.625692880999992
+exit=0; elapsed_wall_seconds=4.164498533000028
 log=results/02_Прогноз_и_нейросеть-execution.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/03_Алгоритм_переразмещения.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=240
-exit=0; elapsed_wall_seconds=3.101505560999982
+exit=0; elapsed_wall_seconds=3.5619618620000324
 log=results/03_Алгоритм_переразмещения-execution.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/check_figures.py
-exit=0; elapsed_wall_seconds=0.2538181360000067
+exit=0; elapsed_wall_seconds=0.28132221399999935
 log=results/figure-check.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/verify_doi.py
-exit=0; elapsed_wall_seconds=0.17271714000000316
+exit=0; elapsed_wall_seconds=1.3940530679999483
 log=results/doi-check.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/extend_article.py
-exit=0; elapsed_wall_seconds=0.017317176999995354
+exit=0; elapsed_wall_seconds=0.020895069999994575
 log=results/article-extension.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/write_article.py
-exit=0; elapsed_wall_seconds=1.7297663150000062
+exit=0; elapsed_wall_seconds=0.3016893449999998
 log=results/article-generation.txt
 $ pdflatex -interaction=nonstopmode -halt-on-error main.tex
-exit=0; elapsed_wall_seconds=9.137631587000016
+exit=0; elapsed_wall_seconds=10.781480128000055
 log=results/latex-pass1.txt
 $ pdflatex -interaction=nonstopmode -halt-on-error main.tex
-exit=0; elapsed_wall_seconds=0.5501909429999898
+exit=0; elapsed_wall_seconds=0.6093201850000014
 log=results/latex-pass2.txt
 $ sha256sum -c MANIFEST.sha256
-exit=0; elapsed_wall_seconds=0.004630668000004334
+exit=0; elapsed_wall_seconds=0.005403057000023637
 log=results/v2-manifest-after.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m pip freeze
-exit=0; elapsed_wall_seconds=0.193386610999994
+exit=0; elapsed_wall_seconds=0.22505298999999468
 log=results/requirements-executed.txt
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/write_report.py
-exit=0; elapsed_wall_seconds=0.24815944499999887
+exit=0; elapsed_wall_seconds=0.271606012999996
 log=results/report-generation.txt
 
 v2 SHA256 before/after: MATCH

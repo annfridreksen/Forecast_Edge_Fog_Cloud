@@ -3,7 +3,7 @@
     {
       "file": "article/figures/architecture.pdf",
       "bytes": 17467,
-      "sha256": "de2d6c45552863e31a34035c0f0a262b2c7b993c4db29c1da1d995adbde1bd2d"
+      "sha256": "38297f3f2615ef894370936ebff2963cc75b6a8a6a9cafac065faf8b794c4b06"
     },
     {
       "file": "article/figures/architecture.png",
@@ -13,7 +13,7 @@
     {
       "file": "article/figures/six_path.pdf",
       "bytes": 15156,
-      "sha256": "9e56935c691133e28d1af154d565262e3546e7ebdc34da1d34f58858ef4c9e52"
+      "sha256": "efb6573d087b67c7d3e05adda84082b3aacb3a2500d6f134b8512ffae742cd27"
     },
     {
       "file": "article/figures/six_path.png",
@@ -23,7 +23,7 @@
     {
       "file": "article/figures/inputs_outputs.pdf",
       "bytes": 12744,
-      "sha256": "006b4faac7894be929873bc85e6bab3785df39bbf154b87b1764f2e943ef078e"
+      "sha256": "4fcd00d3326d2c63ad1274c99bc52aa569e32adfc449e5bd53cd57a45d9e961d"
     },
     {
       "file": "article/figures/inputs_outputs.png",
@@ -33,7 +33,7 @@
     {
       "file": "article/figures/components.pdf",
       "bytes": 18328,
-      "sha256": "1d2fa01a5906080e30c4db1ec6bb0739fe2c1807a476bd472346a45284e469b1"
+      "sha256": "e9e3bf4657d068f6ecceaf684e4025ce4136eff9eddb79ed2299d89e311da6a0"
     },
     {
       "file": "article/figures/components.png",
@@ -43,7 +43,7 @@
     {
       "file": "article/figures/ratio.pdf",
       "bytes": 13802,
-      "sha256": "cef9ad98c4bec20d44b0eb21b0541205d2ba8a6334ef7c7f79616562c8452330"
+      "sha256": "672a1453277a26b6b7c017220432a65e158fac018e59ba5455b4524ec335a8ac"
     },
     {
       "file": "article/figures/ratio.png",
@@ -53,7 +53,7 @@
     {
       "file": "article/figures/buffer.pdf",
       "bytes": 15412,
-      "sha256": "41e87cccce56bc514f4e6f8d438d332f365530e5f5ce01877c920a17a1e500fe"
+      "sha256": "e502d032c6a09b6a7f304559766d5513572f202361c58d9d7fa81867c1038652"
     },
     {
       "file": "article/figures/buffer.png",
@@ -63,7 +63,7 @@
     {
       "file": "article/figures/queue.pdf",
       "bytes": 14719,
-      "sha256": "1d1a4abc7243379116c19b559aaecd73771158ebfaa932e3233d4e378582f269"
+      "sha256": "a7e378523eb1ea101a4ccf3a250e7ab612e75480853a88356c0865fdb829bf52"
     },
     {
       "file": "article/figures/queue.png",
@@ -73,7 +73,7 @@
     {
       "file": "article/figures/forecast_socket.pdf",
       "bytes": 17273,
-      "sha256": "1af3420356443f8c4614ae3d723e5f71ba30f60d0d09af9160832a99d4e3ae38"
+      "sha256": "cc36ff92e7bf01c804ba6c96c795365baa47bf0fe76de6596d528a4484fbce4a"
     },
     {
       "file": "article/figures/forecast_socket.png",
@@ -82,38 +82,38 @@
     },
     {
       "file": "article/figures/forecast_mae.pdf",
-      "bytes": 12037,
-      "sha256": "a8d57e2b7cc4730df4aee54db455165912ebccc38c142f5e6de295cd5cc9e7c9"
+      "bytes": 12301,
+      "sha256": "2f4bb173228275ee93fd1b955636c20f62ed2498600efd1e967b016ac64bb283"
     },
     {
       "file": "article/figures/forecast_mae.png",
-      "bytes": 25087,
-      "sha256": "a92c6e2dcbe2ddab0ddce0c77e66364c9035433570598eaf538c625fc8b9281f"
+      "bytes": 28132,
+      "sha256": "248afb1007c72515bb7a7079d9d214da08f3260a2ad5b9a8c0ffe6bf6f09390d"
     },
     {
       "file": "article/figures/forecast_coverage.pdf",
-      "bytes": 15842,
-      "sha256": "284fe4f1d7d0fafc2d75fe049805ca2cdb68c31fecc6ab4dc588832893425fbd"
+      "bytes": 16123,
+      "sha256": "5b3e1e982561269afc5f74611b50850df809127056ddb3c70f2602f855da46c1"
     },
     {
       "file": "article/figures/forecast_coverage.png",
-      "bytes": 26844,
-      "sha256": "24bd2714873c1fb2a614e7e608c9660f841f06778bf9f3909f8b0032dc889e85"
+      "bytes": 30262,
+      "sha256": "de63583fbac4cf5f0e318c3759bd5046f0941a0bc557fb8c9e2b46ebf0b35a4c"
     },
     {
       "file": "article/figures/forecast_trace.pdf",
-      "bytes": 18938,
-      "sha256": "f646ee1894884fb3e3c01d8e6a79ac6556628ef038c584d4f11f3e6218306c7e"
+      "bytes": 18929,
+      "sha256": "2327d57fe20e1271ab8bbf4ec71549cd19c879573aa1bdf2679df9dca141b934"
     },
     {
       "file": "article/figures/forecast_trace.png",
-      "bytes": 141995,
-      "sha256": "bb120d3a556b3fa96c5080e51ca039469799dc11d9a4c44b5dd1bd570e1dc3a1"
+      "bytes": 142010,
+      "sha256": "15b27f229df8ea197ef72728fbed83d7e7cc0916fe9d88cf20284bc96ec4c866"
     },
     {
       "file": "article/figures/placement_chain.pdf",
       "bytes": 16053,
-      "sha256": "ff0550080ba13699a7bf9521b42b1335c6a2ee9459ffff99c2706a2197981f33"
+      "sha256": "8b372e52980b5915401e2340ce2b59aa04204da7ba15222ab07b7ebc91f4521b"
     },
     {
       "file": "article/figures/placement_chain.png",
@@ -123,7 +123,7 @@
     {
       "file": "article/figures/graph_P.pdf",
       "bytes": 8349,
-      "sha256": "d31d59232d9224529cd81c8bcb6f82b9db56c89274e036d3f9bf86b754436a33"
+      "sha256": "0ea58d23f01951b8a934a44844d099b927c296cbb94ffe79f2aa9bcb01fe7ad2"
     },
     {
       "file": "article/figures/graph_P.png",
@@ -133,7 +133,7 @@
     {
       "file": "article/figures/graph_B.pdf",
       "bytes": 7837,
-      "sha256": "f20e82bd60d3da2b6d31f753bc113f46365efaffbdbb2108fce692907c6ee9ae"
+      "sha256": "c7c4cdcc8789c6bf8ca6150909130e9a928fdcd7705729f2321449a992281d3e"
     },
     {
       "file": "article/figures/graph_B.png",
@@ -143,7 +143,7 @@
     {
       "file": "article/figures/gantt_P.pdf",
       "bytes": 12717,
-      "sha256": "2e76624532918d9386c465fe6beb93ce0fa5877c26ef45e6ce7424535f1e7352"
+      "sha256": "fbda707f57d2660f0867ce9fa1d7ba173ab145c01ce90a14ed746f26e6afe5f6"
     },
     {
       "file": "article/figures/gantt_P.png",
@@ -153,7 +153,7 @@
     {
       "file": "article/figures/gantt_B.pdf",
       "bytes": 11133,
-      "sha256": "a8b80d1c014af9b976b9ac68256631fe84a1913fca651865b2c512b25a9ee72b"
+      "sha256": "0f6f29497a2c3545ec648b72b7e6868a93d7a4fb8193a87247dc9c1dbba82134"
     },
     {
       "file": "article/figures/gantt_B.png",
@@ -163,7 +163,7 @@
     {
       "file": "article/figures/neural_placement.pdf",
       "bytes": 13947,
-      "sha256": "b69048207555f63f36c36b9b7dc3d754e81ef8c93dd96be1b38ea267357c5d81"
+      "sha256": "983de1c8d2c5b233e67f27fcda75833c57b91660b3e9989cf1c4dac2fb599cf0"
     },
     {
       "file": "article/figures/neural_placement.png",

@@ -207,41 +207,41 @@ ne 178.
 
 
 LaTeX Warning: Reference `russian--tab:forecast' on page 11 undefined on input 
-line 192.
+line 193.
 
 [11] [12 <./figures/forecast_coverage.pdf>]
 
 LaTeX Warning: Reference `russian--eq:stop' on page 13 undefined on input line 
-215.
+216.
 
 
 LaTeX Warning: Reference `russian--fig:placement' on page 13 undefined on input
- line 217.
+ line 218.
 
 [13 <./figures/placement_chain.pdf>]
 
 LaTeX Warning: Reference `russian--tab:controls' on page 14 undefined on input 
-line 235.
+line 236.
 
 
 LaTeX Warning: Reference `russian--eq:choice' on page 14 undefined on input lin
-e 235.
+e 236.
 
 
 LaTeX Warning: Reference `russian--fig:graph' on page 14 undefined on input lin
-e 235.
+e 236.
 
 
 LaTeX Warning: Reference `russian--fig:gantt' on page 14 undefined on input lin
-e 235.
+e 236.
 
 [14 <./figures/graph_P.pdf>]
 
 LaTeX Warning: Reference `russian--tab:linked' on page 15 undefined on input li
-ne 247.
+ne 248.
 
 [15 <./figures/gantt_P.pdf>]
-Underfull \hbox (badness 3291) in paragraph at lines 263--264
+Underfull \hbox (badness 3291) in paragraph at lines 264--265
 []\T2A/cmr/m/up/10 \xc4\xe5\xec\xee\xed\xf1\xf2\xf0\xe0\xf6\xe8\xee\xed\xed\xfb\xe9 MLP \xed\xe0 \xef\xf0\xe8-\xed\xff-\xf2\xee\xe9 \xf1\xe8\xed-\xf2\xe5-\xf2\xe8-\xf7\xe5-\xf1\xea\xee\xe9 \xe2\xfb-\xe1\xee\xf0-
 \xea\xe5
 No file main.brf.
@@ -292,7 +292,7 @@ sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0600.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 ftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (18 pages, 694917 bytes).
+Output written on main.pdf (18 pages, 695197 bytes).
 Transcript written on main.log.
 
 kpathsea: Running mktextfm larm1000

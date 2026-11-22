@@ -41,6 +41,8 @@
   "dropped": 1079,
   "train_end_max_s": 61.78021912067352,
   "calibration_end_max_s": 82.33916734998782,
-  "notes": "MLP fit and scaling: train only. Calibration residual95: calibration only. Online baselines see completed past outcomes; dropped jobs have no latency target. Coverage is conditional on completed jobs, not a guarantee.",
+  "notes": "MLP fit/scaling: train only. Before: empirical higher 95th residual percentile; after: rank ceil((n+1)*.95) of calibration residuals only. Frozen margin before test. Online baselines observe past completions. Queue time series are dependent and shifted: no finite-sample coverage guarantee is claimed; coverage is empirical and conditional on completion.",
+  "queueing": "Queueing uses (q+0.5*b+1)*configured mean service plus configured downstream means; QueueingMM1K retained separately. Neither observes future calendars.",
+  "conformal": "one-sided split-conformal residual rule, alpha=.05; finite-sample theorem requires exchangeability, not established here",
   "network_warnings": []
 }

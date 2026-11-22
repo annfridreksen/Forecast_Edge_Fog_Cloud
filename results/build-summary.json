@@ -1,15 +1,15 @@
 {
-  "utc": "2026-11-22T00:38:39.311354+00:00",
-  "workflow_run_id": "44967416879",
-  "source_commit": "e6d7b41e03230223a81094d82d942d27314d8246",
+  "utc": "2026-11-22T07:10:39.013209+00:00",
+  "workflow_run_id": "44996826725",
+  "source_commit": "e5fcbe515fc9333174665a517b55755d9c2156de",
   "branch": "night/fefc-v3",
   "python": "3.13.18 (main, Oct 26 2026, 14:19:33) [GCC 15.2.0]",
-  "platform": "Linux-7.0.0-1016-aws-x86_64-with-glibc2.43",
+  "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.43",
   "notebooks": {
-    "00_Старт.ipynb": 13.165448340000012,
-    "01_Среда_и_конфигурация.ipynb": 5.402649589999982,
-    "02_Прогноз_и_нейросеть.ipynb": 3.625692880999992,
-    "03_Алгоритм_переразмещения.ipynb": 3.101505560999982
+    "00_Старт.ipynb": 15.05773046600001,
+    "01_Среда_и_конфигурация.ipynb": 4.467722974000026,
+    "02_Прогноз_и_нейросеть.ipynb": 4.164498533000028,
+    "03_Алгоритм_переразмещения.ipynb": 3.5619618620000324
   },
   "all_available_stages_passed": true,
   "article_built": true,
@@ -39,7 +39,7 @@
       ],
       "log": "model-tests.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 1.9099766030000183
+      "elapsed_wall_seconds": 2.1514892349999855
     },
     {
       "command": [
@@ -49,7 +49,7 @@
       ],
       "log": "v2-manifest-before.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.005062404999989667
+      "elapsed_wall_seconds": 0.004726291999986643
     },
     {
       "command": [
@@ -63,7 +63,7 @@
       ],
       "log": "v2-tests.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 10.81740867900001
+      "elapsed_wall_seconds": 12.163628635999999
     },
     {
       "command": [
@@ -72,7 +72,7 @@
       ],
       "log": "make_notebooks.py.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.18618994999999927
+      "elapsed_wall_seconds": 0.1617995819999578
     },
     {
       "command": [
@@ -81,7 +81,7 @@
       ],
       "log": "make_forecast_notebook.py.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.12749377899999104
+      "elapsed_wall_seconds": 0.15224808199997142
     },
     {
       "command": [
@@ -90,7 +90,7 @@
       ],
       "log": "make_placement_notebook.py.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.1252846510000154
+      "elapsed_wall_seconds": 0.15240699000003133
     },
     {
       "command": [
@@ -108,7 +108,7 @@
       ],
       "log": "00_Старт-execution.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 13.165448340000012
+      "elapsed_wall_seconds": 15.05773046600001
     },
     {
       "command": [
@@ -126,7 +126,7 @@
       ],
       "log": "01_Среда_и_конфигурация-execution.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 5.402649589999982
+      "elapsed_wall_seconds": 4.467722974000026
     },
     {
       "command": [
@@ -144,7 +144,7 @@
       ],
       "log": "02_Прогноз_и_нейросеть-execution.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 3.625692880999992
+      "elapsed_wall_seconds": 4.164498533000028
     },
     {
       "command": [
@@ -162,7 +162,7 @@
       ],
       "log": "03_Алгоритм_переразмещения-execution.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 3.101505560999982
+      "elapsed_wall_seconds": 3.5619618620000324
     },
     {
       "command": [
@@ -171,7 +171,7 @@
       ],
       "log": "figure-check.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.2538181360000067
+      "elapsed_wall_seconds": 0.28132221399999935
     },
     {
       "command": [
@@ -180,7 +180,7 @@
       ],
       "log": "doi-check.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.17271714000000316
+      "elapsed_wall_seconds": 1.3940530679999483
     },
     {
       "command": [
@@ -189,7 +189,7 @@
       ],
       "log": "article-extension.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.017317176999995354
+      "elapsed_wall_seconds": 0.020895069999994575
     },
     {
       "command": [
@@ -198,7 +198,7 @@
       ],
       "log": "article-generation.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 1.7297663150000062
+      "elapsed_wall_seconds": 0.3016893449999998
     },
     {
       "command": [
@@ -209,7 +209,7 @@
       ],
       "log": "latex-pass1.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 9.137631587000016
+      "elapsed_wall_seconds": 10.781480128000055
     },
     {
       "command": [
@@ -220,7 +220,7 @@
       ],
       "log": "latex-pass2.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.5501909429999898
+      "elapsed_wall_seconds": 0.6093201850000014
     },
     {
       "command": [
@@ -230,7 +230,7 @@
       ],
       "log": "v2-manifest-after.txt",
       "returncode": 0,
-      "elapsed_wall_seconds": 0.004630668000004334
+      "elapsed_wall_seconds": 0.005403057000023637
     }
   ],
   "clock": "perf_counter elapsed wall time; not CPU time"

@@ -9,6 +9,14 @@ test_queue_rho_one (test_forecast.ForecastTests.test_queue_rho_one) ... ok
 test_ranks (test_forecast.ForecastTests.test_ranks) ... ok
 test_target_not_a_feature (test_forecast.ForecastTests.test_target_not_a_feature) ... ok
 test_temporal_split (test_forecast.ForecastTests.test_temporal_split) ... ok
+test_calibration_is_not_test (test_issue4_forecast.ReviewForecastTests.test_calibration_is_not_test) ... ok
+test_conditional_formula (test_issue4_forecast.ReviewForecastTests.test_conditional_formula) ... ok
+test_config_not_constants (test_issue4_forecast.ReviewForecastTests.test_config_not_constants) ... ok
+test_conformal_order_not_interpolation (test_issue4_forecast.ReviewForecastTests.test_conformal_order_not_interpolation) ... ok
+test_current_queue_changes_prediction (test_issue4_forecast.ReviewForecastTests.test_current_queue_changes_prediction) ... ok
+test_finite_sample_small_n (test_issue4_forecast.ReviewForecastTests.test_finite_sample_small_n) ... ok
+test_invalid_scores (test_issue4_forecast.ReviewForecastTests.test_invalid_scores) ... ok
+test_mm1k_retained (test_issue4_forecast.ReviewForecastTests.test_mm1k_retained) ... ok
 test_cloud_fifo_by_arrival_not_fog_completion (test_model.ArrivalOrderingTests.test_cloud_fifo_by_arrival_not_fog_completion) ... ok
 test_ef_link_fifo_by_ready_time (test_model.ArrivalOrderingTests.test_ef_link_fifo_by_ready_time) ... ok
 test_bad_arrivals (test_model.ModelTests.test_bad_arrivals) ... ok
@@ -27,8 +35,18 @@ test_sum_six (test_model.ModelTests.test_sum_six) ... ok
 test_tied_completion_before_arrival (test_model.ModelTests.test_tied_completion_before_arrival) ... ok
 test_utilization_bounds (test_model.ModelTests.test_utilization_bounds) ... ok
 test_control_adapter (test_placement.PlacementTests.test_control_adapter) ... ok
+test_buffer_monotonicity_on_shared_stream (test_stationary.StationaryTests.test_buffer_monotonicity_on_shared_stream) ... ok
+test_cloud_instability_rejected (test_stationary.StationaryTests.test_cloud_instability_rejected) ... ok
+test_completions_before_equal_arrival (test_stationary.StationaryTests.test_completions_before_equal_arrival) ... ok
+test_distinct_queues (test_stationary.StationaryTests.test_distinct_queues) ... ok
+test_empty_ci_invalid (test_stationary.StationaryTests.test_empty_ci_invalid) ... ok
+test_known_fifo_and_drop (test_stationary.StationaryTests.test_known_fifo_and_drop) ... ok
+test_repeatability (test_stationary.StationaryTests.test_repeatability) ... ok
+test_scenario_design (test_stationary.StationaryTests.test_scenario_design) ... ok
+test_student_interval_uses_replicates (test_stationary.StationaryTests.test_student_interval_uses_replicates) ... ok
+test_window_balance_and_components (test_stationary.StationaryTests.test_window_balance_and_components) ... ok
 
 ----------------------------------------------------------------------
-Ran 28 tests in 0.278s
+Ran 46 tests in 0.453s
 
 OK
