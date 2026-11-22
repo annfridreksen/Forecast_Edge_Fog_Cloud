@@ -1,0 +1,56 @@
+name: FEFC history-only audit
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['.github/workflows/history-audit.yml','scripts/collect_actions_history.py']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: night/fefc-v3
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Read authorized Actions history without rerunning the scientific pipeline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/collect_actions_history.py
+      - name: Publish only report metadata in the research branch
+        run: |
+          test "$(git branch --show-current)" = night/fefc-v3
+          git diff --exit-code -- v2 article docs/Журнал_проверок_Perplexity.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/work-history.json results/history-audit.json results/issue4-report.json results/final-check.txt docs/Отчёт_ночи.md docs/STATUS.md docs/Взаимодействие_с_проверяющим.md MANIFEST.sha256
+          git diff --cached --exit-code -- v2 article docs/Журнал_проверок_Perplexity.md
+          git diff --cached --quiet || git commit -m 'FEFC: п.15 — полная авторизованная история запусков и времён'
+          git push origin HEAD:night/fefc-v3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fefc-history-audited-output
+          include-hidden-files: true
+          path: |
+            results/
+            colab/
+            article/
+            efc/
+            tests/
+            scripts/
+            docs/
+            v2/
+            requirements.txt
+            MANIFEST.sha256
+            .github/workflows/*.yml
+            !**/__pycache__/**
+            !article/*.aux
+            !article/*.log
+            !article/*.out
+            !article/*.brf
