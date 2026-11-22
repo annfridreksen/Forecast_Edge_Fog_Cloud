@@ -142,11 +142,12 @@ def select_windows(sample, *, journal=None, repeats=10000):
         _save(journal, state)
 
 
-def run_frozen(sample, selection, phase, *, journal):
+def _run_frozen(sample, selection, phase, *, journal, resume=False):
     """One frozen evaluation, no growing W/T or trying another candidate.
 
-    A persistent journal is mandatory; an existing file blocks reuse even after
-    a failed attempt. Guard extension changes only censoring, never W/T/seeds.
+    A persistent journal is mandatory. Default calls reject an existing file;
+    explicit resume preserves its identity and terminal decision. Guard extension
+    changes only censoring, never W/T/seeds.
     """
     if selection['status'] != 'READY' or phase not in ('main', 'confirmation'):
         raise ValueError('ready pilot and known phase required')
@@ -159,14 +160,34 @@ def run_frozen(sample, selection, phase, *, journal):
     if journal is None: raise ValueError('persistent journal required')
     journal = Path(journal)
     journal.parent.mkdir(parents=True, exist_ok=True)
-    # Exclusive creation locks an attempt before seeing any final data.
-    with journal.open('x') as f: f.write('{"status":"STARTED"}\n')
     seeds = MAIN_SEEDS if phase == 'main' else CONFIRM_SEEDS
-    guard = plan['guard']
     state = dict(status='RUNNING', phase=phase, config_id=sample.config_id,
-                 plan_sha256=selection['plan_sha256'], runs=[], decisions=[])
+                 plan_sha256=selection['plan_sha256'], runs=[], decisions=[],
+                 guard=plan['guard'], resumes=0)
+    if journal.exists() and resume:
+        state = json.loads(journal.read_text())
+        for key in ('phase', 'config_id', 'plan_sha256'):
+            expected = dict(phase=phase, config_id=sample.config_id,
+                            plan_sha256=selection['plan_sha256'])[key]
+            if state.get(key) != expected:
+                raise ValueError('cannot resume a different or unidentified attempt')
+        if state['status'] in ('ACCEPTABLE', 'UNACCEPTABLE', 'INSUFFICIENT_DATA'):
+            return state  # a terminal attempt is never re-selected or re-evaluated
+        if state['status'] not in ('RUNNING', 'FAILED', 'PAUSED'):
+            raise ValueError('unknown attempt state')
+        state['resumes'] = state.get('resumes', 0) + 1
+        state['status'] = 'RUNNING'
+        state.pop('error', None)
+        _save(journal, state)
+    else:
+        # Identity is persisted before any final observation is opened.
+        with journal.open('x') as f:
+            json.dump(state, f, ensure_ascii=False, allow_nan=False)
+            f.write('\n')
+    guard = state.get('guard', plan['guard'])
     try:
         while True:
+            state['guard'] = guard
             rows = _collect(sample, seeds, plan['warmup'], plan['observe'], guard, state, journal)
             if not any(o.full.unfinished for o in rows): break
             state['decisions'].append(dict(action='extend_guard' if guard < 16000 else 'stop_guard_limit', guard=guard))
@@ -180,3 +201,27 @@ def run_frozen(sample, selection, phase, *, journal):
         state.update(status='FAILED', error=repr(exc)); raise
     finally:
         _save(journal, state)
+
+
+def run_frozen(sample, selection, phase, *, journal, resume=False):
+    """Continue the SAME fixed attempt using a persistent sampler cache.
+
+    Resume never changes a plan, W/T, seed group or terminal decision. A
+    process-level advisory lock prevents concurrent writers to this journal.
+    The caller must supply a cache to avoid repeating completed replications.
+    Linux/Colab/Actions are the supported execution environments of this path.
+    """
+    import fcntl
+    if type(resume) is not bool or journal is None:
+        raise ValueError('explicit resume Boolean and persistent journal required')
+    path = Path(journal)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.with_suffix(path.suffix+'.lock').open('a+') as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as exc:
+            raise RuntimeError('another process owns this attempt') from exc
+        try:
+            return _run_frozen(sample, selection, phase, journal=path, resume=resume)
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
