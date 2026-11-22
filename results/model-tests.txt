@@ -29,6 +29,6 @@ test_utilization_bounds (test_model.ModelTests.test_utilization_bounds) ... ok
 test_control_adapter (test_placement.PlacementTests.test_control_adapter) ... ok
 
 ----------------------------------------------------------------------
-Ran 28 tests in 0.376s
+Ran 28 tests in 0.276s
 
 OK
