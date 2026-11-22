@@ -24,6 +24,11 @@ def main():
                 colab_ui_tested=False,full_grid_run=False,steps=[],
                 sha256={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files})
     try:
+        source_book=json.loads((ROOT/'colab/validation/02_R14_resume.ipynb').read_text())
+        for cell in source_book['cells']:
+            if cell['cell_type']=='code':
+                source=cell['source'] if isinstance(cell['source'],str) else ''.join(cell['source'])
+                compile(source, cell['id'], 'exec')
         commands=[([sys.executable,'-m','unittest','discover','-s','tests','-p','test_grid.py','-v'],'grid-tests.txt'),
                   ([sys.executable,'-m','jupyter','nbconvert','--to','notebook','--execute',
                     'colab/validation/02_R14_resume.ipynb','--output-dir',str(out),
