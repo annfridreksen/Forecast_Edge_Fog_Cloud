@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-22",
+  "scope": "R1.4 TASK 3/5.3 paired inputs and a shared window kernel; NOT scientific-map acceptance",
+  "source_commit": "c2780b8a7c7910c46d4d67ddc4e53d6f3441bc0d",
+  "action_run_id": 45068004450,
+  "action_job_id": 137348398537,
+  "artifact_id": 14772281556,
+  "artifact_zip_sha256": "7dbeb8564352b0577a0d34553b1e96a21756b9a45e2444c62f0e8cd8724edf90",
+  "action_conclusion": "success",
+  "command": "python scripts/check_r14_core.py",
+  "execution": "GitHub Actions + nbconvert; local Python container + nbconvert",
+  "colab_ui_tested": false,
+  "test_counts": {"model-tests.txt": 50, "window-tests.txt": 10, "pipeline-tests.txt": 2},
+  "tests_total": 62,
+  "executed_code_cells": 7,
+  "rendered_png_outputs": 1,
+  "paired_cases": 45,
+  "source_events_per_case": 120,
+  "source_workload_sha256": "717cb1024e7f438fb34f96e8fd160ab25aa87c26a2add18f077a9a8812705ad0",
+  "same_source_fields_including_dropped": true,
+  "same_direct_and_window_kernel_records": true,
+  "local_and_actions_source_sha256_match": [
+    "efc/model.py", "efc/workload.py", "efc/stationary.py",
+    "tests/test_model_workload.py", "tests/test_stationary.py",
+    "scripts/check_r14_core.py", "colab/validation/00_R14_core.ipynb"
+  ],
+  "full_series_run": false,
+  "training_run": false,
+  "pdf_built": false,
+  "reviewer_acceptance": "OPEN",
+  "raw_files": [
+    "paired-inputs.json", "paired-configurations.json", "window-path.json",
+    "clock-boundaries.json", "manual-five.json", "model-tests.txt",
+    "window-tests.txt", "pipeline-tests.txt", "00_R14_core.ipynb", "report.json"
+  ]
+}
