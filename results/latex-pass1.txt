@@ -1,0 +1,1933 @@
+$ pdflatex -interaction=nonstopmode -halt-on-error main.tex
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(./psta.cls
+Document Class: psta 2026/10/16 18:44:16 Document class for PSTA journal and ot
+her bilingual proceedings
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsproc.cls
+Document Class: amsproc 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/pdfx/glyphtounicode-cmr.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfx/glyphtounicode-ntx.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amscd.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/backref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))))
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/t2/mathtext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2aenc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t2aenc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/floatrow/floatrow.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-russian/russianb.ldf)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+
+Package xcolor Warning: Package option `hyperref' is obsolete and ignored on in
+put line 265.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(./psta/psta-utf8.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/upref.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/extdash.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file main.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+
+LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 23.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmss.fd) [1{/var/lib/texmf
+/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/
+cm-super-t2a.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <
+./psta/CC-BY-OO.pdf>]
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd) (./related.tex)
+[2]
+
+LaTeX Warning: Reference `russian--fig:architecture' on page 3 undefined on inp
+ut line 40.
+
+[3 <./figures/architecture.pdf>]
+
+LaTeX Warning: Reference `russian--tab:parameters' on page 4 undefined on input
+ line 47.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\T2A/cmr/m/up/9 \xd7\xe8\xf1\xeb\xee
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T2A/cmr/m/up/9 \xd1\xf3\xec\xec\xe0\xf0\xed\xfb\xe9 \xef\xee-\xf2\xee\xea;
+
+Underfull \hbox (badness 1769) in paragraph at lines 59--59
+[]|\T2A/cmr/m/up/9 \xc7\xe0\xe4\xe0\xed\xe8\xe5; \xef\xf3\xe0\xf1-\xf1\xee-\xed\xee\xe2-\xf1\xea\xe8\xe9 \xef\xee-
+
+Underfull \hbox (badness 5189) in paragraph at lines 60--60
+[]|\T2A/cmr/m/up/9 \xcd\xe0\xf7\xe0\xeb\xfc\xed\xee\xe5 \xe7\xed\xe0-\xf7\xe5-\xed\xe8\xe5
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]|\T2A/cmr/m/up/9 \xc2\xee\xf1\xef\xf0\xee\xe8\xe7\xe2\xee\xe4\xe8\xec\xee\xf1\xf2\xfc \xea\xee\xed-
+[4]
+
+LaTeX Warning: Reference `russian--fig:path' on page 5 undefined on input line 
+70.
+
+
+LaTeX Warning: Reference `russian--eq:latency' on page 5 undefined on input lin
+e 70.
+
+
+LaTeX Warning: Reference `russian--eq:quantile' on page 5 undefined on input li
+ne 79.
+
+[5 <./figures/six_path.pdf>]
+
+LaTeX Warning: Reference `russian--tab:config' on page 6 undefined on input lin
+e 95.
+
+[6]
+
+LaTeX Warning: Reference `russian--fig:components' on page 7 undefined on input
+ line 116.
+
+[7]
+
+LaTeX Warning: Reference `russian--tab:buffer' on page 8 undefined on input lin
+e 138.
+
+
+LaTeX Warning: Reference `russian--fig:queue' on page 8 undefined on input line
+ 138.
+
+
+LaTeX Warning: Reference `russian--fig:socket' on page 8 undefined on input lin
+e 144.
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 144--147
+[]\T2A/cmr/m/up/10 \xc2\xf1\xe5 \xef\xf0\xee-\xe3\xed\xee-\xe7\xe8-\xf0\xee\xe2-\xf9\xe8-\xea\xe8 \xef\xf0\xe5\xe4\xee-\xf1\xf2\xe0\xe2-\xeb\xff-\xfe\xf2 \xee\xef\xe5-\xf0\xe0-\xf6\xe8\xe8 \T2A/cm
+tt/m/n/10 fit(\xe8\xf1\xf2\xee\xf0\xe8\xff) \T2A/cmr/m/up/10 \xe8
+
+Underfull \vbox (badness 10000) has occurred while \output is active [8 <./figu
+res/components.pdf>] [9 <./figures/queue.pdf> <./figures/forecast_socket.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+[]\T2A/cmr/m/up/10 Naive \xe8\xf1-\xef\xee\xeb\xfc-\xe7\xf3-\xe5\xf2 \xef\xee-\xf1\xeb\xe5\xe4-\xed\xe5\xe5 \xe4\xee-\xf1\xf2\xf3\xef-\xed\xee\xe5 \xed\xe0-\xe1\xeb\xfe-\xe4\xe5-\xed\xe8\xe5 \xf3\xe7
+-\xeb\xe0;
+
+LaTeX Warning: Reference `russian--eq:stationary' on page 10 undefined on input
+ line 160.
+
+
+LaTeX Warning: Reference `russian--eq:little' on page 10 undefined on input lin
+e 165.
+
+[10]
+
+LaTeX Warning: Reference `russian--eq:quantile' on page 11 undefined on input l
+ine 173.
+
+
+LaTeX Warning: Reference `russian--eq:upper' on page 11 undefined on input line
+ 173.
+
+
+LaTeX Warning: Reference `russian--eq:metrics' on page 11 undefined on input li
+ne 178.
+
+
+LaTeX Warning: Reference `russian--tab:forecast' on page 11 undefined on input 
+line 192.
+
+[11] [12 <./figures/forecast_coverage.pdf>]
+
+LaTeX Warning: Reference `russian--eq:stop' on page 13 undefined on input line 
+215.
+
+
+LaTeX Warning: Reference `russian--fig:placement' on page 13 undefined on input
+ line 217.
+
+[13 <./figures/placement_chain.pdf>]
+
+LaTeX Warning: Reference `russian--tab:controls' on page 14 undefined on input 
+line 235.
+
+
+LaTeX Warning: Reference `russian--eq:choice' on page 14 undefined on input lin
+e 235.
+
+
+LaTeX Warning: Reference `russian--fig:graph' on page 14 undefined on input lin
+e 235.
+
+
+LaTeX Warning: Reference `russian--fig:gantt' on page 14 undefined on input lin
+e 235.
+
+[14 <./figures/graph_P.pdf>]
+
+LaTeX Warning: Reference `russian--tab:linked' on page 15 undefined on input li
+ne 247.
+
+[15 <./figures/gantt_P.pdf>]
+Underfull \hbox (badness 3291) in paragraph at lines 263--264
+[]\T2A/cmr/m/up/10 \xc4\xe5\xec\xee\xed\xf1\xf2\xf0\xe0\xf6\xe8\xee\xed\xed\xfb\xe9 MLP \xed\xe0 \xef\xf0\xe8-\xed\xff-\xf2\xee\xe9 \xf1\xe8\xed-\xf2\xe5-\xf2\xe8-\xf7\xe5-\xf1\xea\xee\xe9 \xe2\xfb-\xe1\xee\xf0-
+\xea\xe5
+No file main.brf.
+(./related_references.tex [16{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-supe
+r-t1.enc} <./psta/DOI_logo.png>]) [17] [18] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+
+Package rerunfilecheck Warning: File `main.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{russian--authorsinfo} has been referenced but does 
+not exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0700.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfcc0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0700.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfcc0900.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0600.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+ftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (18 pages, 694917 bytes).
+Transcript written on main.log.
+
+kpathsea: Running mktextfm larm1000
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm1000
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm1000
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm1000.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm1000.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm1000.tfm.
+Output written on larm1000.600gf (256 characters, 50012 bytes).
+Transcript written on larm1000.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm1000
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm already exists.
+
+kpathsea: Running mktextfm labx1000
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input labx1000
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf labx1000
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx1000.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx1000.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10
+>> "input ecbx" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecbx.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on labx1000.tfm.
+Output written on labx1000.600gf (256 characters, 49116 bytes).
+Transcript written on labx1000.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm: successfully generated.
+
+kpathsea: Running mktextfm labx1000
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm already exists.
+
+kpathsea: Running mktextfm larm0800
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm0800
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm0800
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0800.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0800.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 8
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm0800.tfm.
+Output written on larm0800.600gf (256 characters, 40716 bytes).
+Transcript written on larm0800.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0800.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm0600
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm0600
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm0600
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0600.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0600.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 6
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm0600.tfm.
+Output written on larm0600.600gf (256 characters, 31556 bytes).
+Transcript written on larm0600.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm0500
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm0500
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm0500
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0500.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0500.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 5
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm0500.tfm.
+Output written on larm0500.600gf (256 characters, 26580 bytes).
+Transcript written on larm0500.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0500.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm0700
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm0700
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm0700
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0700.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0700.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 7
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm0700.tfm.
+Output written on larm0700.600gf (256 characters, 36228 bytes).
+Transcript written on larm0700.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0700.tfm: successfully generated.
+
+kpathsea: Running mktextfm lass0800
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lass0800
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lass0800
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass0800.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass0800.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 8
+>> "input ecss" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecss.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lass0800.tfm.
+Output written on lass0800.600gf (256 characters, 37716 bytes).
+Transcript written on lass0800.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lass0800.tfm: successfully generated.
+
+kpathsea: Running mktextfm lati0600
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lati0600
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lati0600
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lati0600.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lati0600.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 6
+>> "input ecti" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecti.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/letextit.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exillett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyri.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusi.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comi.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upi.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2loi.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgilig.mf [25]
+[26] [27] [28] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgitalp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgidigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lliligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lati0600.tfm.
+Output written on lati0600.600gf (256 characters, 32452 bytes).
+Transcript written on lati0600.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lati0600.tfm: successfully generated.
+
+kpathsea: Running mktextfm lacc0600
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lacc0600
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lacc0600
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lacc0600.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lacc0600.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 6
+>> "input eccc" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/eccc.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lecsc.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [163] [162]
+[168] [167] [187] [175] [182] [160] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcspl.mf [25]
+[26] [27] [28] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lypseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lycyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llcligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lacc0600.tfm.
+Output written on lacc0600.600gf (256 characters, 31556 bytes).
+Transcript written on lacc0600.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lacc0600.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm0900
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm0900
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm0900
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0900.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm0900.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 9
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm0900.tfm.
+Output written on larm0900.600gf (256 characters, 45224 bytes).
+Transcript written on larm0900.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0900.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm1095
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm1095
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm1095
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm1095.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm1095.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10.95
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on larm1095.tfm.
+Output written on larm1095.600gf (256 characters, 54212 bytes).
+Transcript written on larm1095.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm1095.tfm: successfully generated.
+
+kpathsea: Running mktextfm larm1200
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input larm1200
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf larm1200
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm1200.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/larm1200.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 12
+>> "input ecrm" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+(some charht values had to be adjusted by as much as 0.07143pt)
+Font metrics written on larm1200.tfm.
+Output written on larm1200.600gf (256 characters, 59068 bytes).
+Transcript written on larm1200.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm: successfully generated.
+
+kpathsea: Running mktextfm labx1200
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input labx1200
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf labx1200
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx1200.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx1200.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 12
+>> "input ecbx" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecbx.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on labx1200.tfm.
+Output written on labx1200.600gf (256 characters, 58176 bytes).
+Transcript written on labx1200.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm: successfully generated.
+
+kpathsea: Running mktextfm lass0600
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lass0600
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lass0600
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass0600.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass0600.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 6
+>> "input ecss" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecss.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lass0600.tfm.
+Output written on lass0600.600gf (256 characters, 29060 bytes).
+Transcript written on lass0600.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lass0600.tfm: successfully generated.
+
+kpathsea: Running mktextfm lass0900
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lass0900
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lass0900
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass0900.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass0900.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 9
+>> "input ecss" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecss.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lass0900.tfm.
+Output written on lass0900.600gf (256 characters, 42080 bytes).
+Transcript written on lass0900.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lass0900.tfm: successfully generated.
+
+kpathsea: Running mktextfm lati0900
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lati0900
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lati0900
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lati0900.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lati0900.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 9
+>> "input ecti" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecti.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/letextit.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exillett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyri.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusi.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comi.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upi.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2loi.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgilig.mf [25]
+[26] [27] [28] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgitalp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgidigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lliligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lati0900.tfm.
+Output written on lati0900.600gf (256 characters, 48316 bytes).
+Transcript written on lati0900.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lati0900.tfm: successfully generated.
+
+kpathsea: Running mktextfm lass1000
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lass1000
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lass1000
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass1000.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lass1000.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10
+>> "input ecss" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecss.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lass1000.tfm.
+Output written on lass1000.600gf (256 characters, 46392 bytes).
+Transcript written on lass1000.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lass1000.tfm: successfully generated.
+
+kpathsea: Running mktextfm lasx1000
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lasx1000
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lasx1000
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lasx1000.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lasx1000.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10
+>> "input ecsx" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecsx.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lasx1000.tfm.
+Output written on lasx1000.600gf (256 characters, 45776 bytes).
+Transcript written on lasx1000.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lasx1000.tfm: successfully generated.
+
+kpathsea: Running mktextfm labx1000
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm already exists.
+
+kpathsea: Running mktextfm labx0700
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input labx0700
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf labx0700
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx0700.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx0700.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 7
+>> "input ecbx" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecbx.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on labx0700.tfm.
+Output written on labx0700.600gf (256 characters, 35476 bytes).
+Transcript written on labx0700.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx0700.tfm: successfully generated.
+
+kpathsea: Running mktextfm labx0600
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input labx0600
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf labx0600
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx0600.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/labx0600.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 6
+>> "input ecbx" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecbx.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llrligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on labx0600.tfm.
+Output written on labx0600.600gf (256 characters, 30652 bytes).
+Transcript written on labx0600.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx0600.tfm: successfully generated.
+
+kpathsea: Running mktextfm latt0800
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input latt0800
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf latt0800
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/latt0800.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/latt0800.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 8
+>> "input ectt" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ectt.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llmligtb.mf) ) ) )
+Font metrics written on latt0800.tfm.
+Output written on latt0800.600gf (256 characters, 34876 bytes).
+Transcript written on latt0800.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/latt0800.tfm: successfully generated.
+
+kpathsea: Running mktextfm lati1000
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lati1000
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lati1000
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lati1000.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lati1000.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10
+>> "input ecti" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecti.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/letextit.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exillett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyri.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusi.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comi.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upi.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2loi.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgilig.mf [25]
+[26] [27] [28] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgitalp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgidigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lliligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lati1000.tfm.
+Output written on lati1000.600gf (256 characters, 53212 bytes).
+Transcript written on lati1000.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lati1000.tfm: successfully generated.
+
+kpathsea: Running mktextfm lacc0700
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lacc0700
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lacc0700
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lacc0700.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lacc0700.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 7
+>> "input eccc" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/eccc.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lecsc.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [163] [162]
+[168] [167] [187] [175] [182] [160] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcspl.mf [25]
+[26] [27] [28] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lypseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lycyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llcligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lacc0700.tfm.
+Output written on lacc0700.600gf (256 characters, 36220 bytes).
+Transcript written on lacc0700.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lacc0700.tfm: successfully generated.
+
+kpathsea: Running mktextfm lacc0900
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input lacc0900
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf lacc0900
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lacc0900.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/lacc0900.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 9
+>> "input eccc" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/eccc.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lecsc.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [163] [162]
+[168] [167] [187] [175] [182] [160] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcspl.mf [25]
+[26] [27] [28] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lypseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lycyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llvligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llcligtb.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/laliker.mf) ) ) )
+Font metrics written on lacc0900.tfm.
+Output written on lacc0900.600gf (256 characters, 46064 bytes).
+Transcript written on lacc0900.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/lacc0900.tfm: successfully generated.
+
+kpathsea: Running mktextfm latt1000
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; ; nonstopmode; input latt1000
+This is METAFONT, Version 2.71828182 (TeX Live 2025/Debian) (preloaded base=mf)
+
+kpathsea: Running mktexmf latt1000
+mf: /home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/latt1000.mf: successfully generated.
+
+(/home/runner/.texlive2025/texmf-var/fonts/source/lh/lh-t2a/latt1000.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/fikparm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/public/cm/cmbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrbeg.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lkligtbl.mf)
+>> 10
+>> "input ectt" (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ectt.mf
+) (/usr/share/texlive/texmf-dist/fonts/source/lh/lh-t2a/lacodes.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lcyrdefs.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/leroman.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lxpseudo.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf [97]
+[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyru.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusu.mf [192] [193]
+[194] [195] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+[206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216] [217]
+[218] [219] [220] [221] [222] [223] [156])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2comu.mf [131] [130]
+[136] [135] [155] [143] [150] [128] [142] [144] [146] [153])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upu.mf [129] [132]
+[133] [134] [137] [138] [141] [145] [147] [148] [149] [152] [154])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lou.mf [140] [139]
+[151])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrl.mf
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrusl.mf [224] [225]
+[226] [227] [228] [229] [230] [231] [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248] [249]
+[250] [251] [252] [253] [254] [255] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2coml.mf [163] [162]
+[167] [187] [175] [182] [160] [168] [174] [176] [178] [185])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2upl.mf [161] [164]
+[165] [166] [169] [170] [173] [177] [179] [180] [181] [184] [186])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgt2lol.mf [172] [171]
+[183])) (/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyrsym.mf
+[13] [14] [15] [22] [24] [23] [34] [157] [158] [159] [189] [190] [191])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgengsym.mf [16] [17]
+[21] [32] [33] [35] [36] [37] [39] [40] [41] [42] [43] [44] [45] [46] [47]
+[58] [59] [60] [62] [61] [64] [91] [92] [93] [94] [95] [96] [123] [124]
+[125] [126] [127])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgromp.mf [38] [63])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrdigit.mf [48] [49]
+[50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgrlig.mf [25] [26]
+[28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/lgcyracc.mf [0] [1]
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [19] [20] [18])
+(/usr/share/texlive/texmf-dist/fonts/source/lh/base/llmligtb.mf) ) ) )
+Font metrics written on latt1000.tfm.
+Output written on latt1000.600gf (256 characters, 42972 bytes).
+Transcript written on latt1000.log.
+mktextfm: /home/runner/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/latt1000.tfm: successfully generated.

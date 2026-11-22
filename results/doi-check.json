@@ -1,0 +1,382 @@
+{
+  "utc": "2026-11-22T00:38:27.810604+00:00",
+  "note": "Publisher-deposited Crossref metadata, not a full independent review of each paper. Website checks are listed in docs/Источники.md.",
+  "records": [
+    {
+      "doi": "10.1145/2342509.2342513",
+      "expected_title": "Fog computing and its role in the internet of things",
+      "actual_title": "Fog computing and its role in the internet of things",
+      "publisher": "ACM",
+      "container": [
+        "Proceedings of the first edition of the MCC workshop on Mobile cloud computing"
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            2012,
+            8,
+            17
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "pages": "13-16",
+      "authors": [
+        {
+          "given": "Flavio",
+          "family": "Bonomi",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Cisco Systems Inc., San Jose, CA, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rodolfo",
+          "family": "Milito",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Cisco Systems Inc., San Jose, CA, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jiang",
+          "family": "Zhu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Cisco Systems Inc., San Jose, CA, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sateesh",
+          "family": "Addepalli",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Cisco Systems Inc., San Jose, CA, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "verified": true,
+      "source": "https://api.crossref.org/works/10.1145%2F2342509.2342513"
+    },
+    {
+      "doi": "10.1109/JIOT.2016.2579198",
+      "expected_title": "Edge Computing: Vision and Challenges",
+      "actual_title": "Edge Computing: Vision and Challenges",
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "container": [
+        "IEEE Internet of Things Journal"
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            2016,
+            10
+          ]
+        ]
+      },
+      "volume": "3",
+      "issue": "5",
+      "pages": "637-646",
+      "authors": [
+        {
+          "given": "Weisong",
+          "family": "Shi",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jie",
+          "family": "Cao",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Quan",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Youhuizi",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Lanyu",
+          "family": "Xu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "verified": true,
+      "source": "https://api.crossref.org/works/10.1109%2FJIOT.2016.2579198"
+    },
+    {
+      "doi": "10.1109/71.993206",
+      "expected_title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
+      "actual_title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "container": [
+        "IEEE Transactions on Parallel and Distributed Systems"
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            2002,
+            3
+          ]
+        ]
+      },
+      "volume": "13",
+      "issue": "3",
+      "pages": "260-274",
+      "authors": [
+        {
+          "given": "H.",
+          "family": "Topcuoglu",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "S.",
+          "family": "Hariri",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "family": "Min-You Wu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "verified": true,
+      "source": "https://api.crossref.org/works/10.1109%2F71.993206"
+    },
+    {
+      "doi": "10.1002/spe.2766",
+      "expected_title": "How to place your apps in the fog",
+      "actual_title": "How to place your apps in the fog: State of the art and open challenges",
+      "publisher": "Wiley",
+      "container": [
+        "Software: Practice and Experience"
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            2019,
+            11,
+            27
+          ]
+        ]
+      },
+      "volume": "50",
+      "issue": "5",
+      "pages": "719-740",
+      "authors": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-2048-2468",
+          "authenticated-orcid": false,
+          "given": "Antonio",
+          "family": "Brogi",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science University of Pisa  Pisa Italy"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-4159-8761",
+          "authenticated-orcid": false,
+          "given": "Stefano",
+          "family": "Forti",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science University of Pisa  Pisa Italy"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-2969-0597",
+          "authenticated-orcid": false,
+          "given": "Carlos",
+          "family": "Guerrero",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science University of the Balearic Islands  Balearic Islands Spain"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-2826-5970",
+          "authenticated-orcid": false,
+          "given": "Isaac",
+          "family": "Lera",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science University of the Balearic Islands  Balearic Islands Spain"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "verified": true,
+      "source": "https://api.crossref.org/works/10.1002%2Fspe.2766"
+    },
+    {
+      "doi": "10.4230/LIPIcs.APPROX/RANDOM.2020.60",
+      "expected_title": "Better and Simpler Learning-Augmented Online Caching",
+      "verified": false,
+      "error": "HTTP Error 404: Not Found",
+      "source": "https://api.crossref.org/works/10.4230%2FLIPIcs.APPROX%2FRANDOM.2020.60"
+    },
+    {
+      "doi": "10.1287/opre.9.3.383",
+      "expected_title": "A Proof for the Queuing Formula",
+      "actual_title": "A Proof for the Queuing Formula:\n                    <i>L</i>\n                    = λ\n                    <i>W</i>",
+      "publisher": "Institute for Operations Research and the Management Sciences (INFORMS)",
+      "container": [
+        "Operations Research"
+      ],
+      "issued": {
+        "date-parts": [
+          [
+            1961,
+            6
+          ]
+        ]
+      },
+      "volume": "9",
+      "issue": "3",
+      "pages": "383-387",
+      "authors": [
+        {
+          "given": "John D. C.",
+          "family": "Little",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Case Institute of Technology, Cleveland, Ohio"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "verified": true,
+      "source": "https://api.crossref.org/works/10.1287%2Fopre.9.3.383"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "figures": [
+    {
+      "file": "article/figures/architecture.pdf",
+      "bytes": 17467,
+      "sha256": "de2d6c45552863e31a34035c0f0a262b2c7b993c4db29c1da1d995adbde1bd2d"
+    },
+    {
+      "file": "article/figures/architecture.png",
+      "bytes": 20277,
+      "sha256": "332cafbfead3c33d95b93cca76a1c84efc8bbc20f4aa8bf1a650fdf000f71d15"
+    },
+    {
+      "file": "article/figures/six_path.pdf",
+      "bytes": 15156,
+      "sha256": "9e56935c691133e28d1af154d565262e3546e7ebdc34da1d34f58858ef4c9e52"
+    },
+    {
+      "file": "article/figures/six_path.png",
+      "bytes": 20801,
+      "sha256": "c90d76d5bd7be60aa10dcb940e70a92427b4dbe0a9dadce493c00e6ad9ba4542"
+    },
+    {
+      "file": "article/figures/inputs_outputs.pdf",
+      "bytes": 12744,
+      "sha256": "006b4faac7894be929873bc85e6bab3785df39bbf154b87b1764f2e943ef078e"
+    },
+    {
+      "file": "article/figures/inputs_outputs.png",
+      "bytes": 17195,
+      "sha256": "5ef878fe342f9541fc056562dd70a2627732add11aca2cf90d42ae302f07ae03"
+    },
+    {
+      "file": "article/figures/components.pdf",
+      "bytes": 18328,
+      "sha256": "1d2fa01a5906080e30c4db1ec6bb0739fe2c1807a476bd472346a45284e469b1"
+    },
+    {
+      "file": "article/figures/components.png",
+      "bytes": 32266,
+      "sha256": "f09be446199a7d2366ec432118b0107f053ad07bc3922b2eda364ee334c17561"
+    },
+    {
+      "file": "article/figures/ratio.pdf",
+      "bytes": 13802,
+      "sha256": "cef9ad98c4bec20d44b0eb21b0541205d2ba8a6334ef7c7f79616562c8452330"
+    },
+    {
+      "file": "article/figures/ratio.png",
+      "bytes": 25449,
+      "sha256": "bbf2b0881c2105093a2844dd1203a96d12a4881b8fe13e67ceb87f80829ea80e"
+    },
+    {
+      "file": "article/figures/buffer.pdf",
+      "bytes": 15412,
+      "sha256": "41e87cccce56bc514f4e6f8d438d332f365530e5f5ce01877c920a17a1e500fe"
+    },
+    {
+      "file": "article/figures/buffer.png",
+      "bytes": 30609,
+      "sha256": "089dd7b4b11ad2d6f83d4174dadc504d6c2bd51f30438ecb5e408cfff534c4e5"
+    },
+    {
+      "file": "article/figures/queue.pdf",
+      "bytes": 14719,
+      "sha256": "1d1a4abc7243379116c19b559aaecd73771158ebfaa932e3233d4e378582f269"
+    },
+    {
+      "file": "article/figures/queue.png",
+      "bytes": 28729,
+      "sha256": "a837be0c27ba22ebd705a8d362e346e21c606814c30aca133ee76d03bf03dd40"
+    },
+    {
+      "file": "article/figures/forecast_socket.pdf",
+      "bytes": 17273,
+      "sha256": "1af3420356443f8c4614ae3d723e5f71ba30f60d0d09af9160832a99d4e3ae38"
+    },
+    {
+      "file": "article/figures/forecast_socket.png",
+      "bytes": 23219,
+      "sha256": "69eaee68ec237e57d1eda6720a8649404e5b8b32a574c17f01ac3493cb3dde32"
+    },
+    {
+      "file": "article/figures/forecast_mae.pdf",
+      "bytes": 12037,
+      "sha256": "a8d57e2b7cc4730df4aee54db455165912ebccc38c142f5e6de295cd5cc9e7c9"
+    },
+    {
+      "file": "article/figures/forecast_mae.png",
+      "bytes": 25087,
+      "sha256": "a92c6e2dcbe2ddab0ddce0c77e66364c9035433570598eaf538c625fc8b9281f"
+    },
+    {
+      "file": "article/figures/forecast_coverage.pdf",
+      "bytes": 15842,
+      "sha256": "284fe4f1d7d0fafc2d75fe049805ca2cdb68c31fecc6ab4dc588832893425fbd"
+    },
+    {
+      "file": "article/figures/forecast_coverage.png",
+      "bytes": 26844,
+      "sha256": "24bd2714873c1fb2a614e7e608c9660f841f06778bf9f3909f8b0032dc889e85"
+    },
+    {
+      "file": "article/figures/forecast_trace.pdf",
+      "bytes": 18938,
+      "sha256": "f646ee1894884fb3e3c01d8e6a79ac6556628ef038c584d4f11f3e6218306c7e"
+    },
+    {
+      "file": "article/figures/forecast_trace.png",
+      "bytes": 141995,
+      "sha256": "bb120d3a556b3fa96c5080e51ca039469799dc11d9a4c44b5dd1bd570e1dc3a1"
+    },
+    {
+      "file": "article/figures/placement_chain.pdf",
+      "bytes": 16053,
+      "sha256": "ff0550080ba13699a7bf9521b42b1335c6a2ee9459ffff99c2706a2197981f33"
+    },
+    {
+      "file": "article/figures/placement_chain.png",
+      "bytes": 22527,
+      "sha256": "578e7eefe730640c5b34fa7b622ba43e15fdbdb4c4c2b5f410cbd57621e59600"
+    },
+    {
+      "file": "article/figures/graph_P.pdf",
+      "bytes": 8349,
+      "sha256": "d31d59232d9224529cd81c8bcb6f82b9db56c89274e036d3f9bf86b754436a33"
+    },
+    {
+      "file": "article/figures/graph_P.png",
+      "bytes": 13348,
+      "sha256": "394470039e21a07a6715c2104e93e21e3a74c88568ab0f9dd0ecd3bce2104c7e"
+    },
+    {
+      "file": "article/figures/graph_B.pdf",
+      "bytes": 7837,
+      "sha256": "f20e82bd60d3da2b6d31f753bc113f46365efaffbdbb2108fce692907c6ee9ae"
+    },
+    {
+      "file": "article/figures/graph_B.png",
+      "bytes": 12887,
+      "sha256": "0b039fb7302af6589c03737caa37ba66606e1fc8d02affc6a7b5f7480e52dcd2"
+    },
+    {
+      "file": "article/figures/gantt_P.pdf",
+      "bytes": 12717,
+      "sha256": "2e76624532918d9386c465fe6beb93ce0fa5877c26ef45e6ce7424535f1e7352"
+    },
+    {
+      "file": "article/figures/gantt_P.png",
+      "bytes": 14006,
+      "sha256": "919945cc4d7e7b2a0889b3e76b35b9632a8361499289b04b006a98139cdeea92"
+    },
+    {
+      "file": "article/figures/gantt_B.pdf",
+      "bytes": 11133,
+      "sha256": "a8b80d1c014af9b976b9ac68256631fe84a1913fca651865b2c512b25a9ee72b"
+    },
+    {
+      "file": "article/figures/gantt_B.png",
+      "bytes": 15084,
+      "sha256": "16bc532fadab6c2e235eac1f9f4e536c87839867839454596a49714c83dad967"
+    },
+    {
+      "file": "article/figures/neural_placement.pdf",
+      "bytes": 13947,
+      "sha256": "b69048207555f63f36c36b9b7dc3d754e81ef8c93dd96be1b38ea267357c5d81"
+    },
+    {
+      "file": "article/figures/neural_placement.png",
+      "bytes": 22136,
+      "sha256": "d1f5afd1a881355b8773eb2af48b03eb6a1bc09f7ce83e2e506bf40af5adf8af"
+    }
+  ],
+  "figures_pdf_png": 17,
+  "checks": "file signatures, all expected names, exact control endpoints, forecast metrics recalculated",
+  "visual_review": "not automated: author-side contact-sheet review recorded separately",
+  "status": "OK"
+}
