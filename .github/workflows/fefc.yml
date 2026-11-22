@@ -46,3 +46,9 @@ jobs:
             results/
             colab/
             article/
+            efc/
+            tests/
+            scripts/
+            docs/
+            v2/
+            requirements.txt
