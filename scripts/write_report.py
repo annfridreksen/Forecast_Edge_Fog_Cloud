@@ -1,7 +1,8 @@
-"""Write a current report, not a stale original report with a corrective footnote."""
+"""Write a current report and final provenance from actual executed records."""
 from pathlib import Path
 import json,re
 from issue4_report import main as issue4_report
+from finalize_provenance import main as finalize_provenance
 ROOT=Path(__file__).resolve().parents[1];R=ROOT/'results';D=ROOT/'docs'
 
 def main():
@@ -45,6 +46,7 @@ GitHub API, настоящая сборка — на GitHub runner. Прежни
 запуски не удалены; их количество включено в журнал истории ниже.
 '''
     (D/'Отчёт_ночи.md').write_text(text)
+    finalize_provenance()
     issue4_report()
     with (D/'Отчёт_ночи.md').open('a') as f:f.write('\nСлабое место: результаты относятся к явным синтетическим допущениям; реальная инфраструктура, точная стационарность и преимущество P не подтверждены.\n')
 if __name__=='__main__':main()
