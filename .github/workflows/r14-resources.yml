@@ -1,0 +1,63 @@
+name: R14 resource probe and source snapshot
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['.github/workflows/r14-resources.yml']
+permissions:
+  contents: read
+concurrency:
+  group: r14-resource-probe
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - name: Small actual-kernel resource probe, not the scientific grid
+        run: |
+          mkdir -p results/r14/resource-probe
+          git archive --format=tar.gz HEAD -o results/r14/resource-probe/source.tar.gz
+          python - <<'PY'
+          from dataclasses import asdict
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import gzip, json, platform, resource, subprocess, time
+          from efc.model import Config
+          from efc.pilot import KernelSampler
+          out=Path('results/r14/resource-probe')
+          cfg=Config(n_cloud=40,n_fog=50,buffer=2,arrival_rate_s=.7*50/.055,seed=100)
+          t=time.perf_counter()
+          sample=KernelSampler(cfg)(100,20,40,10)
+          elapsed=time.perf_counter()-t
+          with gzip.open(out/'small-observation.json.gz','wt',encoding='utf-8') as f:
+              json.dump(asdict(sample),f,ensure_ascii=False,allow_nan=False)
+          report=dict(scope='resource probe only; W/T/G=20/40/10, NOT approved scientific windows',
+                      source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                      utc=datetime.now(timezone.utc).isoformat(),python=platform.python_version(),
+                      config=asdict(cfg),warmup=20,observe=40,guard=10,
+                      elapsed_wall_seconds=elapsed,peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                      arrivals=sample.full.arrivals,dropped=sample.full.dropped,
+                      unfinished=sample.full.unfinished,scientific_grid_run=False,
+                      provenance=sample.provenance)
+          (out/'probe.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          assert sample.full.unfinished==0
+          PY
+      - name: Check no tracked file changed
+        if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r14-resource-${{ github.sha }}
+          path: results/r14/resource-probe/
+          if-no-files-found: error
