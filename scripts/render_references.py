@@ -27,7 +27,7 @@ def render():
     bibliography=[r'\begin{thebibliography}{99}']
     for key in keys:
         if key=='nskf':
-            bibliography.extend([r'\Bibitem{nskf}',r'\by Игнатенко А. С., Орда-Жигулина М. В.',r'\paper Исследование конфигурации вычислительной среды Edge--Fog',r'\inbook Тезисы НСКФ-2026. Материал предоставлен авторами; выходные сведения уточняются. DOI не подтверждён',r'\yr 2026',''])
+            bibliography.extend([r'\RBibitem{nskf}',r'\by Игнатенко А. С., Орда-Жигулина М. В.',r'\paper Исследование конфигурации вычислительной среды Edge--Fog',r'\inbook Тезисы НСКФ-2026. Материал предоставлен авторами; выходные сведения уточняются. DOI не подтверждён',r'\yr 2026',''])
             continue
         row=rows[key]
         authors=[tex(a.get('family',a.get('name',''))+' '+a.get('given','')) for a in row.get('authors',[])]
