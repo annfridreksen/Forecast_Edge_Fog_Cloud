@@ -1,8 +1,8 @@
 {
-  "request_id": "20261123-fullsize-probe-01",
-  "mode": "probe",
-  "restore_run_id": 0,
-  "restore_artifact_name": "",
+  "request_id": "20261123-map-slice-01",
+  "mode": "slice",
+  "restore_run_id": 45076689693,
+  "restore_artifact_name": "r14-map-45076689693",
   "wall_seconds": 900,
-  "max_expected_events": 350000
+  "max_expected_events": 500000
 }
