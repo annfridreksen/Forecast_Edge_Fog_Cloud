@@ -6,7 +6,7 @@ import numpy as np
 from scipy.stats import t
 from efc.stationary import ci95
 from scripts.review_article import ci,table,section_replace,block_replace
-from scripts.verify_doi import verify,crossref,datacite
+from scripts.verify_doi import verify,crossref
 
 class Issue4Integration(unittest.TestCase):
     def test_ci_across_replications(self):
@@ -45,12 +45,12 @@ class Issue4Integration(unittest.TestCase):
     def test_datacite_is_valid_for_dagstuhl(self):
         item={'key':'advice','doi':'10.4230/LIPIcs.APPROX/RANDOM.2020.60','title':'Better and Simpler Learning-Augmented Online Caching'}
         data={'registered_doi':item['doi'],'actual_title':item['title'],'registry':'DataCite'}
-        with patch('scripts.verify_doi.datacite',return_value=data),patch('scripts.verify_doi.crossref',side_effect=AssertionError('must not need Crossref')):
+        with patch('scripts.verify_doi.datacite',new=lambda _:data),patch('scripts.verify_doi.crossref',side_effect=AssertionError('must not need Crossref')):
             self.assertTrue(verify(item)['ok'])
     def test_title_mismatch_not_success(self):
         item={'doi':'10.1/test','title':'Expected title'}
         data={'registered_doi':item['doi'],'actual_title':'Unrelated title'}
-        with patch('scripts.verify_doi.crossref',return_value=data),patch('scripts.verify_doi.datacite',return_value=data):
+        with patch('scripts.verify_doi.crossref',new=lambda _:data),patch('scripts.verify_doi.datacite',new=lambda _:data):
             self.assertFalse(verify(item)['ok'])
     def test_catalog_has_eighteen_unique_doi(self):
         records=json.loads((Path(__file__).resolve().parents[1]/'article/references.json').read_text())
