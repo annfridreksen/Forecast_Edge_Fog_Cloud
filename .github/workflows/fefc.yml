@@ -25,7 +25,7 @@ jobs:
         run: |
           if [ -f scripts/write_article.py ]; then
             sudo apt-get update -qq
-            sudo apt-get install -y -qq texlive-latex-extra texlive-lang-cyrillic texlive-fonts-extra
+            sudo apt-get install -y -qq --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super
           fi
       - name: Execute tests and notebooks
         run: python scripts/build_artifacts.py
@@ -35,13 +35,14 @@ jobs:
           git diff --exit-code -- v2 docs/Журнал_проверок_Perplexity.md
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add colab article results docs/STATUS.md
-          git diff --cached --quiet || git commit -m 'FEFC: проверенные тетради и результаты из чистого checkout'
+          git add colab article results docs/STATUS.md docs/Утверждения.md
+          git diff --cached --quiet || git commit -m 'FEFC: проверенные тетради, статья и результаты из чистого checkout'
           git push origin HEAD:night/fefc-v3
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: fefc-checked-output
+          include-hidden-files: true
           path: |
             results/
             colab/
@@ -52,3 +53,8 @@ jobs:
             docs/
             v2/
             requirements.txt
+            !**/__pycache__/**
+            !article/*.aux
+            !article/*.log
+            !article/*.out
+            !article/*.brf
