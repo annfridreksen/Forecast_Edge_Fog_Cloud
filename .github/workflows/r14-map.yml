@@ -1,0 +1,91 @@
+name: R14 bounded scientific map
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['configs/r14-night-run.json', '.github/workflows/r14-map.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: fefc-r14-scientific-single-writer
+  cancel-in-progress: false
+jobs:
+  scientific:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - name: Validate checkpoint lineage before any calculation
+        id: request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,urllib.request
+          from pathlib import Path
+          d=json.loads(Path('configs/r14-night-run.json').read_text())
+          run=int(os.environ['GITHUB_RUN_ID'])
+          url='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/workflows/r14-map.yml/runs?branch=night%2Ffefc-v3&per_page=100'
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req,timeout=30) as r: data=json.load(r)
+          prior=[x for x in data['workflow_runs'] if x['id']<run]
+          latest=max(prior,key=lambda x:x['id']) if prior else None
+          if latest:
+              assert latest['status']=='completed','Previous scientific run still active'
+              assert d['restore_run_id']==latest['id'],'Refuse stale/missing checkpoint lineage'
+              assert d['restore_artifact_name']=='r14-map-'+str(latest['id'])
+          else:
+              assert d['restore_run_id']==0 and d['mode']=='probe'
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              print('restore_run_id='+str(d['restore_run_id']),file=f)
+              print('restore_artifact_name='+d['restore_artifact_name'],file=f)
+          print('Checkpoint lineage accepted; no scientific calculation yet.')
+          PY
+      - uses: actions/download-artifact@v4
+        if: steps.request.outputs.restore_run_id != '0'
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.request.outputs.restore_run_id }}
+          name: ${{ steps.request.outputs.restore_artifact_name }}
+          path: results/r14/night-map/
+      - name: Check recording adapter and persistent continuation
+        run: |
+          python -m unittest discover -s tests -p test_primary_summary.py -v
+          python scripts/check_r14_grid.py
+      - name: Preserve precise source and dependency versions
+        run: |
+          mkdir -p results/r14/night-map/source
+          git archive --format=tar.gz HEAD -o results/r14/night-map/source/${{ github.sha }}.tar.gz
+          python -m pip freeze > results/r14/night-map/source/environment-${{ github.run_id }}.txt
+      - name: Bounded request, scientific windows unchanged
+        run: |
+          set -o pipefail
+          mkdir -p results/r14/night-map/logs
+          python scripts/run_r14_night.py 2>&1 | tee results/r14/night-map/logs/${{ github.run_id }}.txt
+      - name: Tracked sources remain unchanged
+        if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r14-map-${{ github.run_id }}
+          path: results/r14/night-map/
+          if-no-files-found: warn
+          compression-level: 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r14-map-validation-${{ github.run_id }}
+          path: results/r14/current/grid/
+          if-no-files-found: warn

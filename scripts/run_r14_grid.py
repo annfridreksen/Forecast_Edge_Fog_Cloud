@@ -6,6 +6,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from efc.grid import GridRunner
+from efc.primary import PrimarySampler
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
@@ -18,7 +19,7 @@ def main():
     args = p.parse_args()
     if not 0 < args.wall_seconds <= 18000 or args.max_expected_events < 350000:
         p.error('positive time budget <=18000 s; event ceiling >=350000')
-    out = GridRunner(args.out, wall_seconds=args.wall_seconds,
+    out = GridRunner(args.out, factory=PrimarySampler, wall_seconds=args.wall_seconds,
                      max_expected_events=args.max_expected_events).run(confirm=args.confirm)
     print(json.dumps(out, ensure_ascii=False, indent=2), flush=True)
     # A budget pause is saved, not interpreted as a complete scientific map.
