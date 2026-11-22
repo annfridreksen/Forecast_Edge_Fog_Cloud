@@ -70,7 +70,10 @@ def main():
             raise RuntimeError('Unexecuted code cells')
         if any(o.get('output_type') == 'error' for c in cells for o in c.get('outputs', [])):
             raise RuntimeError('Notebook error output')
-        report.update(status='PASS', executed_code_cells=len(cells))
+        image_count = sum('image/png' in o.get('data', {}) for c in cells for o in c.get('outputs', []))
+        if image_count < 1:
+            raise RuntimeError('Manual timeline was not rendered in the notebook')
+        report.update(status='PASS', executed_code_cells=len(cells), rendered_png_outputs=image_count)
     except Exception as exc:
         report.update(status='FAILED', error=repr(exc))
         raise
