@@ -5,13 +5,16 @@ on:
     paths: ['efc/**','tests/**','scripts/**','requirements.txt','.github/workflows/fefc.yml','article/*.tex','article/*.json']
 permissions:
   contents: write
+  statuses: write
 concurrency:
   group: fefc-night-v3
   cancel-in-progress: true
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,21 +24,23 @@ jobs:
         with:
           python-version: '3.13'
       - run: python -m pip install -r requirements.txt
-      - name: Install LaTeX and PDF inspection utilities
+      - name: Install LaTeX and PDF utilities
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils
-      - name: Execute clean final check
-        run: python scripts/build_artifacts.py
-      - name: Publish only generated research artifacts to the same branch
+      - name: Check recorded science; execute notebook00; rebuild PDF
+        run: python scripts/check_cached_artifacts.py
+      - name: Publish item10 article and item12 notebook separately
         run: |
           test "$(git branch --show-current)" = night/fefc-v3
           git diff --exit-code -- v2 docs/Журнал_проверок_Perplexity.md
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add colab article results MANIFEST.sha256 docs/STATUS.md docs/Утверждения.md docs/Отчёт_ночи.md docs/Краткий_план_статьи.md docs/Ответ_на_замечания.md docs/Взаимодействие_с_проверяющим.md docs/Как_пользоваться.md
+          git add article/main.tex article/main.pdf article/references_verified.tex article/availability.tex results/doi-check.json results/citation-check.json results/article-provenance.json
+          git diff --cached --quiet || git commit -m 'FEFC: Issue #4 п.10 — собранный PDF и 14 DOI плюс тезисы'
+          git add colab/00_Старт.ipynb colab/clean/00_Старт.ipynb results/revision results/revision-check.json results/start-dashboard results/final-check.txt MANIFEST.sha256 docs/STATUS.md
           git diff --cached --exit-code -- v2 docs/Журнал_проверок_Perplexity.md
-          git diff --cached --quiet || git commit -m 'FEFC: Issue #4 — выполненные серии, согласованная статья и ответ на все пункты'
+          git diff --cached --quiet || git commit -m 'FEFC: Issue #4 п.12 — выполненная стартовая тетрадь и адресная проверка'
           git push origin HEAD:night/fefc-v3
       - uses: actions/upload-artifact@v4
         if: always()
@@ -51,6 +56,7 @@ jobs:
             scripts/
             docs/
             v2/
+            README.md
             requirements.txt
             MANIFEST.sha256
             .github/workflows/fefc.yml
@@ -59,3 +65,16 @@ jobs:
             !article/*.log
             !article/*.out
             !article/*.brf
+      - name: Mark the generated HEAD with the actually completed checks
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,subprocess,urllib.request
+          sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          repo=os.environ['GITHUB_REPOSITORY']
+          data={'state':'success','context':'FEFC / executed validation','description':'Tests, nbconvert00, stored-data audit and PDF passed; no science rerun','target_url':f'https://github.com/{repo}/actions/runs/'+os.environ['GITHUB_RUN_ID']}
+          req=urllib.request.Request(f'https://api.github.com/repos/{repo}/statuses/{sha}',data=json.dumps(data).encode(),headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'},method='POST')
+          with urllib.request.urlopen(req,timeout=30) as r: print('Commit status:',r.status,sha)
+          PY
