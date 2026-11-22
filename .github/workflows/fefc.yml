@@ -27,7 +27,7 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y -qq --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super
           fi
-      - name: Execute tests and notebooks
+      - name: Execute clean final check
         run: python scripts/build_artifacts.py
       - name: Publish only generated research artifacts to the same branch
         run: |
@@ -35,8 +35,8 @@ jobs:
           git diff --exit-code -- v2 docs/Журнал_проверок_Perplexity.md
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add colab article results docs/STATUS.md docs/Утверждения.md
-          git diff --cached --quiet || git commit -m 'FEFC: проверенные тетради, статья и результаты из чистого checkout'
+          git add colab article results docs/STATUS.md docs/Утверждения.md docs/Отчёт_ночи.md MANIFEST.sha256
+          git diff --cached --quiet || git commit -m 'FEFC: итог ночи'
           git push origin HEAD:night/fefc-v3
       - uses: actions/upload-artifact@v4
         if: always()
@@ -53,6 +53,8 @@ jobs:
             docs/
             v2/
             requirements.txt
+            MANIFEST.sha256
+            .github/workflows/fefc.yml
             !**/__pycache__/**
             !article/*.aux
             !article/*.log
