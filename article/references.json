@@ -16,5 +16,6 @@
 {"key":"lei","doi":"10.1080/01621459.2017.1307116","title":"Distribution-Free Predictive Inference for Regression"},
 {"key":"angelopoulos","doi":"10.1561/2200000101","title":"Conformal Prediction: A Gentle Introduction"},
 {"key":"v2x","doi":"10.1109/GLOBECOM42002.2020.9348104","title":"Latency Prediction for Delay-sensitive V2X Applications in Mobile Cloud/Edge Computing Systems"},
-{"key":"chu","doi":"10.1007/s44443-025-00089-0","title":"Transformer-based latency prediction for stream processing task"}
+{"key":"chu","doi":"10.1007/s44443-025-00089-0","title":"Transformer-based latency prediction for stream processing task"},
+{"key":"lykouris","doi":"10.1145/3447579","title":"Competitive Caching with Machine Learned Advice"}
 ]
