@@ -1,27 +1,17 @@
 {
-  "utc": "2026-11-22T07:10:27.223137+00:00",
-  "note": "Publisher-deposited Crossref metadata, not a full independent review of each paper. Website checks are listed in docs/Источники.md.",
+  "utc": "2026-11-22T10:30:28.408572+00:00",
+  "note": "Registration metadata and title matching, not full peer review. DataCite and Crossref are different registries. Errors remain explicit.",
   "records": [
     {
+      "key": "bonomi",
       "doi": "10.1145/2342509.2342513",
+      "title": "Fog computing and its role in the internet of things",
       "expected_title": "Fog computing and its role in the internet of things",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1145/2342509.2342513",
       "actual_title": "Fog computing and its role in the internet of things",
-      "publisher": "ACM",
-      "container": [
-        "Proceedings of the first edition of the MCC workshop on Mobile cloud computing"
-      ],
-      "issued": {
-        "date-parts": [
-          [
-            2012,
-            8,
-            17
-          ]
-        ]
-      },
-      "volume": null,
-      "issue": null,
-      "pages": "13-16",
       "authors": [
         {
           "given": "Flavio",
@@ -88,28 +78,28 @@
           ]
         }
       ],
-      "verified": true,
-      "source": "https://api.crossref.org/works/10.1145%2F2342509.2342513"
+      "publisher": "ACM",
+      "container": [
+        "Proceedings of the first edition of the MCC workshop on Mobile cloud computing"
+      ],
+      "year": 2012,
+      "volume": null,
+      "issue": null,
+      "pages": "13-16",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1145%2F2342509.2342513",
+      "registry": "Crossref"
     },
     {
+      "key": "shi",
       "doi": "10.1109/JIOT.2016.2579198",
+      "title": "Edge Computing: Vision and Challenges",
       "expected_title": "Edge Computing: Vision and Challenges",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1109/jiot.2016.2579198",
       "actual_title": "Edge Computing: Vision and Challenges",
-      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
-      "container": [
-        "IEEE Internet of Things Journal"
-      ],
-      "issued": {
-        "date-parts": [
-          [
-            2016,
-            10
-          ]
-        ]
-      },
-      "volume": "3",
-      "issue": "5",
-      "pages": "637-646",
       "authors": [
         {
           "given": "Weisong",
@@ -172,28 +162,28 @@
           ]
         }
       ],
-      "verified": true,
-      "source": "https://api.crossref.org/works/10.1109%2FJIOT.2016.2579198"
-    },
-    {
-      "doi": "10.1109/71.993206",
-      "expected_title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
-      "actual_title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "container": [
-        "IEEE Transactions on Parallel and Distributed Systems"
+        "IEEE Internet of Things Journal"
       ],
-      "issued": {
-        "date-parts": [
-          [
-            2002,
-            3
-          ]
-        ]
-      },
-      "volume": "13",
-      "issue": "3",
-      "pages": "260-274",
+      "year": 2016,
+      "volume": "3",
+      "issue": "5",
+      "pages": "637-646",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1109%2FJIOT.2016.2579198",
+      "registry": "Crossref"
+    },
+    {
+      "key": "heft",
+      "doi": "10.1109/71.993206",
+      "title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
+      "expected_title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1109/71.993206",
+      "actual_title": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
       "authors": [
         {
           "given": "H.",
@@ -231,29 +221,28 @@
           ]
         }
       ],
-      "verified": true,
-      "source": "https://api.crossref.org/works/10.1109%2F71.993206"
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "container": [
+        "IEEE Transactions on Parallel and Distributed Systems"
+      ],
+      "year": 2002,
+      "volume": "13",
+      "issue": "3",
+      "pages": "260-274",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1109%2F71.993206",
+      "registry": "Crossref"
     },
     {
+      "key": "fogsurvey",
       "doi": "10.1002/spe.2766",
+      "title": "How to place your apps in the fog",
       "expected_title": "How to place your apps in the fog",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1002/spe.2766",
       "actual_title": "How to place your apps in the fog: State of the art and open challenges",
-      "publisher": "Wiley",
-      "container": [
-        "Software: Practice and Experience"
-      ],
-      "issued": {
-        "date-parts": [
-          [
-            2019,
-            11,
-            27
-          ]
-        ]
-      },
-      "volume": "50",
-      "issue": "5",
-      "pages": "719-740",
       "authors": [
         {
           "ORCID": "https://orcid.org/0000-0003-2048-2468",
@@ -328,35 +317,57 @@
           ]
         }
       ],
-      "verified": true,
-      "source": "https://api.crossref.org/works/10.1002%2Fspe.2766"
-    },
-    {
-      "doi": "10.4230/LIPIcs.APPROX/RANDOM.2020.60",
-      "expected_title": "Better and Simpler Learning-Augmented Online Caching",
-      "verified": false,
-      "error": "HTTP Error 404: Not Found",
-      "source": "https://api.crossref.org/works/10.4230%2FLIPIcs.APPROX%2FRANDOM.2020.60"
-    },
-    {
-      "doi": "10.1287/opre.9.3.383",
-      "expected_title": "A Proof for the Queuing Formula",
-      "actual_title": "A Proof for the Queuing Formula:\n                    <i>L</i>\n                    = λ\n                    <i>W</i>",
-      "publisher": "Institute for Operations Research and the Management Sciences (INFORMS)",
+      "publisher": "Wiley",
       "container": [
-        "Operations Research"
+        "Software: Practice and Experience"
       ],
-      "issued": {
-        "date-parts": [
-          [
-            1961,
-            6
-          ]
-        ]
-      },
-      "volume": "9",
-      "issue": "3",
-      "pages": "383-387",
+      "year": 2020,
+      "volume": "50",
+      "issue": "5",
+      "pages": "719-740",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1002%2Fspe.2766",
+      "registry": "Crossref"
+    },
+    {
+      "key": "advice",
+      "doi": "10.4230/LIPIcs.APPROX/RANDOM.2020.60",
+      "title": "Better and Simpler Learning-Augmented Online Caching",
+      "expected_title": "Better and Simpler Learning-Augmented Online Caching",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.4230/lipics.approx/random.2020.60",
+      "actual_title": "Better and Simpler Learning-Augmented Online Caching",
+      "authors": [
+        {
+          "family": "Wei",
+          "given": "Alexander"
+        }
+      ],
+      "publisher": "Schloss Dagstuhl – Leibniz-Zentrum für Informatik",
+      "container": [
+        "LIPIcs, Volume 176, APPROX/RANDOM 2020"
+      ],
+      "year": 2020,
+      "volume": "176",
+      "issue": null,
+      "pages": "60:1--60:17",
+      "article_number": null,
+      "source": "https://api.datacite.org/dois/10.4230%2FLIPIcs.APPROX%2FRANDOM.2020.60",
+      "registry": "DataCite",
+      "landing_page": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.APPROX/RANDOM.2020.60"
+    },
+    {
+      "key": "little",
+      "doi": "10.1287/opre.9.3.383",
+      "title": "A Proof for the Queuing Formula",
+      "expected_title": "A Proof for the Queuing Formula",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1287/opre.9.3.383",
+      "actual_title": "A Proof for the Queuing Formula:\n                    <i>L</i>\n                    = λ\n                    <i>W</i>",
       "authors": [
         {
           "given": "John D. C.",
@@ -375,8 +386,889 @@
           ]
         }
       ],
+      "publisher": "Institute for Operations Research and the Management Sciences (INFORMS)",
+      "container": [
+        "Operations Research"
+      ],
+      "year": 1961,
+      "volume": "9",
+      "issue": "3",
+      "pages": "383-387",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1287%2Fopre.9.3.383",
+      "registry": "Crossref"
+    },
+    {
+      "key": "ifogsim",
+      "doi": "10.1002/spe.2509",
+      "title": "iFogSim: A toolkit for modeling and simulation of resource management techniques in the Internet of Things, Edge and Fog computing environments",
+      "expected_title": "iFogSim: A toolkit for modeling and simulation of resource management techniques in the Internet of Things, Edge and Fog computing environments",
+      "ok": true,
       "verified": true,
-      "source": "https://api.crossref.org/works/10.1287%2Fopre.9.3.383"
+      "attempts": [],
+      "registered_doi": "10.1002/spe.2509",
+      "actual_title": "iFogSim: A toolkit for modeling and simulation of resource management techniques in the Internet of Things, Edge and Fog computing environments",
+      "authors": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-2850-0851",
+          "authenticated-orcid": false,
+          "given": "Harshit",
+          "family": "Gupta",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Cloud Computing and Distributed Systems (CLOUDS) Laboratory, School of Computing and Information Systems The University of Melbourne  Parkville VIC Australia"
+            },
+            {
+              "name": "School of Computer Science Georgia Institute of Technology  Atlanta GA USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Amir",
+          "family": "Vahid Dastjerdi",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Cloud Computing and Distributed Systems (CLOUDS) Laboratory, School of Computing and Information Systems The University of Melbourne  Parkville VIC Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Soumya K.",
+          "family": "Ghosh",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science and Engineering Indian Institute of Technology Kharagpur  Kharagpur India"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rajkumar",
+          "family": "Buyya",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Cloud Computing and Distributed Systems (CLOUDS) Laboratory, School of Computing and Information Systems The University of Melbourne  Parkville VIC Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Wiley",
+      "container": [
+        "Software: Practice and Experience"
+      ],
+      "year": 2017,
+      "volume": "47",
+      "issue": "9",
+      "pages": "1275-1296",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1002%2Fspe.2509",
+      "registry": "Crossref"
+    },
+    {
+      "key": "ifogsim2",
+      "doi": "10.1016/j.jss.2022.111351",
+      "title": "iFogSim2: An extended iFogSim simulator for mobility, clustering, and microservice management in edge and fog computing environments",
+      "expected_title": "iFogSim2: An extended iFogSim simulator for mobility, clustering, and microservice management in edge and fog computing environments",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1016/j.jss.2022.111351",
+      "actual_title": "iFogSim2: An extended iFogSim simulator for mobility, clustering, and microservice management in edge and fog computing environments",
+      "authors": [
+        {
+          "given": "Redowan",
+          "family": "Mahmud",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-5342-9551",
+          "authenticated-orcid": false,
+          "given": "Samodha",
+          "family": "Pallewatta",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-7178-3386",
+          "authenticated-orcid": false,
+          "given": "Mohammad",
+          "family": "Goudarzi",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rajkumar",
+          "family": "Buyya",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Elsevier BV",
+      "container": [
+        "Journal of Systems and Software"
+      ],
+      "year": 2022,
+      "volume": "190",
+      "issue": null,
+      "pages": "111351",
+      "article_number": "111351",
+      "source": "https://api.crossref.org/works/10.1016%2Fj.jss.2022.111351",
+      "registry": "Crossref"
+    },
+    {
+      "key": "edgecloudsim",
+      "doi": "10.1002/ett.3493",
+      "title": "EdgeCloudSim: An environment for performance evaluation of edge computing systems",
+      "expected_title": "EdgeCloudSim: An environment for performance evaluation of edge computing systems",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1002/ett.3493",
+      "actual_title": "EdgeCloudSim: An environment for performance evaluation of edge computing systems",
+      "authors": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-1524-8589",
+          "authenticated-orcid": false,
+          "given": "Cagatay",
+          "family": "Sonmez",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Computer Engineering Boğaziçi University  Istanbul Turkey"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Atay",
+          "family": "Ozgovde",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Engineering Galatasaray University  Istanbul Turkey"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Cem",
+          "family": "Ersoy",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Engineering Boğaziçi University  Istanbul Turkey"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Wiley",
+      "container": [
+        "Transactions on Emerging Telecommunications Technologies"
+      ],
+      "year": 2018,
+      "volume": "29",
+      "issue": "11",
+      "pages": null,
+      "article_number": "e3493",
+      "source": "https://api.crossref.org/works/10.1002%2Fett.3493",
+      "registry": "Crossref"
+    },
+    {
+      "key": "yafs",
+      "doi": "10.1109/ACCESS.2019.2927895",
+      "title": "YAFS: A Simulator for IoT Scenarios in Fog Computing",
+      "expected_title": "YAFS: A Simulator for IoT Scenarios in Fog Computing",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1109/access.2019.2927895",
+      "actual_title": "YAFS: A Simulator for IoT Scenarios in Fog Computing",
+      "authors": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-2826-5970",
+          "authenticated-orcid": false,
+          "given": "Isaac",
+          "family": "Lera",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Carlos",
+          "family": "Guerrero",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Carlos",
+          "family": "Juiz",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "container": [
+        "IEEE Access"
+      ],
+      "year": 2019,
+      "volume": "7",
+      "issue": null,
+      "pages": "91745-91758",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1109%2FACCESS.2019.2927895",
+      "registry": "Crossref"
+    },
+    {
+      "key": "wang",
+      "doi": "10.1109/TPDS.2016.2604814",
+      "title": "Dynamic Service Placement for Mobile Micro-Clouds With Predicted Future Costs",
+      "expected_title": "Dynamic Service Placement for Mobile Micro-Clouds With Predicted Future Costs",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1109/tpds.2016.2604814",
+      "actual_title": "Dynamic Service Placement for Mobile Micro-Clouds with Predicted Future Costs",
+      "authors": [
+        {
+          "given": "Shiqiang",
+          "family": "Wang",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rahul",
+          "family": "Urgaonkar",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ting",
+          "family": "He",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Kevin",
+          "family": "Chan",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Murtaza",
+          "family": "Zafer",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Kin K.",
+          "family": "Leung",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "container": [
+        "IEEE Transactions on Parallel and Distributed Systems"
+      ],
+      "year": 2017,
+      "volume": "28",
+      "issue": "4",
+      "pages": "1002-1016",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1109%2FTPDS.2016.2604814",
+      "registry": "Crossref"
+    },
+    {
+      "key": "fogbrain",
+      "doi": "10.1093/logcom/exab083",
+      "title": "Declarative continuous reasoning in the cloud-IoT continuum",
+      "expected_title": "Declarative continuous reasoning in the cloud-IoT continuum",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1093/logcom/exab083",
+      "actual_title": "Declarative continuous reasoning in the cloud-IoT continuum",
+      "authors": [
+        {
+          "given": "Stefano",
+          "family": "Forti",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science, University of Pisa, L. Bruno Pontecorvo 3, 56127, Pisa, Italy"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Giuseppe",
+          "family": "Bisicchia",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science, University of Pisa, L. Bruno Pontecorvo 3, 56127, Pisa, Italy"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Antonio",
+          "family": "Brogi",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science, University of Pisa, L. Bruno Pontecorvo 3, 56127, Pisa, Italy"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Oxford University Press (OUP)",
+      "container": [
+        "Journal of Logic and Computation"
+      ],
+      "year": 2022,
+      "volume": "32",
+      "issue": "2",
+      "pages": "206-232",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1093%2Flogcom%2Fexab083",
+      "registry": "Crossref"
+    },
+    {
+      "key": "hyndman",
+      "doi": "10.1016/j.ijforecast.2006.03.001",
+      "title": "Another look at measures of forecast accuracy",
+      "expected_title": "Another look at measures of forecast accuracy",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1016/j.ijforecast.2006.03.001",
+      "actual_title": "Another look at measures of forecast accuracy",
+      "authors": [
+        {
+          "given": "Rob J.",
+          "family": "Hyndman",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Anne B.",
+          "family": "Koehler",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Elsevier BV",
+      "container": [
+        "International Journal of Forecasting"
+      ],
+      "year": 2006,
+      "volume": "22",
+      "issue": "4",
+      "pages": "679-688",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1016%2Fj.ijforecast.2006.03.001",
+      "registry": "Crossref"
+    },
+    {
+      "key": "kendall",
+      "doi": "10.1214/aoms/1177728975",
+      "title": "Stochastic Processes Occurring in the Theory of Queues and their Analysis by the Method of the Imbedded Markov Chain",
+      "expected_title": "Stochastic Processes Occurring in the Theory of Queues and their Analysis by the Method of the Imbedded Markov Chain",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1214/aoms/1177728975",
+      "actual_title": "Stochastic Processes Occurring in the Theory of Queues and their Analysis by the Method of the Imbedded Markov Chain",
+      "authors": [
+        {
+          "given": "David G.",
+          "family": "Kendall",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Institute of Mathematical Statistics",
+      "container": [
+        "The Annals of Mathematical Statistics"
+      ],
+      "year": 1953,
+      "volume": "24",
+      "issue": "3",
+      "pages": "338-354",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1214%2Faoms%2F1177728975",
+      "registry": "Crossref"
+    },
+    {
+      "key": "lei",
+      "doi": "10.1080/01621459.2017.1307116",
+      "title": "Distribution-Free Predictive Inference for Regression",
+      "expected_title": "Distribution-Free Predictive Inference for Regression",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1080/01621459.2017.1307116",
+      "actual_title": "Distribution-Free Predictive Inference for Regression",
+      "authors": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-3104-9387",
+          "authenticated-orcid": false,
+          "given": "Jing",
+          "family": "Lei",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Statistics, Carnegie Mellon University, Pittsburgh, PA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Max",
+          "family": "G’Sell",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Statistics, Carnegie Mellon University, Pittsburgh, PA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alessandro",
+          "family": "Rinaldo",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Statistics, Carnegie Mellon University, Pittsburgh, PA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-2158-8304",
+          "authenticated-orcid": false,
+          "given": "Ryan J.",
+          "family": "Tibshirani",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Statistics, Carnegie Mellon University, Pittsburgh, PA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Larry",
+          "family": "Wasserman",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Statistics, Carnegie Mellon University, Pittsburgh, PA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Informa UK Limited",
+      "container": [
+        "Journal of the American Statistical Association"
+      ],
+      "year": 2018,
+      "volume": "113",
+      "issue": "523",
+      "pages": "1094-1111",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1080%2F01621459.2017.1307116",
+      "registry": "Crossref"
+    },
+    {
+      "key": "angelopoulos",
+      "doi": "10.1561/2200000101",
+      "title": "Conformal Prediction: A Gentle Introduction",
+      "expected_title": "Conformal Prediction: A Gentle Introduction",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1561/2200000101",
+      "actual_title": "Conformal Prediction: A Gentle Introduction",
+      "authors": [
+        {
+          "given": "Anastasios N.",
+          "family": "Angelopoulos",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "University of California , ,",
+              "place": [
+                "Berkeley, USA"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Stephen",
+          "family": "Bates",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "University of California , ,",
+              "place": [
+                "Berkeley, USA"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "Emerald",
+      "container": [
+        "Foundations and Trends® in Machine Learning"
+      ],
+      "year": 2023,
+      "volume": "16",
+      "issue": "4",
+      "pages": "494-591",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1561%2F2200000101",
+      "registry": "Crossref"
+    },
+    {
+      "key": "v2x",
+      "doi": "10.1109/GLOBECOM42002.2020.9348104",
+      "title": "Latency Prediction for Delay-sensitive V2X Applications in Mobile Cloud/Edge Computing Systems",
+      "expected_title": "Latency Prediction for Delay-sensitive V2X Applications in Mobile Cloud/Edge Computing Systems",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1109/globecom42002.2020.9348104",
+      "actual_title": "Latency Prediction for Delay-sensitive V2X Applications in Mobile Cloud/Edge Computing Systems",
+      "authors": [
+        {
+          "given": "Wenhan",
+          "family": "Zhang",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Mingjie",
+          "family": "Feng",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Marwan",
+          "family": "Krunz",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Haris",
+          "family": "Volos",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "publisher": "IEEE",
+      "container": [
+        "GLOBECOM 2020 - 2020 IEEE Global Communications Conference"
+      ],
+      "year": 2020,
+      "volume": null,
+      "issue": null,
+      "pages": "1-6",
+      "article_number": null,
+      "source": "https://api.crossref.org/works/10.1109%2FGLOBECOM42002.2020.9348104",
+      "registry": "Crossref"
+    },
+    {
+      "key": "chu",
+      "doi": "10.1007/s44443-025-00089-0",
+      "title": "Transformer-based latency prediction for stream processing task",
+      "expected_title": "Transformer-based latency prediction for stream processing task",
+      "ok": true,
+      "verified": true,
+      "attempts": [],
+      "registered_doi": "10.1007/s44443-025-00089-0",
+      "actual_title": "Transformer-based latency prediction for stream processing task",
+      "authors": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-1675-7916",
+          "authenticated-orcid": false,
+          "given": "Zheng",
+          "family": "Chu",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "given": "Baozhu",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "given": "Changtian",
+          "family": "Ying",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "publisher": "Springer Science and Business Media LLC",
+      "container": [
+        "Journal of King Saud University Computer and Information Sciences"
+      ],
+      "year": 2025,
+      "volume": "37",
+      "issue": "5",
+      "pages": null,
+      "article_number": "106",
+      "source": "https://api.crossref.org/works/10.1007%2Fs44443-025-00089-0",
+      "registry": "Crossref"
     }
-  ]
+  ],
+  "all_doi_ok": true,
+  "non_doi_source": {
+    "key": "nskf",
+    "source": "provided НСКФ-2026 thesis; Russian title/author block and docs/TASK.md",
+    "title": "Исследование конфигурации вычислительной среды Edge-Fog",
+    "authors": "А. С. Игнатенко; М. В. Орда-Жигулина",
+    "year": 2026,
+    "doi": null,
+    "publication_metadata_confirmed": false,
+    "status": "выходные сведения уточняются"
+  }
 }

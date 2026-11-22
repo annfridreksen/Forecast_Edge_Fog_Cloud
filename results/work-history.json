@@ -1,0 +1,936 @@
+{
+  "commits": [
+    {
+      "sha": "3bc7c2864f82ce08a0daf0ac6dcc696727be3923",
+      "time": "2026-11-21T22:21:56Z",
+      "title": "FEFC: эталонная база v2 (51 файл, SHA-256 сверены), задание и рецензия",
+      "stages": [],
+      "files": []
+    },
+    {
+      "sha": "1faf9fa04ba29851b7b8556779367907d88385a1",
+      "time": "2026-11-21T23:10:48Z",
+      "title": "FEFC: новое задание — модель среды по тезисам, прогноз через розетку, кратко алгоритм",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "docs/TASK.md"
+      ]
+    },
+    {
+      "sha": "d57b15256e7903a3c7d277f0e2382f81418d145f",
+      "time": "2026-11-21T23:17:58Z",
+      "title": "FEFC: задание — базовая модель 2025 (bb2f3f6) без изменений, сверка в три столбца, краткий план статьи",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "docs/TASK.md"
+      ]
+    },
+    {
+      "sha": "1c561a9238257aaca0dc5bb58af39b490f2574ff",
+      "time": "2026-11-21T23:20:37Z",
+      "title": "FEFC: задание — без сверки со старой моделью, новая модель с нуля",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "docs/TASK.md"
+      ]
+    },
+    {
+      "sha": "7b2a9f6b6195c95ef4717cd46f18611e402177d1",
+      "time": "2026-11-21T23:24:43Z",
+      "title": "FEFC: задание — полный текст статьи, схемы, формулы, ответы на замечания; журнал проверок Perplexity",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "docs/TASK.md",
+        "\"docs/\\320\\226\\321\\203\\321\\200\\320\\275\\320\\260\\320\\273_\\320\\277\\321\\200\\320\\276\\320\\262\\320\\265\\321\\200\\320\\276\\320\\272_Perplexity.md\""
+      ]
+    },
+    {
+      "sha": "1fbd4966adfef2ddaf5c423fa987c4c866ae5702",
+      "time": "2026-11-21T23:26:14Z",
+      "title": "FEFC: задание — срок 08:00, приоритеты, экономия токенов и отчёт о расходе; три проверки",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "docs/TASK.md",
+        "\"docs/\\320\\226\\321\\203\\321\\200\\320\\275\\320\\260\\320\\273_\\320\\277\\321\\200\\320\\276\\320\\262\\320\\265\\321\\200\\320\\276\\320\\272_Perplexity.md\""
+      ]
+    },
+    {
+      "sha": "1855712c860ca3bc2abde367921407ff33ddf5df",
+      "time": "2026-11-22T02:38:01+03:00",
+      "title": "FEFC: начало работы по согласованному плану Issue #1",
+      "stages": [
+        "1",
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "sha": "a396593be783b58df98e68c7258916a0c6ac7e99",
+      "time": "2026-11-22T02:53:42+03:00",
+      "title": "FEFC: модель среды с 50 независимыми FIFO и 15 проверенными тестами",
+      "stages": [
+        "2",
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "\"docs/\\320\\240\\320\\225\\320\\250\\320\\225\\320\\235\\320\\230\\320\\257.md\"",
+        "efc/__init__.py",
+        "efc/model.py",
+        "requirements.txt",
+        "results/model-tests.txt",
+        "tests/test_model.py"
+      ]
+    },
+    {
+      "sha": "bd6d4c5d5121756918c86497f3e0705176f959f3",
+      "time": "2026-11-22T02:58:04+03:00",
+      "title": "FEFC: серии конфигурации и тетради 00–01 с проверкой из checkout",
+      "stages": [
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ],
+      "files": [
+        ".github/workflows/fefc.yml",
+        "docs/STATUS.md",
+        "efc/experiments.py",
+        "efc/model.py",
+        "efc/views.py",
+        "scripts/build_artifacts.py",
+        "scripts/make_notebooks.py",
+        "tests/test_model.py"
+      ]
+    },
+    {
+      "sha": "5d8806fa15975ead3dd6ed87eb4d00eca718b213",
+      "time": "2026-11-21T23:59:26Z",
+      "title": "FEFC: проверенные тетради и результаты из чистого checkout",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "article/figures/architecture.pdf",
+        "article/figures/architecture.png",
+        "article/figures/buffer.pdf",
+        "article/figures/buffer.png",
+        "article/figures/components.pdf",
+        "article/figures/components.png",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/inputs_outputs.png",
+        "article/figures/queue.pdf",
+        "article/figures/queue.png",
+        "article/figures/ratio.pdf",
+        "article/figures/ratio.png",
+        "article/figures/six_path.pdf",
+        "article/figures/six_path.png",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "docs/STATUS.md",
+        "\"results/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202-execution.txt\"",
+        "\"results/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217-execution.txt\"",
+        "results/baseline_queue.csv",
+        "results/baseline_tasks.csv",
+        "results/build-summary.json",
+        "results/configuration.csv",
+        "results/configuration_details.json",
+        "results/event_animation.html",
+        "results/model-tests.txt",
+        "results/notebook-generation.txt",
+        "results/notebook-times.json",
+        "results/stress_queue.csv",
+        "results/v2-manifest-after.txt",
+        "results/v2-manifest-before.txt",
+        "results/v2-tests.txt"
+      ]
+    },
+    {
+      "sha": "5b23adeff4b58813b46de1186dbd015c93059aea",
+      "time": "2026-11-22T03:02:22+03:00",
+      "title": "FEFC: прогнозная розетка, демонстрационная нейросеть и тетрадь 02",
+      "stages": [
+        "4",
+        "6",
+        "8",
+        "9"
+      ],
+      "files": [
+        ".github/workflows/fefc.yml",
+        "docs/STATUS.md",
+        "\"docs/\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\264\\320\\276\\320\\277\\321\\203\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.md\"",
+        "efc/forecast/__init__.py",
+        "efc/forecast/models.py",
+        "efc/forecast/my_network.py",
+        "efc/forecast/study.py",
+        "efc/forecast/views.py",
+        "scripts/make_forecast_notebook.py",
+        "tests/test_forecast.py"
+      ]
+    },
+    {
+      "sha": "6eb2ad86335c8c81ad3cdc3d42c2b112527ebb9e",
+      "time": "2026-11-22T00:03:43Z",
+      "title": "FEFC: проверенные тетради и результаты из чистого checkout",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "article/figures/architecture.pdf",
+        "article/figures/buffer.pdf",
+        "article/figures/components.pdf",
+        "article/figures/forecast_coverage.pdf",
+        "article/figures/forecast_coverage.png",
+        "article/figures/forecast_mae.pdf",
+        "article/figures/forecast_mae.png",
+        "article/figures/forecast_socket.pdf",
+        "article/figures/forecast_socket.png",
+        "article/figures/forecast_trace.pdf",
+        "article/figures/forecast_trace.png",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/queue.pdf",
+        "article/figures/ratio.pdf",
+        "article/figures/six_path.pdf",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "docs/STATUS.md",
+        "\"results/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202-execution.txt\"",
+        "\"results/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214-execution.txt\"",
+        "results/build-summary.json",
+        "results/demo_network.json",
+        "results/event_animation.html",
+        "results/forecast-notebook-generation.txt",
+        "results/forecast_metadata.json",
+        "results/forecast_metrics.csv",
+        "results/forecast_predictions.csv",
+        "results/forecast_tasks.csv",
+        "results/model-tests.txt",
+        "results/notebook-times.json",
+        "results/v2-tests.txt"
+      ]
+    },
+    {
+      "sha": "287ce815c2c099ce449e5e95091d0cc9fc451eb1",
+      "time": "2026-11-22T03:05:54+03:00",
+      "title": "FEFC: связка демонстрационной нейросети с неизменным v2 и тетрадь 03",
+      "stages": [
+        "5",
+        "6",
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "\"docs/\\320\\241\\320\\262\\321\\217\\320\\267\\320\\272\\320\\260_\\320\\277\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267\\320\\260_\\320\\270_\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.md\"",
+        "efc/placement/__init__.py",
+        "efc/placement/study.py",
+        "efc/placement/views.py",
+        "scripts/make_placement_notebook.py",
+        "tests/test_placement.py"
+      ]
+    },
+    {
+      "sha": "ac4be825f03de0f4bbefc0191c7fba9bb3a8373f",
+      "time": "2026-11-22T00:07:22Z",
+      "title": "FEFC: проверенные тетради и результаты из чистого checkout",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "article/figures/architecture.pdf",
+        "article/figures/buffer.pdf",
+        "article/figures/components.pdf",
+        "article/figures/forecast_coverage.pdf",
+        "article/figures/forecast_mae.pdf",
+        "article/figures/forecast_socket.pdf",
+        "article/figures/forecast_trace.pdf",
+        "article/figures/gantt_B.pdf",
+        "article/figures/gantt_B.png",
+        "article/figures/gantt_P.pdf",
+        "article/figures/gantt_P.png",
+        "article/figures/graph_B.pdf",
+        "article/figures/graph_B.png",
+        "article/figures/graph_P.pdf",
+        "article/figures/graph_P.png",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/neural_placement.pdf",
+        "article/figures/neural_placement.png",
+        "article/figures/placement_chain.pdf",
+        "article/figures/placement_chain.png",
+        "article/figures/queue.pdf",
+        "article/figures/ratio.pdf",
+        "article/figures/six_path.pdf",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/clean/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "docs/STATUS.md",
+        "\"results/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202-execution.txt\"",
+        "\"results/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217-execution.txt\"",
+        "results/build-summary.json",
+        "results/event_animation.html",
+        "results/model-tests.txt",
+        "results/neural_placement.csv",
+        "results/neural_placement.json",
+        "results/notebook-times.json",
+        "results/placement-notebook-generation.txt",
+        "results/placement_audit.json",
+        "results/placement_controls.csv",
+        "results/placement_controls.json",
+        "results/v2-tests.txt"
+      ]
+    },
+    {
+      "sha": "eb875c50f10e254f40ee63bb5f6de43cef2e032d",
+      "time": "2026-11-22T03:11:21+03:00",
+      "title": "FEFC: проверка 17 схем и графиков по данным тетрадей",
+      "stages": [
+        "6",
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "scripts/check_figures.py"
+      ]
+    },
+    {
+      "sha": "98204c2375723a56fcc502e9e74d180c9b7cf44e",
+      "time": "2026-11-22T00:12:39Z",
+      "title": "FEFC: проверенные тетради и результаты из чистого checkout",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "article/figures/architecture.pdf",
+        "article/figures/buffer.pdf",
+        "article/figures/components.pdf",
+        "article/figures/forecast_coverage.pdf",
+        "article/figures/forecast_mae.pdf",
+        "article/figures/forecast_socket.pdf",
+        "article/figures/forecast_trace.pdf",
+        "article/figures/gantt_B.pdf",
+        "article/figures/gantt_P.pdf",
+        "article/figures/graph_B.pdf",
+        "article/figures/graph_P.pdf",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/neural_placement.pdf",
+        "article/figures/placement_chain.pdf",
+        "article/figures/queue.pdf",
+        "article/figures/ratio.pdf",
+        "article/figures/six_path.pdf",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/clean/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "docs/STATUS.md",
+        "results/build-summary.json",
+        "results/event_animation.html",
+        "results/model-tests.txt",
+        "results/notebook-times.json",
+        "results/v2-tests.txt"
+      ]
+    },
+    {
+      "sha": "f63da6c71643f5c8043cf69c7879190e11d791eb",
+      "time": "2026-11-22T03:18:53+03:00",
+      "title": "FEFC: полный текст статьи PSTA с таблицами из результатов тетрадей",
+      "stages": [
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        ".github/workflows/fefc.yml",
+        "article/.gitignore",
+        "article/main.template.tex",
+        "docs/STATUS.md",
+        "scripts/setup_psta.py",
+        "scripts/write_article.py"
+      ]
+    },
+    {
+      "sha": "e6d7b41e03230223a81094d82d942d27314d8246",
+      "time": "2026-11-22T03:35:57+03:00",
+      "title": "FEFC: документы автора, ответы рецензенту и финальная воспроизводимая проверка",
+      "stages": [
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        ".github/workflows/fefc.yml",
+        "README.md",
+        "article/related.tex",
+        "article/related_references.tex",
+        "docs/STATUS.md",
+        "\"docs/\\320\\222\\320\\267\\320\\260\\320\\270\\320\\274\\320\\276\\320\\264\\320\\265\\320\\271\\321\\201\\321\\202\\320\\262\\320\\270\\320\\265_\\321\\201_\\320\\277\\321\\200\\320\\276\\320\\262\\320\\265\\321\\200\\321\\217\\321\\216\\321\\211\\320\\270\\320\\274.md\"",
+        "\"docs/\\320\\226\\321\\203\\321\\200\\320\\275\\320\\260\\320\\273_\\320\\277\\321\\200\\320\\276\\320\\265\\320\\272\\321\\202\\320\\260.md\"",
+        "\"docs/\\320\\230\\321\\201\\321\\202\\320\\276\\321\\207\\320\\275\\320\\270\\320\\272\\320\\270.md\"",
+        "\"docs/\\320\\232\\320\\260\\320\\272_\\320\\277\\320\\276\\320\\273\\321\\214\\320\\267\\320\\276\\320\\262\\320\\260\\321\\202\\321\\214\\321\\201\\321\\217.md\"",
+        "\"docs/\\320\\232\\321\\200\\320\\260\\321\\202\\320\\272\\320\\270\\320\\271_\\320\\277\\320\\273\\320\\260\\320\\275_\\321\\201\\321\\202\\320\\260\\321\\202\\321\\214\\320\\270.md\"",
+        "\"docs/\\320\\234\\320\\276\\320\\264\\320\\265\\320\\273\\321\\214_\\320\\277\\321\\200\\320\\276\\321\\201\\321\\202\\321\\213\\320\\274\\320\\270_\\321\\201\\320\\273\\320\\276\\320\\262\\320\\260\\320\\274\\320\\270.md\"",
+        "\"docs/\\320\\236\\321\\202\\320\\262\\320\\265\\321\\202_\\320\\275\\320\\260_\\320\\267\\320\\260\\320\\274\\320\\265\\321\\207\\320\\260\\320\\275\\320\\270\\321\\217.md\"",
+        "\"docs/\\320\\237\\320\\273\\320\\260\\320\\275_\\321\\201\\321\\202\\320\\260\\321\\202\\321\\214\\320\\270.md\"",
+        "scripts/build_artifacts.py",
+        "scripts/extend_article.py",
+        "scripts/verify_doi.py",
+        "scripts/write_report.py"
+      ]
+    },
+    {
+      "sha": "06de23ca758ae09bb2daeeb960119510d5214d25",
+      "time": "2026-11-22T00:38:39Z",
+      "title": "FEFC: итог ночи",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "MANIFEST.sha256",
+        "article/STYLE_SOURCE.txt",
+        "article/figures/architecture.pdf",
+        "article/figures/buffer.pdf",
+        "article/figures/components.pdf",
+        "article/figures/forecast_coverage.pdf",
+        "article/figures/forecast_mae.pdf",
+        "article/figures/forecast_socket.pdf",
+        "article/figures/forecast_trace.pdf",
+        "article/figures/gantt_B.pdf",
+        "article/figures/gantt_P.pdf",
+        "article/figures/graph_B.pdf",
+        "article/figures/graph_P.pdf",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/neural_placement.pdf",
+        "article/figures/placement_chain.pdf",
+        "article/figures/queue.pdf",
+        "article/figures/ratio.pdf",
+        "article/figures/six_path.pdf",
+        "article/main.pdf",
+        "article/main.template.tex",
+        "article/main.tex",
+        "article/psta.cls",
+        "article/psta/AMS_logo.png",
+        "article/psta/CC-BY-OO.pdf",
+        "article/psta/DOI_logo.png",
+        "article/psta/MN_logo.png",
+        "article/psta/RSCI_logo.pdf",
+        "article/psta/URL_logo.png",
+        "article/psta/arXiv_logo.png",
+        "article/psta/envelope.pdf",
+        "article/psta/iD_logo.pdf",
+        "article/psta/no-english.pdf",
+        "article/psta/no-russian.pdf",
+        "article/psta/psta-utf8.sty",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/clean/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "docs/STATUS.md",
+        "\"docs/\\320\\236\\321\\202\\321\\207\\321\\221\\321\\202_\\320\\275\\320\\276\\321\\207\\320\\270.md\"",
+        "\"docs/\\320\\243\\321\\202\\320\\262\\320\\265\\321\\200\\320\\266\\320\\264\\320\\265\\320\\275\\320\\270\\321\\217.md\"",
+        "results/article-data.json",
+        "results/article-extension.txt",
+        "results/article-generation.txt",
+        "results/article-provenance.json",
+        "results/build-summary.json",
+        "results/claims.json",
+        "results/doi-check.json",
+        "results/doi-check.txt",
+        "results/event_animation.html",
+        "results/figure-check.json",
+        "results/figure-check.txt",
+        "results/final-check.txt",
+        "results/forecast-notebook-generation.txt",
+        "results/latex-pass1.txt",
+        "results/latex-pass2.txt",
+        "results/make_forecast_notebook.py.txt",
+        "results/make_notebooks.py.txt",
+        "results/make_placement_notebook.py.txt",
+        "results/model-tests.txt",
+        "results/notebook-generation.txt",
+        "results/notebook-times.json",
+        "results/placement-notebook-generation.txt",
+        "results/report-generation.txt",
+        "results/requirements-executed.txt",
+        "results/source-hashes.json",
+        "results/v2-tests.txt"
+      ]
+    },
+    {
+      "sha": "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+      "time": "2026-11-22T10:05:35+03:00",
+      "title": "FEFC: Issue #4 пп.1–3 — стационарные очереди, 10 seed, прогрев и 95% ДИ",
+      "stages": [
+        "3",
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "\"docs/\\320\\241\\321\\202\\320\\260\\321\\206\\320\\270\\320\\276\\320\\275\\320\\260\\321\\200\\320\\275\\320\\260\\321\\217_\\321\\201\\320\\265\\321\\200\\320\\270\\321\\217.md\"",
+        "efc/stationary.py",
+        "tests/test_stationary.py"
+      ]
+    },
+    {
+      "sha": "e5fcbe515fc9333174665a517b55755d9c2156de",
+      "time": "2026-11-22T10:07:53+03:00",
+      "title": "FEFC: Issue #4 п.7 — условный Queueing из Config; п.8 — конформная калибровка без теста",
+      "stages": [
+        "4",
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md",
+        "efc/forecast/models.py",
+        "efc/forecast/study.py",
+        "scripts/make_forecast_notebook.py",
+        "tests/test_issue4_forecast.py"
+      ]
+    },
+    {
+      "sha": "8a430026fbb4beb1244d6a2dcf400b2cfc7c5c70",
+      "time": "2026-11-22T07:10:39Z",
+      "title": "FEFC: итог ночи",
+      "stages": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "files": [
+        "MANIFEST.sha256",
+        "article/figures/architecture.pdf",
+        "article/figures/buffer.pdf",
+        "article/figures/components.pdf",
+        "article/figures/forecast_coverage.pdf",
+        "article/figures/forecast_coverage.png",
+        "article/figures/forecast_mae.pdf",
+        "article/figures/forecast_mae.png",
+        "article/figures/forecast_socket.pdf",
+        "article/figures/forecast_trace.pdf",
+        "article/figures/forecast_trace.png",
+        "article/figures/gantt_B.pdf",
+        "article/figures/gantt_P.pdf",
+        "article/figures/graph_B.pdf",
+        "article/figures/graph_P.pdf",
+        "article/figures/inputs_outputs.pdf",
+        "article/figures/neural_placement.pdf",
+        "article/figures/placement_chain.pdf",
+        "article/figures/queue.pdf",
+        "article/figures/ratio.pdf",
+        "article/figures/six_path.pdf",
+        "article/main.pdf",
+        "article/main.tex",
+        "\"colab/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202.ipynb\"",
+        "\"colab/clean/01_\\320\\241\\321\\200\\320\\265\\320\\264\\320\\260_\\320\\270_\\320\\272\\320\\276\\320\\275\\321\\204\\320\\270\\320\\263\\321\\203\\321\\200\\320\\260\\321\\206\\320\\270\\321\\217.ipynb\"",
+        "\"colab/clean/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214.ipynb\"",
+        "\"colab/clean/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217.ipynb\"",
+        "docs/STATUS.md",
+        "\"docs/\\320\\236\\321\\202\\321\\207\\321\\221\\321\\202_\\320\\275\\320\\276\\321\\207\\320\\270.md\"",
+        "\"docs/\\320\\243\\321\\202\\320\\262\\320\\265\\321\\200\\320\\266\\320\\264\\320\\265\\320\\275\\320\\270\\321\\217.md\"",
+        "\"results/00_\\320\\241\\321\\202\\320\\260\\321\\200\\321\\202-execution.txt\"",
+        "\"results/02_\\320\\237\\321\\200\\320\\276\\320\\263\\320\\275\\320\\276\\320\\267_\\320\\270_\\320\\275\\320\\265\\320\\271\\321\\200\\320\\276\\321\\201\\320\\265\\321\\202\\321\\214-execution.txt\"",
+        "\"results/03_\\320\\220\\320\\273\\320\\263\\320\\276\\321\\200\\320\\270\\321\\202\\320\\274_\\320\\277\\320\\265\\321\\200\\320\\265\\321\\200\\320\\260\\320\\267\\320\\274\\320\\265\\321\\211\\320\\265\\320\\275\\320\\270\\321\\217-execution.txt\"",
+        "results/article-data.json",
+        "results/article-generation.txt",
+        "results/article-provenance.json",
+        "results/build-summary.json",
+        "results/claims.json",
+        "results/demo_network.json",
+        "results/doi-check.json",
+        "results/event_animation.html",
+        "results/figure-check.json",
+        "results/final-check.txt",
+        "results/forecast_metadata.json",
+        "results/forecast_metrics.csv",
+        "results/forecast_predictions.csv",
+        "results/latex-pass1.txt",
+        "results/latex-pass2.txt",
+        "results/model-tests.txt",
+        "results/neural_placement.json",
+        "results/notebook-times.json",
+        "results/source-hashes.json",
+        "results/v2-tests.txt"
+      ]
+    },
+    {
+      "sha": "fafd98a489020c2d86bcac3f15cda15bad509c2e",
+      "time": "2026-11-22T10:16:30+03:00",
+      "title": "FEFC: Issue #4 пп.10–11 — 18 DOI, обзор, НСКФ и проверка Crossref/DataCite",
+      "stages": [
+        "7",
+        "9"
+      ],
+      "files": [
+        ".github/workflows/fefc.yml",
+        "article/references.json",
+        "article/related.tex",
+        "\"docs/\\320\\233\\320\\270\\321\\202\\320\\265\\321\\200\\320\\260\\321\\202\\321\\203\\321\\200\\320\\260_Issue4.md\"",
+        "scripts/extend_article.py",
+        "scripts/render_references.py",
+        "scripts/verify_doi.py"
+      ]
+    },
+    {
+      "sha": "f74734d014ed57b9a90de13393b67e75f940aaf1",
+      "time": "2026-11-22T10:18:52+03:00",
+      "title": "FEFC: Issue #4 п.12 — схемы в 00, общие claims и стационарная серия в тетрадях",
+      "stages": [
+        "3",
+        "6",
+        "9"
+      ],
+      "files": [
+        "\"docs/\\320\\237\\321\\200\\320\\276\\320\\262\\320\\265\\321\\200\\320\\272\\320\\260_\\321\\202\\320\\265\\321\\202\\321\\200\\320\\260\\320\\264\\320\\265\\320\\271_Issue4.md\"",
+        "efc/claims.py",
+        "efc/stationary_views.py",
+        "requirements.txt",
+        "scripts/build_artifacts.py",
+        "scripts/complete_notebooks.py",
+        "tests/test_claims.py"
+      ]
+    },
+    {
+      "sha": "94eaec6b65973867889338c8e82c2ce27bfe3b40",
+      "time": "2026-11-22T10:37:02+03:00",
+      "title": "FEFC: Issue #4 пп.4–6 — шесть долей и 60 повторений чувствительности допущений",
+      "stages": [
+        "3",
+        "4",
+        "6"
+      ],
+      "files": [
+        "efc/forecast/views.py",
+        "efc/sensitivity.py",
+        "scripts/check_figures.py",
+        "scripts/complete_notebooks.py",
+        "tests/test_sensitivity.py"
+      ]
+    },
+    {
+      "sha": "1294a989b5212043695d6fbe00bffc25e32b1dec",
+      "time": "2026-11-22T10:38:57+03:00",
+      "title": "FEFC: Issue #4 п.9 — отделён вклад фона в одном примере размещения",
+      "stages": [
+        "5"
+      ],
+      "files": [
+        "\"docs/\\320\\244\\320\\276\\320\\275_\\320\\270_\\320\\272\\321\\200\\320\\270\\321\\202\\320\\265\\321\\200\\320\\270\\320\\271_Issue4.md\"",
+        "efc/placement/diagnostics.py",
+        "scripts/add_placement_diagnostics.py"
+      ]
+    },
+    {
+      "sha": "6ac948078cc4ba6b2f45fcdc0b10e6968e0933ec",
+      "time": "2026-11-22T13:13:11+03:00",
+      "title": "FEFC: Issue #4 пп.1–3,7–10 — расчёты и доверительные интервалы согласованы с текстом статьи",
+      "stages": [
+        "7"
+      ],
+      "files": [
+        "scripts/review_article.py"
+      ]
+    },
+    {
+      "sha": "7de02e1b2562f1493beb48285967569561f1b647",
+      "time": "2026-11-22T13:13:30+03:00",
+      "title": "FEFC: Issue #4 пп.10–11 — проверка каждой ссылки итогового текста и доступность кода",
+      "stages": [
+        "7"
+      ],
+      "files": [
+        "scripts/render_references.py"
+      ]
+    },
+    {
+      "sha": "54992f94346a4e8be2d364ba8de0312f83cb804d",
+      "time": "2026-11-22T13:16:36+03:00",
+      "title": "FEFC: Issue #4 пп.13–15 — поэтапные ответы, реальные коммиты и история запусков [skip ci]",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "scripts/issue4_report.py"
+      ]
+    },
+    {
+      "sha": "a5389fa9bcff8458a1e9d99cbabe9fb5aa71a9cb",
+      "time": "2026-11-22T13:17:38+03:00",
+      "title": "FEFC: Issue #4 — регрессии ДИ, таблиц, DOI и связности семи разделов [skip ci]",
+      "stages": [],
+      "files": [
+        "tests/test_issue4_integration.py"
+      ]
+    },
+    {
+      "sha": "bf303dbb10bf8566287a150f14a9755aed085509",
+      "time": "2026-11-22T13:18:14+03:00",
+      "title": "FEFC: уточнена изоляция регистраторов в тесте отказа DOI [skip ci]",
+      "stages": [],
+      "files": [
+        "tests/test_issue4_integration.py"
+      ]
+    },
+    {
+      "sha": "9acf5b7341c760d42d5bc1da3251d7eb39ce4255",
+      "time": "2026-11-22T13:19:37+03:00",
+      "title": "FEFC: Issue #4 пп.14–15 — отчёт строится заново по текущим запускам [skip ci]",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "scripts/write_report.py"
+      ]
+    },
+    {
+      "sha": "fcab937543fb453c27763d5711d3d8092c225517",
+      "time": "2026-11-22T13:19:48+03:00",
+      "title": "FEFC: библиография проверяется после окончательного текста, не по прежнему PDF [skip ci]",
+      "stages": [],
+      "files": [
+        "scripts/extend_article.py"
+      ]
+    },
+    {
+      "sha": "c7d16699cbaca8af43c25103f364d2905af8631a",
+      "time": "2026-11-22T13:21:00+03:00",
+      "title": "FEFC: Issue #4 — единая проверка исправлений, тетрадей, статьи и защищённых файлов [skip ci]",
+      "stages": [
+        "9"
+      ],
+      "files": [
+        "scripts/build_artifacts.py"
+      ]
+    },
+    {
+      "sha": "6d3544e68aae423f43baf7ecd12485400f8c1134",
+      "time": "2026-11-22T13:25:25+03:00",
+      "title": "FEFC: итоговая статья получает собственные хеши и точные ячейки источников [skip ci]",
+      "stages": [],
+      "files": [
+        "scripts/finalize_provenance.py"
+      ]
+    },
+    {
+      "sha": "09ec076b27473333a6487e49654cdd562a3053e2",
+      "time": "2026-11-22T13:25:40+03:00",
+      "title": "FEFC: реестр утверждений связан с окончательным PDF, а не промежуточной генерацией [skip ci]",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "scripts/write_report.py"
+      ]
+    },
+    {
+      "sha": "6aefa9749d283ce8f4ea08f6bc50a9f1b3ed4f9f",
+      "time": "2026-11-22T13:26:07+03:00",
+      "title": "FEFC: зафиксировано продолжение Issue #4 без подмены прежним PASS [skip ci]",
+      "stages": [
+        "8"
+      ],
+      "files": [
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "sha": "278b21034ca7dc653815b106d2a3fee2a271e3a3",
+      "time": "2026-11-22T13:26:22+03:00",
+      "title": "FEFC: повторная сборка Issue #4 — полная история, проверка PDF и защищённая публикация",
+      "stages": [
+        "9"
+      ],
+      "files": [
+        ".github/workflows/fefc.yml"
+      ]
+    },
+    {
+      "sha": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+      "time": "2026-11-22T13:28:21+03:00",
+      "title": "FEFC: исправлена кириллическая запись тезисов PSTA; контрольный PDF 26 страниц собран",
+      "stages": [
+        "7"
+      ],
+      "files": [
+        "scripts/render_references.py"
+      ]
+    }
+  ],
+  "runs": [],
+  "stages": {
+    "1": {
+      "commits": [
+        "1855712c860ca3bc2abde367921407ff33ddf5df"
+      ],
+      "actions_runs": []
+    },
+    "2": {
+      "commits": [
+        "a396593be783b58df98e68c7258916a0c6ac7e99",
+        "bd6d4c5d5121756918c86497f3e0705176f959f3"
+      ],
+      "actions_runs": []
+    },
+    "3": {
+      "commits": [
+        "bd6d4c5d5121756918c86497f3e0705176f959f3",
+        "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+        "f74734d014ed57b9a90de13393b67e75f940aaf1",
+        "94eaec6b65973867889338c8e82c2ce27bfe3b40"
+      ],
+      "actions_runs": []
+    },
+    "4": {
+      "commits": [
+        "5b23adeff4b58813b46de1186dbd015c93059aea",
+        "e5fcbe515fc9333174665a517b55755d9c2156de",
+        "94eaec6b65973867889338c8e82c2ce27bfe3b40"
+      ],
+      "actions_runs": []
+    },
+    "5": {
+      "commits": [
+        "287ce815c2c099ce449e5e95091d0cc9fc451eb1",
+        "1294a989b5212043695d6fbe00bffc25e32b1dec"
+      ],
+      "actions_runs": []
+    },
+    "6": {
+      "commits": [
+        "bd6d4c5d5121756918c86497f3e0705176f959f3",
+        "5d8806fa15975ead3dd6ed87eb4d00eca718b213",
+        "5b23adeff4b58813b46de1186dbd015c93059aea",
+        "6eb2ad86335c8c81ad3cdc3d42c2b112527ebb9e",
+        "287ce815c2c099ce449e5e95091d0cc9fc451eb1",
+        "ac4be825f03de0f4bbefc0191c7fba9bb3a8373f",
+        "eb875c50f10e254f40ee63bb5f6de43cef2e032d",
+        "98204c2375723a56fcc502e9e74d180c9b7cf44e",
+        "06de23ca758ae09bb2daeeb960119510d5214d25",
+        "8a430026fbb4beb1244d6a2dcf400b2cfc7c5c70",
+        "f74734d014ed57b9a90de13393b67e75f940aaf1",
+        "94eaec6b65973867889338c8e82c2ce27bfe3b40"
+      ],
+      "actions_runs": []
+    },
+    "7": {
+      "commits": [
+        "5d8806fa15975ead3dd6ed87eb4d00eca718b213",
+        "6eb2ad86335c8c81ad3cdc3d42c2b112527ebb9e",
+        "ac4be825f03de0f4bbefc0191c7fba9bb3a8373f",
+        "98204c2375723a56fcc502e9e74d180c9b7cf44e",
+        "f63da6c71643f5c8043cf69c7879190e11d791eb",
+        "e6d7b41e03230223a81094d82d942d27314d8246",
+        "06de23ca758ae09bb2daeeb960119510d5214d25",
+        "8a430026fbb4beb1244d6a2dcf400b2cfc7c5c70",
+        "fafd98a489020c2d86bcac3f15cda15bad509c2e",
+        "6ac948078cc4ba6b2f45fcdc0b10e6968e0933ec",
+        "7de02e1b2562f1493beb48285967569561f1b647",
+        "fc75e2a5119ed0b3d691961094fcc62998caf276"
+      ],
+      "actions_runs": []
+    },
+    "8": {
+      "commits": [
+        "1faf9fa04ba29851b7b8556779367907d88385a1",
+        "d57b15256e7903a3c7d277f0e2382f81418d145f",
+        "1c561a9238257aaca0dc5bb58af39b490f2574ff",
+        "7b2a9f6b6195c95ef4717cd46f18611e402177d1",
+        "1fbd4966adfef2ddaf5c423fa987c4c866ae5702",
+        "1855712c860ca3bc2abde367921407ff33ddf5df",
+        "a396593be783b58df98e68c7258916a0c6ac7e99",
+        "bd6d4c5d5121756918c86497f3e0705176f959f3",
+        "5d8806fa15975ead3dd6ed87eb4d00eca718b213",
+        "5b23adeff4b58813b46de1186dbd015c93059aea",
+        "6eb2ad86335c8c81ad3cdc3d42c2b112527ebb9e",
+        "287ce815c2c099ce449e5e95091d0cc9fc451eb1",
+        "ac4be825f03de0f4bbefc0191c7fba9bb3a8373f",
+        "eb875c50f10e254f40ee63bb5f6de43cef2e032d",
+        "98204c2375723a56fcc502e9e74d180c9b7cf44e",
+        "f63da6c71643f5c8043cf69c7879190e11d791eb",
+        "e6d7b41e03230223a81094d82d942d27314d8246",
+        "06de23ca758ae09bb2daeeb960119510d5214d25",
+        "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+        "e5fcbe515fc9333174665a517b55755d9c2156de",
+        "8a430026fbb4beb1244d6a2dcf400b2cfc7c5c70",
+        "54992f94346a4e8be2d364ba8de0312f83cb804d",
+        "9acf5b7341c760d42d5bc1da3251d7eb39ce4255",
+        "09ec076b27473333a6487e49654cdd562a3053e2",
+        "6aefa9749d283ce8f4ea08f6bc50a9f1b3ed4f9f"
+      ],
+      "actions_runs": []
+    },
+    "9": {
+      "commits": [
+        "bd6d4c5d5121756918c86497f3e0705176f959f3",
+        "5d8806fa15975ead3dd6ed87eb4d00eca718b213",
+        "5b23adeff4b58813b46de1186dbd015c93059aea",
+        "6eb2ad86335c8c81ad3cdc3d42c2b112527ebb9e",
+        "ac4be825f03de0f4bbefc0191c7fba9bb3a8373f",
+        "98204c2375723a56fcc502e9e74d180c9b7cf44e",
+        "f63da6c71643f5c8043cf69c7879190e11d791eb",
+        "e6d7b41e03230223a81094d82d942d27314d8246",
+        "06de23ca758ae09bb2daeeb960119510d5214d25",
+        "8a430026fbb4beb1244d6a2dcf400b2cfc7c5c70",
+        "fafd98a489020c2d86bcac3f15cda15bad509c2e",
+        "f74734d014ed57b9a90de13393b67e75f940aaf1",
+        "c7d16699cbaca8af43c25103f364d2905af8631a",
+        "278b21034ca7dc653815b106d2a3fee2a271e3a3"
+      ],
+      "actions_runs": []
+    }
+  },
+  "api_error": "HTTP Error 403: rate limit exceeded",
+  "note": "Stage tags overlap: counts are not additive. Includes failures/cancellations; current run may be in progress. Commit timestamps and run durations are not active human working time."
+}

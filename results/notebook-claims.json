@@ -1,0 +1,244 @@
+{
+  "schema": "FEFC-claims-v1",
+  "claims": {
+    "startup_mean_ms": {
+      "id": "startup_mean_ms",
+      "value": 120.76746082981089,
+      "file": "results/startup_metrics.json",
+      "field": "mean_ms",
+      "notebook": "00_Старт.ipynb",
+      "status": "verified against primary result"
+    },
+    "startup_p95_ms": {
+      "id": "startup_p95_ms",
+      "value": 150.73138734382496,
+      "file": "results/startup_metrics.json",
+      "field": "p95_ms",
+      "notebook": "00_Старт.ipynb",
+      "status": "verified against primary result"
+    },
+    "startup_mean_fog_wait_ms": {
+      "id": "startup_mean_fog_wait_ms",
+      "value": 0.0,
+      "file": "results/startup_metrics.json",
+      "field": "mean_fog_wait_ms",
+      "notebook": "00_Старт.ipynb",
+      "status": "verified against primary result"
+    },
+    "startup_control_P": {
+      "id": "startup_control_P",
+      "value": 8.0,
+      "file": "results/placement_controls.csv",
+      "where": {
+        "scenario": "minimal",
+        "requested_method": "P"
+      },
+      "field": "time_ms",
+      "notebook": "00_Старт.ipynb",
+      "status": "verified against primary result"
+    },
+    "startup_control_B": {
+      "id": "startup_control_B",
+      "value": 4.0,
+      "file": "results/placement_controls.csv",
+      "where": {
+        "scenario": "minimal",
+        "requested_method": "B"
+      },
+      "field": "time_ms",
+      "notebook": "00_Старт.ipynb",
+      "status": "verified against primary result"
+    },
+    "baseline_mean_ms": {
+      "id": "baseline_mean_ms",
+      "value": 120.76746082981089,
+      "file": "results/configuration.csv",
+      "where": {
+        "scenario": "baseline"
+      },
+      "field": "mean_ms",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "baseline_p95_ms": {
+      "id": "baseline_p95_ms",
+      "value": 150.73138734382496,
+      "file": "results/configuration.csv",
+      "where": {
+        "scenario": "baseline"
+      },
+      "field": "p95_ms",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "baseline_mean_fog_wait_ms": {
+      "id": "baseline_mean_fog_wait_ms",
+      "value": 0.0,
+      "file": "results/configuration.csv",
+      "where": {
+        "scenario": "baseline"
+      },
+      "field": "mean_fog_wait_ms",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "stationary95_mean_ms": {
+      "id": "stationary95_mean_ms",
+      "value": 689.3592383169563,
+      "file": "results/stationary_summary.csv",
+      "where": {
+        "series": "intensity",
+        "scenario": "rho_0.95"
+      },
+      "field": "mean_ms",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "stationary95_p95_ms": {
+      "id": "stationary95_p95_ms",
+      "value": 1861.031356644428,
+      "file": "results/stationary_summary.csv",
+      "where": {
+        "series": "intensity",
+        "scenario": "rho_0.95"
+      },
+      "field": "p95_ms",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "stationary95_mean_fog_wait_ms": {
+      "id": "stationary95_mean_fog_wait_ms",
+      "value": 566.7469963747313,
+      "file": "results/stationary_summary.csv",
+      "where": {
+        "series": "intensity",
+        "scenario": "rho_0.95"
+      },
+      "field": "mean_fog_wait_ms",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "stationary95_n_seeds": {
+      "id": "stationary95_n_seeds",
+      "value": 10.0,
+      "file": "results/stationary_summary.csv",
+      "where": {
+        "series": "intensity",
+        "scenario": "rho_0.95"
+      },
+      "field": "n_seeds",
+      "notebook": "01_Среда_и_конфигурация.ipynb",
+      "status": "verified against primary result"
+    },
+    "Queueing_mae_ms": {
+      "id": "Queueing_mae_ms",
+      "value": 47.85156214457567,
+      "file": "results/forecast_metrics.csv",
+      "where": {
+        "method": "Queueing"
+      },
+      "field": "mae_ms",
+      "notebook": "02_Прогноз_и_нейросеть.ipynb",
+      "status": "verified against primary result"
+    },
+    "Queueing_coverage_before": {
+      "id": "Queueing_coverage_before",
+      "value": 0.8770226537216829,
+      "file": "results/forecast_metrics.csv",
+      "where": {
+        "method": "Queueing"
+      },
+      "field": "coverage_before",
+      "notebook": "02_Прогноз_и_нейросеть.ipynb",
+      "status": "verified against primary result"
+    },
+    "Queueing_coverage_p95": {
+      "id": "Queueing_coverage_p95",
+      "value": 0.8770226537216829,
+      "file": "results/forecast_metrics.csv",
+      "where": {
+        "method": "Queueing"
+      },
+      "field": "coverage_p95",
+      "notebook": "02_Прогноз_и_нейросеть.ipynb",
+      "status": "verified against primary result"
+    },
+    "NeuralNet_mae_ms": {
+      "id": "NeuralNet_mae_ms",
+      "value": 59.6473408520835,
+      "file": "results/forecast_metrics.csv",
+      "where": {
+        "method": "NeuralNet"
+      },
+      "field": "mae_ms",
+      "notebook": "02_Прогноз_и_нейросеть.ipynb",
+      "status": "verified against primary result"
+    },
+    "NeuralNet_coverage_before": {
+      "id": "NeuralNet_coverage_before",
+      "value": 0.8705501618122977,
+      "file": "results/forecast_metrics.csv",
+      "where": {
+        "method": "NeuralNet"
+      },
+      "field": "coverage_before",
+      "notebook": "02_Прогноз_и_нейросеть.ipynb",
+      "status": "verified against primary result"
+    },
+    "NeuralNet_coverage_p95": {
+      "id": "NeuralNet_coverage_p95",
+      "value": 0.8716289104638619,
+      "file": "results/forecast_metrics.csv",
+      "where": {
+        "method": "NeuralNet"
+      },
+      "field": "coverage_p95",
+      "notebook": "02_Прогноз_и_нейросеть.ipynb",
+      "status": "verified against primary result"
+    },
+    "bridge_P_planned_ms": {
+      "id": "bridge_P_planned_ms",
+      "value": 2888.5,
+      "file": "results/neural_placement.csv",
+      "where": {
+        "requested_method": "P"
+      },
+      "field": "planned_ms",
+      "notebook": "03_Алгоритм_переразмещения.ipynb",
+      "status": "verified against primary result"
+    },
+    "bridge_P_actual_ms": {
+      "id": "bridge_P_actual_ms",
+      "value": 2921.4096727925594,
+      "file": "results/neural_placement.csv",
+      "where": {
+        "requested_method": "P"
+      },
+      "field": "actual_ms",
+      "notebook": "03_Алгоритм_переразмещения.ipynb",
+      "status": "verified against primary result"
+    },
+    "bridge_B_planned_ms": {
+      "id": "bridge_B_planned_ms",
+      "value": 2887.5,
+      "file": "results/neural_placement.csv",
+      "where": {
+        "requested_method": "B"
+      },
+      "field": "planned_ms",
+      "notebook": "03_Алгоритм_переразмещения.ipynb",
+      "status": "verified against primary result"
+    },
+    "bridge_B_actual_ms": {
+      "id": "bridge_B_actual_ms",
+      "value": 2920.4096727925594,
+      "file": "results/neural_placement.csv",
+      "where": {
+        "requested_method": "B"
+      },
+      "field": "actual_ms",
+      "notebook": "03_Алгоритм_переразмещения.ipynb",
+      "status": "verified against primary result"
+    }
+  }
+}

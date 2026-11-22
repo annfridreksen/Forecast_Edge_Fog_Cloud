@@ -1,0 +1,50 @@
+{
+  "regime": "constant Poisson input, finite uniform-service FIFO after warmup",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "rho_grid": [
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.85,
+    0.95
+  ],
+  "n_fog": 50,
+  "n_cloud": 40,
+  "warmup_expected_arrivals_per_fog": 2000,
+  "measurement_expected_arrivals_per_fog": 4000,
+  "guard_expected_arrivals_per_fog": 1000,
+  "replications": 180,
+  "ci": "two-sided Student t across independent seed estimates; max is mean finite-window maximum",
+  "warmup_check": {
+    "mean_ms": {
+      "long_minus_default": 7.2603072575000285,
+      "ci_low": -39.74703649775862,
+      "ci_high": 54.267651012758684
+    },
+    "p95_ms": {
+      "long_minus_default": 47.06177203056868,
+      "ci_low": -123.68795962418389,
+      "ci_high": 217.81150368532124
+    },
+    "mean_fog_wait_ms": {
+      "long_minus_default": 7.24784841853708,
+      "ci_low": -39.72699538618063,
+      "ci_high": 54.222692223254796
+    }
+  },
+  "stationarity_claim": "time-homogeneous stable offered load; finite warmup diagnostics are not a proof of exact stationarity",
+  "analytical": "M/M/1/K uses exponential service; simulator is uniform-service tandem, curves are not expected to coincide",
+  "all_inputs": "synthetic; original 400/hour baseline unchanged; no parameter tuning to conference figures"
+}

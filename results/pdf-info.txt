@@ -1,0 +1,23 @@
+$ pdfinfo /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf
+Title:           
+Subject:         
+Keywords:        
+Author:          
+Creator:         LaTeX with hyperref
+Producer:        pdfTeX-1.40.28
+CreationDate:    Sun Nov 22 10:33:38 2026 UTC
+ModDate:         Sun Nov 22 10:33:38 2026 UTC
+Custom Metadata: yes
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           26
+Encrypted:       no
+Page size:       419.528 x 595.276 pts
+Page rot:        0
+File size:       822990 bytes
+Optimized:       no
+PDF version:     1.7

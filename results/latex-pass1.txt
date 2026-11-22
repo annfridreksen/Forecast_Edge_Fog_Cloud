@@ -112,15 +112,15 @@ LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
 /fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/
 cm-super-t2a.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <
 ./psta/CC-BY-OO.pdf>]
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd) (./related.tex)
-[2]
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd) (./related.tex
+[2] [3])
 
-LaTeX Warning: Reference `russian--fig:architecture' on page 3 undefined on inp
+LaTeX Warning: Reference `russian--fig:architecture' on page 4 undefined on inp
 ut line 40.
 
-[3 <./figures/architecture.pdf>]
+[4 <./figures/architecture.pdf>]
 
-LaTeX Warning: Reference `russian--tab:parameters' on page 4 undefined on input
+LaTeX Warning: Reference `russian--tab:parameters' on page 5 undefined on input
  line 47.
 
 
@@ -138,115 +138,120 @@ Underfull \hbox (badness 5189) in paragraph at lines 60--60
 
 Underfull \hbox (badness 10000) in paragraph at lines 60--60
 []|\T2A/cmr/m/up/9 \xc2\xee\xf1\xef\xf0\xee\xe8\xe7\xe2\xee\xe4\xe8\xec\xee\xf1\xf2\xfc \xea\xee\xed-
-[4]
+[5]
 
-LaTeX Warning: Reference `russian--fig:path' on page 5 undefined on input line 
+LaTeX Warning: Reference `russian--fig:path' on page 6 undefined on input line 
 70.
 
 
-LaTeX Warning: Reference `russian--eq:latency' on page 5 undefined on input lin
+LaTeX Warning: Reference `russian--eq:latency' on page 6 undefined on input lin
 e 70.
 
 
-LaTeX Warning: Reference `russian--eq:quantile' on page 5 undefined on input li
+LaTeX Warning: Reference `russian--eq:quantile' on page 6 undefined on input li
 ne 79.
 
-[5 <./figures/six_path.pdf>]
+[6 <./figures/six_path.pdf>] [7]
 
-LaTeX Warning: Reference `russian--tab:config' on page 6 undefined on input lin
-e 95.
-
-[6]
-
-LaTeX Warning: Reference `russian--fig:components' on page 7 undefined on input
- line 116.
-
-[7]
-
-LaTeX Warning: Reference `russian--tab:buffer' on page 8 undefined on input lin
-e 138.
+LaTeX Warning: Reference `russian--tab:levelshares' on page 8 undefined on inpu
+t line 122.
 
 
-LaTeX Warning: Reference `russian--fig:queue' on page 8 undefined on input line
- 138.
+LaTeX Warning: Reference `russian--tab:steady_intensity' on page 8 undefined on
+ input line 126.
 
 
-LaTeX Warning: Reference `russian--fig:socket' on page 8 undefined on input lin
-e 144.
+LaTeX Warning: Reference `russian--tab:steady_buffer' on page 8 undefined on in
+put line 126.
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 144--147
+LaTeX Warning: Reference `russian--eq:ci' on page 8 undefined on input line 126
+.
+
+[8] [9 <./figures/components.pdf>]
+
+LaTeX Warning: Reference `russian--tab:sensitivity' on page 10 undefined on inp
+ut line 184.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+\T2A/cmr/m/sc/9 \xd0\xe8\xf1\xf3\xed\xee\xea 9.[]\T2A/cmr/m/up/9 \xd7\xf3\xe2\xf1\xf2\xe2\xe8\xf2\xe5\xeb\xfc\xed\xee\xf1\xf2\xfc \xf0\xe0\xf1-\xef\xf0\xe5-\xe4\xe5-\xeb\xe5-\xed\xe8\xff 
+Edge-
+[10 <./figures/rho_wait.pdf>]
+
+LaTeX Warning: Reference `russian--fig:socket' on page 11 undefined on input li
+ne 192.
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 192--195
 []\T2A/cmr/m/up/10 \xc2\xf1\xe5 \xef\xf0\xee-\xe3\xed\xee-\xe7\xe8-\xf0\xee\xe2-\xf9\xe8-\xea\xe8 \xef\xf0\xe5\xe4\xee-\xf1\xf2\xe0\xe2-\xeb\xff-\xfe\xf2 \xee\xef\xe5-\xf0\xe0-\xf6\xe8\xe8 \T2A/cm
 tt/m/n/10 fit(\xe8\xf1\xf2\xee\xf0\xe8\xff) \T2A/cmr/m/up/10 \xe8
 
-Underfull \vbox (badness 10000) has occurred while \output is active [8 <./figu
-res/components.pdf>] [9 <./figures/queue.pdf> <./figures/forecast_socket.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \vbox (badness 10000) has occurred while \output is active [11 <./fig
+ures/rho_latency.pdf>] [12] [13 <./figures/stationary_ratio.pdf> <./figures/sta
+tionary_buffer.pdf>] [14 <./figures/stationary_losses.pdf> <./figures/sensitivi
+ty_edge.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 []\T2A/cmr/m/up/10 Naive \xe8\xf1-\xef\xee\xeb\xfc-\xe7\xf3-\xe5\xf2 \xef\xee-\xf1\xeb\xe5\xe4-\xed\xe5\xe5 \xe4\xee-\xf1\xf2\xf3\xef-\xed\xee\xe5 \xed\xe0-\xe1\xeb\xfe-\xe4\xe5-\xed\xe8\xe5 \xf3\xe7
 -\xeb\xe0;
+[15 <./figures/sensitivity_link.pdf> <./figures/forecast_socket.pdf>]
 
-LaTeX Warning: Reference `russian--eq:stationary' on page 10 undefined on input
- line 160.
-
-
-LaTeX Warning: Reference `russian--eq:little' on page 10 undefined on input lin
-e 165.
-
-[10]
-
-LaTeX Warning: Reference `russian--eq:quantile' on page 11 undefined on input l
-ine 173.
+LaTeX Warning: Reference `russian--eq:stationary' on page 16 undefined on input
+ line 208.
 
 
-LaTeX Warning: Reference `russian--eq:upper' on page 11 undefined on input line
- 173.
+LaTeX Warning: Reference `russian--eq:little' on page 16 undefined on input lin
+e 213.
+
+[16]
+
+LaTeX Warning: Reference `russian--eq:metrics' on page 17 undefined on input li
+ne 237.
 
 
-LaTeX Warning: Reference `russian--eq:metrics' on page 11 undefined on input li
-ne 178.
+LaTeX Warning: Reference `russian--tab:forecast' on page 17 undefined on input 
+line 250.
+
+[17]
+Underfull \hbox (badness 2556) in paragraph at lines 255--255
+\T2A/cmr/m/sc/9 \xd0\xe8\xf1\xf3\xed\xee\xea 12.[]\T2A/cmr/m/up/9 \xdd\xec\xef\xe8\xf0\xe8\xf7\xe5\xf1\xea\xee\xe5 \xef\xee-\xea\xf0\xfb-\xf2\xe8\xe5 \xe2\xe5\xf0\xf5-\xed\xe5-\xe3\xee
+ \xef\xee-\xf0\xee-\xe3\xe0;
+[18 <./figures/forecast_coverage.pdf>]
+
+LaTeX Warning: Reference `russian--eq:stop' on page 19 undefined on input line 
+276.
 
 
-LaTeX Warning: Reference `russian--tab:forecast' on page 11 undefined on input 
-line 193.
+LaTeX Warning: Reference `russian--fig:placement' on page 19 undefined on input
+ line 278.
 
-[11] [12 <./figures/forecast_coverage.pdf>]
+[19 <./figures/placement_chain.pdf>]
 
-LaTeX Warning: Reference `russian--eq:stop' on page 13 undefined on input line 
-216.
-
-
-LaTeX Warning: Reference `russian--fig:placement' on page 13 undefined on input
- line 218.
-
-[13 <./figures/placement_chain.pdf>]
-
-LaTeX Warning: Reference `russian--tab:controls' on page 14 undefined on input 
-line 236.
+LaTeX Warning: Reference `russian--tab:controls' on page 20 undefined on input 
+line 296.
 
 
-LaTeX Warning: Reference `russian--eq:choice' on page 14 undefined on input lin
-e 236.
+LaTeX Warning: Reference `russian--eq:choice' on page 20 undefined on input lin
+e 296.
 
 
-LaTeX Warning: Reference `russian--fig:graph' on page 14 undefined on input lin
-e 236.
+LaTeX Warning: Reference `russian--fig:graph' on page 20 undefined on input lin
+e 296.
 
 
-LaTeX Warning: Reference `russian--fig:gantt' on page 14 undefined on input lin
-e 236.
+LaTeX Warning: Reference `russian--fig:gantt' on page 20 undefined on input lin
+e 296.
 
-[14 <./figures/graph_P.pdf>]
+[20 <./figures/graph_P.pdf>]
 
-LaTeX Warning: Reference `russian--tab:linked' on page 15 undefined on input li
-ne 248.
+LaTeX Warning: Reference `russian--tab:linked' on page 21 undefined on input li
+ne 308.
 
-[15 <./figures/gantt_P.pdf>]
-Underfull \hbox (badness 3291) in paragraph at lines 264--265
-[]\T2A/cmr/m/up/10 \xc4\xe5\xec\xee\xed\xf1\xf2\xf0\xe0\xf6\xe8\xee\xed\xed\xfb\xe9 MLP \xed\xe0 \xef\xf0\xe8-\xed\xff-\xf2\xee\xe9 \xf1\xe8\xed-\xf2\xe5-\xf2\xe8-\xf7\xe5-\xf1\xea\xee\xe9 \xe2\xfb-\xe1\xee\xf0-
-\xea\xe5
+[21 <./figures/gantt_P.pdf>] [22] (./availability.tex)
+(./references_verified.tex
 No file main.brf.
-(./related_references.tex [16{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-supe
-r-t1.enc} <./psta/DOI_logo.png>]) [17] [18] (./main.aux)
+[23{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./psta/DOI_logo
+.png>] [24]) [25] [26] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -274,25 +279,28 @@ not exist, replaced by a fixed one
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0700.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfcc0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0700.pfb></usr
-/share/texmf/fonts/type1/public/cm-super/sfcc0900.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0600.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-ftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (18 pages, 695197 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfbx0700.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0600.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfcc0700.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfcc0900.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfti0600.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (26 pages, 864614 bytes).
 Transcript written on main.log.
 
 kpathsea: Running mktextfm larm1000

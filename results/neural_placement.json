@@ -358,7 +358,10 @@
       "assignment": "F1,F0,F1",
       "planned_ms": 2888.5,
       "actual_ms": 2921.4096727925594,
-      "checked": 2
+      "checked": 2,
+      "fixed_assignment_no_background_ms": 167.0,
+      "estimated_background_increment_ms": 2721.5,
+      "actual_background_increment_ms": 2754.4096727925594
     },
     {
       "requested_method": "B",
@@ -367,7 +370,10 @@
       "assignment": "F1,F0,F0",
       "planned_ms": 2887.5,
       "actual_ms": 2920.4096727925594,
-      "checked": 4
+      "checked": 4,
+      "fixed_assignment_no_background_ms": 166.0,
+      "estimated_background_increment_ms": 2721.5,
+      "actual_background_increment_ms": 2754.4096727925594
     }
   ],
   "plans": {
@@ -792,5 +798,6 @@
       "violations": []
     }
   },
-  "scope": "Forecast model trained on Fog requests, therefore this bridge uses two Fog nodes, a subset of allowed E/F devices. No extrapolation to untrained Edge hardware. Graph and message sizes are explicit synthetic additions; predictions supply ranks only, never block durations. Existing background is frozen; no new arrivals during this short graph execution."
+  "scope": "Forecast model trained on Fog requests, therefore this bridge uses two Fog nodes, a subset of allowed E/F devices. No extrapolation to untrained Edge hardware. Graph and message sizes are explicit synthetic additions; predictions supply ranks only, never block durations. Existing background is frozen; no new arrivals during this short graph execution.",
+  "counterfactual": "same fixed assignment, identical block profiles and routes policy, no background; no reranking"
 }

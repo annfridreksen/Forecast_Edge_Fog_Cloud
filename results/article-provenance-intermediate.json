@@ -1,0 +1,12 @@
+{
+  "generated_utc": "2026-11-22T10:33:24.504928+00:00",
+  "source_files": {
+    "configuration.csv": "5f5b59db0061bf357b1f5ba8542990e1e8657eb4797c11b79e7551989ef94617",
+    "forecast_metrics.csv": "293d10477b186bbdae54f338fe9ce9f9e46abe93726755e3103ab619faebd35a",
+    "placement_controls.csv": "1499a001d8db55e7fdcc53325b76f61edbadbafacae759ca4230d3af41d88967",
+    "neural_placement.csv": "a6dbe009c454c2b696a58a5344fd7cee8768bf9a17772e72c6024b5e55e8eb22"
+  },
+  "main_tex_sha256": "5a97ad6650d188561978cede3e23f7938a215e826108f7666cf5bf38f51e34d4",
+  "all_figures_from_notebooks": true,
+  "numeric_claim_records": 816
+}

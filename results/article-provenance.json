@@ -1,12 +1,123 @@
 {
-  "generated_utc": "2026-11-22T07:10:27.512301+00:00",
+  "generated_utc": "2026-11-22T10:33:24.504928+00:00",
   "source_files": {
     "configuration.csv": "5f5b59db0061bf357b1f5ba8542990e1e8657eb4797c11b79e7551989ef94617",
     "forecast_metrics.csv": "293d10477b186bbdae54f338fe9ce9f9e46abe93726755e3103ab619faebd35a",
     "placement_controls.csv": "1499a001d8db55e7fdcc53325b76f61edbadbafacae759ca4230d3af41d88967",
-    "neural_placement.csv": "6abb8a86664636588c0aeb5bba5d3e2d57cd527536b45910053d22232a19939f"
+    "neural_placement.csv": "a6dbe009c454c2b696a58a5344fd7cee8768bf9a17772e72c6024b5e55e8eb22",
+    "stationary_summary.csv": "31261a5479b3266bf79b68fdf112b68b6a3461bb3aab8bb17c6dff4ccc2cb993",
+    "sensitivity_summary.csv": "64d0993c70323d2f8f382627a28460bb6989434d631429d55a7c821e21d2bf9a",
+    "component_shares.csv": "0f41883c0baaeaacbc8bc4dc395201ff9d425432c00ec315d5eff9536551b2c1",
+    "level_shares.csv": "6fbcfb0675f4de25a1098d42023b961e5f7a211e695f2adb619173b0a186fe3b"
   },
-  "main_tex_sha256": "571961e4b827f42f4ac2c0fb7be02442b37d5693243b048dbbd114b29110d139",
+  "main_tex_sha256": "d2f31ef25970f578cf55535e25ad3c8808c18a73f68314c3c348dfdf09a3b448",
   "all_figures_from_notebooks": true,
-  "numeric_claim_records": 810
+  "numeric_claim_records": 1090,
+  "source_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+  "main_pdf_sha256": "bf4cfb4ccde08abac88756452e58ea46924154ed12dfa3442666c5f4912aaa25",
+  "final_not_intermediate": true,
+  "related_tex_sha256": "82e2079eeb79e95b01c0f65f04229a2b896d2195465227ced10a931c369857c5",
+  "verified_bibliography_sha256": "ed15d9748de9c0b9a53771919d4c0c9d83c9b7accf5b36ffff496cab6fc1c6c3",
+  "all_cited_doi_ok": true,
+  "exact_notebook_cells": {
+    "00_Старт.ipynb": [
+      {
+        "notebook_cell_1based": 9,
+        "cell_id": "39a362ba",
+        "execution_count": 4,
+        "calls": [
+          "simulate",
+          "controls"
+        ]
+      },
+      {
+        "notebook_cell_1based": 11,
+        "cell_id": "f5009a1a",
+        "execution_count": 5,
+        "calls": [
+          "publish"
+        ]
+      }
+    ],
+    "01_Среда_и_конфигурация.ipynb": [
+      {
+        "notebook_cell_1based": 5,
+        "cell_id": "240af6c1",
+        "execution_count": 2,
+        "calls": [
+          "configuration_series"
+        ]
+      },
+      {
+        "notebook_cell_1based": 13,
+        "cell_id": "e754be1c",
+        "execution_count": 6,
+        "calls": [
+          "stationary_series"
+        ]
+      },
+      {
+        "notebook_cell_1based": 19,
+        "cell_id": "f407ab79",
+        "execution_count": 9,
+        "calls": [
+          "sensitivity_series"
+        ]
+      },
+      {
+        "notebook_cell_1based": 21,
+        "cell_id": "6def3521",
+        "execution_count": 10,
+        "calls": [
+          "publish"
+        ]
+      }
+    ],
+    "02_Прогноз_и_нейросеть.ipynb": [
+      {
+        "notebook_cell_1based": 5,
+        "cell_id": "6bb142fb",
+        "execution_count": 2,
+        "calls": [
+          "forecast_study"
+        ]
+      },
+      {
+        "notebook_cell_1based": 15,
+        "cell_id": "c7a9a30d",
+        "execution_count": 7,
+        "calls": [
+          "publish"
+        ]
+      }
+    ],
+    "03_Алгоритм_переразмещения.ipynb": [
+      {
+        "notebook_cell_1based": 5,
+        "cell_id": "a1faa3be",
+        "execution_count": 2,
+        "calls": [
+          "controls"
+        ]
+      },
+      {
+        "notebook_cell_1based": 9,
+        "cell_id": "7c6fdaae",
+        "execution_count": 4,
+        "calls": [
+          "neural_placement",
+          "background_accounting"
+        ]
+      },
+      {
+        "notebook_cell_1based": 15,
+        "cell_id": "44b12aa9",
+        "execution_count": 7,
+        "calls": [
+          "publish"
+        ]
+      }
+    ]
+  },
+  "limitation": "Hash and scalar checks do not establish scientific validity or manual visual inspection."
 }

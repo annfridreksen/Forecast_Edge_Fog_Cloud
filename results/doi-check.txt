@@ -1,2 +1,2 @@
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/verify_doi.py
-DOI metadata: 5 / 6 verified; failures retained, not fabricated.
+DOI metadata: 18 / 18 verified; no invented success.

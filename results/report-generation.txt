@@ -1,2 +1,3 @@
 $ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/write_report.py
-Author report generated from real outputs, tests and timestamps.
+Final provenance hashes and notebook cell mapping: PASS
+Issue #4/3 report and all 15 response rows written from executed files.
