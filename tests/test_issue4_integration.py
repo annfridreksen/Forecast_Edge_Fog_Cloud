@@ -52,9 +52,14 @@ class Issue4Integration(unittest.TestCase):
         data={'registered_doi':item['doi'],'actual_title':'Unrelated title'}
         with patch('scripts.verify_doi.crossref',new=lambda _:data),patch('scripts.verify_doi.datacite',new=lambda _:data):
             self.assertFalse(verify(item)['ok'])
-    def test_catalog_has_eighteen_unique_doi(self):
+    def test_catalog_matches_author_scope_without_duplicates(self):
         records=json.loads((Path(__file__).resolve().parents[1]/'article/references.json').read_text())
-        self.assertEqual(len(records),18)
-        self.assertEqual(len({r['doi'].lower() for r in records}),18)
+        self.assertGreaterEqual(len(records),12)
+        self.assertLessEqual(len(records),15)
+        self.assertEqual(len({r['key'] for r in records}),len(records))
+        self.assertEqual(len({r['doi'].lower() for r in records}),len(records))
+        required={'heft':'10.1109/71.993206','fogsurvey':'10.1002/spe.2766','lykouris':'10.1145/3447579','advice':'10.4230/LIPIcs.APPROX/RANDOM.2020.60'}
+        by_key={r['key']:r['doi'] for r in records}
+        for key,doi in required.items():self.assertEqual(by_key.get(key),doi)
 
 if __name__=='__main__':unittest.main()
