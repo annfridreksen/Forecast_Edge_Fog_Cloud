@@ -1,193 +1,195 @@
-"""Replicated steady-input tandem queues; synthetic, not conference measurements.
+"""Fixed-window adapter to model.simulate; there is NO second queue scheduler.
 
-A feed-forward network is evaluated in causal arrival order at each stage.
-This is equivalent to FIFO discrete-event service for this acyclic topology;
-there is no feedback, preemption, or placement decision in these series.
-All 50 Fog queues and every configured resource are represented separately.
+R1.4 windows use the REFERENCE 50 Fog, not the selected configuration. This
+module computes one replication, not a confidence interval or accepted map.
+The old 18-scenario runner is disabled; its stored CSVs remain historical.
 """
-from dataclasses import asdict, replace
-from collections import deque
-from concurrent.futures import ProcessPoolExecutor
+from dataclasses import replace
 from pathlib import Path
-import heapq
-import json
 import math
-import os
 import numpy as np
-import pandas as pd
 from scipy.stats import t as student_t
+from . import model
 from .model import Config, COMPONENTS
-from .forecast.models import mm1k
+from .timebase import seconds_to_ticks, TICKS_PER_SECOND
+from .workload import InputEvent, Workload, source_signature, generate_workload
 
-RHO_GRID=(.10,.30,.50,.70,.85,.95)
-SEEDS=tuple(range(10))
-WARMUP=2000
-OBSERVE=4000
-GUARD=1000
+RHO_GRID = (.10, .30, .50, .70, .85, .95)
+SEEDS = tuple(range(10))
+WARMUP, OBSERVE, GUARD = 2000, 4000, 1000
+REFERENCE_FOG = 50
+METRICS = ('mean_ms','p95_ms','max_ms','mean_fog_wait_ms','drop_fraction',
+           'fog_utilization','cloud_utilization')
+
 
 def clipped_busy(starts, ends, lo, hi):
-    return np.maximum(0.,np.minimum(ends,hi)-np.maximum(starts,lo))
+    return np.maximum(0., np.minimum(ends, hi)-np.maximum(starts, lo))
 
-def fifo_fog(arrival, service, fog, n_fog, buffer):
-    """Finite waiting buffer B; K=B+1 includes the in-service job."""
-    order=np.argsort(arrival,kind='stable');start=np.full(len(arrival),np.nan)
-    end=start.copy();q_before=np.zeros(len(arrival),dtype=np.int32)
-    calendars=[deque() for _ in range(n_fog)]
-    for i in order:
-        q=calendars[int(fog[i])];a=arrival[i]
-        while q and q[0]<=a:q.popleft()
-        q_before[i]=max(0,len(q)-1)
-        if len(q)>=buffer+1:continue
-        s=max(a,q[-1]) if q else a
-        start[i]=s;end[i]=s+service[i];q.append(end[i])
-    return start,end,q_before
 
-def stationary_run(config, warmup=WARMUP, observe=OBSERVE, guard=GUARD):
-    """Fixed-time warm-up, measurement and guard; no drain-biased means.
+def observation_window(config, warmup=WARMUP, observe=OBSERVE, guard=GUARD):
+    """Counts per reference Fog are converted once to fixed absolute ticks."""
+    if any(isinstance(x, bool) or not math.isfinite(x) or x <= 0
+           for x in (warmup, observe, guard)):
+        raise ValueError('positive finite window lengths required')
+    unit = REFERENCE_FOG/config.arrival_rate_s
+    lo, hi, stop = (seconds_to_ticks(x*unit)
+                    for x in (warmup, warmup+observe, warmup+observe+guard))
+    if not 0 < lo < hi < stop:
+        raise ValueError('windows must have positive integer-clock lengths')
+    return lo, hi, stop
 
-    Durations are specified in expected arrivals PER FOG. Measurement selects
-    the external-arrival cohort. All events are simulated through a guard and
-    then drained; any cohort still unfinished by the guard boundary is flagged.
-    Resource occupancy is integrated over the measurement interval only.
+
+def _non_fog_load_bounds(c):
+    """Sufficient nominal load bounds, not measured busy fractions.
+
+    Downstream traffic is bounded by the Fog service capacity as well as the
+    offered stream; rho_F>1 with a finite waiting buffer is NOT rejected.
+    These bounds assume the declared uniform source and independent services.
     """
-    c=config
-    if min(warmup,observe,guard)<=0:raise ValueError('positive window lengths required')
-    if c.fog_weights is not None:raise ValueError('stationary series require uniform zone probabilities')
-    per_fog=c.arrival_rate_s/c.n_fog
-    service_mean=sum(c.fog_service_ms)/2000
-    rho=per_fog*service_mean
-    if not 0<rho<1:raise ValueError('offered Fog load must be between zero and one')
-    fc_rho=per_fog*sum(c.fog_cloud_ms)/2000
-    cloud_rho=c.arrival_rate_s*sum(c.cloud_service_ms)/2000/c.n_cloud
-    if max(fc_rho,cloud_rho)>=1:raise ValueError('downstream stage would be unstable')
-    lo=warmup/per_fog;hi=lo+observe/per_fog;stop=hi+guard/per_fog
-    rng=np.random.default_rng(np.random.SeedSequence([c.seed,20261122]))
-    # Uniform order statistics conditional on a Poisson count give exactly a
-    # homogeneous Poisson process over the full fixed observation horizon.
-    n=int(rng.poisson(c.arrival_rate_s*stop));release=np.sort(rng.uniform(0,stop,n))
-    fog=rng.integers(0,c.n_fog,n,dtype=np.int32)
-    sensors=np.arange(c.n_edge);mobile_type=rng.random(c.n_edge)<c.mobile_fraction
-    zone_sizes=np.array([len(sensors[f::c.n_fog]) for f in range(c.n_fog)])
-    sensor=fog+c.n_fog*(rng.random(n)*zone_sizes[fog]).astype(int)
-    mobile=mobile_type[sensor]
-    lower=np.where(mobile,c.edge_mobile_ms[0],c.edge_fixed_ms[0])/1000
-    upper=np.where(mobile,c.edge_mobile_ms[1],c.edge_fixed_ms[1])/1000
-    combined=lower+(upper-lower)*rng.random(n)
-    ed=combined*c.edge_processing_share;ef=combined-ed
-    fs=rng.uniform(*c.fog_service_ms,n)/1000
-    fc=rng.uniform(*c.fog_cloud_ms,n)/1000
-    cs=rng.uniform(*c.cloud_service_ms,n)/1000
-    edge_start=np.empty(n);edge_end=np.empty(n);free=np.zeros(c.n_edge)
-    for i in range(n):
-        d=sensor[i];edge_start[i]=max(release[i],free[d]);edge_end[i]=edge_start[i]+ed[i];free[d]=edge_end[i]
-    ef_start=np.empty(n);fa=np.empty(n);free=np.zeros(c.n_fog)
-    for i in np.argsort(edge_end,kind='stable'):
-        d=fog[i];ef_start[i]=max(edge_end[i],free[d]);fa[i]=ef_start[i]+ef[i];free[d]=fa[i]
-    fstart,fend,q=fifo_fog(fa,fs,fog,c.n_fog,c.buffer)
-    accepted=np.flatnonzero(np.isfinite(fend))
-    fc_start=np.full(n,np.nan);ca=fc_start.copy();free=np.zeros(c.n_fog)
-    for i in accepted[np.argsort(fend[accepted],kind='stable')]:
-        d=fog[i];fc_start[i]=max(fend[i],free[d]);ca[i]=fc_start[i]+fc[i];free[d]=ca[i]
-    cloud_start=np.full(n,np.nan);end=cloud_start.copy();servers=[(0.,d) for d in range(c.n_cloud)];heapq.heapify(servers)
-    for i in accepted[np.argsort(ca[accepted],kind='stable')]:
-        available,d=heapq.heappop(servers);cloud_start[i]=max(ca[i],available);end[i]=cloud_start[i]+cs[i];heapq.heappush(servers,(end[i],d))
-    cohort=(release>=lo)&(release<hi);completed=cohort&np.isfinite(end);lost=cohort&~np.isfinite(end)
-    if np.any(end[completed]>=stop):raise RuntimeError('guard insufficient for measurement cohort; extend and rerun')
-    a=np.flatnonzero(completed);latency=(end[a]-release[a])*1000
-    components=np.column_stack([edge_end[a]-release[a],fa[a]-edge_end[a],fstart[a]-fa[a],fs[a],ca[a]-fend[a],end[a]-ca[a]])*1000
-    assert np.allclose(components.sum(axis=1),latency,atol=1e-7)
-    window=hi-lo
-    util_fog=clipped_busy(fstart[accepted],fend[accepted],lo,hi).sum()/(window*c.n_fog)
-    util_cloud=clipped_busy(cloud_start[accepted],end[accepted],lo,hi).sum()/(window*c.n_cloud)
-    row={'seed':c.seed,'rho_target':rho,'n_edge':c.n_edge,'n_fog':c.n_fog,'n_cloud':c.n_cloud,'buffer':c.buffer,
-         'arrival_rate_s':c.arrival_rate_s,'warmup_s':lo,'observation_s':window,'guard_s':stop-hi,
-         'warmup_expected_per_fog':warmup,'observation_expected_per_fog':observe,'guard_expected_per_fog':guard,
-         'arrivals':int(cohort.sum()),'completed':int(completed.sum()),'dropped':int(lost.sum()),
-         'mean_ms':float(latency.mean()),'p95_ms':float(np.quantile(latency,.95)),
-         'max_ms':float(latency.max()),'mean_fog_wait_ms':float(components[:,2].mean()),
-         'drop_fraction':float(lost.sum()/cohort.sum()),'fog_utilization':float(util_fog),'cloud_utilization':float(util_cloud),
-         'fog_arrival_rate_s':float(((fa>=lo)&(fa<hi)).sum()/window/c.n_fog),
-         'edge_processing_share':c.edge_processing_share,'fog_cloud_mean_ms':sum(c.fog_cloud_ms)/2}
-    row.update(dict(zip(COMPONENTS,components.mean(axis=0).tolist())))
-    mid=(lo+hi)/2
-    for label,mask in [('first',release[a]<mid),('second',release[a]>=mid)]:
-        row[label+'_mean_ms']=float(latency[mask].mean())
-        row[label+'_p95_ms']=float(np.quantile(latency[mask],.95))
+    sizes = [len(range(f, c.n_edge, c.n_fog)) for f in range(c.n_fog)]
+    rates = [c.arrival_rate_s*n/c.n_edge for n in sizes]
+    profiles = ([c.edge_fixed_ms] if c.mobile_fraction == 0 else
+                [c.edge_mobile_ms] if c.mobile_fraction == 1 else [c.edge_fixed_ms,c.edge_mobile_ms])
+    combined = max(sum(x) for x in profiles)/2000
+    fs, fc, cs = (sum(x)/2000 for x in
+                  (c.fog_service_ms, c.fog_cloud_ms, c.cloud_service_ms))
+    accepted_bound = [min(r, 1/fs) if fs else r for r in rates]
+    return {'edge': c.arrival_rate_s/c.n_edge*combined*c.edge_processing_share,
+            'edge_fog': max(rates)*combined*(1-c.edge_processing_share),
+            'fog_cloud': max(accepted_bound)*fc,
+            'cloud': sum(accepted_bound)*cs/c.n_cloud}
+
+
+def _mean(values):
+    return float(np.mean(values)) if values else None
+
+
+def summarize_window(config, result, window):
+    """Only observation/aggregation; all start/end times come from the kernel.
+
+    Events drained after the guard are NOT used to certify this cohort: future
+    input after the guard has not been generated. Extend the source horizon.
+    """
+    lo, hi, stop = window
+    tasks = result['tasks']
+    cohort = [r for r in tasks if lo <= r['release_tick'] < hi]
+    completed = [r for r in cohort if r['status']=='completed' and r['end_tick'] <= stop]
+    lost = [r for r in cohort if r['status']=='dropped' and r['drop_tick'] <= stop]
+    pending = len(cohort)-len(completed)-len(lost)
+    final = bool(cohort) and pending == 0
+    values = [r['latency_ms'] for r in completed] if final else []
+    means = {k: _mean([r[k] for r in completed]) if final else None for k in COMPONENTS}
+    def occupancy(start, end, resources):
+        ticks = sum(max(0, min(r[end], hi)-max(r[start], lo)) for r in tasks if start in r and end in r)
+        return ticks/((hi-lo)*resources)
+    row = {'seed':config.seed, 'rho_target':config.arrival_rate_s/config.n_fog*sum(config.fog_service_ms)/2000,
+           'rho50':config.arrival_rate_s/REFERENCE_FOG*sum(config.fog_service_ms)/2000,
+           'n_edge':config.n_edge, 'n_fog':config.n_fog, 'n_cloud':config.n_cloud, 'buffer':config.buffer,
+           'arrival_rate_s':config.arrival_rate_s, 'reference_fog':REFERENCE_FOG,
+           'warmup_s':lo/TICKS_PER_SECOND, 'observation_s':(hi-lo)/TICKS_PER_SECOND,
+           'guard_s':(stop-hi)/TICKS_PER_SECOND,
+           'window_ticks':{'start':lo,'end':hi,'guard_end':stop},
+           'arrivals':len(cohort), 'completed':len(completed), 'dropped':len(lost), 'unfinished':pending,
+           'cohort_complete':final, 'status':'COHORT_COMPLETE' if final else 'INSUFFICIENT_GUARD_OR_EMPTY',
+           'drop_fraction':len(lost)/len(cohort) if final else None,
+           'mean_ms':_mean(values), 'p95_ms':model.quantile95(values), 'max_ms':max(values) if values else None,
+           'mean_fog_wait_ms':means['fog_wait_ms'],
+           'H200':sum(r['latency_tick'] <= 200_000_000 for r in completed)/len(cohort) if final else None,
+           'fog_utilization':occupancy('fog_start_tick','fog_end_tick',config.n_fog),
+           'cloud_utilization':occupancy('cloud_start_tick','end_tick',config.n_cloud),
+           'fog_arrival_rate_s':sum(lo <= r['fog_arrival_tick'] < hi for r in tasks)/((hi-lo)/TICKS_PER_SECOND)/config.n_fog,
+           'edge_processing_share':config.edge_processing_share, 'fog_cloud_mean_ms':sum(config.fog_cloud_ms)/2,
+           'workload_sha256':result['workload']['sha256'], 'kernel':'efc.model.simulate',
+           'statistical_acceptance':'NOT_EVALUATED_SINGLE_REPLICATION'}
+    row.update(means)
+    mid = (lo+hi)//2
+    for label, predicate in (('first', lambda r:r['release_tick']<mid),
+                             ('second', lambda r:r['release_tick']>=mid)):
+        part = [r for r in cohort if predicate(r)]
+        done = [r['latency_ms'] for r in completed if predicate(r)] if final else []
+        row[label+'_mean_ms'] = _mean(done)
+        row[label+'_p95_ms'] = model.quantile95(done)
+        row[label+'_drop_fraction'] = sum(predicate(r) for r in lost)/len(part) if final and part else None
     return row
 
+
+def stationary_run(config, warmup=WARMUP, observe=OBSERVE, guard=GUARD,
+                   *, workload=None, return_details=False):
+    """One fixed-window replication, using exactly the demonstration kernel.
+
+    Supplied sources require the same declared generation horizon. Length is
+    inferred for the kernel; n_tasks is not a fixed-time observation criterion.
+    No claim of stationary accuracy/CI follows from this one adapter call.
+    """
+    window = observation_window(config, warmup, observe, guard)
+    bounds = _non_fog_load_bounds(config)
+    if any(v >= 1 for v in bounds.values()):
+        raise ValueError('no sufficient stability margin for unbounded queues: '+str(bounds))
+    if workload is None:
+        # Decimal text avoids re-rounding an already quantized horizon via float.
+        seconds = f'{window[2]//TICKS_PER_SECOND}.{window[2]%TICKS_PER_SECOND:09d}'
+        workload = generate_workload(config, stop_s=seconds)
+    if workload.horizon_tick != window[2]:
+        raise ValueError('workload horizon must equal declared guard end')
+    actual = replace(config, n_tasks=len(workload.events))
+    result = model.simulate(actual, workload=workload)
+    row = summarize_window(config, result, window)
+    row.update(warmup_expected_per_reference_fog=warmup, observation_expected_per_reference_fog=observe,
+               guard_expected_per_reference_fog=guard, non_fog_load_bounds=bounds)
+    return (row, result) if return_details else row
+
+
+def fifo_fog(arrival, service, fog, n_fog, buffer):
+    """Legacy test adapter only: zero other services, SAME kernel, no scheduler.
+
+    Output positions follow the original input order. New experiments must
+    supply complete workloads and use stationary_run/simulate instead.
+    """
+    if len(arrival) != len(service) or len(arrival) != len(fog):
+        raise ValueError('input lengths differ')
+    order = sorted(range(len(arrival)), key=lambda i:(seconds_to_ticks(arrival[i]),i))
+    c = Config(n_edge=n_fog, n_fog=n_fog, n_cloud=1, buffer=buffer, n_tasks=len(order),
+               mobile_fraction=0, edge_fixed_ms=(0,0), fog_service_ms=(0,0),
+               fog_cloud_ms=(0,0), cloud_service_ms=(0,0))
+    if any(isinstance(f, (bool,np.bool_)) or int(f) != f or not 0 <= f < n_fog for f in fog):
+        raise ValueError('invalid Fog index')
+    events = tuple(InputEvent(j,seconds_to_ticks(arrival[i]),int(fog[i]),False,
+                             0,0,seconds_to_ticks(service[i]),0,0) for j,i in enumerate(order))
+    result = model.simulate(c, workload=Workload(events,source_signature(c)))
+    start = np.full(len(order),np.nan); end = start.copy(); q = np.zeros(len(order),dtype=np.int32)
+    for i,r in zip(order,result['tasks']):
+        q[i] = r['queue_before']
+        if r['status']=='completed':
+            start[i]=r['fog_start_s']; end[i]=r['fog_end_s']
+    return start,end,q
+
+
 def scenarios():
-    # Cloud=40 is a documented diagnostic capacity, not the 8-server baseline.
-    # At rho=.95 the offered Cloud load is .432, so Fog is studied without
-    # accidentally building an unstable Cloud queue.
+    """Approved R1.4 grid; enumerating it does not run experiments."""
     base=Config(n_cloud=40,seed=0)
-    cases=[]
-    for rho in RHO_GRID:
-        cases.append(('intensity',f'rho_{rho:.2f}',replace(base,arrival_rate_s=rho*50/.055)))
-    # Fixed per-sensor rate: rho=.95 at 40 sensors/Fog, .2375 at 10.
-    for ratio in (10,15,20,25,30,35,40):
-        cases.append(('ratio',f'ratio_{ratio}',replace(base,n_edge=50*ratio,arrival_rate_s=(.95/.055/40)*50*ratio)))
-    for capacity in (20,50,100,200,400):
-        cases.append(('buffer',f'buffer_{capacity}',replace(base,buffer=capacity,arrival_rate_s=.95*50/.055)))
-    return cases
+    return [('configuration',f'rho_{rho:.2f}_fog_{f}_B_{b}',
+             replace(base,n_fog=f,buffer=b,arrival_rate_s=rho*50/.055))
+            for rho in RHO_GRID for f in (30,40,50,60,70)
+            for b in (0,2,5,10,20,50,100,200,400)]
+
 
 def ci95(values):
+    """Legacy replicate-mean diagnostic, NOT the R1.4 pooled-p95 decision CI."""
     v=np.asarray(values,dtype=float)
-    if len(v)<2 or not np.isfinite(v).all():raise ValueError('CI needs independent finite replications')
-    mean=float(v.mean());half=float(student_t.ppf(.975,len(v)-1)*v.std(ddof=1)/math.sqrt(len(v)))
+    if len(v)<2 or not np.isfinite(v).all():
+        raise ValueError('CI needs independent finite replications')
+    mean=float(v.mean()); half=float(student_t.ppf(.975,len(v)-1)*v.std(ddof=1)/math.sqrt(len(v)))
     return mean,mean-half,mean+half
 
-METRICS=('mean_ms','p95_ms','max_ms','mean_fog_wait_ms','drop_fraction','fog_utilization','cloud_utilization')
-
-def aggregate(frame,group=('series','scenario')):
-    rows=[]
-    for keys,part in frame.groupby(list(group),sort=False):
-        keys=(keys,) if not isinstance(keys,tuple) else keys
-        row=dict(zip(group,keys));row['n_seeds']=part.seed.nunique()
-        if row['n_seeds']!=len(part):raise ValueError('seed repeated within scenario')
-        for k in ('rho_target','n_edge','n_fog','n_cloud','buffer','arrival_rate_s','warmup_s','observation_s','warmup_expected_per_fog','observation_expected_per_fog'):
-            row[k]=part.iloc[0][k]
-        for metric in METRICS:
-            mean,lo,hi=ci95(part[metric]);row.update({metric:mean,metric+'_ci_low':lo,metric+'_ci_high':hi})
-        # Maxima are averaged per fixed-length replication, never a population bound.
-        for metric in ('mean_ms','p95_ms'):
-            diff=part['second_'+metric]-part['first_'+metric]
-            mean,lo,hi=ci95(diff);row.update({'half_difference_'+metric:mean,'half_difference_'+metric+'_ci_low':lo,'half_difference_'+metric+'_ci_high':hi})
-        analytical=mm1k(row['arrival_rate_s']/row['n_fog'],.055,int(row['buffer'])+1)
-        row['MM1K_wait_ms']=(analytical['W_s']-.055)*1000
-        rows.append(row)
-    return pd.DataFrame(rows)
 
 def _job(args):
     series,label,c,warm,observe=args
     return {'series':series,'scenario':label,**stationary_run(c,warm,observe)}
 
-def stationary_series(output='results',seeds=SEEDS,workers=2,warmup=WARMUP,observe=OBSERVE):
-    if len(set(seeds))<10:raise ValueError('at least ten independent seeds required')
-    out=Path(output);out.mkdir(parents=True,exist_ok=True)
-    jobs=[(series,label,replace(c,seed=int(seed)),warmup,observe) for series,label,c in scenarios() for seed in seeds]
-    with ProcessPoolExecutor(max_workers=workers) as pool:rows=list(pool.map(_job,jobs,chunksize=1))
-    raw=pd.DataFrame(rows);raw.to_csv(out/'stationary_replicates.csv',index=False)
-    summary=aggregate(raw);summary.to_csv(out/'stationary_summary.csv',index=False)
-    # Fixed longer-warm-up check, not chosen after seeing a favourable result.
-    c=replace(Config(n_cloud=40),arrival_rate_s=.95*50/.055)
-    with ProcessPoolExecutor(max_workers=workers) as pool:
-        extra=list(pool.map(_job,[('warmup','rho_0.95_double_warmup',replace(c,seed=int(seed)),2*warmup,observe) for seed in seeds]))
-    pd.DataFrame(extra).to_csv(out/'warmup_replicates.csv',index=False)
-    base=raw[(raw.series=='intensity')&(raw.scenario=='rho_0.95')].sort_values('seed')
-    longer=pd.DataFrame(extra).sort_values('seed');diagnostic={}
-    for metric in ('mean_ms','p95_ms','mean_fog_wait_ms'):
-        vals=longer[metric].to_numpy()-base[metric].to_numpy();m,lo,hi=ci95(vals)
-        diagnostic[metric]={'long_minus_default':m,'ci_low':lo,'ci_high':hi}
-    metadata={'regime':'constant Poisson input, finite uniform-service FIFO after warmup',
-      'seeds':list(seeds),'rho_grid':RHO_GRID,'n_fog':50,'n_cloud':40,
-      'warmup_expected_arrivals_per_fog':warmup,'measurement_expected_arrivals_per_fog':observe,
-      'guard_expected_arrivals_per_fog':GUARD,'replications':len(rows),
-      'ci':'two-sided Student t across independent seed estimates; max is mean finite-window maximum',
-      'warmup_check':diagnostic,'stationarity_claim':'time-homogeneous stable offered load; finite warmup diagnostics are not a proof of exact stationarity',
-      'analytical':'M/M/1/K uses exponential service; simulator is uniform-service tandem, curves are not expected to coincide',
-      'all_inputs':'synthetic; original 400/hour baseline unchanged; no parameter tuning to conference figures'}
-    (out/'stationary_metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
-    assert (raw.completed+raw.dropped==raw.arrivals).all()
-    assert raw.mean_fog_wait_ms.min()>0
-    assert summary.groupby('series').mean_fog_wait_ms.nunique().min()>1
-    return summary,raw
+
+def aggregate(*args, **kwargs):
+    raise NotImplementedError('R1.4 pooled cluster-bootstrap acceptance is not implemented; legacy t summary is disabled')
+
+
+def stationary_series(*args, **kwargs):
+    raise NotImplementedError('R1.4 pilot/grid/confirmation controller not implemented; no legacy series may certify it')

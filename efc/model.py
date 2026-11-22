@@ -9,10 +9,10 @@ from dataclasses import dataclass, asdict
 from collections import deque
 import heapq
 import math
-import random
 from typing import Iterable
 import numpy as np
-from .timebase import seconds_to_ticks, milliseconds_to_ticks, split_ticks, TIME_CONTRACT
+from .timebase import TIME_CONTRACT
+from .workload import generate_workload, Workload
 
 COMPONENTS = ('edge_ms', 'edge_fog_ms', 'fog_wait_ms', 'fog_service_ms',
               'fog_cloud_ms', 'cloud_ms')
@@ -63,33 +63,23 @@ def quantile95(values):
     return None if not values else float(np.quantile(values, .95, method='linear'))
 
 
-def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = None):
-    """One event kernel, with exact equality on a declared integer clock.
+def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = None,
+             *, workload: Workload | None = None):
+    """Single integer-clock kernel for the demonstration and windowed series.
 
-    Legacy zone-first input generation is retained in this clock-only change;
-    it is NOT yet the configuration-independent workload contract of R1.4.
+    Source messages and ALL potential durations precede assignment/execution.
+    A supplied workload is authoritative but must match the source profile and
+    n_tasks. Fog/Cloud counts and B may differ. No random draws occur in service.
     Exported *_s/*_ms fields are views; integer *_tick fields are authoritative.
     """
     c = config
-    rng_a = random.Random(c.seed + 101)
-    rng_zone = random.Random(c.seed + 211)
-    rng_sensor = random.Random(c.seed + 307)
-    rng_type = random.Random(c.seed + 401)
-    rng_duration = random.Random(c.seed + 503)
-    if arrivals_s is None:
-        now = 0.
-        raw = []
-        for _ in range(c.n_tasks):
-            now += rng_a.expovariate(c.arrival_rate_s)
-            raw.append(now)
-    else:
-        raw = list(arrivals_s)
-    arrivals = [seconds_to_ticks(t) for t in raw]
-    if len(arrivals) != c.n_tasks or arrivals != sorted(arrivals):
-        raise ValueError('arrivals must be ordered and match n_tasks')
-    zones = [list(range(f, c.n_edge, c.n_fog)) for f in range(c.n_fog)]
-    weights = list(c.fog_weights) if c.fog_weights is not None else [len(z) for z in zones]
-    mobile = [rng_type.random() < c.mobile_fraction for _ in range(c.n_edge)]
+    if workload is not None and arrivals_s is not None:
+        raise ValueError('provide either workload or arrivals_s, not both')
+    if workload is None:
+        workload = generate_workload(c, arrivals_s=arrivals_s)
+    workload.validate_for(c)
+    if len(workload.events) != c.n_tasks:
+        raise ValueError('workload length must match n_tasks')
     edge_free = [0]*c.n_edge
     ef_free = [0]*c.n_fog
     fc_free = [0]*c.n_fog
@@ -103,23 +93,15 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
     busy = {'edge_fog_s': [0]*c.n_fog, 'fog_s': [0]*c.n_fog,
             'fog_cloud_s': [0]*c.n_fog, 'cloud_s': [0]*c.n_cloud}
     queue_trace, events, tasks = [], [], []
-    for i, release in enumerate(arrivals):
-        f = rng_zone.choices(range(c.n_fog), weights=weights, k=1)[0]
-        sensor = rng_sensor.choice(zones[f])
-        combined = milliseconds_to_ticks(rng_duration.uniform(
-            *(c.edge_mobile_ms if mobile[sensor] else c.edge_fixed_ms)))
-        ed, ef = split_ticks(combined, c.edge_processing_share)
-        fs = milliseconds_to_ticks(rng_duration.uniform(*c.fog_service_ms))
-        fc = milliseconds_to_ticks(rng_duration.uniform(*c.fog_cloud_ms))
-        cs = milliseconds_to_ticks(rng_duration.uniform(*c.cloud_service_ms))
+    for source in workload.events:
+        i, release, sensor = source.event_id, source.release_tick, source.sensor
+        f = sensor % c.n_fog
         edge_start = max(release, edge_free[sensor])
-        edge_end = edge_start + ed
+        edge_end = edge_start + source.edge_service_tick
         edge_free[sensor] = edge_end
-        tasks.append(dict(task_id=i, sensor=sensor, fog=f, mobile=mobile[sensor],
-                          release_tick=release, edge_start_tick=edge_start, edge_end_tick=edge_end,
-                          edge_service_tick=ed, ef_service_tick=ef,
+        tasks.append(dict(source.record(), task_id=i, fog=f,
+                          edge_start_tick=edge_start, edge_end_tick=edge_end,
                           edge_delay_tick=edge_end-release, edge_wait_tick=edge_start-release,
-                          fog_service_tick=fs, fc_service_tick=fc, cloud_service_tick=cs,
                           status='pending'))
         heapq.heappush(events, (edge_end, 1, i, 'edge_done'))
 
@@ -218,7 +200,7 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
                    drop_fraction=len(lost)/len(tasks) if tasks else 0.,
                    mean_ms=avg, p95_ms=quantile95(values), max_ms=max(values) if values else None,
                    mean_fog_wait_ms=means['fog_wait_ms'],
-                   arrival_window_s=arrivals[-1]/1_000_000_000 if arrivals else 0.,
+                   arrival_window_s=workload.events[-1].release_tick/1_000_000_000 if tasks else 0.,
                    drained_until_s=end/1_000_000_000,
                    deadline_3s_violations=sum(r['latency_tick'] > 3_000_000_000 for r in completed),
                    components_ms=means,
@@ -228,4 +210,4 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
                    utilization={k: [v/horizon for v in vv] for k, vv in busy.items()},
                    observations_per_fog=counts, units='ms for delays; seconds for exported calendars')
     return {'config': asdict(c), 'timing': dict(TIME_CONTRACT), 'metrics': metrics,
-            'tasks': tasks, 'queue_trace': queue_trace}
+            'workload': workload.metadata(), 'tasks': tasks, 'queue_trace': queue_trace}

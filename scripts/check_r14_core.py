@@ -40,7 +40,7 @@ def main():
                                           stderr=subprocess.DEVNULL, text=True).strip()
     except (OSError, subprocess.CalledProcessError):
         commit = env_sha or 'LOCAL-UNCOMMITTED'
-    report = dict(status='RUNNING', scope='R1.4 core regressions only',
+    report = dict(status='RUNNING', scope='R1.4 core and paired-window regressions only',
                   source_commit=commit, utc=datetime.now(timezone.utc).isoformat(),
                   execution='Actions + nbconvert' if os.environ.get('GITHUB_ACTIONS') == 'true'
                             else 'local Python container + nbconvert',
@@ -49,11 +49,15 @@ def main():
     report['source_sha256'] = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                               for folder in ('efc', 'tests', 'scripts')
                               for p in sorted((ROOT/folder).rglob('*.py'))}
+    report['source_sha256']['colab/validation/00_R14_core.ipynb'] = hashlib.sha256(
+        (ROOT/'colab/validation/00_R14_core.ipynb').read_bytes()).hexdigest()
     try:
         commands = [([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests',
                       '-p', 'test_r14_pipeline.py', '-v'], 'pipeline-tests.txt'),
                     ([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests',
                       '-p', 'test_model*.py', '-v'], 'model-tests.txt'),
+                    ([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests',
+                      '-p', 'test_stationary.py', '-v'], 'window-tests.txt'),
                     ([sys.executable, '-m', 'jupyter', 'nbconvert', '--to', 'notebook',
                       '--execute', 'colab/validation/00_R14_core.ipynb',
                       '--output-dir', str(out), '--ExecutePreprocessor.timeout=120'],
@@ -73,7 +77,14 @@ def main():
         image_count = sum('image/png' in o.get('data', {}) for c in cells for o in c.get('outputs', []))
         if image_count < 1:
             raise RuntimeError('Manual timeline was not rendered in the notebook')
-        report.update(status='PASS', executed_code_cells=len(cells), rendered_png_outputs=image_count)
+        paired = json.loads((out/'paired-configurations.json').read_text())
+        same_path = json.loads((out/'window-path.json').read_text())
+        if (len(paired) != 45 or len({x['input_sha256'] for x in paired}) != 1
+            or not all(x['all_source_fields_equal'] for x in paired)
+            or not same_path['all_kernel_records_equal']):
+            raise RuntimeError('Paired inputs/shared-kernel regression failed')
+        report.update(status='PASS', executed_code_cells=len(cells), rendered_png_outputs=image_count,
+                      paired_regression_cases=len(paired), shared_kernel_records_equal=True)
     except Exception as exc:
         report.update(status='FAILED', error=repr(exc))
         raise

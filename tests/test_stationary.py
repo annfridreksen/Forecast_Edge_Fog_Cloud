@@ -38,8 +38,8 @@ class StationaryTests(unittest.TestCase):
         self.assertAlmostEqual(hi-mean,2.16585059,6)
         self.assertAlmostEqual(mean-lo,hi-mean)
     def test_scenario_design(self):
-        ss=scenarios();self.assertEqual(len(ss),18)
-        self.assertTrue(all(c.n_fog==50 and c.n_cloud==40 for _,_,c in ss))
-        self.assertTrue(all(0<c.arrival_rate_s/c.n_fog*.055<1 for _,_,c in ss))
+        ss=scenarios();self.assertEqual(len(ss),270)
+        self.assertTrue(all(c.n_fog in (30,40,50,60,70) and c.n_cloud==40 for _,_,c in ss))
+        self.assertTrue(all(0<c.arrival_rate_s/50*.055<1 for _,_,c in ss))
     def test_empty_ci_invalid(self):
         with self.assertRaises(ValueError):ci95([1])
