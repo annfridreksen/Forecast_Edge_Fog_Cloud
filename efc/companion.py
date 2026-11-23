@@ -11,6 +11,7 @@ import math
 from .model import Config
 from .saved_map import saved_cell
 from .grid import read_json, digest
+from .curve_annotations import interval_display, figure_from_points
 
 
 def overview(root):
@@ -31,7 +32,7 @@ def overview(root):
 
 
 def curve_points(snapshot, metric, fog, buffer):
-    """Return only saved main estimates WITH intervals; never interpolate gaps."""
+    """Read saved estimates and raw bounds; flag degenerate bounds, never repair them."""
     if metric not in ('p95_ms', 'drop_fraction'):
         raise ValueError('Неизвестная метрика')
     if snapshot['state'] != 'CHECKED_CHAINS':
@@ -54,24 +55,14 @@ def curve_points(snapshot, metric, fog, buffer):
             raise ValueError('Некорректные границы интервала')
         points.append(dict(rho50=row['arrival_rate_s'] * .055 / 50, value=value,
                            lower=ci['lower'], upper=ci['upper'], key=row['key'],
-                           source='cells/' + row['key'] + '/main.json', sha256=row['main_sha256']))
+                           source='cells/' + row['key'] + '/main.json', sha256=row['main_sha256'],
+                           **interval_display(metric, value, ci['lower'], ci['upper'], summary.get('reasons', ()))))
     return sorted(points, key=lambda r: r['rho50'])
 
 
 def curve_figure(snapshot, metric, fog=50, buffer=5):
-    import matplotlib.pyplot as plt
-    points = curve_points(snapshot, metric, fog, buffer)
-    factor = 100 if metric == 'drop_fraction' else 1
-    fig, ax = plt.subplots(figsize=(8, 3.2))
-    for p in points:
-        ax.plot([p['rho50']] * 2, [factor*p['lower'], factor*p['upper']], '-')
-        ax.plot(p['rho50'], factor*p['value'], 'o')
-    if not points:
-        ax.text(.5, .5, 'Нет итоговых оценок с ДИ; нули не подставляются', transform=ax.transAxes, ha='center')
-    ax.set(xlabel='Предложенная нагрузка ρ50', ylabel='Потери, %' if factor == 100 else 'p95, мс',
-           title=f'Сохранённые итоговые оценки · Fog={fog}, B={buffer}', xlim=(.05, 1))
-    fig.tight_layout()
-    return fig
+    """A zero-loss [0,0] is an observation, never a displayed risk guarantee."""
+    return figure_from_points(curve_points(snapshot, metric, fog, buffer), metric, fog, buffer)
 
 
 PORTS = (

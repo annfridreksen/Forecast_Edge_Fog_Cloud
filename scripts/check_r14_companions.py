@@ -66,7 +66,7 @@ def main():
     except Exception as exc:
         report.update(status='FAILED', error=repr(exc)); raise
     finally:
-        sources = paths + [ROOT/'efc/companion.py', ROOT/'efc/curve_selection.py', Path(__file__)] + sorted((ROOT/'tests').glob('test_companion*.py'))
+        sources = paths + [ROOT/'efc/companion.py', ROOT/'efc/curve_selection.py', ROOT/'efc/curve_annotations.py', Path(__file__)] + sorted((ROOT/'tests').glob('test_companion*.py'))
         report['source_sha256'] = {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
         (out/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     print('PASS: 01–03 read-only/conceptual execution; no full map or forecasting claim.')
