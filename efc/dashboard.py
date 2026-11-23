@@ -19,7 +19,8 @@ FOG = (30, 40, 50, 60, 70)
 BUFFERS = (0, 2, 5, 10, 20, 50, 100, 200, 400)
 LABELS = ('Edge', 'Edge→Fog', 'Ожидание Fog', 'Обработка Fog', 'Fog→Cloud', 'Cloud')
 STATUS = {'NOT_CALCULATED': 'Не рассчитано', 'ACCEPTABLE': 'Допустима по оценке',
-          'UNACCEPTABLE': 'Недопустима по оценке', 'INSUFFICIENT_DATA': 'Недостаточно данных'}
+          'UNACCEPTABLE': 'Недопустима по оценке', 'INSUFFICIENT_DATA': 'Недостаточно данных',
+          'ARCHIVE_UNVERIFIED': 'Архив не проверен; статистика недоступна'}
 TICKS = ('edge_delay_tick', 'edge_fog_tick', 'fog_wait_tick', 'fog_service_tick', 'fog_cloud_tick', 'cloud_tick')
 DEMO = 'Единичный синтетический опыт; статистическая допустимость НЕ оценена.'
 
@@ -210,6 +211,7 @@ class Dashboard:
         self.off_button = w.Button(description='Отключить датчик 0 в 3 мс', layout=w.Layout(width='250px'))
         self.output, self.off_output = w.Output(), w.Output()
         self.calls = 0; self.last = None; self.last_error = None; self.shutdown = None
+        self.last_saved_error = None
         self.button.on_click(self.calculate); self.off_button.on_click(self.disable_sensor)
         details = w.Accordion(children=[w.HTML('<p>Демонстрация: 600 событий, seed=42, без прогрева и ДИ. '
             'Научная карта использует отдельные пилотные/итоговые/подтверждающие seed. '
@@ -225,10 +227,19 @@ class Dashboard:
     def calculate(self, _=None):
         if self.button.disabled: return
         self.button.disabled = True; self.last = None; self.last_error = None
+        self.last_saved_error = None
         try:
             c = make_config(self.rate.value, self.fog.value, self.buffer.value)
-            saved = saved_cell(self.checkpoint, c)
             result = run_example(c); self.calls += 1
+            # The demonstration is independent of the external scientific archive.
+            try:
+                saved = saved_cell(self.checkpoint, c)
+            except Exception as exc:
+                self.last_saved_error = str(exc)
+                saved = dict(status='ARCHIVE_UNVERIFIED', summary=None, rows=[],
+                             source=str(self.checkpoint), checked_rows=0,
+                             verification='FAILED', note='Короткий опыт выполнен отдельно. '
+                             'Статусы карты и доверительные интервалы не показаны: '+str(exc))
             self.last = dict(result=result, saved=saved)
             if self.render:
                 with self.output:
@@ -237,7 +248,7 @@ class Dashboard:
             self.last_error = str(exc)
             if self.render:
                 with self.output:
-                    self.output.clear_output(wait=True); print('Расчёт/чтение не выполнено:', self.last_error)
+                    self.output.clear_output(wait=True); print('Ошибка короткого опыта/вывода:', self.last_error)
         finally:
             self.button.disabled = False
 
