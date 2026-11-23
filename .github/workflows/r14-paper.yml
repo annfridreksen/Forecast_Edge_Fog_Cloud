@@ -1,8 +1,8 @@
-name: R1.5 author decisions 6-9 and verified submission
+name: R1.5 author decisions and isolated submission
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['scripts/r15_zero_loss.py', 'scripts/r15_apply_author_6_9.py', 'scripts/r15_build_author.py', 'scripts/r15_publish.py', 'article/r15-author-section6.tex', '.github/workflows/r14-paper.yml']
+    paths: ['scripts/r15_*.py', 'scripts/check_r15_conditional_trace.py', 'article/r15-author-section6.tex', 'colab/validation/05_R15_Условная_оценка.ipynb', '.github/workflows/r14-paper.yml']
 permissions:
   contents: write
   actions: read
@@ -26,48 +26,77 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install exact execution dependencies with retained logs
+          cache: pip
+      - name: Install Python before TeX
         run: |
           mkdir -p results/r15/build
-          python -m pip install -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -40 results/r15/build/install-python.log; exit 1; }
-          sudo apt-get update -qq > results/r15/build/install-tex.log 2>&1
-          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils latexdiff >> results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
-      - name: Restore accepted raw cell output, not the old scientific interpretation
-        uses: actions/download-artifact@v4
+          timeout 300 python -m pip install --timeout 30 --retries 1 -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -40 results/r15/build/install-python.log; exit 1; }
+      - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
           run-id: 45276814973
           name: r15-text-5b2a5987d1a148545eae678dba770d66df9a9cb7
           path: results/r15/prior-text
-      - name: Measure exact frozen ZIP and read main cohorts without new simulation
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45282426757
+          name: r15-author-5d3b46193d4252a0600ec310c9d54651d8aea660
+          path: results/r15/previous-conditional
+      - name: Reuse fifteen compatible tests and restore measured primary ZIP
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
           from pathlib import Path
-          from scripts.build_r15_submission import download,unpack,FROZEN_ID,FROZEN_SHA,REPO
-          work=Path('results/r15/build/work'); work.mkdir(parents=True,exist_ok=True)
-          download(f'https://api.github.com/repos/{REPO}/actions/artifacts/{FROZEN_ID}/zip',work/'frozen131.zip',FROZEN_SHA,github=True)
-          unpack(work/'frozen131.zip',work/'frozen131')
-          print('MEASURED_FROZEN_ZIP',FROZEN_SHA)
+          import json,shutil
+          from scripts.build_r15_submission import download,unpack,sha,FROZEN_ID,FROZEN_SHA,REPO
+          prior=Path('results/r15/previous-conditional/conditional-tests')
+          r=json.loads((prior/'conditional-analysis.json').read_text())
+          assert r['tests_passed']==15 and r['analysis_code_sha256']==sha(Path('scripts/r15_zero_loss.py'))
+          log=(prior/'zero-loss-tests.log').read_text()
+          assert 'Ran 15 tests' in log and '\nOK\n' in log
+          shutil.copytree(prior,'results/r15/build/conditional-tests',dirs_exist_ok=True)
+          print('ACTUAL_N_I',[x['arrivals'] for x in r['rows']]);print('CONDITIONAL_DECISION',r['decision'])
+          w=Path('results/r15/build/work');w.mkdir(parents=True,exist_ok=True)
+          download(f'https://api.github.com/repos/{REPO}/actions/artifacts/{FROZEN_ID}/zip',w/'frozen131.zip',FROZEN_SHA,github=True)
+          unpack(w/'frozen131.zip',w/'frozen131');print('MEASURED_FROZEN_ZIP',FROZEN_SHA)
           PY
-          python scripts/r15_zero_loss.py --checkpoint results/r15/build/work/frozen131 --out results/r15/build/conditional-tests > results/r15/build/conditional-analysis-output.log
-      - name: Apply exact author decisions, test and commit only enumerated source paths
-        run: python scripts/r15_apply_author_6_9.py --checkpoint results/r15/build/work/frozen131 --out results/r15/build/author-tests
-      - name: Record actual source SHA and environment after author-decision commit
+      - name: Apply approved source text under HEAD lease
+        run: |
+          python -W error -m py_compile scripts/r15_apply_author_6_9.py
+          python scripts/r15_apply_author_6_9.py --checkpoint results/r15/build/work/frozen131 --out results/r15/build/author-tests
+      - name: New conditional cell and negative tests
+        run: python scripts/check_r15_conditional_trace.py --out results/r15/build/conditional-trace
+      - name: Bounded TeX installation
+        run: |
+          timeout 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
+          timeout 480 sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils latexdiff >> results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
+      - name: Actual source and dependencies
         run: |
           git archive --format=tar.gz HEAD -o results/r15/build/source.tar.gz
           python -m pip freeze > results/r15/build/dependencies.txt
           pdflatex --version > results/r15/build/tex-version.txt
           printf '%s\n' "$R15_SOURCE_SHA" > results/r15/build/SOURCE_SHA.txt
-      - name: Fresh manuscript, isolated ZIP build and difference PDF
+      - name: Fresh PDF isolated ZIP and difference PDF
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/r15_build_author.py --out results/r15/build
-      - name: Protect tracked scientific and manuscript sources
+      - name: Include conditional outputs and versions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          out=Path('results/r15/build')
+          shutil.copytree(out/'conditional-trace',out/'delivery/validation/conditional-trace',dirs_exist_ok=True)
+          for name in ('dependencies.txt','tex-version.txt'):
+              shutil.copy2(out/name,out/'delivery'/name)
+              shutil.copy2(out/name,out/'work/reproducibility'/name)
+          PY
+      - name: Protected sources unchanged
         if: always()
         run: git diff --exit-code -- v2 efc docs tests scripts colab configs article submission results/r14/article_evidence.json results/r15/service_reference.json results/r15/conditional_analysis.json
-      - name: Publish delivery with HEAD lease and verify anonymous download hashes
+      - name: Publish delivery under lease and check anonymous hashes
         run: python scripts/r15_publish.py --out results/r15/build
       - uses: actions/upload-artifact@v4
         if: always()
