@@ -1,0 +1,33 @@
+{
+  "reference_commit": "b3de9c52e029a967b03c3a93cc60230b82c83e3b",
+  "reference_model_sha256": "340405d44d2ab0d21c1e0bcbbc969eb0e9f2acbfbd8accef827c93c6fea92b2f",
+  "event_transition_AST_equal": true,
+  "normal_and_compact_full_records_equal": true,
+  "cases": [[0,30,0],[0,30,2],[0,30,400],[0,40,0],[0,40,2],[0,40,400],[0,50,0],[0,50,2],[0,50,400],[0,60,0],[0,60,2],[0,60,400],[0,70,0],[0,70,2],[0,70,400],[7,30,0],[7,30,2],[7,30,400],[7,40,0],[7,40,2],[7,40,400],[7,50,0],[7,50,2],[7,50,400],[7,60,0],[7,60,2],[7,60,400],[7,70,0],[7,70,2],[7,70,400],[9,30,0],[9,30,2],[9,30,400],[9,40,0],[9,40,2],[9,40,400],[9,50,0],[9,50,2],[9,50,400],[9,60,0],[9,60,2],[9,60,400],[9,70,0],[9,70,2],[9,70,400]],
+  "number_of_cases": 45,
+  "events_per_case": 250,
+  "note": "Storage equivalence, not independent validation of physical model or statistical map",
+  "schema": "r14-storage-compatibility-v1",
+  "status": "PASS",
+  "old_sha256": {
+    "model.py": "340405d44d2ab0d21c1e0bcbbc969eb0e9f2acbfbd8accef827c93c6fea92b2f",
+    "timebase.py": "4b3b239c728ed132899d10e9266fbf500e6e836e15bfb4ac00aaa6340f882790",
+    "workload.py": "2ed55b37f2a00a983f10dc9203766f492cb992d94af4905ae4b1ee7b7bd9960c",
+    "stationary.py": "04e6c4f749a69fec2f314fdbd68034d9baabe4bd6a76e3602fbd546267430b15",
+    "statistics.py": "59cf2c40ce5165c97cbe2f25bf2a09090cfafe2f958c7c99c15e50919fd26ab2",
+    "pilot.py": "b4a0c0fcc2311c13f1faec06256ffde5bb40153a3754b117490cc6f8dbd0ea2c",
+    "primary.py": "7b5108d7b8e52723c465d8fa6b70c587bf72c5742110a1fef83dfcec8d07f786"
+  },
+  "new_sha256": {
+    "model.py": "7e637def13712150ce9b4d117f2864aac09416024a8c29f99b7b736355848bbb",
+    "timebase.py": "4b3b239c728ed132899d10e9266fbf500e6e836e15bfb4ac00aaa6340f882790",
+    "workload.py": "2ed55b37f2a00a983f10dc9203766f492cb992d94af4905ae4b1ee7b7bd9960c",
+    "stationary.py": "e98991f8df8de518f97dcad99057fc12b16024506cbfbed806a957b2cb051885",
+    "statistics.py": "59cf2c40ce5165c97cbe2f25bf2a09090cfafe2f958c7c99c15e50919fd26ab2",
+    "pilot.py": "db4bc20e1ec3ed2be4add9ae6064def1e4200d251fa12dcb9a0daced62836277",
+    "primary.py": "1df5e798da5ad4c6d86df253608b744143203d64c94017fcaae76325e026181b",
+    "records.py": "96e2397078b08710f84e236249e39ebc58d928f614b5eff70819d08dbcb06ac7"
+  },
+  "unchanged_definition_files": ["timebase.py", "workload.py", "statistics.py"],
+  "scientific_claim": "storage compatibility supported by identical transition AST and stated regression domain, not a proof of all inputs"
+}

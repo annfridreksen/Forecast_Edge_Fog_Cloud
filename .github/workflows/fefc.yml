@@ -2,7 +2,7 @@ name: FEFC R1.4 core regressions
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['efc/**', 'tests/**', 'scripts/check_r14_core.py', 'scripts/check_r14_statistics.py', 'scripts/check_r14_grid.py', 'colab/validation/**', 'requirements.txt', '.github/workflows/fefc.yml']
+    paths: ['efc/**', 'tests/**', 'scripts/check_r14_core.py', 'scripts/check_r14_statistics.py', 'scripts/check_r14_grid.py', 'scripts/check_r14_storage.py', 'colab/validation/**', 'requirements.txt', '.github/workflows/fefc.yml']
 permissions:
   contents: read
 concurrency:
@@ -35,6 +35,8 @@ jobs:
         run: python scripts/check_r14_grid.py
       - name: Read-only checkpoint report and idempotent resume tests (no scientific grid)
         run: python -m unittest discover -s tests -p test_cache_report.py -v
+      - name: Verify compact storage, real journal replay and explicit cache migration
+        run: python scripts/check_r14_storage.py
       - name: Ensure protected and source files were not rewritten
         if: always()
         run: git diff --exit-code -- v2 docs efc tests scripts colab/validation
