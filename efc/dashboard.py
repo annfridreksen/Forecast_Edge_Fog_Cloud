@@ -107,48 +107,9 @@ def shutdown_case():
 
 
 def saved_cell(root, config):
-    """Read only. Do not manufacture intervals or run the scientific controller."""
-    root = Path(root)
-    empty = dict(status='NOT_CALCULATED', summary=None, source=str(root), rows=[])
-    if not (root/'map.json').exists():
-        return {**empty, 'note': 'Статистический checkpoint не загружен. Это не нулевые результаты.'}
-    manifest, mapping = read_json(root/'manifest.json'), read_json(root/'map.json')
-    if mapping['manifest_sha256'] != digest(manifest):
-        raise ValueError('Хеш карты и manifest не согласованы')
-    key = config_key(config)
-    catalog = {r['key']: r for r in manifest['catalog']}
-    rows = {r['key']: r for r in mapping['rows']}
-    if (len(catalog) != len(manifest['catalog']) or len(rows) != len(mapping['rows'])
-            or set(catalog) != set(rows) or any(r['status'] not in STATUS for r in rows.values())):
-        raise ValueError('Неверный каталог/статусы карты')
-    if key not in catalog or catalog[key]['arrival_rate_s'] != config.arrival_rate_s:
-        return {**empty, 'note': 'Эта интенсивность отсутствует в сохранённой сетке.'}
-    current_id = PrimarySampler(config).config_id
-    if catalog[key]['config_id'] != current_id or rows[key]['config_id'] != current_id:
-        raise ValueError('Checkpoint относится к другой версии модели или параметрам')
-    row = rows[key]
-    summary = None
-    if row.get('main_sha256'):
-        main = read_json(root/'cells'/key/'main.json')
-        pilot = read_json(root/'cells'/key/'pilot.json')
-        if (digest(main) != row['main_sha256'] or main['config_id'] != current_id
-                or main['phase'] != 'main' or main['status'] != row['status']
-                or pilot['status'] != 'READY' or digest(pilot['plan']) != pilot['plan_sha256']
-                or main['plan_sha256'] != pilot['plan_sha256']
-                or main.get('summary') != row.get('summary')):
-            raise ValueError('Нарушена цепочка map → main → frozen pilot')
-        summary = main.get('summary')
-        if summary is not None:
-            from .statistics import classify
-            if summary['seed_ids'] != list(range(10)):
-                raise ValueError('Сохранённая оценка не содержит итоговые seed 0–9')
-            if classify(summary, warmup_ok=True) != row['status']:
-                raise ValueError('Статус не соответствует совместному правилу Q/L')
-    elif row['status'] in ('ACCEPTABLE', 'UNACCEPTABLE'):
-        raise ValueError('Нет первичного итогового журнала для заявленной оценки')
-    return dict(status=row['status'], summary=summary, source=str(root/'cells'/key),
-                rows=list(rows.values()), note='Сохранённый результат, не новый расчёт. '
-                'Интерфейс проверяет ссылки/хеши, не пересчитывает bootstrap и первичные массивы.')
+    """Validate the entire displayed snapshot, not just the selected cell."""
+    from .saved_map import saved_cell as read_checked
+    return read_checked(root, config)
 
 
 def architecture_figure():
