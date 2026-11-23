@@ -2,7 +2,7 @@ name: FEFC R1.4 core regressions
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['efc/**', 'tests/**', 'scripts/check_r14_core.py', 'scripts/check_r14_statistics.py', 'scripts/check_r14_grid.py', 'scripts/check_r14_storage.py', 'colab/validation/**', 'colab/00_Старт.ipynb', 'scripts/check_r14_dashboard.py', 'requirements.txt', '.github/workflows/fefc.yml']
+    paths: ['efc/**', 'tests/**', 'scripts/check_r14_core.py', 'scripts/check_r14_statistics.py', 'scripts/check_r14_grid.py', 'scripts/check_r14_storage.py', 'colab/validation/**', 'colab/00_Старт.ipynb', 'colab/01_Среда_и_конфигурация.ipynb', 'colab/02_Прогноз_и_нейросеть.ipynb', 'colab/03_Алгоритм_переразмещения.ipynb', 'scripts/check_r14_dashboard.py', 'scripts/check_r14_companions.py', 'requirements.txt', '.github/workflows/fefc.yml']
 permissions:
   contents: read
 concurrency:
@@ -39,9 +39,11 @@ jobs:
         run: python scripts/check_r14_storage.py
       - name: Author dashboard, real widget callbacks and notebook (no scientific grid)
         run: python scripts/check_r14_dashboard.py
+      - name: Companion notebooks 01-03, disabled ports and protected reference reading
+        run: python scripts/check_r14_companions.py
       - name: Ensure protected and source files were not rewritten
         if: always()
-        run: git diff --exit-code -- v2 docs efc tests scripts colab/validation
+        run: git diff --exit-code -- v2 docs efc tests scripts colab
       - uses: actions/upload-artifact@v4
         if: always()
         with:
