@@ -1,0 +1,48 @@
+{
+  "schema": "r14-paper-acceptance-v1",
+  "build_run": 45187643636,
+  "build_sha": "c13418bfd0c6b55570ac63f7ee1011ee5cce2284",
+  "artifact_id": 14823489832,
+  "zip_sha256": "d0b0059d719b8632aa800060e8a0c2739921a19f720827e7ac8dea26e73bbc40",
+  "zip_measured": true,
+  "pdf_sha256": "2c24e693106be38e9e56de8ff33610b7a45eab1e10905dfac3d0a0be2b41e920",
+  "pages": 13,
+  "figures": 3,
+  "tables": 2,
+  "equations": 5,
+  "tests_passed": 12,
+  "number_check": {
+    "checked_values": 16,
+    "bibliography_entries": 14,
+    "sections": 7,
+    "actual_manuscript_checked": true,
+    "bootstrap_recomputed": false,
+    "primary_archive_checked": true,
+    "simulation_executed": false,
+    "evidence_sha256": "b6d81f82fd3b8b7dd8c8d924b12ddcec730183c7af157502253f8c5eb78d4d08"
+  },
+  "source_files_byte_identical": 10,
+  "rendered_pages_visually_reviewed": 13,
+  "scientific_snapshot_frozen_run": 45174257711,
+  "scientific_snapshot_requests": 131,
+  "local_build_pages": 14,
+  "layout_note": "CI uses default journal fonts; local optional ParaType produced 14 pages. Delivered canonical PDF is 13-page Actions output; source text identical.",
+  "unresolved": [
+    "complete scientific map and independent confirmations",
+    "publication details and conflicting author blocks in NSCF source",
+    "paper author metadata and submission agreement",
+    "public unauthenticated primary-data availability",
+    "independent review"
+  ],
+  "source_hashes": {
+    "article/main.tex": "18be009402a5892b9730790fd460ef5a26cf4b18ce1f29261149e5bcbe1a6cd8",
+    "article/r14-values.tex": "0e2792d737f653b9fade9d6977d25630a2b0f89d7b2ccb3426bddea455efc190",
+    "article/r14-references.tex": "3d61f0597d86f6a3f5ccf90716791dd06b3036cc617043b414b7a7f2d5159b0e",
+    "results/r14/article_evidence.json": "b6d81f82fd3b8b7dd8c8d924b12ddcec730183c7af157502253f8c5eb78d4d08",
+    "scripts/check_r14_paper.py": "0a00b945580f5e40a28f3838433ecabf81623ad46c9179eb0ffd154d50152c4f",
+    "scripts/build_r14_paper.py": "efcae0c1c51cea4c51fea6a5b1ae7b868c632c49663eea8dec9c78cee7a561e2"
+  },
+  "simulation_executed_by_build": false,
+  "bootstrap_recomputed": false,
+  "author_or_reviewer_agreement": false
+}
