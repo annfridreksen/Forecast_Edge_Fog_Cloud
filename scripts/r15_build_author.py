@@ -117,18 +117,18 @@ def main():
         data=subprocess.check_output(['git','show',BASE+':article/'+name],cwd=ROOT)
         (diffroot/('before.tex' if name=='main.tex' else name)).write_bytes(data)
     ds=dict(baseline_sha=BASE,baseline_pdf_sha256=BASE_PDF_SHA,after_pdf_sha256=sha(pdf))
-    try:
-        cmd=['latexdiff','--type=CFONT','--encoding=utf8','--flatten','--math-markup=0','--disable-citation-markup','before.tex','main.tex']
-        r=subprocess.run(cmd,cwd=diffroot,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=180)
-        (out/'latexdiff-stderr.log').write_bytes(r.stderr)
-        if r.returncode:raise RuntimeError('latexdiff returned '+str(r.returncode))
-        if b'\\documentclass' not in r.stdout:raise ValueError('latexdiff TeX output missing class')
-        (diffroot/'difference.tex').write_bytes(r.stdout)
-        dp=compile_checked(diffroot,'difference',out/'diff-logs');shutil.copy2(dp,delivery/'difference.pdf')
-        ds.update(method='latexdiff',requested_utility_success=True)
-    except Exception as exc:
-        ds.update(method='PDF-word-difference fallback',requested_utility_success=False,failure=type(exc).__name__+': '+str(exc)[:200])
-        marked_pdf_comparison(basepdf,pdf,delivery/'difference.pdf')
+    # diff-pdf compares the two actual PDFs and avoids TeX bibliography/table macros.
+    tool=Path(os.environ['DIFF_PDF_BIN']).resolve()
+    cmd=['xvfb-run','-a',str(tool),'--output-diff='+str(delivery/'difference.pdf'),str(basepdf),str(pdf)]
+    r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=240)
+    (out/'diff-pdf.log').write_bytes(r.stdout)
+    if r.returncode not in (0,1) or not (delivery/'difference.pdf').exists():
+        raise RuntimeError('diff-pdf failed, code '+str(r.returncode))
+    with fitz.open(delivery/'difference.pdf') as compared:
+        if not len(compared):raise ValueError('Empty utility comparison PDF')
+    ds.update(method='diff-pdf',requested_utility_success=True,utility_exit=r.returncode,
+              tool_commit='092e6e31968cf28984c201a8c300f76f0020fbe4',
+              command=cmd,interpretation='Exit1 means actual PDF differences, not a tool error.')
     put(delivery/'difference-provenance.json',ds);receipt['diff']=ds
     dm=dict(original_name='frozen131.zip',sha256=FROZEN_SHA,size=frozen_zip.stat().st_size,scientific_run_id=45174257711,parts=[])
     with frozen_zip.open('rb') as f:
