@@ -1,0 +1,149 @@
+[
+  {
+    "page": 1,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1585,
+    "vector_paths": 10,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 2,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2227,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 3,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2273,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 4,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2224,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 5,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1243,
+    "vector_paths": 16,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 6,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1907,
+    "vector_paths": 5,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 7,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2012,
+    "vector_paths": 1,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 8,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2203,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 9,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1199,
+    "vector_paths": 16,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 10,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1765,
+    "vector_paths": 3,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 11,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1846,
+    "vector_paths": 4,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 12,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2071,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 13,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2156,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 14,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1685,
+    "vector_paths": 17,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 15,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2324,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 16,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2425,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 17,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2700,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 18,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1712,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 19,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1555,
+    "vector_paths": 10,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 20,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 2578,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  },
+  {
+    "page": 21,
+    "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "text_characters": 1488,
+    "vector_paths": 0,
+    "visual_status": "PENDING"
+  }
+]

@@ -1,0 +1,15 @@
+test_actual_text (__main__.tests.<locals>.ManuscriptTests.test_actual_text) ... ok
+test_auth_link_rejected (__main__.tests.<locals>.ManuscriptTests.test_auth_link_rejected) ... ok
+test_fake_source_count (__main__.tests.<locals>.ManuscriptTests.test_fake_source_count) ... ok
+test_false_acceptance (__main__.tests.<locals>.ManuscriptTests.test_false_acceptance) ... ok
+test_false_rounded_value (__main__.tests.<locals>.ManuscriptTests.test_false_rounded_value) ... ok
+test_missing_caption_translation (__main__.tests.<locals>.ManuscriptTests.test_missing_caption_translation) ... ok
+test_missing_reference (__main__.tests.<locals>.ManuscriptTests.test_missing_reference) ... ok
+test_missing_section (__main__.tests.<locals>.ManuscriptTests.test_missing_section) ... ok
+test_mixed_snapshot (__main__.tests.<locals>.ManuscriptTests.test_mixed_snapshot) ... ok
+test_raw_rounding_not_modified (__main__.tests.<locals>.ManuscriptTests.test_raw_rounding_not_modified) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.004s
+
+OK

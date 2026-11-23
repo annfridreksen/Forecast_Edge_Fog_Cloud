@@ -1,0 +1,28 @@
+{
+  "original_name": "frozen131.zip",
+  "sha256": "2cb91dbc964a641c36fb53e02ddea3590bf8fe939933f43b31399267508d40ef",
+  "size": 265282932,
+  "scientific_run_id": 45174257711,
+  "parts": [
+    {
+      "name": "frozen131.zip.part00",
+      "size": 83886080,
+      "sha256": "d3cd0a6b539e7e7fa4e8c8870cdff1926a447b81f4154bf983209442b67069ce"
+    },
+    {
+      "name": "frozen131.zip.part01",
+      "size": 83886080,
+      "sha256": "c3d467fffb90025aefde2d655d0d64dff67cfaf1f5aa841f931510d19e6a19de"
+    },
+    {
+      "name": "frozen131.zip.part02",
+      "size": 83886080,
+      "sha256": "bb558d35e63e20774149f512fcfaedfe5d990ad20598d9ab2f24be73c532e703"
+    },
+    {
+      "name": "frozen131.zip.part03",
+      "size": 13624692,
+      "sha256": "55e54da6882c5a5478168b35820b01538c030d06832c87bb9ff8bdaa6c2b2384"
+    }
+  ]
+}

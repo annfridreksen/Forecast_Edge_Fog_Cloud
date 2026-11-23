@@ -1,0 +1,20 @@
+test_conditional_not_unconditional (__main__.RuleTests.test_conditional_not_unconditional) ... ok
+test_duplicate_rejected (__main__.RuleTests.test_duplicate_rejected) ... ok
+test_fifty_scenario_not_full_acceptance (__main__.RuleTests.test_fifty_scenario_not_full_acceptance) ... ok
+test_invalid_n (__main__.RuleTests.test_invalid_n) ... ok
+test_min_not_sum (__main__.RuleTests.test_min_not_sum) ... ok
+test_nonzero_rejected (__main__.RuleTests.test_nonzero_rejected) ... ok
+test_not_aggregate (__main__.RuleTests.test_not_aggregate) ... ok
+test_other_reason_preserved (__main__.RuleTests.test_other_reason_preserved) ... ok
+test_pending_rejected (__main__.RuleTests.test_pending_rejected) ... ok
+test_pilot_not_ready (__main__.RuleTests.test_pilot_not_ready) ... ok
+test_precision_is_distinct (__main__.RuleTests.test_precision_is_distinct) ... ok
+test_q_limit_preserved (__main__.RuleTests.test_q_limit_preserved) ... ok
+test_q_precision_preserved (__main__.RuleTests.test_q_precision_preserved) ... ok
+test_sufficient_threshold (__main__.RuleTests.test_sufficient_threshold) ... ok
+test_zero_rule_formula (__main__.RuleTests.test_zero_rule_formula) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.001s
+
+OK

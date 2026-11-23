@@ -1,0 +1,70 @@
+{
+  "schema": "R1.5-author69-build-1",
+  "source_sha": "1801dd37898e2d53eb2ab22a8dee532fd1083f5d",
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "ready_to_submit": false,
+  "author_signed": false,
+  "visual_review": "PENDING_PAGE_INSPECTION",
+  "static_validation": {
+    "sections": 8,
+    "references": 28,
+    "identified_references": 27,
+    "recent_identified_references": 10,
+    "empirical_display_fields": 12,
+    "analytic_display_fields": 3,
+    "known_missing_reference": "nskf",
+    "scientific_acceptance": false,
+    "submission_ready": false
+  },
+  "conditional_status": "CONDITIONALLY_ACCEPTABLE",
+  "n_i": [
+    200298,
+    199701,
+    200008,
+    199114,
+    200298,
+    200255,
+    199726,
+    199959,
+    200445,
+    199997
+  ],
+  "conditional_analysis_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016",
+  "pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+  "style": {
+    "url": "https://psta.psiras.ru/publ-conditions/psta.zip",
+    "retrieved_utc": "2026-11-23T23:15:37.915568+00:00",
+    "official_downloaded": true,
+    "archive_sha256": "42e95b53f26272a9275afa8e513009630b609c1409e589f244a687950c9bec61",
+    "used_class_sha256": "f0fdb7c786dd54fb5f066a58630a7b67235a01871457f5dcd26c48b6d476ea1b",
+    "provides_class": "\\ProvidesClass{psta}[2026/10/16 18:44:16 Document class for PSTA journal and other bilingual proceedings]"
+  },
+  "isolated_zip_rebuild": "PASS",
+  "isolated_pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+  "pages": 21,
+  "section_boundaries": {
+    "section6": {
+      "page": 12,
+      "y": 355.4458312988281,
+      "height": 595.2760009765625
+    },
+    "section7": {
+      "page": 14,
+      "y": 374.3716125488281,
+      "height": 595.2760009765625
+    }
+  },
+  "diff": {
+    "baseline_sha": "59914cea5dc733ec857ae3d4157d77398bae7cd5",
+    "baseline_pdf_sha256": "2c24e693106be38e9e56de8ff33610b7a45eab1e10905dfac3d0a0be2b41e920",
+    "after_pdf_sha256": "ef36f582da7b90603a48776858e43d9bccd8d5994622c32c3566a80cd53ec7bd",
+    "method": "PDF-word-difference fallback",
+    "requested_utility_success": false,
+    "failure": "RuntimeError: Failed pdflatex; exact log /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/diff-logs/pass-1.log"
+  },
+  "submission_zip_sha256": "21987e85e9e0ff69164a65e04850aedec43e53e58fcd097bee2100e7054e79b6",
+  "difference_pdf_sha256": "974338077bba64ab93c9f1a76a85cc3446dab1e99eecb9cc7b5cd34ff751aa0f",
+  "data_complete_for_frozen_131": true,
+  "public_access": "PENDING_PUBLICATION_AND_ANONYMOUS_DOWNLOAD"
+}

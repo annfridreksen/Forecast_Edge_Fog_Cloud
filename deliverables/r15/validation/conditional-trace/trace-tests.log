@@ -1,0 +1,13 @@
+test_actual_output (__main__.main.<locals>.TraceTests.test_actual_output) ... ok
+test_missing_field (__main__.main.<locals>.TraceTests.test_missing_field) ... ok
+test_no_assumption (__main__.main.<locals>.TraceTests.test_no_assumption) ... ok
+test_sensitivity_precision_not_threshold (__main__.main.<locals>.TraceTests.test_sensitivity_precision_not_threshold) ... ok
+test_sum_not_min (__main__.main.<locals>.TraceTests.test_sum_not_min) ... ok
+test_unconditional_claim (__main__.main.<locals>.TraceTests.test_unconditional_claim) ... ok
+test_wrong_id (__main__.main.<locals>.TraceTests.test_wrong_id) ... ok
+test_wrong_source (__main__.main.<locals>.TraceTests.test_wrong_source) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

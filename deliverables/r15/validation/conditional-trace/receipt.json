@@ -1,0 +1,10 @@
+{
+  "tests": 8,
+  "code_cells": 2,
+  "actual_fields": 9,
+  "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016",
+  "execution": "GitHub Actions / nbconvert",
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "personal_Colab_browser_checked": false
+}

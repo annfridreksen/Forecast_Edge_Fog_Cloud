@@ -1,0 +1,143 @@
+[
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "n_i",
+    "value": [
+      200298,
+      199701,
+      200008,
+      199114,
+      200298,
+      200255,
+      199726,
+      199959,
+      200445,
+      199997
+    ],
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "n_min",
+    "value": 199114,
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "U_L",
+    "value": 1.8526297916613364e-05,
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "U_L_percent",
+    "value": 0.0018526297916613365,
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "U_Q_ms",
+    "value": 171.01545105250003,
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "conditional_status",
+    "value": "CONDITIONALLY_ACCEPTABLE",
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "assumption",
+    "value": "Independent Bernoulli message-loss outcomes with a common probability; dependence of the actual queue has not been established or removed.",
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "sensitivity",
+    "value": [
+      {
+        "reduction_factor": 1,
+        "n_eff": 199114.0,
+        "U_L": 1.8526297916613364e-05,
+        "loss_threshold_pass": true,
+        "old_precision_pass": true,
+        "interpretation": "assumed effective-volume scenario, not measured dependence"
+      },
+      {
+        "reduction_factor": 5,
+        "n_eff": 39822.8,
+        "U_L": 9.262805740950791e-05,
+        "loss_threshold_pass": true,
+        "old_precision_pass": true,
+        "interpretation": "assumed effective-volume scenario, not measured dependence"
+      },
+      {
+        "reduction_factor": 10,
+        "n_eff": 19911.4,
+        "U_L": 0.0001852475348619964,
+        "loss_threshold_pass": true,
+        "old_precision_pass": false,
+        "interpretation": "assumed effective-volume scenario, not measured dependence"
+      },
+      {
+        "reduction_factor": 50,
+        "n_eff": 3982.28,
+        "U_L": 0.0009258945713831161,
+        "loss_threshold_pass": true,
+        "old_precision_pass": false,
+        "interpretation": "assumed effective-volume scenario, not measured dependence"
+      },
+      {
+        "reduction_factor": 100,
+        "n_eff": 1991.14,
+        "U_L": 0.0018509318620089155,
+        "loss_threshold_pass": false,
+        "old_precision_pass": false,
+        "interpretation": "assumed effective-volume scenario, not measured dependence"
+      }
+    ],
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  },
+  {
+    "cell_id": "r15-05-summary",
+    "actual_output_field": "mm1k",
+    "value": {
+      "lambda_total": 90.9090909090909,
+      "mu": 18.181818181818183,
+      "F": 30,
+      "B": 5,
+      "K": 6,
+      "groups": [
+        {
+          "sensors_per_node": 33,
+          "nodes": 20,
+          "lambda_per_s": 3.0,
+          "rho": 0.16499999999999998,
+          "blocking": 1.684967726015698e-05,
+          "arrival_weight": 0.66
+        },
+        {
+          "sensors_per_node": 34,
+          "nodes": 10,
+          "lambda_per_s": 3.090909090909091,
+          "rho": 0.16999999999999998,
+          "blocking": 2.0034264478334993e-05,
+          "arrival_weight": 0.34
+        }
+      ],
+      "arrival_weighted_loss": 1.7932436914337507e-05,
+      "interpretation": "Approximation for Poisson arrivals directly to separate Fog queues and exponential service, unlike the full FEFC model; not a bound."
+    },
+    "source_file": "results/r15/conditional_analysis.json",
+    "source_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016"
+  }
+]

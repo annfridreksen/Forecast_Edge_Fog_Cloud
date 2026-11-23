@@ -1,0 +1,677 @@
+{
+  "rows": [
+    {
+      "key": "bonomi",
+      "year": 2012,
+      "doi": "10.1145/2342509.2342513",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; architectural motivation",
+      "claim": "Fog is an intermediate distributed layer between end devices and cloud; section 1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Fog computing and its role in the internet of things",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2012
+      ],
+      "registry_authors": [
+        "Bonomi",
+        "Milito",
+        "Zhu",
+        "Addepalli"
+      ],
+      "manuscript_author_line": "Bonomi F., Milito R., Zhu J., Addepalli S.",
+      "registry_container": [
+        "Proceedings of the first edition of the MCC workshop on Mobile cloud computing"
+      ],
+      "registry_volume": null,
+      "registry_issue": null,
+      "registry_pages": "13-16"
+    },
+    {
+      "key": "shi",
+      "year": 2016,
+      "doi": "10.1109/JIOT.2016.2579198",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract and edge definition",
+      "claim": "Edge brings computation toward data sources; section 1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Edge Computing: Vision and Challenges",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2016
+      ],
+      "registry_authors": [
+        "Shi",
+        "Cao",
+        "Zhang",
+        "Li",
+        "Xu"
+      ],
+      "manuscript_author_line": "Shi W., Cao J., Zhang Q., Li Y., Xu L.",
+      "registry_container": [
+        "IEEE Internet of Things Journal"
+      ],
+      "registry_volume": "3",
+      "registry_issue": "5",
+      "registry_pages": "637-646"
+    },
+    {
+      "key": "nskf",
+      "year": 2026,
+      "status": "AUTHOR_PUBLICATION_DETAILS_REQUIRED",
+      "location": "author-supplied presentation recorded in accepted R1.4; original Russian/English author blocks conflict",
+      "claim": "Preceding application context and profiles only; not evidence of new experimental results. Exact publication, authorship and public identifier require author confirmation.",
+      "fresh_metadata_check": "AUTHOR_REQUIRED"
+    },
+    {
+      "key": "ifogsim",
+      "year": 2017,
+      "doi": "10.1002/spe.2509",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; toolkit scope",
+      "claim": "Simulation of resource management in IoT, edge and fog; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "iFogSim: A toolkit for modeling and simulation of resource management techniques in the Internet of Things, Edge and Fog computing environments",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2017
+      ],
+      "registry_authors": [
+        "Gupta",
+        "Vahid Dastjerdi",
+        "Ghosh",
+        "Buyya"
+      ],
+      "manuscript_author_line": "Gupta H., Dastjerdi A. V., Ghosh S. K., Buyya R.",
+      "registry_container": [
+        "Software: Practice and Experience"
+      ],
+      "registry_volume": "47",
+      "registry_issue": "9",
+      "registry_pages": "1275-1296"
+    },
+    {
+      "key": "ifogsim2",
+      "year": 2022,
+      "doi": "10.1016/j.jss.2022.111351",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; named extensions",
+      "claim": "Mobility, clustering and microservice management extensions; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "iFogSim2: An extended iFogSim simulator for mobility, clustering, and microservice management in edge and fog computing environments",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2022
+      ],
+      "registry_authors": [
+        "Mahmud",
+        "Pallewatta",
+        "Goudarzi",
+        "Buyya"
+      ],
+      "manuscript_author_line": "Mahmud R., Pallewatta S., Goudarzi M., Buyya R.",
+      "registry_container": [
+        "Journal of Systems and Software"
+      ],
+      "registry_volume": "190",
+      "registry_issue": null,
+      "registry_pages": "111351"
+    },
+    {
+      "key": "edgecloudsim",
+      "year": 2018,
+      "doi": "10.1002/ett.3493",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; scope",
+      "claim": "Performance evaluation of edge systems; section 2.1; no simulator superiority comparison asserted.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "EdgeCloudSim: An environment for performance evaluation of edge computing systems",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2018
+      ],
+      "registry_authors": [
+        "Sonmez",
+        "Ozgovde",
+        "Ersoy"
+      ],
+      "manuscript_author_line": "Sonmez C., Ozgovde A., Ersoy C.",
+      "registry_container": [
+        "Transactions on Emerging Telecommunications Technologies"
+      ],
+      "registry_volume": "29",
+      "registry_issue": "11",
+      "registry_pages": "e3493"
+    },
+    {
+      "key": "yafs",
+      "year": 2019,
+      "doi": "10.1109/ACCESS.2019.2927895",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; scenario modelling",
+      "claim": "IoT scenario modelling in fog; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "YAFS: A Simulator for IoT Scenarios in Fog Computing",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2019
+      ],
+      "registry_authors": [
+        "Lera",
+        "Guerrero",
+        "Juiz"
+      ],
+      "manuscript_author_line": "Lera I., Guerrero C., Juiz C.",
+      "registry_container": [
+        "IEEE Access"
+      ],
+      "registry_volume": "7",
+      "registry_issue": null,
+      "registry_pages": "91745-91758"
+    },
+    {
+      "key": "edgesimpy",
+      "year": 2023,
+      "doi": "10.1016/j.future.2023.06.013",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0167739X23002340",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "publisher abstract and highlights",
+      "claim": "Python-based modular resource-management and application-lifecycle modelling; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "EdgeSimPy: Python-based modeling and simulation of edge computing resource management policies",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2023
+      ],
+      "registry_authors": [
+        "Souza",
+        "Ferreto",
+        "Calheiros"
+      ],
+      "manuscript_author_line": "Souza P. S., Ferreto T., Calheiros R. N.",
+      "registry_container": [
+        "Future Generation Computer Systems"
+      ],
+      "registry_volume": "148",
+      "registry_issue": null,
+      "registry_pages": "446-459"
+    },
+    {
+      "key": "enigma",
+      "year": 2023,
+      "doi": "10.1016/j.future.2023.02.010",
+      "url": "https://researchportal.uc3m.es/display/act561236",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "authors' institutional record, abstract; publisher abstract",
+      "claim": "Scalable cloud/fog/edge simulation with mobility; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "A scalable simulator for cloud, fog and edge computing platforms with mobility support",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2023
+      ],
+      "registry_authors": [
+        "Del-Pozo-Puñal",
+        "García-Carballeira",
+        "Camarmas-Alonso"
+      ],
+      "manuscript_author_line": "del Pozo Pu\\~nal E., Garc\\'ia-Carballeira F., Camarmas-Alonso D.",
+      "registry_container": [
+        "Future Generation Computer Systems"
+      ],
+      "registry_volume": "144",
+      "registry_issue": null,
+      "registry_pages": "117-130"
+    },
+    {
+      "key": "vonedge",
+      "year": 2024,
+      "doi": "10.3390/electronics13204124",
+      "url": "https://www.mdpi.com/2079-9292/13/20/4124",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "publisher abstract",
+      "claim": "Volunteer edge-resource scenarios; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "VonEdgeSim: A Framework for Simulating IoT Application in Volunteer Edge Computing",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2024
+      ],
+      "registry_authors": [
+        "Alsenani"
+      ],
+      "manuscript_author_line": "Alsenani Y.",
+      "registry_container": [
+        "Electronics"
+      ],
+      "registry_volume": "13",
+      "registry_issue": "20",
+      "registry_pages": "4124"
+    },
+    {
+      "key": "mintedge",
+      "year": 2024,
+      "doi": "10.1007/s11227-024-05926-z",
+      "url": "https://link.springer.com/article/10.1007/s11227-024-05926-z",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; sections 3.1 and 3.2",
+      "claim": "Energy-focused simulation including allocation and network characteristics; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Energy-focused simulation of edge computing architectures in 5G networks",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2024
+      ],
+      "registry_authors": [
+        "Gómez",
+        "Coronado",
+        "Villalón",
+        "Garrido"
+      ],
+      "manuscript_author_line": "G\\'omez B., Coronado E., Villal\\'on J., Garrido A.",
+      "registry_container": [
+        "The Journal of Supercomputing"
+      ],
+      "registry_volume": "80",
+      "registry_issue": "9",
+      "registry_pages": "12564-12584"
+    },
+    {
+      "key": "edgeaisim",
+      "year": 2024,
+      "doi": "10.1016/j.measen.2023.100939",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2665917423002751",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "publisher abstract",
+      "claim": "AI-enabled resource-management models in an edge simulator; not our executed training; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "EdgeAISim: A toolkit for simulation and modelling of AI models in edge computing environments",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2024
+      ],
+      "registry_authors": [
+        "Nandhakumar",
+        "Baranwal",
+        "Choudhary",
+        "Golec",
+        "Gill"
+      ],
+      "manuscript_author_line": "Nandhakumar A. R., Baranwal A., Choudhary P., Golec M., Gill S. S.",
+      "registry_container": [
+        "Measurement: Sensors"
+      ],
+      "registry_volume": "31",
+      "registry_issue": null,
+      "registry_pages": "100939"
+    },
+    {
+      "key": "mecsim",
+      "year": 2026,
+      "doi": "10.1016/j.sysarc.2026.103706",
+      "url": "https://www.sciencedirect.com/science/article/pii/S138376212600024X",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "publisher abstract and author line",
+      "claim": "Heterogeneous resources, dependent tasks and reliability dimensions; section 2.1. Volume not inferred.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "MECSim: A comprehensive simulation platform for multi-access edge computing",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2026
+      ],
+      "registry_authors": [
+        "Islam",
+        "Ghose"
+      ],
+      "manuscript_author_line": "Islam A., Ghose M.",
+      "registry_container": [
+        "Journal of Systems Architecture"
+      ],
+      "registry_volume": "173",
+      "registry_issue": null,
+      "registry_pages": "103706"
+    },
+    {
+      "key": "quality",
+      "year": 2025,
+      "doi": "10.1016/j.simpat.2024.103042",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1569190X24001564",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "publisher abstract",
+      "claim": "Software quality and maintenance are distinct dimensions of simulator comparison; section 2.1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Quality matters: A comprehensive comparative study of edge computing simulators",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2025
+      ],
+      "registry_authors": [
+        "Mechalikh",
+        "Silem",
+        "Safavifar",
+        "Golpayegani"
+      ],
+      "manuscript_author_line": "Mechalikh C., Silem A. E. H., Safavifar Z., Golpayegani F.",
+      "registry_container": [
+        "Simulation Modelling Practice and Theory"
+      ],
+      "registry_volume": "138",
+      "registry_issue": null,
+      "registry_pages": "103042"
+    },
+    {
+      "key": "kendall",
+      "year": 1953,
+      "doi": "10.1214/aoms/1177728975",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "queueing-process formulation",
+      "claim": "Queueing notation separates arrivals, service and capacity; section 2.2.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Stochastic Processes Occurring in the Theory of Queues and their Analysis by the Method of the Imbedded Markov Chain",
+      "title_similarity": 1.0,
+      "registry_years": [
+        1953
+      ],
+      "registry_authors": [
+        "Kendall"
+      ],
+      "manuscript_author_line": "Kendall D. G.",
+      "registry_container": [
+        "The Annals of Mathematical Statistics"
+      ],
+      "registry_volume": "24",
+      "registry_issue": "3",
+      "registry_pages": "338-354"
+    },
+    {
+      "key": "little",
+      "year": 1961,
+      "doi": "10.1287/opre.9.3.383",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "main mean-value relation",
+      "claim": "Mean queueing relation does not determine latency-tail distribution; section 2.2. The non-implication is reasoning, not an additional theorem attributed to Little.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "A Proof for the Queuing Formula:\n                    <i>L</i>\n                    = λ\n                    <i>W</i>",
+      "title_similarity": 0.8470588235294118,
+      "registry_years": [
+        1961
+      ],
+      "registry_authors": [
+        "Little"
+      ],
+      "manuscript_author_line": "Little J. D. C.",
+      "registry_container": [
+        "Operations Research"
+      ],
+      "registry_volume": "9",
+      "registry_issue": "3",
+      "registry_pages": "383-387"
+    },
+    {
+      "key": "law",
+      "year": 2015,
+      "isbn": "9780073401324",
+      "url": "https://www.mheducation.ca/product/simulation-modeling-and-analysis-9780073401324-can",
+      "status": "PUBLISHER_EDITION_AND_TOC_READ",
+      "location": "fifth-edition publisher record and contents, chapters 9,10,11",
+      "claim": "Output analysis, configuration comparisons and variance reduction are separate methodological tasks; section 2.2. No uninspected page-specific theorem attributed.",
+      "fresh_metadata_check": "IDENTIFIER_IN_PRIMARY_RECORD"
+    },
+    {
+      "key": "sargent",
+      "year": 2013,
+      "doi": "10.1057/jos.2012.20",
+      "url": "https://www.tandfonline.com/doi/full/10.1057/jos.2012.20",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; verification versus validation",
+      "claim": "Program verification differs from validation against the real system; section 2.2.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Verification and validation of simulation models",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2013,
+        2017
+      ],
+      "registry_authors": [
+        "Sargent"
+      ],
+      "manuscript_author_line": "Sargent R. G.",
+      "registry_container": [
+        "Journal of Simulation"
+      ],
+      "registry_volume": "7",
+      "registry_issue": "1",
+      "registry_pages": "12-24"
+    },
+    {
+      "key": "efron",
+      "year": 1979,
+      "doi": "10.1214/aos/1176344552",
+      "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-7/issue-1/Bootstrap-Methods-Another-Look-at-the-Jackknife/10.1214/aos/1176344552.full",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; bootstrap construction",
+      "claim": "Bootstrap uses resampling to assess statistical uncertainty; section 2.2; exact finite-sample coverage is not asserted.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Bootstrap Methods: Another Look at the Jackknife",
+      "title_similarity": 1.0,
+      "registry_years": [
+        1979
+      ],
+      "registry_authors": [
+        "Efron"
+      ],
+      "manuscript_author_line": "Efron B.",
+      "registry_container": [
+        "The Annals of Statistics"
+      ],
+      "registry_volume": "7",
+      "registry_issue": "1",
+      "registry_pages": "1-26"
+    },
+    {
+      "key": "barton",
+      "year": 2023,
+      "doi": "10.1109/WSC60868.2023.10407467",
+      "url": "https://www.informs-sim.org/wsc23papers/035.pdf",
+      "status": "PRIMARY_TEXT_READ",
+      "location": "sections 2-3; proceedings pages 421-432; PDF text, not a new experimental replication",
+      "claim": "Bootstrap simulation-output intervals require attention to parameter/distribution shape; section 2.2.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Bootstrap Confidence Intervals for Simulation Output Parameters",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2023
+      ],
+      "registry_authors": [
+        "Barton",
+        "Rhodes-Leader"
+      ],
+      "manuscript_author_line": "Barton R. R., Rhodes-Leader L. A.",
+      "registry_container": [
+        "2023 Winter Simulation Conference (WSC)"
+      ],
+      "registry_volume": null,
+      "registry_issue": null,
+      "registry_pages": "421-432"
+    },
+    {
+      "key": "fogsurvey",
+      "year": 2020,
+      "doi": "10.1002/spe.2766",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract and placement-classification scope",
+      "claim": "Application-placement constraints differ from infrastructure configuration; section 2.3. Required R19 source 1.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "How to place your apps in the fog: State of the art and open challenges",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2019,
+        2020
+      ],
+      "registry_authors": [
+        "Brogi",
+        "Forti",
+        "Guerrero",
+        "Lera"
+      ],
+      "manuscript_author_line": "Brogi A., Forti S., Guerrero C., Lera I.",
+      "registry_container": [
+        "Software: Practice and Experience"
+      ],
+      "registry_volume": "50",
+      "registry_issue": "5",
+      "registry_pages": "719-740"
+    },
+    {
+      "key": "heft",
+      "year": 2002,
+      "doi": "10.1109/71.993206",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract; HEFT scheduling rule",
+      "claim": "Earliest-finish task assignment differs from our fixed whole-subgraph criterion; section 2.3. Required R19 source 2; no superiority asserted.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Performance-effective and low-complexity task scheduling for heterogeneous computing",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2002
+      ],
+      "registry_authors": [
+        "Topcuoglu",
+        "Hariri",
+        "Min-You Wu"
+      ],
+      "manuscript_author_line": "Topcuoglu H., Hariri S., Wu M.-Y.",
+      "registry_container": [
+        "IEEE Transactions on Parallel and Distributed Systems"
+      ],
+      "registry_volume": "13",
+      "registry_issue": "3",
+      "registry_pages": "260-274"
+    },
+    {
+      "key": "lykouris18",
+      "year": 2018,
+      "url": "https://proceedings.mlr.press/v80/lykouris18a.html",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "PMLR abstract; predictions and robustness",
+      "claim": "Learned-advice caching motivates separating advice from valid execution; section 2.3. Required R19 source 3; conference version has confirmed PMLR URL, not the journal DOI.",
+      "fresh_metadata_check": "IDENTIFIER_IN_PRIMARY_RECORD"
+    },
+    {
+      "key": "lykouris21",
+      "year": 2021,
+      "doi": "10.1145/3447579",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "JACM abstract and journal metadata",
+      "claim": "Journal version of prediction-assisted caching, kept distinct from 2018 proceedings; section 2.3.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Competitive Caching with Machine Learned Advice",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2021
+      ],
+      "registry_authors": [
+        "Lykouris",
+        "Vassilvitskii"
+      ],
+      "manuscript_author_line": "Lykouris T., Vassilvitskii S.",
+      "registry_container": [
+        "Journal of the ACM"
+      ],
+      "registry_volume": "68",
+      "registry_issue": "4",
+      "registry_pages": "1-25"
+    },
+    {
+      "key": "advice",
+      "year": 2020,
+      "doi": "10.4230/LIPIcs.APPROX/RANDOM.2020.60",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.APPROX/RANDOM.2020.60",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "Dagstuhl abstract and metadata",
+      "claim": "Learning-augmented caching, not evidence for our forecasting implementation; section 2.3. DOI includes a slash and must be encoded correctly.",
+      "fresh_metadata_check": "NETWORK_UNCONFIRMED",
+      "error": "HTTPError"
+    },
+    {
+      "key": "angelopoulos",
+      "year": 2023,
+      "doi": "10.1561/2200000101",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "publisher abstract; calibration framing",
+      "claim": "Conformal prediction ties forecast uncertainty to calibration assumptions; future interface context, section 2.3.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Conformal Prediction: A Gentle Introduction",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2023
+      ],
+      "registry_authors": [
+        "Angelopoulos",
+        "Bates"
+      ],
+      "manuscript_author_line": "Angelopoulos A. N., Bates S.",
+      "registry_container": [
+        "Foundations and Trends® in Machine Learning"
+      ],
+      "registry_volume": "16",
+      "registry_issue": "4",
+      "registry_pages": "494-591"
+    },
+    {
+      "key": "barber",
+      "year": 2023,
+      "doi": "10.1214/23-AOS2276",
+      "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-51/issue-2/Conformal-prediction-beyond-exchangeability/10.1214/23-AOS2276.full",
+      "status": "PRIMARY_RECORD_READ",
+      "location": "abstract and introduction",
+      "claim": "Departures from exchangeability require separate treatment; no transfer of guarantees to simulation bootstrap; section 2.3.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "Conformal prediction beyond exchangeability",
+      "title_similarity": 1.0,
+      "registry_years": [
+        2023
+      ],
+      "registry_authors": [
+        "Barber",
+        "Candès",
+        "Ramdas",
+        "Tibshirani"
+      ],
+      "manuscript_author_line": "Barber R. F., Cand\\`es E. J., Ramdas A., Tibshirani R. J.",
+      "registry_container": [
+        "The Annals of Statistics"
+      ],
+      "registry_volume": "51",
+      "registry_issue": "2",
+      "registry_pages": "816-845"
+    },
+    {
+      "key": "clopper",
+      "year": 1934,
+      "doi": "10.1093/biomet/26.4.404",
+      "url": "https://academic.oup.com/biomet/article-abstract/26/4/404/291538",
+      "status": "PRIMARY_TEXT_READ",
+      "location": "Original pages404–407; PDF pages1 and3 inspected; binomial construction",
+      "claim": "Independent common-probability binomial outcomes; zero-loss formula explicitly derived. No guarantee for dependent queue losses.",
+      "fresh_metadata_check": "MATCH",
+      "title_from_registry": "THE USE OF CONFIDENCE OR FIDUCIAL LIMITS ILLUSTRATED IN THE CASE OF THE BINOMIAL",
+      "title_similarity": 1.0,
+      "registry_years": [
+        1934
+      ],
+      "registry_authors": [
+        "CLOPPER",
+        "PEARSON"
+      ],
+      "manuscript_author_line": "Clopper C. J., Pearson E. S.",
+      "registry_container": [
+        "Biometrika"
+      ],
+      "registry_volume": "26",
+      "registry_issue": "4",
+      "registry_pages": "404-413"
+    }
+  ],
+  "scope": "Fresh registry lookup supports metadata only; claim passages are separately documented. No source is silently rewritten."
+}
