@@ -1,8 +1,8 @@
-name: FEFC R1.4 partial paper and primary provenance
+name: FEFC R1.5 manuscript evidence and submission
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['article/**', 'scripts/check_r14_paper.py', 'scripts/build_r14_paper.py', 'scripts/check_r14_trace.py', 'efc/main_summary.py', 'tests/test_summary_trace.py', 'colab/01_Среда_и_конфигурация.ipynb', 'results/r14/article_evidence.json', '.github/workflows/r14-paper.yml']
+    paths: ['article/**', 'scripts/check_r15_paper.py', 'scripts/build_r15_submission.py', 'scripts/r15_restore_sources.py', 'scripts/r15_publish.py', 'submission/**', '.github/workflows/r14-paper.yml']
 permissions:
   contents: read
   actions: read
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   paper:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       OPENBLAS_NUM_THREADS: '1'
@@ -26,57 +26,30 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Decide whether PDF inputs changed
-        id: pdf
-        env:
-          BEFORE: ${{ github.event.before }}
-        run: |
-          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
-            CHANGED=$(git diff --name-only "$BEFORE" "$GITHUB_SHA")
-            if echo "$CHANGED" | grep -Eq '^article/.*\.(tex|cls|sty|png|pdf|bib|bst)$|^article/psta/|^scripts/build_r14_paper.py$'; then
-              echo "changed=true" >> "$GITHUB_OUTPUT"
-            else
-              echo "changed=false" >> "$GITHUB_OUTPUT"
-            fi
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Install read-only validation dependencies
+      - name: Install validation dependencies
         run: python -m pip install -r requirements.txt
-      - name: Install PDF dependencies only for changed PDF inputs
-        if: steps.pdf.outputs.changed == 'true'
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils
-      - name: Restore frozen primary archive, never launch simulation
+      - name: Restore the frozen article snapshot only
         uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
           run-id: 45174257711
           name: r14-map-45174257711
-          path: results/r14/paper-source
-      - name: Record exact source and dependencies
+          path: results/r15/frozen131
+      - name: Preserve source and dependency versions
         run: |
-          mkdir -p results/r14/paper-build
-          git archive --format=tar.gz HEAD -o results/r14/paper-build/source.tar.gz
-          python -m pip freeze > results/r14/paper-build/dependencies.txt
-      - name: Test field-to-cell trace and execute notebook on frozen source
-        run: |
-          python -m unittest discover -s tests -p test_summary_trace.py -v > results/r14/paper-build/trace-tests.log 2>&1 || { cat results/r14/paper-build/trace-tests.log; exit 1; }
-          python -m unittest discover -s article/tests -v > results/r14/paper-build/paper-tests.log 2>&1 || { cat results/r14/paper-build/paper-tests.log; exit 1; }
-          python scripts/check_r14_trace.py --checkpoint results/r14/paper-source --out results/r14/paper-build/trace
-      - name: Preserve prior PDF when manuscript inputs are unchanged
-        if: steps.pdf.outputs.changed != 'true'
-        run: echo 'PDF_NOT_REBUILT; unchanged article inputs. Prior PDF is in artifact 14823489832, run 45187643636.' > results/r14/paper-build/pdf-not-rebuilt.txt
-      - name: Verify primary evidence and actual manuscript, build and render PDF
-        if: steps.pdf.outputs.changed == 'true'
-        run: python scripts/build_r14_paper.py --checkpoint results/r14/paper-source --out results/r14/paper-build
-      - name: Protected files and scientific inputs unchanged
+          mkdir -p results/r15/build
+          git archive --format=tar.gz HEAD -o results/r15/build/source.tar.gz
+          python -m pip freeze > results/r15/build/dependencies.txt
+      - name: Validate R1.5 text, real primary values and accepted notebook outputs
+        run: python scripts/check_r15_paper.py --checkpoint results/r15/frozen131 --out results/r15/build/validation
+      - name: Source-only stage; no PDF readiness asserted
+        run: echo 'B stage only. Compilation, ZIP isolation and submission checks are separate C-stage operations.' > results/r15/build/STAGE.txt
+      - name: Protected and scientific sources unchanged
         if: always()
-        run: git diff --exit-code -- v2 efc docs tests scripts colab configs results/r14/article_evidence.json article/main.tex article/r14-values.tex article/r14-references.tex
+        run: git diff --exit-code -- v2 efc docs tests scripts colab configs article results/r14/article_evidence.json results/r15/service_reference.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: r14-paper-${{ github.sha }}
-          path: results/r14/paper-build/
+          name: r15-text-${{ github.sha }}
+          path: results/r15/build/
           if-no-files-found: error
