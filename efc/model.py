@@ -11,6 +11,7 @@ import heapq
 import math
 from typing import Iterable
 import numpy as np
+from .records import TaskColumns
 from .timebase import TIME_CONTRACT
 from .workload import generate_workload, Workload
 
@@ -64,7 +65,7 @@ def quantile95(values):
 
 
 def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = None,
-             *, workload: Workload | None = None):
+             *, workload: Workload | None = None, compact=False, record_queue=True):
     """Single integer-clock kernel for the demonstration and windowed series.
 
     Source messages and ALL potential durations precede assignment/execution.
@@ -73,6 +74,8 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
     Exported *_s/*_ms fields are views; integer *_tick fields are authoritative.
     """
     c = config
+    if type(compact) is not bool or type(record_queue) is not bool:
+        raise ValueError('storage/trace flags must be Boolean')
     if workload is not None and arrivals_s is not None:
         raise ValueError('provide either workload or arrivals_s, not both')
     if workload is None:
@@ -92,7 +95,8 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
     counts = [0]*c.n_fog
     busy = {'edge_fog_s': [0]*c.n_fog, 'fog_s': [0]*c.n_fog,
             'fog_cloud_s': [0]*c.n_fog, 'cloud_s': [0]*c.n_cloud}
-    queue_trace, events, tasks = [], [], []
+    queue_trace, events = [], []
+    tasks = TaskColumns(c.n_tasks) if compact else []
     for source in workload.events:
         i, release, sensor = source.event_id, source.release_tick, source.sensor
         f = sensor % c.n_fog
@@ -169,9 +173,10 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
             busy_until[f] = tick
             if waiting[f]:
                 start_job(waiting[f].popleft(), tick)
-        queue_trace.append(dict(time_tick=tick, time_s=tick/1_000_000_000, fog=f,
-                                waiting=len(waiting[f]), busy=int(active[f] is not None),
-                                event=kind, task_id=i))
+        if record_queue:
+            queue_trace.append(dict(time_tick=tick, time_s=tick/1_000_000_000, fog=f,
+                                    waiting=len(waiting[f]), busy=int(active[f] is not None),
+                                    event=kind, task_id=i))
     timestamp_names = ('release', 'edge_start', 'edge_end', 'fog_arrival', 'fog_start',
                        'fog_end', 'cloud_arrival', 'cloud_start', 'end', 'drop')
     delay_names = {'edge_ms': 'edge_delay_tick', 'edge_fog_ms': 'edge_fog_tick',
@@ -182,13 +187,17 @@ def simulate(config: Config = Config(), arrivals_s: Iterable[float] | None = Non
                    'cloud_service_ms': 'cloud_service_tick', 'ef_link_wait_ms': 'ef_link_wait_tick',
                    'fc_link_wait_ms': 'fc_link_wait_tick', 'cloud_wait_ms': 'cloud_wait_tick',
                    'remaining_busy_ms': 'remaining_busy_tick'}
-    for r in tasks:
-        for name in timestamp_names:
-            if name+'_tick' in r:
-                r[name+'_s'] = r[name+'_tick']/1_000_000_000
-        for field, source in delay_names.items():
-            if source in r:
-                r[field] = r[source]/1_000_000
+    if compact:
+        tasks.views = {name+'_s': (name+'_tick', 1_000_000_000) for name in timestamp_names}
+        tasks.views.update({k: (v, 1_000_000) for k,v in delay_names.items()})
+    else:
+        for r in tasks:
+            for name in timestamp_names:
+                if name+'_tick' in r:
+                    r[name+'_s'] = r[name+'_tick']/1_000_000_000
+            for field, source in delay_names.items():
+                if source in r:
+                    r[field] = r[source]/1_000_000
     completed = [r for r in tasks if r['status'] == 'completed']
     lost = [r for r in tasks if r['status'] == 'dropped']
     end = max([0]+[r.get('end_tick', r.get('drop_tick', 0)) for r in tasks])

@@ -18,7 +18,7 @@ class PrimarySampler(KernelSampler):
     def __call__(self, seed, warmup, observe, guard):
         from .stationary import stationary_run
         row, result = stationary_run(replace(self.config,seed=seed),
-            warmup,observe,guard,return_details=True)
+            warmup,observe,guard,return_details=True,compact=True,record_queue=False)
         w=row['window_ticks'];lo,hi,stop=w['start'],w['end'],w['guard_end']
         mid=(lo+hi)//2
         provenance=dict(config_id=self.config_id,window_ticks=w,

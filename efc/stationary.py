@@ -114,7 +114,7 @@ def summarize_window(config, result, window):
 
 
 def stationary_run(config, warmup=WARMUP, observe=OBSERVE, guard=GUARD,
-                   *, workload=None, return_details=False):
+                   *, workload=None, return_details=False, compact=False, record_queue=True):
     """One fixed-window replication, using exactly the demonstration kernel.
 
     Supplied sources require the same declared generation horizon. Length is
@@ -132,7 +132,7 @@ def stationary_run(config, warmup=WARMUP, observe=OBSERVE, guard=GUARD,
     if workload.horizon_tick != window[2]:
         raise ValueError('workload horizon must equal declared guard end')
     actual = replace(config, n_tasks=len(workload.events))
-    result = model.simulate(actual, workload=workload)
+    result = model.simulate(actual, workload=workload, compact=compact, record_queue=record_queue)
     row = summarize_window(config, result, window)
     row.update(warmup_expected_per_reference_fog=warmup, observation_expected_per_reference_fog=observe,
                guard_expected_per_reference_fog=guard, non_fog_load_bounds=bounds)

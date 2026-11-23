@@ -49,14 +49,14 @@ class KernelSampler:
         description = asdict(config)
         for key in ('seed', 'n_tasks'): description.pop(key)
         folder = Path(__file__).parent
-        files = ('model.py','timebase.py','workload.py','stationary.py','statistics.py','pilot.py')
+        files = ('model.py','timebase.py','workload.py','stationary.py','statistics.py','pilot.py','records.py')
         hashes = {name: hashlib.sha256((folder/name).read_bytes()).hexdigest() for name in files}
         self.config_id = _digest(dict(config=description, code_sha256=hashes))
 
     def __call__(self, seed, warmup, observe, guard):
         from .stationary import stationary_run
         row, result = stationary_run(replace(self.config, seed=seed), warmup, observe,
-                                     guard, return_details=True)
+                                     guard, return_details=True, compact=True, record_queue=False)
         w = row['window_ticks']
         lo, hi, stop = w['start'], w['end'], w['guard_end']
         mid = (lo+hi)//2
