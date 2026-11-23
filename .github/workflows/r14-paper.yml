@@ -1,8 +1,8 @@
-name: FEFC R1.5 isolated submission build and publication
+name: R1.5 author decisions 6-9 and verified submission
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['article/**', 'scripts/check_r15_paper.py', 'scripts/build_r15_submission.py', 'scripts/r15_package_corrections.py', 'scripts/r15_publish.py', 'submission/**', '.github/workflows/r14-paper.yml']
+    paths: ['scripts/r15_zero_loss.py', 'scripts/r15_apply_author_6_9.py', 'scripts/r15_build_author.py', 'scripts/r15_publish.py', 'article/r15-author-section6.tex', '.github/workflows/r14-paper.yml']
 permissions:
   contents: write
   actions: read
@@ -10,7 +10,7 @@ concurrency:
   group: fefc-r14-paper
   cancel-in-progress: false
 jobs:
-  paper:
+  author_package:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -26,37 +26,53 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install build dependencies
+      - name: Install exact execution dependencies with retained logs
         run: |
-          python -m pip install -r requirements.txt pymupdf
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils latexdiff
-      - name: Reuse the verified B-stage notebook without repeating execution
+          mkdir -p results/r15/build
+          python -m pip install -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -40 results/r15/build/install-python.log; exit 1; }
+          sudo apt-get update -qq > results/r15/build/install-tex.log 2>&1
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils latexdiff >> results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
+      - name: Restore accepted raw cell output, not the old scientific interpretation
         uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
           run-id: 45276814973
           name: r15-text-5b2a5987d1a148545eae678dba770d66df9a9cb7
           path: results/r15/prior-text
-      - name: Preserve exact source and dependency versions
+      - name: Measure exact frozen ZIP and read main cohorts without new simulation
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p results/r15/build
+          python - <<'PY'
+          from pathlib import Path
+          from scripts.build_r15_submission import download,unpack,FROZEN_ID,FROZEN_SHA,REPO
+          work=Path('results/r15/build/work'); work.mkdir(parents=True,exist_ok=True)
+          download(f'https://api.github.com/repos/{REPO}/actions/artifacts/{FROZEN_ID}/zip',work/'frozen131.zip',FROZEN_SHA,github=True)
+          unpack(work/'frozen131.zip',work/'frozen131')
+          print('MEASURED_FROZEN_ZIP',FROZEN_SHA)
+          PY
+          python scripts/r15_zero_loss.py --checkpoint results/r15/build/work/frozen131 --out results/r15/build/conditional-tests > results/r15/build/conditional-analysis-output.log
+      - name: Apply exact author decisions, test and commit only enumerated source paths
+        run: python scripts/r15_apply_author_6_9.py --checkpoint results/r15/build/work/frozen131 --out results/r15/build/author-tests
+      - name: Record actual source SHA and environment after author-decision commit
+        run: |
           git archive --format=tar.gz HEAD -o results/r15/build/source.tar.gz
           python -m pip freeze > results/r15/build/dependencies.txt
           pdflatex --version > results/r15/build/tex-version.txt
-      - name: Verify fixed syntax and package all real compilation inputs
+          printf '%s\n' "$R15_SOURCE_SHA" > results/r15/build/SOURCE_SHA.txt
+      - name: Fresh manuscript, isolated ZIP build and difference PDF
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/r15_package_corrections.py --out results/r15/build
-      - name: Protect tracked source and scientific files before delivery
+        run: python scripts/r15_build_author.py --out results/r15/build
+      - name: Protect tracked scientific and manuscript sources
         if: always()
-        run: git diff --exit-code -- v2 efc docs tests scripts colab configs article submission results/r14/article_evidence.json results/r15/service_reference.json
-      - name: Publish this executor's delivery with HEAD lease and verify anonymous downloads
+        run: git diff --exit-code -- v2 efc docs tests scripts colab configs article submission results/r14/article_evidence.json results/r15/service_reference.json results/r15/conditional_analysis.json
+      - name: Publish delivery with HEAD lease and verify anonymous download hashes
         run: python scripts/r15_publish.py --out results/r15/build
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: r15-submission-${{ github.sha }}
+          name: r15-author-${{ github.sha }}
           path: |
             results/r15/build/
             !results/r15/build/work/**
