@@ -67,6 +67,31 @@ class KernelSampler:
                            extract_cohort(seed, result, (mid, hi, stop)), provenance)
 
 
+def _record_run(state, row):
+    """One scientific request -> one row. Replays are metadata, not replications.
+
+    Conflicting duplicate data are rejected, never overwritten. Old partial
+    journals are normalized only inside a new compatible attempt/explicit import.
+    """
+    keys = ('seed', 'warmup', 'observe', 'guard')
+    identity = tuple(row[k] for k in keys)
+    semantic = {k:v for k,v in row.items() if k != 'reused'}
+    for previous in state['runs']:
+        if tuple(previous[k] for k in keys) == identity:
+            if {k:v for k,v in previous.items() if k != 'reused'} != semantic:
+                raise ValueError('conflicting journal replay for one scientific request')
+            state['journal_replays'] = state.get('journal_replays', 0) + 1
+            return
+    state['runs'].append(row)
+
+
+def _normalize_runs(state):
+    original = state['runs']
+    state['runs'] = []
+    for row in original:
+        _record_run(state, row)
+
+
 def _collect(sample, seeds, warm, observe, guard, state, journal, cache=None):
     rows = []
     for seed in seeds:
@@ -77,7 +102,7 @@ def _collect(sample, seeds, warm, observe, guard, state, journal, cache=None):
         if obs.full.seed != seed or obs.provenance.get('config_id') != sample.config_id:
             raise ValueError('sample provenance/seed mismatch')
         rows.append(obs)
-        state['runs'].append(dict(seed=seed, warmup=warm, observe=observe, guard=guard,
+        _record_run(state, dict(seed=seed, warmup=warm, observe=observe, guard=guard,
                                   arrivals=obs.full.arrivals, dropped=obs.full.dropped,
                                   unfinished=obs.full.unfinished, reused=reused, provenance=obs.provenance))
         _save(journal, state)  # retain progress even if the next replication fails
@@ -175,6 +200,7 @@ def _run_frozen(sample, selection, phase, *, journal, resume=False):
             return state  # a terminal attempt is never re-selected or re-evaluated
         if state['status'] not in ('RUNNING', 'FAILED', 'PAUSED'):
             raise ValueError('unknown attempt state')
+        _normalize_runs(state)
         state['resumes'] = state.get('resumes', 0) + 1
         state['status'] = 'RUNNING'
         state.pop('error', None)
