@@ -178,10 +178,10 @@ def show_result(result, saved):
         ax.set(xlabel='Время, с', ylabel='Ожидающих', title=f'Короткий опыт: очередь Fog {node}, не стационарная оценка')
         display(fig); plt.close(fig)
     if saved['rows']:
-        import pandas as pd
+        from .map_view import configuration_map_figure
         rate = result['config']['arrival_rate_s']
-        subset = [dict(Fog=r['n_fog'], B=r['buffer'], status=STATUS[r['status']]) for r in saved['rows'] if r['arrival_rate_s'] == rate]
-        display(pd.DataFrame(subset).pivot(index='Fog', columns='B', values='status'))
+        fig = configuration_map_figure(saved, rate)
+        display(fig); plt.close(fig)
         for metric, factor, label in [('p95_ms', 1, 'p95, мс'), ('drop_fraction', 100, 'Потери, %')]:
             fig, ax = plt.subplots(figsize=(7, 3)); points = 0
             for row in saved['rows']:
