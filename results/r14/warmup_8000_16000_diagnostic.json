@@ -1,0 +1,39 @@
+{
+  "schema": "R1.4-warmup-explanation-1",
+  "read_only": true,
+  "simulation_calls": 0,
+  "scientific_status_unchanged": "INSUFFICIENT_DATA",
+  "key": "r0.10_F30_B000",
+  "config_id": "1b13256eae14d6b8f7db32e702224ca94893a3eb024b1a1ad9f3c2277feb66e9",
+  "manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+  "pilot_sha256": "93f69de196c012aba44b2a853914fa20229e8a76547ef866779c5928e20f93b1",
+  "warmup": 8000,
+  "comparison_warmup": 16000,
+  "observe": 4000,
+  "guard": 1000,
+  "units": "W/T/G: expected arrivals per reference Fog; loss: fraction",
+  "seed_ids": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109],
+  "bootstrap_seed": 20261123,
+  "repeats": 10000,
+  "primary_requests_checked": 20,
+  "primary_sources_sha256": "26bbd72be923e5a8ea96bfe0ad2a243489db7060abd767cfa533be4f14d2998d",
+  "checks": {
+    "warmup_check": {
+      "stored": {"lower": -0.0004547186465294749, "upper": 0.00047005141587739267, "epsilon": 5e-05, "inside": false},
+      "recomputed_lower": -0.0004547186465294749,
+      "recomputed_upper": 0.00047005141587739267,
+      "within_tolerance": false,
+      "contains_zero": true,
+      "p95_interval_read_not_recomputed": {"lower": 0.004195153749981984, "upper": 0.08364004374998679, "epsilon": 10, "inside": true}
+    },
+    "halves_check": {
+      "stored": {"lower": -0.0005248188473251674, "upper": 0.0016619053312522062, "epsilon": 5e-05, "inside": false},
+      "recomputed_lower": -0.0005248188473251674,
+      "recomputed_upper": 0.0016619053312522062,
+      "within_tolerance": false,
+      "contains_zero": true,
+      "p95_interval_read_not_recomputed": {"lower": -0.0015951462500240138, "upper": 0.08708480000001373, "epsilon": 10, "inside": true}
+    }
+  },
+  "interpretation": "Loss difference intervals reproduce but are wider than +/-0.00005; insufficient precision of equivalence, not proof of nonstationarity or inadmissibility."
+}
