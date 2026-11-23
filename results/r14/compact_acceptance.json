@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-23T06:57:02.522002+00:00",
+  "scope": "R1.4 memory/journal/cache correction, not full map",
+  "executable_commit": "12e565bcbe97b0dfbfa15707f89054a9ea81aa63",
+  "actions_run": 45126685774,
+  "job": 137532527005,
+  "result": "success",
+  "tests": {"model":61,"window":10,"logging":2,"statistics":22,"pilot":12,"grid":15,"cache_report":3,"journal_idempotence":5,"archive":5,"migration":7},
+  "test_total":142,
+  "nbconvert_code_cells":17,
+  "web_colab_executed":false,
+  "artifact":14796535037,
+  "artifact_zip_sha256":"26d307ba5a6ea4d314651a5c7ab74c8fb32732b22300e9e154d1b1e0ef6c04ff",
+  "matched_source_sha256":{
+    "efc/model.py":"7e637def13712150ce9b4d117f2864aac09416024a8c29f99b7b736355848bbb",
+    "efc/records.py":"96e2397078b08710f84e236249e39ebc58d928f614b5eff70819d08dbcb06ac7",
+    "efc/pilot.py":"db4bc20e1ec3ed2be4add9ae6064def1e4200d251fa12dcb9a0daced62836277",
+    "efc/primary.py":"1df5e798da5ad4c6d86df253608b744143203d64c94017fcaae76325e026181b",
+    "efc/stationary.py":"e98991f8df8de518f97dcad99057fc12b16024506cbfbed806a957b2cb051885",
+    "scripts/migrate_r14_storage.py":"e6d0748b3c7ad66a74c4e7567067a3a011ef610e875b7c985d2c073cefee5589",
+    "tests/test_model_compact.py":"faa25864cbdbc84c51a14ad60b59d671c4f22c376e93d333c5ef0b4f8231cd3b",
+    "scripts/check_r14_storage.py":"27377b609fc9b1fb48e842fb955b72bda894259edfbdfa2ccdeeb3d38fd1547e"
+  },
+  "source_comparison":"matched exact local files actually used for tests/resource probe",
+  "old_archive_verified_members":60,
+  "old_primary_observations_imported":43,
+  "new_simulations_during_migration":0,
+  "resource_probe_record":"results/r14/compact_resource_probe.json",
+  "active_scientific_run":45127359977,
+  "active_scientific_commit":"8e5a0ec62ec78ae4a2b36de42928ae8504d90ee6",
+  "latest_observed_scientific_status":"in_progress; restore/migration and bounded-request validation steps succeeded; no new count claimed before artifact",
+  "scientific_full_map_accepted":false
+}
