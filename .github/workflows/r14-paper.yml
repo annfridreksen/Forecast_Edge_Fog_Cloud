@@ -1,0 +1,55 @@
+name: FEFC R1.4 partial paper and primary provenance
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['article/**', 'scripts/check_r14_paper.py', 'scripts/build_r14_paper.py', 'results/r14/article_evidence.json', '.github/workflows/r14-paper.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: fefc-r14-paper
+  cancel-in-progress: false
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install scoped build dependencies
+        run: |
+          python -m pip install numpy scipy
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils
+      - name: Restore frozen primary archive, never launch simulation
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45174257711
+          name: r14-map-45174257711
+          path: results/r14/paper-source
+      - name: Record exact source and dependencies
+        run: |
+          mkdir -p results/r14/paper-build
+          git archive --format=tar.gz HEAD -o results/r14/paper-build/source.tar.gz
+          python -m pip freeze > results/r14/paper-build/dependencies.txt
+      - name: Verify primary evidence and actual manuscript, build and render PDF
+        run: python scripts/build_r14_paper.py --checkpoint results/r14/paper-source --out results/r14/paper-build
+      - name: Protected files and scientific inputs unchanged
+        if: always()
+        run: git diff --exit-code -- v2 efc docs tests scripts colab configs results/r14/article_evidence.json article/main.tex article/r14-values.tex article/r14-references.tex
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r14-paper-${{ github.sha }}
+          path: results/r14/paper-build/
+          if-no-files-found: error
