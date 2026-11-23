@@ -1,0 +1,48 @@
+{
+  "schema": "r14-dashboard-execution-v1",
+  "source_commit": "54b3a5148f2639b91d4157fbd5662afc8debb854",
+  "workflow_run_id": 45133028760,
+  "job_id": 137552676806,
+  "workflow_conclusion": "success",
+  "artifact_id": 14798418468,
+  "measured_zip_sha256": "9ad8a322939b14289a8e83d2622d70ad62d924b49a07af433fd6e1dc6d58ff82",
+  "execution": "GitHub Actions, CPython 3.13.18, real ipywidgets callbacks and nbconvert",
+  "new_dashboard_tests": 20,
+  "new_dashboard_test_failures": 0,
+  "new_notebook_executed_code_cells": 6,
+  "all_scoped_notebook_executed_code_cells": 23,
+  "tests_present_in_artifact_logs": 159,
+  "separate_cache_report_job_step": "success; full job log not redownloaded in this turn",
+  "test_elapsed_wall_seconds": 1.052483518999992,
+  "nbconvert_elapsed_wall_seconds": 182.63891016600002,
+  "top_level_png_count": 2,
+  "additional_widget_state_png_count": 4,
+  "visually_inspected": ["environment", "manual_five_messages", "all-arrival_completion_curve", "six_components", "Fog_queue", "manual_sensor_disconnection"],
+  "receipt": {
+    "source": "54b3a5148f2639b91d4157fbd5662afc8debb854",
+    "example_calls": 1,
+    "single_replication_not_statistical": "NOT_EVALUATED_SINGLE_REPLICATION",
+    "saved_status": "NOT_CALCULATED",
+    "manual_five_checked": true,
+    "shutdown_callback_checked": true,
+    "full_grid_executed": false,
+    "forecast_executed": false,
+    "colab_browser_checked": false
+  },
+  "source_sha256_verified_against_archived_sources": {
+    "efc/dashboard.py": "7439319a8be2b27e4e65ed34dd9bb3478587bb7bab77ac8b0bcb589818dfa807",
+    "tests/test_dashboard.py": "f4f812718137e9c2db74d0cc5559f5d30a8c212bfc65821a32cf2c69369c5205",
+    "scripts/check_r14_dashboard.py": "d73c12456f72b5ce73ddd60ab7609a736950c02a797d4c9f708ac4f83bf68dd7",
+    "colab/00_Старт.ipynb": "b3d24b424965c61ad067fc853594e29c71175a57b4f64c46c1cb725b7d0ac46a"
+  },
+  "executed_notebook_sources_unchanged": true,
+  "local_check": "16 non-widget tests passed on Python3.13.5. Full local attempt had four dependency errors: ipywidgets unavailable and pip network inaccessible; no mock substitute was used. All20 real tests passed in Actions with installed requirements.",
+  "limitations": [
+    "No personal Google Colab browser or mouse/front-end verification.",
+    "The 600-message example is neither warmed-up nor a 10-seed statistical estimate; confidence intervals are absent, not zero.",
+    "Stored-summary identity and consistency checked; raw bootstrap is not repeated on every click.",
+    "No completed scientific map or minimum configuration is certified.",
+    "Historical full unittest and notebooks01/02/03 are not certified by this scoped job.",
+    "Paper and PDF were not rebuilt."
+  ]
+}
