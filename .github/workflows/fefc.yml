@@ -33,6 +33,8 @@ jobs:
         run: python scripts/check_r14_statistics.py
       - name: Check persistent resume and candidate registry
         run: python scripts/check_r14_grid.py
+      - name: Read-only checkpoint report and idempotent resume tests (no scientific grid)
+        run: python -m unittest discover -s tests -p test_cache_report.py -v
       - name: Ensure protected and source files were not rewritten
         if: always()
         run: git diff --exit-code -- v2 docs efc tests scripts colab/validation
