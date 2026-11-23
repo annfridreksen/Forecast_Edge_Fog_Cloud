@@ -1,0 +1,28 @@
+name: R1.5 read saved failure only
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['.github/workflows/r15-inspect.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45277915630
+          name: r15-submission-4357b3462331cb1951d4913443114906b4000552
+          path: saved
+      - name: Print saved TeX failure and exact style provenance; no recompilation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for p in sorted(Path('saved').rglob('*')):
+              if p.is_file() and (p.name=='style-provenance.json' or ('tex-logs' in p.parts and p.suffix=='.log')):
+                  print('\n===== '+str(p)+' =====')
+                  print('\n'.join(p.read_text(errors='replace').splitlines()[-90:]))
+          PY
