@@ -92,10 +92,10 @@ MintEDGE исследует энергопотребление, размещен
 \caption{Параметры синтетической модели и основания их выбора.\engcap{Synthetic model parameters and their provenance.}}\label{tab:parameters}
 \begin{tabular}{p{35mm}p{35mm}p{28mm}}\toprule
 Параметр & Значение & Основание\\\midrule
-Датчики / Edge & 1000 & Материалы НСКФ в R1.4\\
-Общее время Edge и входной передачи & $U(5,15)$ или $U(8,20)$ мс & Материалы НСКФ в R1.4\\
-Обслуживание Fog & $U(30,80)$ мс & Материалы НСКФ в R1.4\\
-Обслуживание Cloud & $U(10,30)$ мс & Материалы НСКФ в R1.4\\
+Датчики / Edge & 1000 & Материалы НСКФ~\cite{nskf}\\
+Общее время Edge и входной передачи & $U(5,15)$ или $U(8,20)$ мс & Материалы НСКФ~\cite{nskf}\\
+Обслуживание Fog & $U(30,80)$ мс & Материалы НСКФ~\cite{nskf}\\
+Обслуживание Cloud & $U(10,30)$ мс & Материалы НСКФ~\cite{nskf}\\
 Выходная передача & $U(20,50)$ мс & Допущение\\
 Доля мобильных датчиков & 0,30 & Допущение\\
 Доля обработки Edge & 0,50 общего времени & Допущение\\
@@ -340,7 +340,7 @@ M/M/1/K предполагает экспоненциальное обслужи
 \input{r15-references}
 \English\maketitle
 \section*{Extended summary}
-\textbf{Problem.} The study concerns infrastructure configuration rather than runtime task migration. A fixed external stream is processed by an Edge--Fog--Cloud environment. The decision variables are fog-node count and waiting-buffer capacity. Both the conditional p95 of completed-message latency and the loss fraction among all arrivals must satisfy their thresholds.
+\textbf{Problem.} The study addresses infrastructure configuration and outlines a conceptual architecture for forecast-aware reassignment of connected tasks. The reported experiments concern configuration only. A fixed external stream is processed by an Edge--Fog--Cloud environment. The decision variables are fog-node count and waiting-buffer capacity. Both the conditional p95 of completed-message latency and the loss fraction among all arrivals must satisfy their thresholds.
 
 \textbf{Model.} Each message traverses edge processing, an ingress link, fog waiting and processing, an egress link, and a cloud pool. Fog has a finite waiting buffer. Other queues are unbounded in the model. Potential service durations and source identities are generated before configurations are compared, including for messages that may subsequently be lost. Integer event times specify how simultaneous completions and arrivals are ordered.
 
