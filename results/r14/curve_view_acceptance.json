@@ -1,0 +1,44 @@
+{
+  "schema": "r14-curve-view-acceptance-v1",
+  "reviewer_comment": 7100355971,
+  "code_sha": "9cab41cae2f1783da4236457275e8448adc31316",
+  "implementation_commits": ["ebe1e0d59a0abe332a5a52a6cdcaa4b576833979", "9cab41cae2f1783da4236457275e8448adc31316"],
+  "actions": {
+    "run_id": 45175350806, "artifact_id": 14818831167,
+    "measured_zip_sha256": "658933286768eb54accf44c10486f70d1e7912a6bfbaebc56197be525b41b8cb",
+    "status": "PASS", "python": "3.13.18 (main, Oct 26 2026, 14:19:33) [GCC 15.2.0]",
+    "tests": 41, "new_tests": 21, "notebook_code_cells": [5, 4, 5], "source_bytes_matched": 10, "checkpoint_used": false
+  },
+  "local": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "tests": 41, "new_tests": 21, "notebook_code_cells": [5, 4, 5], "status": "PASS", "checkpoint_used": true
+  },
+  "real_checkpoint": {
+    "artifact_id": 14815710025,
+    "measured_zip_sha256": "31ae4426e96f0a9e0b22e6c5fc087f7ff216ba3d88e9dcd7fba8cfc8cfbd6af7",
+    "extracted_members_verified": 147,
+    "main_path": "cells/r0.10_F30_B005/main.json",
+    "main_bytes_sha256": "814bd879686d8a8a117a46e8b299475246f0c9a2476b9623eeaa02bc0db74e6b",
+    "default_fog": 30, "default_buffer": 5,
+    "default_counts": {"p95_ms": 1, "drop_fraction": 1},
+    "explicit_50_5_counts": {"p95_ms": 0, "drop_fraction": 0},
+    "p95_ms": 170.863296, "observed_loss": 0, "stored_loss_bounds": [0, 0],
+    "loss_interval_drawn": false, "loss_interval_state": "ZERO_LOSS_DEGENERATE_BOOTSTRAP",
+    "statistical_classification": "INSUFFICIENT_DATA"
+  },
+  "source_sha256": {
+    "colab/01_Среда_и_конфигурация.ipynb": "8f7e15d5165341dab7b86fbe58f501f88465885b591854562001a6f3507eafe3",
+    "colab/02_Прогноз_и_нейросеть.ipynb": "dfee7d01d0f74b74168e980d785ddf3f645107e19fe09a9513379523aef8d0f3",
+    "colab/03_Алгоритм_переразмещения.ipynb": "b783bea5ee7ec67fe0b4018ccdc577a99b6ef129018f708d1ca4784fa21b70b5",
+    "efc/companion.py": "b4023ca57fb6a50eb850d023695f4ca9e4ef8b61a1394952bf193da65caa10b0",
+    "efc/curve_selection.py": "76cfa1cb0f34a2d7548b4fafe7f8b0b70751527d357d247441df012e4b7a9c53",
+    "efc/curve_annotations.py": "89d1f7c160b39a566dc033b30e272fc314c49294529354711b720a7f50d86828",
+    "scripts/check_r14_companions.py": "5ce7752aaac5b3096d76a66e4d9b4712236e43282f3244bef5322dc0a68b70b5",
+    "tests/test_companion.py": "8b2f47d0bfd9d7d4846bb39c797a5606738ee1aa159d5f13940c4d680d8fc0ba",
+    "tests/test_companion_intervals.py": "143d84f70cdfae1823ca9de0a150cc358d7da746b7867e1673644ddd81721409",
+    "tests/test_companion_selection.py": "aaafcc3d38be950c769e1ba6298ae863d705886120fed4ad3b154dd4a3ae83ac"
+  },
+  "commands": ["python -m unittest discover -s tests -p 'test_companion*.py' -v", "python scripts/check_r14_companions.py --checkpoint /absolute/path/to/restored/r14-map-45164687416"],
+  "scientific_method_changed": false, "simulations_recomputed": 0, "bootstrap_recomputed": false, "web_colab_checked": false,
+  "limits": "Display checks and saved-chain validation do not establish risk coverage or full-map acceptance."
+}
