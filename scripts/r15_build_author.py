@@ -79,7 +79,15 @@ def main():
                      ('analytic-evidence.json',ROOT/'results/r15/service_reference.json'),('style-provenance.json',delivery/'style-provenance.json')]:
         shutil.copy2(src,package/name)
         if name not in ('article.pdf','style-provenance.json'):shutil.copy2(src,delivery/name)
-    rows=bibliography_report(ROOT/'article',delivery);shutil.copy2(delivery/'bibliography-report.json',package/'bibliography-report.json')
+    previous=ROOT/'deliverables/r15/bibliography-report.json'
+    bib_unchanged=not subprocess.check_output(['git','diff','1801dd37898e2d53eb2ab22a8dee532fd1083f5d','HEAD','--','article/r15-references.tex','article/r15-sources.json'],cwd=ROOT)
+    if previous.exists() and bib_unchanged:
+        shutil.copy2(previous,delivery/'bibliography-report.json')
+        rows=json.loads(previous.read_text())['rows']
+        receipt['bibliography_registry_reused_from']='45286829771; unchanged reference text and source matrix'
+    else:
+        rows=bibliography_report(ROOT/'article',delivery)
+    shutil.copy2(delivery/'bibliography-report.json',package/'bibliography-report.json')
     print('BIBLIOGRAPHY_STATUS',json.dumps([{'key':r['key'],'status':r['fresh_metadata_check']} for r in rows]),flush=True)
     package_zip(package,delivery/'submission.zip')
     import fitz
@@ -110,7 +118,7 @@ def main():
         (diffroot/('before.tex' if name=='main.tex' else name)).write_bytes(data)
     ds=dict(baseline_sha=BASE,baseline_pdf_sha256=BASE_PDF_SHA,after_pdf_sha256=sha(pdf))
     try:
-        cmd=['latexdiff','--encoding=utf8','--flatten','--math-markup=0','--disable-citation-markup','before.tex','main.tex']
+        cmd=['latexdiff','--type=CFONT','--encoding=utf8','--flatten','--math-markup=0','--disable-citation-markup','before.tex','main.tex']
         r=subprocess.run(cmd,cwd=diffroot,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=180)
         (out/'latexdiff-stderr.log').write_bytes(r.stderr)
         if r.returncode:raise RuntimeError('latexdiff returned '+str(r.returncode))
