@@ -1,0 +1,48 @@
+{
+  "schema": "r14-checkpoint-audit-v1",
+  "run_id": 45174257711,
+  "artifact_id": 14820151165,
+  "measured_zip_sha256": "2cb91dbc964a641c36fb53e02ddea3590bf8fe939933f43b31399267508d40ef",
+  "extracted_files_verified": 170,
+  "parent_run_id": 45164687416,
+  "parent_primary_preserved": 113,
+  "new_requests": 18,
+  "new_requests_by_phase": {"pilot": 18},
+  "manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+  "integrity": {
+    "scope": "read-only integrity audit; NOT statistical acceptance",
+    "manifest_cells": 270, "map_cells": 270,
+    "map_statuses": {"INSUFFICIENT_DATA": 3, "NOT_CALCULATED": 267},
+    "unique_primary_observations": 131,
+    "primary_completed_seed_repetitions": 10,
+    "journal_rows": 131, "journal_unique_requests": 131,
+    "journal_duplicate_rows": 0, "journal_missing_primary": 0,
+    "paired_source_rechecks": 80,
+    "full_arrivals_sum_for_integrity_only": 26388197,
+    "full_dropped_sum_for_integrity_only": 1149659,
+    "full_unfinished_sum_for_integrity_only": 0,
+    "interpretation": "duplicates are not independent runs; do not pool cross-configuration arrivals as a cohort"
+  },
+  "source_commit": "b45bfee84d9b0727243faf6cd28eeda776813566",
+  "status": "PAUSED",
+  "elapsed_wall_seconds": 902.5000659670001,
+  "peak_rss_kib": 903904,
+  "address_space_limit_bytes": 6442450944,
+  "request": {
+    "max_expected_events": 1100000, "migrate_storage": false, "mode": "slice",
+    "request_id": "20261123-compact-slice-06",
+    "restore_artifact_name": "r14-map-45164687416", "restore_run_id": 45164687416,
+    "source_manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+    "source_zip_sha256": "31ae4426e96f0a9e0b22e6c5fc087f7ff216ba3d88e9dcd7fba8cfc8cfbd6af7", "wall_seconds": 900
+  },
+  "reused_replications": 3,
+  "cells_with_10_main_seeds": 1, "confirmed_acceptable_cells": 0, "confirmation_seed_runs": 0,
+  "touched": [
+    {"key": "r0.10_F30_B000", "unique_primary_requests": 40, "main_seeds": []},
+    {"key": "r0.10_F30_B002", "unique_primary_requests": 40, "main_seeds": []},
+    {"key": "r0.10_F30_B005", "unique_primary_requests": 30, "main_seeds": [0,1,2,3,4,5,6,7,8,9]},
+    {"key": "r0.10_F30_B010", "unique_primary_requests": 21, "main_seeds": []}
+  ],
+  "unchanged_main_bytes_sha256": "814bd879686d8a8a117a46e8b299475246f0c9a2476b9623eeaa02bc0db74e6b",
+  "simulation_in_this_audit": 0, "intervals_recomputed": false, "all_display_chains_checked": true
+}
