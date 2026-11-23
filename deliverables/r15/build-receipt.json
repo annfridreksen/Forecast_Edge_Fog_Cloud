@@ -1,6 +1,6 @@
 {
   "schema": "R1.5-author69-build-1",
-  "source_sha": "c2cfca4ef5b00596b9e8783b39193c0d6700d6f7",
+  "source_sha": "b102623a79975c525eb4b208d0d6a74502b471eb",
   "simulation_executed": false,
   "bootstrap_recomputed": false,
   "ready_to_submit": false,
@@ -31,10 +31,10 @@
     199997
   ],
   "conditional_analysis_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016",
-  "pdf_sha256": "0da5be0d7c45fb033481e8a37d7d2e93bae9579f7897770bb6311e328195c59c",
+  "pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
   "style": {
     "url": "https://psta.psiras.ru/publ-conditions/psta.zip",
-    "retrieved_utc": "2026-11-23T23:35:50.186191+00:00",
+    "retrieved_utc": "2026-11-23T23:46:06.426136+00:00",
     "official_downloaded": true,
     "archive_sha256": "42e95b53f26272a9275afa8e513009630b609c1409e589f244a687950c9bec61",
     "used_class_sha256": "f0fdb7c786dd54fb5f066a58630a7b67235a01871457f5dcd26c48b6d476ea1b",
@@ -42,7 +42,7 @@
   },
   "bibliography_registry_reused_from": "45286829771; unchanged reference text and source matrix",
   "isolated_zip_rebuild": "PASS",
-  "isolated_pdf_sha256": "0da5be0d7c45fb033481e8a37d7d2e93bae9579f7897770bb6311e328195c59c",
+  "isolated_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
   "pages": 21,
   "section_boundaries": {
     "section6": {
@@ -59,13 +59,23 @@
   "diff": {
     "baseline_sha": "59914cea5dc733ec857ae3d4157d77398bae7cd5",
     "baseline_pdf_sha256": "2c24e693106be38e9e56de8ff33610b7a45eab1e10905dfac3d0a0be2b41e920",
-    "after_pdf_sha256": "0da5be0d7c45fb033481e8a37d7d2e93bae9579f7897770bb6311e328195c59c",
-    "method": "PDF-word-difference fallback",
-    "requested_utility_success": false,
-    "failure": "RuntimeError: Failed pdflatex; exact log /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/diff-logs/pass-1.log"
+    "after_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "method": "diff-pdf",
+    "requested_utility_success": true,
+    "utility_exit": 1,
+    "tool_commit": "092e6e31968cf28984c201a8c300f76f0020fbe4",
+    "command": [
+      "xvfb-run",
+      "-a",
+      "/tmp/fefc-diff-pdf/diff-pdf",
+      "--output-diff=/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/delivery/difference.pdf",
+      "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/work/baseline-artifact/FEFC_R14_partial_article.pdf",
+      "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/work/manuscript/main.pdf"
+    ],
+    "interpretation": "Exit1 means actual PDF differences, not a tool error."
   },
-  "submission_zip_sha256": "da8989fe6a52ca39343bdb8ce6a884db29e25a0a809bccbb84659229fa6f0d32",
-  "difference_pdf_sha256": "fe7e65d06f3027eb00a95dd5553e5789fb10126ee2f9b32675a0e2adfba11499",
+  "submission_zip_sha256": "fb874de45358b28bf3f4bcec44b0d8a4c2b807a67491ad102ab49cfbf938e645",
+  "difference_pdf_sha256": "7d84d7e353d4d1eaf5ccbf5908eac438d77d83c4f5182886a1270b7044103ba8",
   "data_complete_for_frozen_131": true,
   "public_access": "PENDING_PUBLICATION_AND_ANONYMOUS_DOWNLOAD"
 }
