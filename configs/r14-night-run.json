@@ -1,11 +1,11 @@
 {
-  "request_id": "20261123-compact-slice-07",
+  "request_id": "20261123-compact-slice-08",
   "mode": "slice",
-  "restore_run_id": 45174257711,
-  "restore_artifact_name": "r14-map-45174257711",
+  "restore_run_id": 45184289739,
+  "restore_artifact_name": "r14-map-45184289739",
   "wall_seconds": 900,
   "max_expected_events": 1100000,
   "migrate_storage": false,
   "source_manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
-  "source_zip_sha256": "2cb91dbc964a641c36fb53e02ddea3590bf8fe939933f43b31399267508d40ef"
+  "source_zip_sha256": "9849c24d15f397c129ba0eda34f605f4ba42f5b3ad0291e453921a96c48c4efa"
 }
