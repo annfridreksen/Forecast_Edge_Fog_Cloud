@@ -1,0 +1,53 @@
+{
+  "schema": "R1.4-dashboard-review-acceptance-1",
+  "date": "2026-11-23",
+  "scope": "three localized review fixes; not full scientific or author acceptance",
+  "reviewer_comment_id": 7096907347,
+  "commits": {
+    "all_display_chains": "34b2dca8db2c335478ddd25ec5ff07ee96d58ae0",
+    "independent_demo": "32749bee2ca221d2fef26d785e7b11dc2d467d9d",
+    "four_state_map": "ece7c8221f8b1c61c46d8066eeaa3c21933ab388"
+  },
+  "executed_sha": "ece7c8221f8b1c61c46d8066eeaa3c21933ab388",
+  "actions_run": 45151975709,
+  "job_id": 137615379173,
+  "artifact_id": 14806074804,
+  "measured_zip_sha256": "0b0e2441256f1d222d88f1badd962b5b5a9ef661ddd8922dc1de72650d280e10",
+  "execution": "GitHub Actions / real ipywidgets / nbconvert",
+  "python": "3.13.18",
+  "status": "PASS",
+  "ui_tests": 42,
+  "new_ui_tests": 22,
+  "notebook_code_cells": {
+    "00_R14_core.ipynb": 7,
+    "statistics/01_R14_statistics.ipynb": 4,
+    "grid/02_R14_resume.ipynb": 3,
+    "storage/03_R14_storage.ipynb": 3,
+    "dashboard/00_Старт.ipynb": 6,
+    "dashboard/04_R14_map_view.ipynb": 3
+  },
+  "total_executed_code_cells": 26,
+  "colab_browser_checked": false,
+  "sources_matched_from_executed_archive": 10,
+  "source_sha256": {
+    "efc/dashboard.py": "47fba24351bf4af13dccd4ed8252a0614356514fca76df3d64abc2683d6e0c14",
+    "efc/saved_map.py": "5caf79d9fab6e23f576647051c52434218cb80297d2240c04f0b1f5b5a441f53",
+    "efc/map_view.py": "a72dd30f25196994f63516ff3bd5ed62a723d128488a31d945f772bf11f3ae20",
+    "tests/test_dashboard.py": "f4f812718137e9c2db74d0cc5559f5d30a8c212bfc65821a32cf2c69369c5205",
+    "tests/test_dashboard_saved_map.py": "3cba9f31e3cb24fe0aee8036470602bc18312052ba3477971d620a6bbe5ba21a",
+    "tests/test_dashboard_resilience.py": "4512546479dba7fed198607fa06fbb4eefdb21a0918521d3a12ec2d863ce1eef",
+    "tests/test_dashboard_map_colors.py": "c649b664384be00d3c49a609cbfb82cdde04d6e805ec26f4719479e0280b5810",
+    "scripts/check_r14_dashboard.py": "74a5c64b0048bf9b9e3b1cc37ce21027fed8ae110a957ea433480836f6f0c207",
+    "colab/00_Старт.ipynb": "b3d24b424965c61ad067fc853594e29c71175a57b4f64c46c1cb725b7d0ac46a",
+    "colab/validation/04_R14_map_view.ipynb": "9fce3cffe043d2e83d2a6705a32aeb0e051c0dc8a06ab068d5af111b51b5823f"
+  },
+  "map_fixture_image_visually_checked": true,
+  "map_fixture_is_scientific_result": false,
+  "prior_actual_checkpoint_display": {"artifact_id": 14798731442, "rows_chain_checked": 270, "insufficient": 1, "not_calculated": 269, "scientific_acceptance": false},
+  "local_execution": {"python": "3.13.5", "whole_map_tests": 9, "color_tests": 7, "diagnostic_negative_control": "PASS", "real_widgets_locally": false},
+  "limitations": [
+    "Primary arrays and bootstrap are not re-evaluated by UI callbacks.",
+    "Archive failure hides the whole saved snapshot but does not block the short demonstration.",
+    "All historical tests and private Colab browser are not certified."
+  ]
+}
