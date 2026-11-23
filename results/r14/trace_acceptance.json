@@ -1,0 +1,41 @@
+{
+  "schema": "R1.4-trace-acceptance-1",
+  "executed_sha": "7495475cfbefed4051d04a576d3b24f3a95e0c98",
+  "workflow_run_id": 45240097854,
+  "artifact_id": 14851211831,
+  "measured_zip_sha256": "2558d622aa3674afbf3dd570a13eeb8cd341400567186db1f1e38b5462c98666",
+  "receipt": {
+    "status": "PASS",
+    "verified_actual_outputs": 16,
+    "executed_code_cells": 6,
+    "frozen_scientific_run_id": 45174257711,
+    "cell_id": "r14-01-summary",
+    "existing_execution_reused": false,
+    "execution": "Actions/nbconvert",
+    "python": "3.13.18 (main, Oct 26 2026, 14:19:33) [GCC 15.2.0]",
+    "simulation_executed": false,
+    "bootstrap_recomputed": false,
+    "pdf_rebuilt": false,
+    "colab_browser_checked": false,
+    "notebook_sha256": "945ad537e5e02758ac9f6f9be2042b948414e731b67f33d946423e874f4e3373",
+    "executed_notebook_sha256": "122fce4284270f81e7d0d15c1a5a6867a13c4b5faa239e8d3c6b87bc33766210"
+  },
+  "unit_tests": 16,
+  "existing_paper_tests": 12,
+  "actual_display_fields_checked": ["point.arrivals", "point.completed", "point.dropped", "point.unfinished", "point.mean_ms", "point.H200"],
+  "source_sha256": {
+    "efc/main_summary.py": "0742672df98e257fa97510d71a280fe7d170de6dbe8b0c7fd1ae7cd370c7534f",
+    "scripts/check_r14_trace.py": "8ba7e8929ff55fbb4547d5705babb0616047342a78ee37074c18aa58f95053b5",
+    "tests/test_summary_trace.py": "3409ff469457257e3d9e01d09de52742b5c9c841b290cf3e3bb7cb5ad18f07a6",
+    "scripts/check_r14_paper.py": "4b6ed61b89eacb60533d868b0a3fb8b6c2067d71baa44c47adcf1edc81d8abfc",
+    "colab/01_Среда_и_конфигурация.ipynb": "945ad537e5e02758ac9f6f9be2042b948414e731b67f33d946423e874f4e3373",
+    ".github/workflows/r14-paper.yml": "a6b393e18f623d020a7168f26085ebc52e7e8edf08154c84bcd63e7c36adaf16",
+    "docs/R14_Прослеживаемость.md": "c3fe3c2517ea6ccf9441bc96415e6224bd8b51c3982ea2c423728eb206138a1f"
+  },
+  "claim_index_sha256": "3679df2986f07446adcd893941300dbecd63fea88b32fc3922f0f5a35873098e",
+  "pdf_rebuilt": false,
+  "article_numbers_changed": false,
+  "scientific_acceptance": false,
+  "reviewer_approval": false,
+  "local_note": "16 tests +12 manuscript tests PASS; actual notebook executed once; source normalization str/list corrected before publication, saved output rechecked without rerun."
+}
