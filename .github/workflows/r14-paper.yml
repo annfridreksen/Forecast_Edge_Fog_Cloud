@@ -2,7 +2,7 @@ name: FEFC R1.4 partial paper and primary provenance
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['article/**', 'scripts/check_r14_paper.py', 'scripts/build_r14_paper.py', 'results/r14/article_evidence.json', '.github/workflows/r14-paper.yml']
+    paths: ['article/**', 'scripts/check_r14_paper.py', 'scripts/build_r14_paper.py', 'scripts/check_r14_trace.py', 'efc/main_summary.py', 'tests/test_summary_trace.py', 'colab/01_Среда_и_конфигурация.ipynb', 'results/r14/article_evidence.json', '.github/workflows/r14-paper.yml']
 permissions:
   contents: read
   actions: read
@@ -22,12 +22,30 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install scoped build dependencies
+      - name: Decide whether PDF inputs changed
+        id: pdf
+        env:
+          BEFORE: ${{ github.event.before }}
         run: |
-          python -m pip install numpy scipy
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            CHANGED=$(git diff --name-only "$BEFORE" "$GITHUB_SHA")
+            if echo "$CHANGED" | grep -Eq '^article/.*\.(tex|cls|sty|png|pdf|bib|bst)$|^article/psta/|^scripts/build_r14_paper.py$'; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Install read-only validation dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Install PDF dependencies only for changed PDF inputs
+        if: steps.pdf.outputs.changed == 'true'
+        run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils
       - name: Restore frozen primary archive, never launch simulation
@@ -42,7 +60,16 @@ jobs:
           mkdir -p results/r14/paper-build
           git archive --format=tar.gz HEAD -o results/r14/paper-build/source.tar.gz
           python -m pip freeze > results/r14/paper-build/dependencies.txt
+      - name: Test field-to-cell trace and execute notebook on frozen source
+        run: |
+          python -m unittest discover -s tests -p test_summary_trace.py -v > results/r14/paper-build/trace-tests.log 2>&1 || { cat results/r14/paper-build/trace-tests.log; exit 1; }
+          python -m unittest discover -s article/tests -v > results/r14/paper-build/paper-tests.log 2>&1 || { cat results/r14/paper-build/paper-tests.log; exit 1; }
+          python scripts/check_r14_trace.py --checkpoint results/r14/paper-source --out results/r14/paper-build/trace
+      - name: Preserve prior PDF when manuscript inputs are unchanged
+        if: steps.pdf.outputs.changed != 'true'
+        run: echo 'PDF_NOT_REBUILT; unchanged article inputs. Prior PDF is in artifact 14823489832, run 45187643636.' > results/r14/paper-build/pdf-not-rebuilt.txt
       - name: Verify primary evidence and actual manuscript, build and render PDF
+        if: steps.pdf.outputs.changed == 'true'
         run: python scripts/build_r14_paper.py --checkpoint results/r14/paper-source --out results/r14/paper-build
       - name: Protected files and scientific inputs unchanged
         if: always()

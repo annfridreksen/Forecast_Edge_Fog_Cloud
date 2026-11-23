@@ -21,22 +21,22 @@ from scripts.audit_r14_cache import verify
 KEY = 'r0.10_F30_B005'
 # macro: (point/interval key or audited count, decimal places, stable cell ID)
 SPECS = {
- 'rRequests': ('counts.requests', 0, 'r14-01-load'),
- 'rPilot': ('counts.pilot', 0, 'r14-01-load'),
- 'rMain': ('counts.main', 0, 'r14-01-load'),
- 'rConfirm': ('counts.confirmation', 0, 'r14-01-load'),
- 'rInsufficient': ('counts.insufficient', 0, 'r14-01-load'),
- 'rMissing': ('counts.missing', 0, 'r14-01-load'),
- 'rArrivals': ('point.arrivals', 0, 'r14-01-curves'),
- 'rCompleted': ('point.completed', 0, 'r14-01-curves'),
- 'rDropped': ('point.dropped', 0, 'r14-01-curves'),
- 'rUnfinished': ('point.unfinished', 0, 'r14-01-curves'),
- 'rMean': ('point.mean_ms', 6, 'r14-01-curves'),
- 'rQ': ('point.p95_ms', 6, 'r14-01-curves'),
- 'rQlo': ('q_interval.lower', 6, 'r14-01-curves'),
- 'rQhi': ('q_interval.upper', 6, 'r14-01-curves'),
- 'rH': ('point.H200', 9, 'r14-01-curves'),
- 'rLoss': ('point.drop_fraction', 0, 'r14-01-curves'),
+ 'rRequests': ('counts.requests', 0, 'r14-01-summary'),
+ 'rPilot': ('counts.pilot', 0, 'r14-01-summary'),
+ 'rMain': ('counts.main', 0, 'r14-01-summary'),
+ 'rConfirm': ('counts.confirmation', 0, 'r14-01-summary'),
+ 'rInsufficient': ('counts.insufficient', 0, 'r14-01-summary'),
+ 'rMissing': ('counts.missing', 0, 'r14-01-summary'),
+ 'rArrivals': ('point.arrivals', 0, 'r14-01-summary'),
+ 'rCompleted': ('point.completed', 0, 'r14-01-summary'),
+ 'rDropped': ('point.dropped', 0, 'r14-01-summary'),
+ 'rUnfinished': ('point.unfinished', 0, 'r14-01-summary'),
+ 'rMean': ('point.mean_ms', 6, 'r14-01-summary'),
+ 'rQ': ('point.p95_ms', 6, 'r14-01-summary'),
+ 'rQlo': ('q_interval.lower', 6, 'r14-01-summary'),
+ 'rQhi': ('q_interval.upper', 6, 'r14-01-summary'),
+ 'rH': ('point.H200', 9, 'r14-01-summary'),
+ 'rLoss': ('point.drop_fraction', 0, 'r14-01-summary'),
 }
 
 
@@ -162,7 +162,8 @@ def main():
     receipt=verify_text(evidence,(ROOT/'article/r14-values.tex').read_text(),
                         (ROOT/'article/main.tex').read_text(),(ROOT/'article/r14-references.tex').read_text())
     receipt.update(primary_archive_checked=a.checkpoint is not None, simulation_executed=False,
-                   evidence_sha256=sha(evidence_path))
+                   evidence_sha256=sha(evidence_path), cell_outputs_checked=False,
+                   cell_trace_note='Use scripts/check_r14_trace.py for executed notebook proof')
     a.out.mkdir(parents=True,exist_ok=True)
     index=[dict(macro=name,evidence_field=field,source_file=evidence['main_path'] if not field.startswith('counts.') else 'map.json / observations/',source_sha256=evidence['main_byte_sha256'] if not field.startswith('counts.') else evidence['map_sha256'],cell_id=cell,article_location='section 4 / table 2' if not field.startswith('counts.') else 'section 4.1',decimal_places=places) for name,(field,places,cell) in SPECS.items()]
     (a.out/'claim-index.json').write_text(json.dumps(index,ensure_ascii=False,indent=2)+'\n')
