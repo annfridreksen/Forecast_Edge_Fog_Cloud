@@ -7,13 +7,20 @@ sys.path.insert(0,str(ROOT))
 from efc.grid import GridRunner, CachedSampler, atomic_json, exclusive
 from efc.primary import PrimarySampler
 
-def main():
-    request=json.loads((ROOT/'configs/r14-night-run.json').read_text())
+def validate_request(request):
     if request['mode'] not in ('probe','slice'):
         raise ValueError('unknown mode')
     budget=request['wall_seconds']; ceiling=request['max_expected_events']
-    if not 0 < budget <= 1500 or not 350000 <= ceiling <= 1000000:
+    if (isinstance(budget,bool) or not isinstance(budget,(int,float))
+        or not 0 < budget <= 1500 or type(ceiling) is not int
+        or not 350000 <= ceiling <= 1100000):
         raise ValueError('invalid resource budget')
+    return budget,ceiling
+
+
+def main():
+    request=json.loads((ROOT/'configs/r14-night-run.json').read_text())
+    budget,ceiling=validate_request(request)
     out=ROOT/'results/r14/night-map';out.mkdir(parents=True,exist_ok=True)
     stamp=os.environ.get('GITHUB_RUN_ID','local')
     report=dict(status='RUNNING',request=request,

@@ -58,11 +58,36 @@ jobs:
           github-token: ${{ github.token }}
           run-id: ${{ steps.request.outputs.restore_run_id }}
           name: ${{ steps.request.outputs.restore_artifact_name }}
-          path: results/r14/night-map/
-      - name: Check recording adapter and persistent continuation
+          path: results/r14/restored-map/
+      - name: Validate bounded request and storage certificate
         run: |
-          python -m unittest discover -s tests -p test_primary_summary.py -v
-          python scripts/check_r14_grid.py
+          python scripts/check_r14_request.py
+          python -c "from scripts.migrate_r14_storage import compatible_certificate,ROOT;compatible_certificate(ROOT/'results/r14/compact_storage_compatibility.json')"
+      - name: Explicit pilot-only migration or exact current checkpoint
+        run: |
+          python - <<'PYRESTORE'
+          import json,os
+          from pathlib import Path
+          from efc.grid import read_json,atomic_json,digest,GridRunner
+          from efc.primary import PrimarySampler
+          from scripts.migrate_r14_storage import migrate,ROOT
+          d=read_json('configs/r14-night-run.json')
+          src=Path('results/r14/restored-map');dst=Path('results/r14/night-map')
+          if d.get('migrate_storage',False):
+              assert digest(read_json(src/'manifest.json'))==d['source_manifest_sha256'], 'Wrong source manifest'
+              report=migrate(src,dst,ROOT/'results/r14/compact_storage_compatibility.json')
+              assert report['imported_primary_requests']==43, 'Unexpected source checkpoint count'
+              atomic_json(dst/'restore-provenance.json',dict(source_run_id=d['restore_run_id'],
+                  source_artifact_name=d['restore_artifact_name'],source_manifest_sha256=d['source_manifest_sha256'],
+                  declared_source_zip_sha256=d['source_zip_sha256'],zip_measured_in_this_job=False,
+                  note='ZIP measured in separate local verification; this job verifies primary observations and manifest',
+                  migration=report))
+          else:
+              assert not dst.exists(), 'Do not replace an existing active checkpoint'
+              os.replace(src,dst)
+              GridRunner(dst,factory=PrimarySampler)._bind()
+          print('Exact checkpoint prepared; no scientific seed recalculated.')
+          PYRESTORE
       - name: Preserve precise source and dependency versions
         run: |
           mkdir -p results/r14/night-map/source
@@ -83,9 +108,3 @@ jobs:
           path: results/r14/night-map/
           if-no-files-found: warn
           compression-level: 1
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: r14-map-validation-${{ github.run_id }}
-          path: results/r14/current/grid/
-          if-no-files-found: warn

@@ -1,8 +1,11 @@
 {
-  "request_id": "20261123-map-slice-01",
+  "request_id": "20261123-compact-slice-02",
   "mode": "slice",
-  "restore_run_id": 45076689693,
-  "restore_artifact_name": "r14-map-45076689693",
+  "restore_run_id": 45077128743,
+  "restore_artifact_name": "r14-map-45077128743",
   "wall_seconds": 900,
-  "max_expected_events": 500000
+  "max_expected_events": 1100000,
+  "migrate_storage": true,
+  "source_manifest_sha256": "381c35eb465c1dee3ea179dc2eb033a0e0b20eee120954ff43ff62b512e6bda7",
+  "source_zip_sha256": "eeb0532b57ffd508c5227581864e64f01d4889e92c552b6c3296928263bd2827"
 }
