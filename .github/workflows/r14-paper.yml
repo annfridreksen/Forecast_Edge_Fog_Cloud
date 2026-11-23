@@ -1,8 +1,8 @@
-name: R1.5 final package and difference PDF
+name: R1.5 final source and submission on pinned runner
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['scripts/r15_final_layout.py', '.github/workflows/r14-paper.yml']
+    paths: ['scripts/r15_final_layout.py', 'scripts/r15_review_cleanup.py', '.github/workflows/r14-paper.yml']
 permissions:
   contents: write
   actions: read
@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   final_package:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       OPENBLAS_NUM_THREADS: '1'
@@ -27,55 +27,75 @@ jobs:
         with:
           python-version: '3.13'
           cache: pip
-      - name: Python and TeX dependencies with bounded network calls
+      - name: Save final presentation-only source before network installation
+        run: python scripts/r15_final_layout.py
+      - name: Address the independent read-only review in its own source commit
+        run: GITHUB_SHA="$R15_SOURCE_SHA" python scripts/r15_review_cleanup.py
+      - name: Python dependencies with retained diagnostics
         run: |
           mkdir -p results/r15/build
           timeout 300 python -m pip install --timeout 30 --retries 1 -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -30 results/r15/build/install-python.log; exit 1; }
-          timeout 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/install-tex.log 2>&1 || { tail -30 results/r15/build/install-tex.log; exit 1; }
-          timeout 480 sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=30 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended texlive-plain-generic cm-super latexdiff poppler-utils >> results/r15/build/install-tex.log 2>&1 || { tail -30 results/r15/build/install-tex.log; exit 1; }
-      - name: Reassemble already published exact data and reuse unchanged executed cells
+      - name: Standard signed Ubuntu packages through official HTTPS mirror
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re,subprocess
+          for p in [Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list')]:
+              if not p.exists(): continue
+              s=p.read_text()
+              new=re.sub(r'https?://[a-z0-9.-]*ec2\.archive\.ubuntu\.com/ubuntu', 'https://archive.ubuntu.com/ubuntu',s)
+              if new!=s:
+                  tmp=Path('/tmp')/(p.name+'.fefc');tmp.write_text(new)
+                  subprocess.run(['sudo','cp',str(tmp),str(p)],check=True)
+          PY
+          set +e
+          timeout 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/install-tex.log 2>&1
+          rc=$?
+          echo "APT_UPDATE_EXIT=$rc" | tee -a results/r15/build/install-tex.log
+          if [ "$rc" != 0 ]; then tail -40 results/r15/build/install-tex.log; exit "$rc"; fi
+          timeout 600 sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended texlive-plain-generic cm-super latexdiff poppler-utils >> results/r15/build/install-tex.log 2>&1
+          rc=$?
+          echo "APT_INSTALL_EXIT=$rc" | tee -a results/r15/build/install-tex.log
+          if [ "$rc" != 0 ]; then tail -40 results/r15/build/install-tex.log; exit "$rc"; fi
+      - name: Reassemble published data and reuse unchanged actual notebook outputs
         run: |
           mkdir -p results/r15/build/work
           python submission/reassemble.py --directory deliverables/r15 --output results/r15/build/work/frozen131.zip
           python - <<'PY'
-          from pathlib import Path
           import shutil
           from scripts.build_r15_submission import unpack
           unpack('results/r15/build/work/frozen131.zip','results/r15/build/work/frozen131')
           shutil.copytree('deliverables/r15/validation/r14-frozen-output','results/r15/prior-text/validation',dirs_exist_ok=True)
-          shutil.copytree('deliverables/r15/validation/conditional-trace','results/r15/build/conditional-trace',dirs_exist_ok=True)
-          for name in ('conditional-tests','author-tests'):
+          for name in ('conditional-trace','conditional-tests','author-tests'):
               shutil.copytree('deliverables/r15/validation/'+name,'results/r15/build/'+name,dirs_exist_ok=True)
-          print('No scientific simulations or previously passed tests repeated.')
+          print('Previously passed executions reused; simulation/bootstrap not repeated.')
           PY
-      - name: Commit final presentation-only delta with HEAD lease
-        run: python scripts/r15_final_layout.py
-      - name: Record actual source and versions
+      - name: Record source and versions
         run: |
           git archive --format=tar.gz HEAD -o results/r15/build/source.tar.gz
           python -m pip freeze > results/r15/build/dependencies.txt
           pdflatex --version > results/r15/build/tex-version.txt
           printf '%s\n' "$R15_SOURCE_SHA" > results/r15/build/SOURCE_SHA.txt
-      - name: Build changed PDF isolated ZIP and latexdiff
+      - name: Changed PDF, isolated ZIP and latexdiff CFONT
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/r15_build_author.py --out results/r15/build
-      - name: Keep actual conditional outputs and versions with delivery
+      - name: Preserve conditional outputs and print exact warnings
         run: |
           python - <<'PY'
           from pathlib import Path
-          import shutil,json
-          o=Path('results/r15/build')
-          shutil.copytree(o/'conditional-trace',o/'delivery/validation/conditional-trace',dirs_exist_ok=True)
+          import shutil
+          out=Path('results/r15/build')
+          shutil.copytree(out/'conditional-trace',out/'delivery/validation/conditional-trace',dirs_exist_ok=True)
           for n in ('dependencies.txt','tex-version.txt'):
-              shutil.copy2(o/n,o/'delivery'/n);shutil.copy2(o/n,o/'work/reproducibility'/n)
-          print('TEX_WARNINGS', (o/'tex-logs/warnings.json').read_text())
-          print('DIFF_RESULT',(o/'delivery/difference-provenance.json').read_text())
+              shutil.copy2(out/n,out/'delivery'/n);shutil.copy2(out/n,out/'work/reproducibility'/n)
+          print('TEX_WARNINGS',(out/'tex-logs/warnings.json').read_text())
+          print('DIFF_RESULT',(out/'delivery/difference-provenance.json').read_text())
           PY
-      - name: Protect all tracked scientific source
+      - name: Protected sources unchanged
         if: always()
         run: git diff --exit-code -- v2 efc docs tests scripts colab configs article submission results/r14/article_evidence.json results/r15/service_reference.json results/r15/conditional_analysis.json
-      - name: Publish generated delivery under lease and verify anonymous downloads
+      - name: Publish under HEAD lease and verify anonymous download bytes
         run: python scripts/r15_publish.py --out results/r15/build
       - uses: actions/upload-artifact@v4
         if: always()
