@@ -1,0 +1,34 @@
+{
+  "destinations_checked": [
+    "russian--authorsinfo",
+    "english--authorsinfo",
+    "russian--author.1",
+    "russian--author.2",
+    "russian--author.3",
+    "english--author.1",
+    "english--author.2",
+    "english--author.3",
+    "equation.russian---4.6",
+    "figure.russian---3",
+    "fefc-tab:3"
+  ],
+  "equation6_destination_from_aux": "equation.russian---4.6",
+  "actual_transitions": {
+    "equation.russian---4.6": {
+      "page": 10,
+      "link_count": 3
+    },
+    "figure.russian---3": {
+      "page": 18,
+      "link_count": 1
+    },
+    "fefc-tab:3": {
+      "page": 14,
+      "link_count": 2
+    }
+  },
+  "bilingual_table3_on_one_page": true,
+  "authors_visible": true,
+  "unsupported_contribution_declaration": false,
+  "negative_original_rejected": "[Errno 2] No such file or directory: '/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/deliverables/r15-rework-v3/LaTeX/main.aux'"
+}
