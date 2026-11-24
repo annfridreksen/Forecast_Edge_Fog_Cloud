@@ -5,7 +5,7 @@
   "bootstrap_recomputed": false,
   "ready_to_submit": false,
   "author_signed": false,
-  "visual_review": "PENDING_CHANGED_PAGES_AND_FULL_7X_FIGURES",
+  "visual_review": "ACCEPTED_BY_REVIEWER_7127677687_FOR_EXACT_PDF",
   "static_validation": {
     "sections": 8,
     "references": 28,
@@ -99,5 +99,11 @@
   "main_pdf_recompiled_on_resume": false,
   "diff_recomputed_on_resume": false,
   "publication_receipt": "publication.json",
-  "artifact_delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a"
+  "artifact_delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a",
+  "visual_review_at_build": "PENDING_CHANGED_PAGES_AND_FULL_7X_FIGURES",
+  "independent_review": {
+    "comment_id": 7127677687,
+    "record": "review-acceptance.json",
+    "ready_to_submit": false
+  }
 }
