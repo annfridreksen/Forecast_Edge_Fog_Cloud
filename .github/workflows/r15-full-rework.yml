@@ -1,4 +1,4 @@
-name: R1.5 continue P and F after saved W
+name: R1.5 F from saved W and P after review
 on:
   push:
     branches: [night/fefc-v3]
@@ -10,9 +10,9 @@ concurrency:
   group: fefc-r15-full-rework
   cancel-in-progress: false
 jobs:
-  finish_saved:
+  final_packet:
     runs-on: ubuntu-24.04
-    timeout-minutes: 18
+    timeout-minutes: 14
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       SOURCE_DATE_EPOCH: '1795478400'
@@ -25,12 +25,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Restore exact checkpoint; W already published and must not rerun
+      - name: Restore exact completed P and W; do not compile them again
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           mkdir -p results/r15-visual/logs
-          timeout -k 15s 120 python -m pip install --timeout 20 --retries 1 lxml pymupdf pyyaml > results/r15-visual/logs/PF-install-python.log 2>&1
+          timeout -k 15s 120 python -m pip install --timeout 20 --retries 1 lxml pymupdf pyyaml > results/r15-visual/logs/F-install-python.log 2>&1
           python - <<'PY'
           import os,subprocess,json
           from pathlib import Path
@@ -38,50 +38,46 @@ jobs:
           from scripts.build_r15_submission import download,unpack
           if p.git('ls-remote','origin',p.REF).split()[0]!=os.environ['GITHUB_SHA']:raise RuntimeError('HEAD lease lost')
           if p.git('status','--porcelain','--untracked-files=no'):raise RuntimeError('Tracked local changes')
-          z=Path('results/saved-WPF-14972494157.zip')
-          digest='50170c76179ba2a9b1e8e8044970a84a0d1bf607b09e74b7ad8e839c747ced0e'
-          download('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/14972494157/zip',z,digest,github=True)
-          unpack(z,p.OUT)
-          for name,h in json.loads((p.ROOT/'deliverables/r15-word-readable/SHA256.json').read_text()).items():
-              if p.sha(p.ROOT/'deliverables/r15-word-readable'/name)!=h:raise ValueError('Published W changed: '+name)
+          archive=Path('results/saved-P-14973474880.zip');digest='086e18dee590173b6db5ca83a843979b006946568f4bac76987900f4feca7ab6'
+          download('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/14973474880/zip',archive,digest,github=True)
+          unpack(archive,p.OUT)
+          pub=json.loads((p.OUT/'P_publication.json').read_text())
+          if p.sha(p.S/'main.pdf')!=pub['pdf_sha256'] or p.sha(p.D/'Статья_FEFC_R15_v3_ПСТА.pdf')!=pub['pdf_sha256']:raise ValueError('Saved P bytes changed')
+          for folder in ('r15-word-readable','r15-psta-readable'):
+              target=p.ROOT/'deliverables'/folder
+              for name,h in json.loads((target/'SHA256.json').read_text()).items():
+                  if p.sha(target/name)!=h:raise ValueError('Published checkpoint changed: '+name)
           with open(os.environ['GITHUB_ENV'],'a') as f:f.write('VISUAL_HEAD='+os.environ['GITHUB_SHA']+'\n')
-          p.put(p.OUT/'PF-resume.json',dict(artifact=14972494157,sha256=digest,W_delivery='de3e2d2c8fc9f907014146c092f15b9ba42e3a33',reviewed_comment=7146911411,reviewed_updated_at='2026-11-24T23:00:57Z',W_repeated=False))
-          # Run the exact saved stages, changing only the gate for the now-read comment.
+          p.put(p.OUT/'F-resume.json',dict(artifact=14973474880,sha256=digest,W_delivery='de3e2d2c8fc9f907014146c092f15b9ba42e3a33',P_delivery='d09c28ef486728a25e14c3472aba5ab45b6f2644',reviewed_comment=7147014652,reviewed_updated_at='2026-11-24T23:06:08Z',W_repeated=False,P_repeated=False))
           script="""import subprocess,sys,yaml,hashlib
           from pathlib import Path
           source=subprocess.check_output(['git','show','1540f4c2049ae1e4a2fbc8b3c667d11cd6cc6785:.github/workflows/r15-full-rework.yml'],text=True)
           steps=yaml.safe_load(source)['jobs']['finish_saved']['steps']
-          names={'patch':'P - fix class-compatible table references and run scoped source tests','deps':'Install remaining PSTA and comparison dependencies only','p':'P - build changed journal PDF and publish independent checkpoint','diff':'Build pinned comparison tool for F','f':'F - unchanged science, isolated ZIP, diff and coherent packet'}
+          names={'deps':'Install remaining PSTA and comparison dependencies only','diff':'Build pinned comparison tool for F','f':'F - unchanged science, isolated ZIP, diff and coherent packet'}
           stage=sys.argv[1];body=next(x['run'] for x in steps if x.get('name')==names[stage])
-          body=body.replace(\"x['id']!=7146889767\",\"x['id'] not in (7146889767,7146911411)\")
-          dest=Path('results/r15-visual/logs')/('exact-saved-'+stage+'.sh');dest.write_text(body)
+          body=body.replace(\"x['id']!=7146889767\",\"x['id'] not in (7146889767,7146911411,7147014652)\")
+          dest=Path('results/r15-visual/logs')/('F-saved-'+stage+'.sh');dest.write_text(body)
           print('SAVED_STAGE',stage,hashlib.sha256(body.encode()).hexdigest(),flush=True)
           subprocess.run(['bash','-e','-o','pipefail','-c',body],check=True)
           """
-          Path('/tmp/fefc_saved_stage.py').write_text(script)
+          Path('/tmp/fefc_F_only.py').write_text(script)
           PY
-      - name: P - class-compatible references with scoped tests
+      - name: Install only final ZIP and diff dependencies
+        run: python /tmp/fefc_F_only.py deps
+      - name: Build pinned comparison utility
+        run: python /tmp/fefc_F_only.py diff
+      - name: Complete pending F checks and publish coherent packet
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python /tmp/fefc_saved_stage.py patch
-      - name: Install remaining dependencies only
-        run: python /tmp/fefc_saved_stage.py deps
-      - name: P - affected PDF and separate checkpoint
-        run: python /tmp/fefc_saved_stage.py p
-      - name: F - build pinned diff tool
-        run: python /tmp/fefc_saved_stage.py diff
-      - name: F - complete isolated ZIP and coherent packet
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python /tmp/fefc_saved_stage.py f
-      - name: Guard unchanged science
+        run: python /tmp/fefc_F_only.py f
+      - name: Guard unchanged scientific sources
         if: always()
         run: |
           git diff --exit-code fc50bb56800a2723aafd0d7e3d5d62b8976300bd HEAD -- efc v2 colab configs article/rework/article_body.md article/rework/metadata.json results/r14/article_evidence.json results/r15/conditional_analysis.json docs/Журнал_проверок_Perplexity.md
-          python -m pip freeze > results/r15-visual/PF-environment.txt
+          python -m pip freeze > results/r15-visual/F-environment.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: FEFC-PF-${{ github.run_id }}
+          name: FEFC-F-${{ github.run_id }}
           path: results/r15-visual/
           if-no-files-found: error
