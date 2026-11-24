@@ -218,6 +218,8 @@ def word(M,A,body,bibmd,figs,captions):
  p=D/'Статья_FEFC_R15_v3_для_чтения.docx'
  run(['pandoc','-f','markdown+tex_math_dollars','-t','docx','--standalone','reading.md','-o',p],S,'pandoc-reading.log');style_word(p);embed_svg(p,figs)
  red=D/'Статья_FEFC_R15_v3_красные_изменения.docx';shutil.copy2(p,red);style_word(red,True)
+ from scripts.r15_word_math_compat import repair_docx_math
+ for document in (p,red):repair_docx_math(document)
  with zipfile.ZipFile(p) as z:
   root=etree.fromstring(z.read('word/document.xml'));count=len(root.xpath('//m:oMath',namespaces=NS));display=len(root.xpath('//m:oMathPara',namespaces=NS))
   require(count>=60 and display==9,'Native Word math: all nine display equations and inline OMML')
