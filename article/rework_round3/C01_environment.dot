@@ -1,0 +1,27 @@
+digraph C01 {
+ graph [rankdir=TB, bgcolor="white", pad=0.15, nodesep=0.28, ranksep=0.24, splines=polyline, fontname="Liberation Serif", fontsize=12, label="C01. Реализованная событийная среда", labelloc=t];
+ node [shape=box, style="rounded", fontname="Liberation Serif", fontsize=11, margin="0.10,0.07", color="black"];
+ edge [fontname="Liberation Serif", fontsize=10, color="black", arrowsize=0.65];
+ source [label="Общий внешний поток: время поступления, датчик,\nпотенциальные длительности — до выбора конфигурации"];
+ subgraph cluster_implemented {
+  label="Реализовано: FIFO без прерывания; освобождение раньше поступления при равных временах";
+  style="solid";
+  edge_stage [label="1. d_E — Edge данного датчика\nожидание + обработка"];
+  ingress [label="2. d_EF — входной канал данного Fog\nожидание + передача"];
+  capacity [shape=diamond, style=solid, fontsize=10, label="Сервер Fog свободен\nили ожидающих меньше B?"];
+  wait_fog [label="3. w_F — ожидание Fog\nпри свободном сервере равно нулю"];
+  service_fog [label="4. s_F — обслуживание Fog\nодин сервер; B мест ожидания; K = B + 1"];
+  egress [label="5. d_FC — выходной канал данного Fog\nожидание + передача"];
+  cloud [label="6. d_C — общий пул Cloud\nожидание + обслуживание; 40 серверов"];
+  lost [shape=box, style="rounded,bold", label="ПОТЕРЯ\nFog занят и буфер заполнен\nдальнейшие стадии не выполняются"];
+  done [label="ЗАВЕРШЕНИЕ\nD = d_E + d_EF + w_F + s_F + d_FC + d_C"];
+  edge_stage -> ingress -> capacity;
+  capacity -> wait_fog [label="да"];
+  capacity -> lost [label="нет"];
+  wait_fog -> service_fog -> egress -> cloud -> done;
+  {rank=same; wait_fog; lost;}
+ }
+ source -> edge_stage;
+ note [shape=plaintext, fontsize=10, label="B — только места ожидания Fog; остальные очереди не ограничены.\nДатчик i закреплён за Fog i mod n_F. Потерянные сообщения остаются в когорте A.\nДве части одного примитива Edge/входной передачи не независимы.\nКаждое ожидание входит в D ровно один раз."];
+ done -> note [style=invis]; lost -> note [style=invis];
+}
