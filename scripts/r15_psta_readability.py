@@ -12,8 +12,9 @@ def table_targets(text):
             text, count = pattern.subn(lambda m: r'\caption{\hypertarget{' + target + '}{}' + m[1] + r'}\label{tab:' + str(n) + r'}\\', text)
             if count != 1:
                 raise ValueError('One caption required for table ' + str(n))
+        text = text.replace(r'\ref*{tab:' + str(n) + '}', r'\getrefnumber{russian--tab:' + str(n) + '}')
         text = text.replace(r'\ref{tab:' + str(n) + '}',
-                            r'\hyperlink{' + target + r'}{\ref*{tab:' + str(n) + '}}')
+                            r'\hyperlink{' + target + r'}{\getrefnumber{russian--tab:' + str(n) + '}}')
     return text
 
 
