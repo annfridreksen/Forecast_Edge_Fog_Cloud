@@ -321,17 +321,33 @@ if grep -E 'Undefined control sequence|LaTeX Error|There were undefined referenc
  return warnings
 
 
+EXPECTED_PDFS={
+ 'Сопроводительное_письмо_ПСТА_v3.pdf':'letter',
+ 'Статья_FEFC_R15_v3_ПСТА.pdf':'article',
+ 'Статья_FEFC_R15_v3_для_чтения.pdf':'article',
+ 'Статья_FEFC_R15_v3_красные_изменения.pdf':'article',
+}
+
 def inspect_pdf():
  import fitz
  folder=D/'review-images';folder.mkdir(exist_ok=True);ledger=[]
- for path in sorted(D.glob('*.pdf')):
+ require(set(EXPECTED_PDFS)=={p.name for p in D.glob('*.pdf')},'Exact four expected document PDFs')
+ for name,kind in EXPECTED_PDFS.items():
+  path=D/name
   with fitz.open(path) as doc:
-   require(2<=len(doc)<=45,path.name+': bounded complete page count')
+   require((1<=len(doc)<=45 if kind=='letter' else 2<=len(doc)<=45),path.name+': bounded complete page count')
    text='\n'.join(p.get_text() for p in doc)
    require('jigulina@mail.ru' in text,path.name+': confirmed contact rendered')
-   if path.name.startswith('Статья'):
+   if kind=='article':
     require('Simulation Modeling and Analysis' in text,path.name+': Law title rendered')
     require('Обсуждение и ограничения' in text and 'Extended summary' in text,path.name+': late sections and English summary rendered')
+   else:
+    compact=lambda t:re.sub(r'\s+','',t).replace('\u00ad','').replace('\u2011','-').replace('\u2010','-')
+    markers=('Проект сопроводительного письма','НЕ ПОДПИСАНО','Моделирование краевой и туманной среды',
+             'Марина Владимировна','Дина Владимировна','Игнатенко Александр Сергеевич','ЮНЦ РАН',
+             '125011200147-2','НСКФ','Личные заявления авторов','Дата и подпись','ДЛЯ АВТОРА')
+    require(len(compact(text))>=1400 and all(compact(m) in compact(text) for m in markers),
+            path.name+': required complete letter content')
    outside=[]
    for i,p in enumerate(doc):
     pix=p.get_pixmap(matrix=fitz.Matrix(1.25,1.25),alpha=False);pix.save(folder/(path.stem+f'-{i+1:02}.png'))
@@ -341,7 +357,6 @@ def inspect_pdf():
    require(not outside,path.name+': text bounds do not leave the page')
  put(D/'page-review.json',ledger)
  return ledger
-
 
 def package():
  shutil.copy2(SRC/'change_register.md',D/'Реестр_правок_FEFC_R15_v3.md')
@@ -361,6 +376,7 @@ def package():
   with fitz.open(fresh/'main.pdf') as a,fitz.open(S/'main.pdf') as b:
    require(len(a)==len(b) and [p.get_text() for p in a]==[p.get_text() for p in b],'Unpacked source ZIP rebuild has identical page texts')
   require(sha(fresh/'references.bbl')==sha(S/'references.bbl'),'Unpacked source ZIP regenerates the same actual BBL')
+  require('Overfull' not in (fresh/'main.log').read_text(errors='replace'),'Unpacked source ZIP has no Overfull boxes')
   identical=sha(fresh/'main.pdf')==sha(S/'main.pdf')
  put(D/'isolated-build.json',{'passed':True,'byte_identical_pdf':identical,'command':'sh build.sh','execution':'GitHub Actions; isolated temporary directory'})
  require(not any(p.suffix.lower() in FONT for p in D.rglob('*') if p.is_file()),'No font files distributed')

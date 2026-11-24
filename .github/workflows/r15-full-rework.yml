@@ -1,18 +1,17 @@
-name: R1.5 deliver saved header-fixed files - no rebuild
+name: R1.5 resume saved PDF checks and isolated source ZIP
 on:
   push:
     branches: [night/fefc-v3]
     paths: ['.github/workflows/r15-full-rework.yml']
 permissions:
   contents: write
-  actions: read
 concurrency:
   group: fefc-r15-full-rework
   cancel-in-progress: false
 jobs:
-  saved_files:
+  resume_checks:
     runs-on: ubuntu-24.04
-    timeout-minutes: 8
+    timeout-minutes: 15
     env:
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
@@ -23,106 +22,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Restore exact saved result after downstream check failure
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Install only dependencies for saved PDF checks and isolated TeX build
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import subprocess,json
-          from scripts.build_r15_submission import download,unpack,sha
-          root=Path('results/r15-header-files');root.mkdir(parents=True,exist_ok=True)
-          z=root/'saved-result.zip'
-          digest='574b112598569abb82c8daa3f69c51d23ea23c812fb4704081c3aa27cb9e2d8d'
-          download('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/14962715034/zip',z,digest,github=True)
-          unpack(z,root/'restored')
-          assert (root/'restored/work/delivery/Статья_FEFC_R15_v3_ПСТА.pdf').exists()
-          print('EXACT_SAVED_ARCHIVE',sha(z))
-          PY
-      - name: Install PDF metadata reader only - no Word or TeX rebuild
-        run: timeout -k 10s 120 python -m pip install --timeout 20 --retries 1 pymupdf
-      - name: Expose real files and record exact remaining blocker
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib,json,os,shutil,subprocess,urllib.request,urllib.parse,zipfile
-          import pymupdf as fitz
-          from scripts.build_r15_submission import sha,put
-          root=Path('results/r15-header-files');restored=root/'restored';src=restored/'work/delivery';out=root/'files';out.mkdir(exist_ok=True)
-          checks=json.loads((restored/'resume-checks.json').read_text());by={x['check']:x['pass'] for x in checks}
-          required=['Generated main.tex differs ONLY by two optional short titles','Generated scientific body is byte-identical','All saved Word, Word-PDF and figure files reused byte-for-byte','Real final PSTA log has no Overfull','Every page running header stays within PDF page bounds']
-          assert all(by.get(x) is True for x in required),by
-          failed=json.loads((restored/'work/checks-in-progress.json').read_text())
-          failure=[x['check'] for x in failed if not x['pass']]
-          assert failure==['Сопроводительное_письмо_ПСТА_v3.pdf: bounded complete page count'],failure
-          fonts={'.ttf','.otf','.pfb','.pfa','.afm','.tfm','.vf','.woff','.woff2','.enc'}
-          temp={'.aux','.log','.out','.toc','.brf','.blg','.fls'}
-          for p in sorted(src.rglob('*')):
-              if not p.is_file() or p.suffix.lower() in temp or 'review-images' in p.parts:continue
-              assert p.suffix.lower() not in fonts
-              q=out/p.relative_to(src);q.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,q)
-          for name in ('article_body.md','metadata.json','change_register.md'):
-              assert sha(src/'LaTeX'/name)==sha(Path('article/rework')/name)
-          original=restored/'original/delivery'
-          assert original.is_dir()
-          keep=[p for p in src.glob('*.docx')]+[p for p in src.glob('*.pdf') if not p.name.endswith('_ПСТА.pdf')]+list((src/'LaTeX/figures').rglob('*'))
-          retained=[]
-          for p in keep:
-              if not p.is_file():continue
-              rel=p.relative_to(src);assert sha(p)==sha(original/rel),str(rel)
-              retained.append({'file':rel.as_posix(),'sha256':sha(p)})
-          counts={}
-          for p in sorted(out.glob('*.pdf')):
-              with fitz.open(p) as doc:counts[p.name]=len(doc)
-          actual=counts['Сопроводительное_письмо_ПСТА_v3.pdf']
-          assert actual==1,counts
-          warninglog=(restored/'work/delivery/LaTeX/main.log').read_text(errors='replace')
-          assert 'Overfull' not in warninglog
-          logs=out/'checks';logs.mkdir(exist_ok=True)
-          shutil.copy2(restored/'resume-checks.json',logs/'header-checks.json')
-          shutil.copy2(restored/'work/checks-in-progress.json',logs/'downstream-checks.json')
-          shutil.copy2(restored/'work/logs/psta-build.log',logs/'psta-build.log')
-          shutil.copy2(restored/'work/delivery/LaTeX/main.log',logs/'main.log')
-          report={'status':'HEADERS_FIXED_DOWNSTREAM_CHECK_BLOCKED','header_fix_sha':'d53c59f8ec66d9ed300af10aaf2e92e905ff20cd','input_source_sha':'30ac4c3efe1e0a7fd90ea697a051f11aa9816b3a','build_run':45481405341,'build_job':138755268618,'build_conclusion':'failure','saved_artifact':14962715034,'saved_artifact_sha256':'574b112598569abb82c8daa3f69c51d23ea23c812fb4704081c3aa27cb9e2d8d','new_header_checks_passed':sum(x['pass'] for x in checks),'page_counts':counts,'blocker':{'function':'scripts/r15_full_rework.py::inspect_pdf','assertion':'2 <= len(doc) <= 45','file':'Сопроводительное_письмо_ПСТА_v3.pdf','actual_pages':actual,'scope':'The common lower page-count bound rejects a one-page cover letter. Not changed or bypassed in this limited turn.'},'remaining_checks':['inspect_pdf after the cover-letter page-count assertion','isolated source ZIP rebuild','personal visual inspection of new manuscript'],'word_regenerated':False,'figures_regenerated':False,'science_repeated':False,'full_titles_changed':False,'overfull_guard_disabled':False,'overfull_found':False,'source_body_byte_identical':True,'preserved_files':retained,'ready_to_submit':False,'article_sent':False,'new_binary_visually_accepted':False,'execution':'GitHub Actions; saved binary recovery and byte checks; no rebuild in this delivery run'}
-          put(out/'CHECK_RESULT.json',report)
-          shutil.copy2(Path('article/rework/change_register.md'),out/'Реестр_правок_FEFC_R15_v3.md')
-          (out/'README.md').write_text('# Сохранённая редакция FEFC R1.5 v3 — колонтитулы исправлены\n\nЭто реальные Word/PDF и SVG/PDF/TikZ из сохранённой редакции. Исправлены только короткие RU/EN названия колонтитулов; полные названия и текст сохранены. Word, соответствующие PDF и схемы переиспользованы побайтово.\n\nPDF ПСТА пересобран в run45481405341: Overfull отсутствует, колонтитулы всех страниц находятся в границах листа. Последующая проверка inspect_pdf остановилась на одностраничном письме: общий критерий требует минимум две страницы. Этот критерий не изменён и проверка не обойдена. Полный run имеет failure, а не success.\n\nПо прямому поручению автора при другой ошибке предъявляются уже сохранённые файлы. Изолированная проверка ZIP и последующие проверки не выполнены; готовность к отправке не объявляется. Точные хеши, число страниц и препятствие — CHECK_RESULT.json/SHA256.json. Письмо не подписано, личные авторские поля красные.\n',encoding='utf-8')
-          archive=out/'FEFC_R15_v3_сохранённые_файлы.zip'
-          put(out/'SHA256.json',{p.relative_to(out).as_posix():sha(p) for p in sorted(out.rglob('*')) if p.is_file() and p.name!='SHA256.json'})
-          with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
-              for p in sorted(out.rglob('*')):
-                  if p.is_file() and p!=archive:z.write(p,p.relative_to(out).as_posix())
-          def git(*a):return subprocess.check_output(['git',*a],text=True).strip()
-          expected=os.environ['GITHUB_SHA'];ref='refs/heads/night/fefc-v3'
-          assert git('ls-remote','origin',ref).split()[0]==expected
-          target=Path('deliverables/r15-header-fix-pending')
-          assert not target.exists(),'Do not overwrite a saved delivery'
-          shutil.copytree(out,target)
-          status=Path('docs/STATUS.md');history=status.read_text()
-          status.write_text('# STATUS — R1.5 v3: колонтитулы исправлены; файлы предъявлены с новым блокером\n\n24.11.2026 · BT26-R15-HEADERS-01. Только night/fefc-v3 / PR#2, без слияния.\n\nПравка генератора и STATUS: d53c59f8ec66d9ed300af10aaf2e92e905ff20cd. Run45481405341: затронутая сборка PDF ПСТА и Overfull/границы колонтитулов пройдены; дальнейший inspect_pdf остановился на письме (1 страница при общем минимуме2). Проверка не отключена; итог run=failure. По прямому поручению при другой ошибке этот ход завершает выдачу сохранённых файлов, а не новую переработку или бесконечную отладку.\n\nФайлы: deliverables/r15-header-fix-pending/ — обе Word-копии, их PDF, PDF ПСТА, письмо, векторы, LaTeX и реестр. CHECK_RESULT.json содержит точный статус и хеши. Word/Word-PDF/векторы побайтово сохранены, тело LaTeX совпадает, полные названия неизменны. Новых имитаций/bootstrap/обучения/поиска литературы нет. Частные локальные процессы/изменения недоступны из-за ClientError; они не удалены и не объявлены отсутствующими.\n\nОткрыто: исправление отдельного условия минимальной длины письма, остальные не достигнутые проверки inspect_pdf, изолированная ZIP-сборка и визуальная приёмка. Не объявлять весь комплект проверенным. Незаполненные авторские поля красные. Статья не отправлялась.\n\nХод #7143527125 после успешного push ЗАВЕРШЁН; запись ОСВОБОЖДЕНА. Старый принятый комплект, main, v2/ и журнал Perplexity не затронуты.\n\nОЦЕНКА токенов: чтение/маршрут 6–10тыс.; правка/проверка/выдача 6–10тыс.; ориентир, не биллинг.\n\nЖурнал 24.11.2026 · BT26-R15-HEADERS-01 · источники:#7143003375, архив14957479386, run45481405341/артефакт14962715034 · решение: исправить колонтитулы и предъявить сохранённый результат при следующем препятствии · статус: колонтитулы исправлены, итоговая проверка не завершена · следующий шаг: только адресное условие проверки письма и оставшиеся проверки.\n\n---\nИстория:\n\n'+history,encoding='utf-8')
-          git('config','user.name','FEFC saved-files executor');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
-          git('add','--',str(target),'docs/STATUS.md')
-          names=subprocess.check_output(['git','diff','--cached','--name-only','-z']).decode().split('\0')
-          assert all(not n or n=='docs/STATUS.md' or n.startswith(str(target)+'/') for n in names)
-          assert git('ls-remote','origin',ref).split()[0]==expected
-          git('commit','-m','Issue #5 п.5: выдать реальные Word/PDF после исправления колонтитулов, сохранить новый блокер')
-          assert git('ls-remote','origin',ref).split()[0]==expected
-          git('push','origin','HEAD:'+ref);final=git('rev-parse','HEAD');assert git('ls-remote','origin',ref).split()[0]==final
-          downloads=[]
-          for p in sorted(target.iterdir()):
-              if p.suffix not in ('.pdf','.docx','.zip'):continue
-              url='https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/'+final+'/'+urllib.parse.quote(p.as_posix())
-              with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'FEFC-saved-files-check'}),timeout=90) as r:b=r.read()
-              assert hashlib.sha256(b).hexdigest()==sha(p)
-              downloads.append({'name':p.name,'bytes':p.stat().st_size,'sha256':sha(p),'url':url})
-          put(root/'PUBLICATION.json',{'delivery_sha':final,'header_fix_sha':report['header_fix_sha'],'delivery_run':os.environ['GITHUB_RUN_ID'],'files':downloads,'status':report['status'],'writer_released':True,'ready_to_submit':False})
-          print('SAVED_FILES_RESULT',json.dumps({'delivery_sha':final,'page_counts':counts,'header_checks':report['new_header_checks_passed'],'files':downloads},ensure_ascii=False),flush=True)
-          PY
+          python -m pip install --timeout 30 --retries 1 pymupdf lxml
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super
+      - name: Verify saved bytes, test actual function, unpack and compile source ZIP
+        run: python -m scripts.r15_resume_checks
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: FEFC-R15-v3-saved-files-${{ github.run_id }}
-          path: |
-            results/r15-header-files/files/
-            results/r15-header-files/PUBLICATION.json
-          if-no-files-found: error
+          name: FEFC-R15-resume-checks-${{ github.run_id }}
+          path: results/r15-resume-checks/
+          if-no-files-found: warn
