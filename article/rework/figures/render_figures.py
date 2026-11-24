@@ -27,7 +27,7 @@ for a,b,ya,yb in [('source','edge',54,78),('edge','ingress',140,164),('ingress',
 label(f1,233,331,'да',15);edge(f1,'admit','loss',[(378,283),(420,283)],text='нет',xy=(400,270))
 node(f1,'note1',420,80,160,116,['Источник отключён:','новое сообщение','не создаётся.','Это не потеря','в очереди Fog.'],kind='note',font=16)
 node(f1,'note2',420,360,160,100,['B — только места','ожидания.','Вместимость Fog:','K = B + 1.'],kind='note',font=16)
-node(f1,'note3',420,500,160,112,['Прочие очереди','не ограничены.','Все ожидания','включены в D','ровно один раз.'],kind='note',font=16)
+node(f1,'note3',410,477,180,155,['К концу наблюдения:','незавершённое N_U','не является потерей.','Прочие очереди','не ограничены;','все ожидания входят','в D ровно один раз.'],kind='note',font=14.5)
 
 f2=diagram('02_verification',600,710)
 node(f2,'input',25,10,550,52,['Конфигурация, внешний поток и параметры протокола'],font=18,bold=True)
@@ -121,7 +121,8 @@ def render(d,folder):
   parts.append('</text>');tl=r'\\'.join(texescape(s) for s in n['lines'])
   t.append(r'\node[align=center,inner sep=0pt,font=\fontsize{'+f'{fs*scale:.3f}'+r'}{'+f'{lh*scale:.3f}'+r'}\selectfont'+(r'\bfseries' if n['bold'] else '')+'] at ('+f'{cx},{cy}'+'){'+tl+'};')
  for l in d['labels']:
-  parts.append(f'<text x="{l["x"]}" y="{l["y"]}" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="{l["font"]}" fill="#111" stroke="white" stroke-width="3" paint-order="stroke">{html.escape(l["text"])}</text>')
+  parts.append(f'<text x="{l["x"]}" y="{l["y"]}" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="{l["font"]}" fill="white" stroke="white" stroke-width="3" aria-hidden="true">{html.escape(l["text"])}</text>')
+  parts.append(f'<text x="{l["x"]}" y="{l["y"]}" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="{l["font"]}" fill="#111">{html.escape(l["text"])}</text>')
   t.append(r'\node[fill=white,inner sep=1pt,font=\fontsize{'+f'{l["font"]*scale:.3f}'+r'}{'+f'{l["font"]*scale*1.15:.3f}'+r'}\selectfont] at ('+f'{l["x"]},{l["y"]-l["font"]*.30}'+'){'+texescape(l['text'])+'};')
  parts.append('</svg>');t.append(r'\end{tikzpicture}')
  (folder/(d['name']+'.svg')).write_text('\n'.join(parts),encoding='utf-8')
