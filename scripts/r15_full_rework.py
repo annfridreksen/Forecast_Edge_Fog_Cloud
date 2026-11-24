@@ -52,7 +52,7 @@ def prepare():
  require('125011200147-2' in body,'Approved funding statement retained')
  for n in ('psta.cls',):shutil.copy2(ROOT/'article'/n,S/n)
  shutil.copytree(ROOT/'article/psta',S/'psta',dirs_exist_ok=True,ignore=lambda d,n:[x for x in n if Path(x).suffix.lower() in FONT])
- put(D/'source-recovery.json',{'source_sha':os.environ.get('GITHUB_SHA'),'input_basis':M['recovery'],'prior_read_comment':7133290317,'recovery_note':'Previous exact-source inspection and authored text are preserved in the execution record. Expired local DOCX/PDF bytes are not claimed recovered. This build creates new binaries from restored sources.','new_simulation':False,'new_bootstrap':False})
+ put(D/'source-recovery.json',{'source_sha':os.environ.get('REWORK_SOURCE_SHA',os.environ.get('GITHUB_SHA')),'input_basis':M['recovery'],'prior_read_comment':7133290317,'recovery_note':'Previous exact-source inspection and authored text are preserved in the execution record. Expired local DOCX/PDF bytes are not claimed recovered. This build creates new binaries from restored sources.','new_simulation':False,'new_bootstrap':False})
  for src,dst in [('results/r14/article_evidence.json','empirical-evidence.json'),('results/r15/conditional_analysis.json','conditional-evidence.json'),('results/r15/service_reference.json','service-reference.json')]:shutil.copy2(ROOT/src,D/dst)
  return M,A,body
 
@@ -90,7 +90,7 @@ def figures():
  put(f/'diagrams.json',mod.FIGS)
  for d in mod.FIGS:
   mod.render(d,f)
-  run(['pdflatex','-interaction=nonstopmode','-halt-on-error',d['name']+'.tex'],f,d['name']+'.log')
+  if not (f/(d['name']+'.pdf')).exists():run(['pdflatex','-interaction=nonstopmode','-halt-on-error',d['name']+'.tex'],f,d['name']+'.log')
   with fitz.open(f/(d['name']+'.pdf')) as doc:
    require(len(doc)==1 and not doc[0].get_images(),d['name']+': actual PDF is vector')
    doc[0].get_pixmap(matrix=fitz.Matrix(3,3),alpha=False).save(f/(d['name']+'.png'))
@@ -174,13 +174,13 @@ def style_word(path,red=False):
    if txt=='Сведения об авторах':active=False
    mark=active or txt.startswith(('Аннотация.','Abstract.'))
    if mark:
-    for r in el.xpath('.//w:r|.//m:r'):
+    for r in [v for v in el.iter() if v.tag in (qn('w:r'),qn('m:r'))]:
      rp=r.find(qn('w:rPr'))
      if rp is None:rp=OxmlElement('w:rPr');r.insert(0,rp)
      color=rp.find(qn('w:color'))
      if color is None:color=OxmlElement('w:color');rp.append(color)
      color.set(qn('w:val'),'C00000')
- footer=sec.footer.paragraphs[0];footer.alignment=WD_ALIGN_PARAGRAPH.CENTER
+ footer=sec.footer.paragraphs[0];footer.clear();footer.alignment=WD_ALIGN_PARAGRAPH.CENTER
  fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');footer._p.append(fld)
  doc.core_properties.author='М. В. Орда-Жигулина; Д. В. Орда-Жигулина; А. С. Игнатенко'
  doc.core_properties.comments='Восстановленная редакция v3; научные данные не изменены. Красная копия выделяет переработанные разделы, не посимвольный Track Changes.'
@@ -369,7 +369,7 @@ def package():
 def build():
  M,A,body=prepare();keys,bibmd=bibliography();figs,captions=figures();wc=word(M,A,body,bibmd,figs,captions);warnings=latex(M,A,body,keys,figs,captions);ledger=inspect_pdf();zipper=package()
  register=(SRC/'change_register.md').read_text();require(all('R'+f'{i:02}' in register for i in range(1,32)) and 'AU-04' in register,'All 32 prior source comment dispositions recovered')
- put(D/'receipt.json',{'source_sha':os.environ['GITHUB_SHA'],'base_sha':BASE,'execution':'GitHub Actions; Pandoc; python-docx; LibreOffice; BibTeX; pdflatex; PyMuPDF','checks':CHECKS,'checks_passed':sum(c['pass'] for c in CHECKS),**wc,'sections':8,'references':27,'figures':3,'scientific_snapshot_requests':131,'simulation_executed':False,'bootstrap_recomputed':False,'new_neural_training':False,'source_word_inspected_in_prior_interrupted_execution':True,'new_binary_visually_accepted':False,'whole_article_created':True,'ready_to_submit':False,'article_sent':False,'remaining_author_fields':['NSCF reference/provenance decision and number','ORCID if available; portraits and rights; additional verified biography lines','personal consents and signatures; conflict-of-interest statement'],'warnings':warnings})
+ put(D/'receipt.json',{'source_sha':os.environ.get('REWORK_SOURCE_SHA',os.environ['GITHUB_SHA']),'base_sha':BASE,'execution':'GitHub Actions; Pandoc; python-docx; LibreOffice; BibTeX; pdflatex; PyMuPDF','checks':CHECKS,'checks_passed':sum(c['pass'] for c in CHECKS),**wc,'sections':8,'references':27,'figures':3,'scientific_snapshot_requests':131,'simulation_executed':False,'bootstrap_recomputed':False,'new_neural_training':False,'source_word_inspected_in_prior_interrupted_execution':True,'new_binary_visually_accepted':False,'whole_article_created':True,'ready_to_submit':False,'article_sent':False,'remaining_author_fields':['NSCF reference/provenance decision and number','ORCID if available; portraits and rights; additional verified biography lines','personal consents and signatures; conflict-of-interest statement'],'warnings':warnings})
  (D/'README.md').write_text('''# FEFC R1.5 — восстановленная полная редакция v3
 
 Восемь разделов, две согласованные аннотации, английское резюме, 27 источников, девять формул и три новые векторные схемы. Читаемая Word-копия и отдельная красная копия содержат одинаковый текст. В красной копии целиком выделены переработанные разделы; это не посимвольный Track Changes. Незаполненные авторские поля красные в обеих копиях. Письмо — неподписанный проект.
@@ -386,7 +386,7 @@ PDF с окончанием «для_чтения» получен из соот
 
 
 def publish():
- expected=os.environ['GITHUB_SHA'];ref='refs/heads/night/fefc-v3'
+ expected=os.environ.get('REWORK_SOURCE_SHA',os.environ['GITHUB_SHA']);ref='refs/heads/night/fefc-v3'
  git=lambda *a:run(['git',*a]).decode().strip()
  if git('ls-remote','origin',ref).split()[0]!=expected:raise RuntimeError('HEAD changed; do not overwrite')
  target=ROOT/'deliverables/r15-rework-v3';shutil.copytree(D,target,dirs_exist_ok=True)
