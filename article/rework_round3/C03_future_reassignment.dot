@@ -1,0 +1,56 @@
+digraph C03 {
+ graph [rankdir=TB, bgcolor="white", pad=0.18, nodesep=0.22, ranksep=0.30, splines=polyline, fontname="Liberation Serif", fontsize=13, compound=true, label="C03. Будущее переразмещение: наблюдение → предпочтение → допустимый план", labelloc=t];
+ node [shape=box, style="rounded,dashed", fontname="Liberation Serif", fontsize=11, margin="0.09,0.06"];
+ edge [fontname="Liberation Serif", fontsize=10, arrowsize=0.65];
+ subgraph cluster_real {
+  label="РЕАЛИЗОВАНО: событийная среда (сплошная рамка)"; style=solid;
+  environment [style="rounded,solid", label="Edge → каналы → Fog → Cloud\nсообщения, очереди, обслуживание, потери"];
+  aggregate [style="rounded,solid", label="Q = p95, L, H(200)\nпоказатели всей измерительной когорты\nНЕ готовые команды и НЕ показатели каждого узла"];
+  environment -> aggregate;
+ }
+ subgraph cluster_future {
+  label="ПРОЕКТИРУЕТСЯ: интеграция не выполнена (пунктирная рамка)"; style=dashed;
+  observations [label="Наблюдения по устройствам\nID, временная метка, окно; очереди, обслуживание, доступность\nформат экспорта и целевые признаки требуют определения"];
+  config_est [label="Оцениватель 1\nхарактеристики\nконфигурации"];
+  overflow_est [label="Оцениватель 2\nпереполнение Fog\nс учётом текущей очереди"];
+  failure_est [label="Оцениватель 3\nотказ источника\nнужны размеченные отказы"];
+  {rank=same; config_est; overflow_est; failure_est;}
+  adapter [label="АДАПТЕР: оценки → порядковые команды\nотдельно задать правило, горизонт и калибровку\nкоманды — не секунды и не вероятности"];
+  m21 [shape=diamond, fontsize=10, label="М2.1: команды применимы,\nактуальны и сопоставимы?"];
+  ordinal [label="Зафиксировать команды на поиск\nпорядок (R, T, N, id)"];
+  baseline [label="Без применимого прогноза\nпорядок (T, N, id)"];
+  {rank=same; ordinal; baseline;}
+  task_graph [label="Граф\nсвязной задачи"];
+  partition [label="Фиксированное\nразбиение"];
+  previous [label="Прежний\nполный план"];
+  limits [label="Ресурсы, передачи,\nзависимости, срок"];
+  {rank=same; task_graph; partition; previous; limits;}
+  m22 [label="М2.2: поиск полных назначений ЦЕЛЫХ ПОДГРАФОВ\nпроверка полного плана для всей связной задачи\nнедопустимые планы отвергаются; поиск до остановки/лимита"];
+  any_plan [shape=diamond, fontsize=10, label="Есть проверенные\nдопустимые планы?"];
+  selection [label="Выбрать лучший из проверенных допустимых\nR: команды по убыванию, лексикографический минимакс\nзатем T, N, id; без прогноза — T, N, id"];
+  no_plan [style="rounded,dashed,bold", label="ДОПУСТИМЫЙ ПЛАН НЕ НАЙДЕН\nзафиксировать причину остановки\nне доказательство невозможности"];
+  {rank=same; selection; no_plan;}
+  plan [label="РЕЗУЛЬТАТ ВЫБОРА\nполный план + протокол проверки"];
+  m23 [label="М2.3: при новых сведениях\nпроверить прежний план; сохранить допустимый\nлибо повторить выбор; записать основание"];
+  observations -> config_est; observations -> overflow_est; observations -> failure_est;
+  config_est -> adapter; overflow_est -> adapter; failure_est -> adapter;
+  adapter -> m21;
+  m21 -> ordinal [label="да"]; m21 -> baseline [label="нет"];
+  ordinal -> m22; baseline -> m22;
+  task_graph -> m22; partition -> m22; previous -> m22; limits -> m22;
+  m22 -> any_plan;
+  any_plan -> selection [label="да"]; any_plan -> no_plan [label="нет"];
+  selection -> plan;
+  observations -> m23 [label="новые сведения", constraint=false];
+  previous -> m23 [constraint=false];
+  m23 -> m21 [label="повторить выбор", constraint=false];
+  m23 -> plan [label="сохранить после\nпроверки допустимости", constraint=false];
+ }
+ application [style="rounded,dashed", label="ПРИМЕНЕНИЕ ПЛАНА — отдельный будущий механизм\nсогласование состояния, передач и стоимости переноса\nне выполнено в текущем опыте"];
+ environment -> observations [style=dashed, label="будущий интерфейс данных"];
+ aggregate -> config_est [style=dashed, label="возможные целевые\nхарактеристики", constraint=false];
+ plan -> application [style=dashed, label="выбор ≠ применение"];
+ application -> environment [style=dashed, label="ПРОЕКТИРУЕМАЯ обратная связь", constraint=false];
+ note [shape=plaintext, style=solid, fontsize=10, label="Перенос сохраняет подграфы; переразбиение — другая операция.\nГоризонт — окно подготовки, не гарантированный запас времени; ускорение не доказано."];
+ application -> note [style=invis];
+}
