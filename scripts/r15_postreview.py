@@ -221,7 +221,7 @@ def inspect():
                 if normalize(cap)[:50] in normalized and i+1 not in figure_pages:
                     figure_pages.append(i+1)
                     p.get_pixmap(matrix=fitz.Matrix(7,7),alpha=False).save(d/'pages'/f'figure-page-{i+1:02}-7x.png')
-        if not captions or len(captions)!=main.count(r'egin{figure}') or len(figure_pages)!=len(captions):raise ValueError('Not all source figure pages identified: '+repr((captions,figure_pages)))
+        if not captions or len(captions)!=main.count(chr(92)+'begin{figure}') or len(figure_pages)!=len(captions):raise ValueError('Not all source figure pages identified: '+repr((captions,figure_pages)))
     put(d/'page-review.json',ledger)
     put(d/'postreview-resolution.json',dict(baseline_delivery=BASE,pdf_sha256=sha(new),changed_pages=changed,
        figure_7x_pages=figure_pages,own_visual_review=False,prior_review_source=REVIEW,
