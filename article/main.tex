@@ -330,14 +330,15 @@ M/M/1/K предполагает экспоненциальное обслужи
 Конфигурация допустима при указанном допущении независимости, но её минимальность не установлена. Аналитический ориентир p95 обслуживания без ожидания равен \dServiceQ{} мс. Полная сравнительная карта, независимое подтверждение, обучение оценивателей и экспериментальная проверка переразмещения остаются дальнейшей работой.
 
 \paragraph{Доступность материалов.}
-Исходники расчётной версии зафиксированы в репозитории:
+Первичные расчёты выполнены на версии \href{https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/tree/b45bfee84d9b0727243faf6cd28eeda776813566}{b45bfee8}.
+Код и отдельный условный анализ представлены в более поздней редакционной версии:
 \url{https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/tree/1801dd37898e2d53eb2ab22a8dee532fd1083f5d}.
 Первичные данные, контрольные суммы и воспроизводящие материалы доступны без авторизации:
 \url{https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/tree/4a8bc330e49adfaea7259586ca632b3b3250fc5f/deliverables/r15}.
 Набор содержит именно зафиксированный срез из131 запроса и отдельную условную оценку. Обновление оформления не изменяет эти наблюдения. Полные выходные сведения авторских тезисов НСКФ требуют уточнения.
 
 \raggedbottom
-\input{r15-references}
+\input{r15-references.bbl}
 \English\maketitle
 \section*{Extended summary}
 \textbf{Problem.} The study addresses infrastructure configuration and outlines a conceptual architecture for forecast-aware reassignment of connected tasks. The reported experiments concern configuration only. A fixed external stream is processed by an Edge--Fog--Cloud environment. The decision variables are fog-node count and waiting-buffer capacity. Both the conditional p95 of completed-message latency and the loss fraction among all arrivals must satisfy their thresholds.

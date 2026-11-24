@@ -47,7 +47,7 @@ def main():
     for directory in ('author-tests','conditional-tests'):
         if (out/directory).exists():shutil.copytree(out/directory,delivery/'validation'/directory,dirs_exist_ok=True)
     manuscript=work/'manuscript';manuscript.mkdir(exist_ok=True)
-    for name in ('main.tex','r15-values.tex','r15-conditional-values.tex','r15-references.tex','r15-sources.json','psta.cls'):
+    for name in ('main.tex','r15-values.tex','r15-conditional-values.tex','r15-references.tex','r15-sources.json','r15-references.bib','r15-references.bbl','psta-source-preserve.bst','psta.cls'):
         shutil.copy2(ROOT/'article'/name,manuscript/name)
     shutil.copytree(ROOT/'article/psta',manuscript/'psta',dirs_exist_ok=True,
         ignore=lambda d,n:[x for x in n if Path(x).suffix.lower() in FONT_EXT])
@@ -70,7 +70,7 @@ def main():
     for f in manuscript.rglob('*'):
         if not f.is_file():continue
         rel=f.relative_to(manuscript)
-        if f.suffix.lower() in ('.tex','.cls','.sty','.def','.cfg','.clo') or (rel.parts[0]=='psta' and f.suffix.lower() in ('.png','.pdf','.eps','.jpg')):
+        if f.suffix.lower() in ('.tex','.cls','.sty','.def','.cfg','.clo','.bib','.bbl','.bst') or (rel.parts[0]=='psta' and f.suffix.lower() in ('.png','.pdf','.eps','.jpg')):
             dst=package/rel;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,dst)
     for name in ('README.md','build.sh','NOTICE.md','cover_letter.md','author_checklist.md'):
         shutil.copy2(ROOT/'submission'/name,package/name);shutil.copy2(ROOT/'submission'/name,delivery/name)
