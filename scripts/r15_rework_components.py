@@ -18,6 +18,16 @@ CAPTIONS=[
 NS={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main','m':'http://schemas.openxmlformats.org/officeDocument/2006/math'}
 CHECKS=[]
 
+def ensure_style(doc,name):
+ from docx.enum.style import WD_STYLE_TYPE
+ key=name.replace(' ','').casefold()
+ for st in doc.styles:
+  if st.style_id.replace(' ','').casefold()==key:
+   st.name=name
+   return st
+ return doc.styles.add_style(name,WD_STYLE_TYPE.PARAGRAPH)
+
+
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def put(p,obj):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -51,16 +61,17 @@ def figures():
  graphs=[]
  for name in NAMES:
   source=SRC/(name+'.dot');obj,edges=graph(source);graphs.append((obj,edges))
+  if (fig/source.name).exists():require(sha(fig/source.name)==sha(source),name+': restored vector source is unchanged')
   shutil.copy2(source,fig/source.name)
   for fmt in ('svg','pdf','png'):
-   run(['dot','-T'+fmt,source,'-o',fig/(name+'.'+fmt)],name=name+'-'+fmt+'.log')
+   if not (fig/(name+'.'+fmt)).exists():run(['dot','-T'+fmt,source,'-o',fig/(name+'.'+fmt)],name=name+'-'+fmt+'.log')
   svg=etree.parse(str(fig/(name+'.svg')))
   require(not svg.xpath('//*[local-name()="image"]'),name+': SVG contains no raster image')
   with fitz.open(fig/(name+'.pdf')) as doc:
    require(len(doc)==1 and len(doc[0].get_images())==0,name+': PDF is one-page vector')
    require(len(doc[0].get_drawings())>0 and len(doc[0].get_text())>100,name+': PDF has vector paths and text')
-   doc[0].get_pixmap(matrix=fitz.Matrix(1.4,1.4),alpha=False).save(fig/(name+'-preview.png'))
-   doc[0].get_pixmap(matrix=fitz.Matrix(7,7),alpha=False).save(fig/(name+'-7x.png'))
+   if not (fig/(name+'-preview.png')).exists():doc[0].get_pixmap(matrix=fitz.Matrix(1.4,1.4),alpha=False).save(fig/(name+'-preview.png'))
+   if not (fig/(name+'-7x.png')).exists():doc[0].get_pixmap(matrix=fitz.Matrix(7,7),alpha=False).save(fig/(name+'-7x.png'))
   leaves=[o for o in obj['objects'] if 'pos' in o and o.get('shape')!='plaintext']
   overlaps=[]
   for i,a in enumerate(leaves):
@@ -103,10 +114,10 @@ def style_docx(path, red_all=False):
   sec.page_width=Cm(21);sec.page_height=Cm(29.7)
   sec.top_margin=sec.bottom_margin=Cm(1.8);sec.left_margin=sec.right_margin=Cm(2)
  for name in ('Normal','Body Text'):
-  st=doc.styles[name];st.font.name='Times New Roman';st.font.size=Pt(11.5)
+  st=ensure_style(doc,name);st.font.name='Times New Roman';st.font.size=Pt(11.5)
   st.paragraph_format.space_after=Pt(5);st.paragraph_format.line_spacing=1.1
  for name in ('Heading 1','Heading 2','Heading 3'):
-  st=doc.styles[name];st.font.name='Times New Roman';st.font.color.rgb=RGBColor(0,0,0);st.font.size=Pt(14 if name=='Heading 1' else 12)
+  st=ensure_style(doc,name);st.font.name='Times New Roman';st.font.color.rgb=RGBColor(0,0,0);st.font.size=Pt(14 if name=='Heading 1' else 12)
   st.paragraph_format.keep_with_next=True
  for p in doc.paragraphs:
   if '[ДЛЯ АВТОРА' in p.text:
