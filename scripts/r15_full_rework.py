@@ -269,6 +269,7 @@ def latex(M,A,body,keys,figs,captions):
  for name in ('Метод выбора конфигурации','Результаты','Обсуждение и ограничения'):t=t.replace('\\section{'+name+'}','\\FloatBarrier\n\\section{'+name+'}')
  (S/'body.tex').write_text(t)
  title=lambda s:pandoc_text(s).strip()
+ short_titles={'ru': 'Моделирование краевой и туманной среды', 'en': 'Edge--fog simulation and reassignment'}
  base=r'''\documentclass{psta}
 \usepackage{graphicx,booktabs,array,longtable,calc}
 \usepackage{xcolor,placeins}
@@ -281,7 +282,7 @@ def latex(M,A,body,keys,figs,captions):
 \def\englishPublicationInfo{Author manuscript.}
 '''
  for lang in ('ru','en'):
-  base+=('\\Russian\n' if lang=='ru' else '\\English\n')+'\\title{'+title(M['title_'+lang])+'}\n'
+  base+=('\\Russian\n' if lang=='ru' else '\\English\n')+'\\title['+title(short_titles[lang])+']{'+title(M['title_'+lang])+'}\n'
   for i,a in enumerate(A['authors_in_order']):
    name=a[lang];bits=name.split();name=bits[0]+', '+' '.join(bits[1:]) if lang=='ru' else bits[-1]+', '+' '.join(bits[:-1])
    org=A['affiliation_ru'] if lang=='ru' else M['affiliation_en']
