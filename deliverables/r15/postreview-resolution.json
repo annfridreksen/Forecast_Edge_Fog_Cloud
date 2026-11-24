@@ -1,0 +1,31 @@
+{
+  "baseline_delivery": "13623e2a442ecfdad83307e327cfe67b47bdcaf3",
+  "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "changed_pages": [
+    16,
+    17
+  ],
+  "figure_7x_pages": [
+    5,
+    9,
+    14
+  ],
+  "own_visual_review": false,
+  "prior_review_source": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+  "later_review_scope": "7123877180 reports no new personal visual inspection; earlier record is preserved, not replaced.",
+  "resolved": [
+    "Law title/edition/ISBN rendering",
+    "real BibTeX BIB/BBL",
+    "one-shot C9 not rerun",
+    "scientific versus editorial source"
+  ],
+  "open": [
+    "author metadata and permissions",
+    "NSCF bibliographic details and profile provenance",
+    "A4 scope decision",
+    "changed-page and all-figure visual review",
+    "independent final acceptance"
+  ],
+  "wei_primary_source": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.APPROX/RANDOM.2020.60",
+  "wei_checked": "Author/title/year/volume/pages/DOI confirmed from publisher by executor web access on 2026-11-24 and reviewer 7122631239; not a new full bibliography audit."
+}

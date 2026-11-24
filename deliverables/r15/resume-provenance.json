@@ -1,0 +1,15 @@
+{
+  "artifact_id": 14898826993,
+  "artifact_sha256": "a7aae92b3963664a58094d1eac76b8ab7f309da1f58c6e1700a93af7bcfbce1d",
+  "build_run": 45346285838,
+  "source_sha": "fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191",
+  "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "main_pdf_recompiled": false,
+  "diff_pdf_recomputed": false,
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "verification_run": 45348075688,
+  "verification_sha": "7bd572fff40ee72ea7d0f3d08e98c1360729ca62",
+  "final_zip_build_sh": "PASS",
+  "final_zip_bibtex_regeneration": "PASS"
+}

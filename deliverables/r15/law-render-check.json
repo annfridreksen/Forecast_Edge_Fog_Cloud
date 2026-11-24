@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "checks": {
+    "title": true,
+    "edition": true,
+    "isbn": true
+  },
+  "pages": [
+    17
+  ],
+  "inspection": "Actual extracted PDF text, not source-only and not visual"
+}

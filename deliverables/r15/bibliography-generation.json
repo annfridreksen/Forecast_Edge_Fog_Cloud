@@ -1,0 +1,9 @@
+{
+  "engine": "BibTeX",
+  "entries": 28,
+  "native_token_stream_equal": true,
+  "bib_sha256": "8be7a4f2517eadaacdc8e57cb373d51b09cfd4759983b633c094f613b5179360",
+  "bbl_sha256": "2475f583d74a188f979e8ae86f7ef6f19e06a4e672bf44b67d61a561d29f1f1b",
+  "style_sha256": "ddf5d973062d130b8150e950a7bc422e4197fbec0caf577629f318ba48f521db",
+  "style_origin": "Original source-preserving exporter; official psta.cls is unchanged."
+}

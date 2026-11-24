@@ -673,5 +673,19 @@
       "registry_pages": "404-413"
     }
   ],
-  "scope": "Fresh registry lookup supports metadata only; claim passages are separately documented. No source is silently rewritten."
+  "scope": "Fresh registry lookup supports metadata only; claim passages are separately documented. No source is silently rewritten.",
+  "postreview_primary_verification": {
+    "advice": {
+      "status": "CONFIRMED",
+      "source": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.APPROX/RANDOM.2020.60",
+      "basis": "Executor web and reviewer 7122631239; old network failure retained historically"
+    },
+    "law": {
+      "status": "CONFIRMED",
+      "source": "https://www.mheducation.com/highered/product/Simulation-Modeling-and-Analysis-Law.html",
+      "edition": 5,
+      "year": 2015,
+      "isbn": "9780073401324"
+    }
+  }
 }

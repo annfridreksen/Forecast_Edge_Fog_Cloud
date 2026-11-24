@@ -1,11 +1,11 @@
 {
   "schema": "R1.5-author69-build-1",
-  "source_sha": "b102623a79975c525eb4b208d0d6a74502b471eb",
+  "source_sha": "fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191",
   "simulation_executed": false,
   "bootstrap_recomputed": false,
   "ready_to_submit": false,
   "author_signed": false,
-  "visual_review": "PENDING_PAGE_INSPECTION",
+  "visual_review": "PENDING_CHANGED_PAGES_AND_FULL_7X_FIGURES",
   "static_validation": {
     "sections": 8,
     "references": 28,
@@ -31,18 +31,17 @@
     199997
   ],
   "conditional_analysis_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016",
-  "pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+  "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
   "style": {
     "url": "https://psta.psiras.ru/publ-conditions/psta.zip",
-    "retrieved_utc": "2026-11-23T23:46:06.426136+00:00",
+    "retrieved_utc": "2026-11-24T07:15:43.876829+00:00",
     "official_downloaded": true,
     "archive_sha256": "42e95b53f26272a9275afa8e513009630b609c1409e589f244a687950c9bec61",
     "used_class_sha256": "f0fdb7c786dd54fb5f066a58630a7b67235a01871457f5dcd26c48b6d476ea1b",
     "provides_class": "\\ProvidesClass{psta}[2026/10/16 18:44:16 Document class for PSTA journal and other bilingual proceedings]"
   },
-  "bibliography_registry_reused_from": "45286829771; unchanged reference text and source matrix",
   "isolated_zip_rebuild": "PASS",
-  "isolated_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+  "isolated_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
   "pages": 21,
   "section_boundaries": {
     "section6": {
@@ -59,7 +58,7 @@
   "diff": {
     "baseline_sha": "59914cea5dc733ec857ae3d4157d77398bae7cd5",
     "baseline_pdf_sha256": "2c24e693106be38e9e56de8ff33610b7a45eab1e10905dfac3d0a0be2b41e920",
-    "after_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "after_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
     "method": "diff-pdf",
     "requested_utility_success": true,
     "utility_exit": 1,
@@ -74,8 +73,29 @@
     ],
     "interpretation": "Exit1 means actual PDF differences, not a tool error."
   },
-  "submission_zip_sha256": "fb874de45358b28bf3f4bcec44b0d8a4c2b807a67491ad102ab49cfbf938e645",
-  "difference_pdf_sha256": "7d84d7e353d4d1eaf5ccbf5908eac438d77d83c4f5182886a1270b7044103ba8",
+  "submission_zip_sha256": "b82a7b8384f37e2e84a756473da7c8fdb6dd91e8f1e9e6ff41c7c447525f59a2",
+  "difference_pdf_sha256": "ee5f9bb09b270dbb945ff76f697a1e2ac10a40da3b79b60955eebe733c70d1a7",
   "data_complete_for_frozen_131": true,
-  "public_access": "PENDING_PUBLICATION_AND_ANONYMOUS_DOWNLOAD"
+  "public_access": "PENDING_PUBLICATION_AND_ANONYMOUS_DOWNLOAD",
+  "final_zip_build_sh": "PASS",
+  "final_zip_bibtex_regeneration": "PASS",
+  "final_zip_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "final_zip_byte_identical": true,
+  "changed_pages": [
+    16,
+    17
+  ],
+  "figure_7x_pages": [
+    5,
+    9,
+    14
+  ],
+  "law_render": "PASS",
+  "bibtex_generation": "PASS",
+  "build_run": 45346285838,
+  "verification_run": 45348075688,
+  "verification_sha": "7bd572fff40ee72ea7d0f3d08e98c1360729ca62",
+  "restored_artifact_id": 14898826993,
+  "main_pdf_recompiled_on_resume": false,
+  "diff_recomputed_on_resume": false
 }
