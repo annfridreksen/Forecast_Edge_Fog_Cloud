@@ -1,8 +1,8 @@
-name: R1.5 final clean PDF and diff-pdf
+name: R1.5 addressed review and reproducible submission
 on:
   push:
     branches: [night/fefc-v3]
-    paths: ['scripts/r15_c9_close.py', '.github/workflows/r14-paper.yml']
+    paths: ['scripts/r15_postreview.py', '.github/workflows/r14-paper.yml']
 permissions:
   contents: write
   actions: read
@@ -27,9 +27,11 @@ jobs:
         with:
           python-version: '3.13'
           cache: pip
-      - name: Save exact layout and utility-source delta under lease
-        run: python scripts/r15_c9_close.py
-      - name: Install standard signed build dependencies with bounded network operations
+      - name: Confirm HEAD lease and syntax; do not rerun C9 editing
+        run: |
+          test "$(git ls-remote origin refs/heads/night/fefc-v3 | cut -f1)" = "$GITHUB_SHA"
+          python -W error -m py_compile scripts/r15_postreview.py
+      - name: Install standard signed dependencies with bounded operations
         run: |
           mkdir -p results/r15/build
           timeout 300 python -m pip install --timeout 30 --retries 1 -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -30 results/r15/build/install-python.log; exit 1; }
@@ -44,7 +46,9 @@ jobs:
           PY
           timeout 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
           timeout 600 sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
-      - name: Build pinned official diff-pdf utility
+      - name: Apply and commit only reviewed source delta and real BibTeX output
+        run: python scripts/r15_postreview.py prepare
+      - name: Build pinned diff-pdf utility for changed PDF
         run: |
           mkdir -p /tmp/fefc-diff-pdf
           git -C /tmp/fefc-diff-pdf init -q
@@ -57,7 +61,7 @@ jobs:
           make -j2 >> "$GITHUB_WORKSPACE/results/r15/build/diff-pdf-build.log" 2>&1
           test -x /tmp/fefc-diff-pdf/diff-pdf
           echo 'DIFF_PDF_BIN=/tmp/fefc-diff-pdf/diff-pdf' >> "$GITHUB_ENV"
-      - name: Restore published exact data and reuse unchanged executed cells
+      - name: Restore frozen data and reuse compatible notebook outputs
         run: |
           mkdir -p results/r15/build/work
           python submission/reassemble.py --directory deliverables/r15 --output results/r15/build/work/frozen131.zip
@@ -68,43 +72,48 @@ jobs:
           shutil.copytree('deliverables/r15/validation/r14-frozen-output','results/r15/prior-text/validation',dirs_exist_ok=True)
           for n in ('conditional-trace','conditional-tests','author-tests'):
               shutil.copytree('deliverables/r15/validation/'+n,'results/r15/build/'+n,dirs_exist_ok=True)
-          print('Unchanged passed tests and cells reused; no scientific simulation/bootstrap.')
+          print('No scientific simulation, bootstrap or repeated accepted tests.')
           PY
-      - name: Record source and environment
+      - name: Record exact execution environment and source
         run: |
-          git archive --format=tar.gz HEAD -o results/r15/build/source.tar.gz
           python -m pip freeze > results/r15/build/dependencies.txt
           pdflatex --version > results/r15/build/tex-version.txt
+          bibtex --version > results/r15/build/bibtex-version.txt
           printf '%s\n' "$R15_SOURCE_SHA" > results/r15/build/SOURCE_SHA.txt
-      - name: Build clean PDF isolated ZIP and actual diff-pdf comparison
+          git ls-tree -r HEAD -- article scripts submission efc > results/r15/build/source-git-objects.txt
+      - name: Build changed PDF isolated source ZIP and diff-PDF
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/r15_build_author.py --out results/r15/build
-      - name: Retain actual field outputs and reject overfull boxes in clean PDF
+      - name: Verify rendered Law, both full 7x figures and final ZIP BibTeX regeneration
+        run: python scripts/r15_postreview.py inspect
+      - name: Retain unchanged evidence outputs and inspect warnings
         run: |
           python - <<'PY'
           from pathlib import Path
           import shutil,json
           o=Path('results/r15/build')
           shutil.copytree(o/'conditional-trace',o/'delivery/validation/conditional-trace',dirs_exist_ok=True)
-          for n in ('dependencies.txt','tex-version.txt'):
+          for n in ('dependencies.txt','tex-version.txt','bibtex-version.txt'):
               shutil.copy2(o/n,o/'delivery'/n);shutil.copy2(o/n,o/'work/reproducibility'/n)
           warnings=json.loads((o/'tex-logs/warnings.json').read_text())
           print('TEX_WARNINGS',warnings)
-          if any('Overfull' in s for s in warnings):raise ValueError('Clean PDF still has an overfull box; do not publish it')
+          if any('Overfull' in s for s in warnings):raise ValueError('Overfull in changed PDF; publication blocked')
           diff=json.loads((o/'delivery/difference-provenance.json').read_text())
           assert diff['method']=='diff-pdf' and diff['requested_utility_success']
-          print('C9_UTILITY',diff)
+          print('POSTREVIEW_RECEIPT',(o/'receipt.json').read_text())
           PY
-      - name: Protected sources unchanged
+      - name: Ensure build did not alter committed scientific or manuscript sources
         if: always()
         run: git diff --exit-code -- v2 efc docs tests scripts colab configs article submission results/r14/article_evidence.json results/r15/service_reference.json results/r15/conditional_analysis.json
-      - name: Publish generated delivery with lease and verify anonymous hashes
+      - name: Publish generated delivery with HEAD lease and verify anonymous bytes
         run: python scripts/r15_publish.py --out results/r15/build
+      - name: Persist publication receipt, update STATUS and explicitly release owner
+        run: python scripts/r15_postreview.py register
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: r15-final-${{ github.sha }}
+          name: r15-postreview-${{ github.sha }}
           path: |
             results/r15/build/
             !results/r15/build/work/**
