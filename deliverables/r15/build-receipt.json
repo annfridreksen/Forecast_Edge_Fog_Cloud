@@ -76,7 +76,7 @@
   "submission_zip_sha256": "b82a7b8384f37e2e84a756473da7c8fdb6dd91e8f1e9e6ff41c7c447525f59a2",
   "difference_pdf_sha256": "ee5f9bb09b270dbb945ff76f697a1e2ac10a40da3b79b60955eebe733c70d1a7",
   "data_complete_for_frozen_131": true,
-  "public_access": "PENDING_PUBLICATION_AND_ANONYMOUS_DOWNLOAD",
+  "public_access": "PUBLIC_DOWNLOAD_VERIFIED",
   "final_zip_build_sh": "PASS",
   "final_zip_bibtex_regeneration": "PASS",
   "final_zip_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
@@ -97,5 +97,7 @@
   "verification_sha": "7bd572fff40ee72ea7d0f3d08e98c1360729ca62",
   "restored_artifact_id": 14898826993,
   "main_pdf_recompiled_on_resume": false,
-  "diff_recomputed_on_resume": false
+  "diff_recomputed_on_resume": false,
+  "publication_receipt": "publication.json",
+  "artifact_delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a"
 }

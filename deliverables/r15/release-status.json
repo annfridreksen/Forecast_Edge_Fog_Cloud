@@ -1,0 +1,26 @@
+{
+  "ready_to_submit": false,
+  "article_sent": false,
+  "author_signed": false,
+  "writer_lease": "RELEASED",
+  "writer_comment": 7124374400,
+  "source_sha": "fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191",
+  "artifact_delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a",
+  "run_id": "45348075688",
+  "last_review_comment": 7123877180,
+  "final_review_verdict": "NOT_READY_7122631239",
+  "fixed": [
+    "Law",
+    "BIB/BBL",
+    "repeatable build route",
+    "source provenance",
+    "persistent publication receipt"
+  ],
+  "open": [
+    "author metadata/rights/funding",
+    "NSCF identity/profile provenance",
+    "A4 scope decision",
+    "changed-page/full7x visual check",
+    "independent addressed acceptance"
+  ]
+}
