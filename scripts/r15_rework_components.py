@@ -144,7 +144,7 @@ def add_figures(path):
   sec.orientation=WD_ORIENT.LANDSCAPE if name.startswith('C03') else WD_ORIENT.PORTRAIT
   sec.page_width=Cm(29.7 if name.startswith('C03') else 21);sec.page_height=Cm(21 if name.startswith('C03') else 29.7)
   sec.top_margin=sec.bottom_margin=Cm(1.5);sec.left_margin=sec.right_margin=Cm(1.5)
-  doc.add_heading(ru.split('.')[0]+'. Схема',1)
+  heading=doc.add_paragraph(ru.split('.')[0]+'. Схема');heading.style=ensure_style(doc,'Heading 1')
   image=D/'figures'/(name+'-preview.png')
   with Image.open(image) as im:w,h=im.size
   maxw=(sec.page_width-sec.left_margin-sec.right_margin)/914400
