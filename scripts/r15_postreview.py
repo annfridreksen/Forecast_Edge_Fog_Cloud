@@ -176,8 +176,8 @@ def checklist(receipt, changed):
 |3|[ДЛЯ АВТОРА]|Авторские блоки/фотографии отсутствуют без подтверждения|Состав авторов, организации, фото и права, 4–7 строк о каждом, финансирование|
 |4|Law исправлен; остальное частично|law-render-check.json; bibliography-generation.json; 28 записей/27 идентификаторов/10 за2023–2026|[ДЛЯ АВТОРА] НСКФ: выходные сведения, авторство, идентификатор и основание использования профилей|
 |5|См. publication.json|Неизменяемые ссылки; фактические анонимные загрузки и SHA|[ДЛЯ АВТОРА] права на публикацию; DOI комплекта не присваивался|
-|6|Технические проверки выполнены|TikZ, номера, гиперссылки, двуязычные подписи; обе страницы рисунков в7×|Визуальный осмотр обеих схем7×; оставшиеся предупреждения не скрыты|
-|7|Частично; не новый визуальный PASS|page-review.json: сравнение растров старого/нового PDF; прежний просмотр #7117633710|Просмотр изменённых страниц и обоих полных рисунков7×; собственный просмотр не заявлен|
+|6|Технические проверки выполнены|TikZ, номера, гиперссылки, двуязычные подписи; все страницы рисунков в7×|Визуальный осмотр всех схем7×; оставшиеся предупреждения не скрыты|
+|7|Частично; не новый визуальный PASS|page-review.json: сравнение растров старого/нового PDF; прежний просмотр #7117633710|Просмотр изменённых страниц и всех полных рисунков7×; собственный просмотр не заявлен|
 |8|Проект подготовлен|cover_letter.md, не подписан/не отправлен|[ДЛЯ АВТОРА] личные подтверждения, реквизиты, финансирование и подпись|
 |9|Выполнено технически|difference.pdf; настоящий diff-pdf; точные before/after SHA в provenance|Независимая адресная приёмка нового комплекта|
 
@@ -189,7 +189,8 @@ def inspect():
     import fitz
     from scripts.build_r15_submission import package_zip, unpack
     d=OUT/'delivery';receipt=json.loads((d/'build-receipt.json').read_text())
-    old=ROOT/'deliverables/r15/article.pdf';new=d/'article.pdf'
+    old=OUT/'reviewed-baseline.pdf';new=d/'article.pdf'
+    old.write_bytes(subprocess.check_output(['git','show',BASE+':deliverables/r15/article.pdf'],cwd=ROOT))
     if sha(old)!=BASE_PDF:raise ValueError('Wrong previously reviewed PDF')
     ledger=[];changed=[];figure_pages=[]
     main=(ROOT/'article/main.tex').read_text()
@@ -220,13 +221,13 @@ def inspect():
                 if normalize(cap)[:50] in normalized and i+1 not in figure_pages:
                     figure_pages.append(i+1)
                     p.get_pixmap(matrix=fitz.Matrix(7,7),alpha=False).save(d/'pages'/f'figure-page-{i+1:02}-7x.png')
-        if len(captions)!=2 or len(figure_pages)!=2:raise ValueError('Both figure pages not identified: '+repr((captions,figure_pages)))
+        if not captions or len(captions)!=main.count(r'egin{figure}') or len(figure_pages)!=len(captions):raise ValueError('Not all source figure pages identified: '+repr((captions,figure_pages)))
     put(d/'page-review.json',ledger)
     put(d/'postreview-resolution.json',dict(baseline_delivery=BASE,pdf_sha256=sha(new),changed_pages=changed,
        figure_7x_pages=figure_pages,own_visual_review=False,prior_review_source=REVIEW,
        later_review_scope='7123877180 reports no new personal visual inspection; earlier record is preserved, not replaced.',
        resolved=['Law title/edition/ISBN rendering','real BibTeX BIB/BBL','one-shot C9 not rerun','scientific versus editorial source'],
-       open=['author metadata and permissions','NSCF bibliographic details and profile provenance','A4 scope decision','changed-page and both-figure visual review','independent final acceptance'],
+       open=['author metadata and permissions','NSCF bibliographic details and profile provenance','A4 scope decision','changed-page and all-figure visual review','independent final acceptance'],
        wei_primary_source='https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.APPROX/RANDOM.2020.60',
        wei_checked='Author/title/year/volume/pages/DOI confirmed from publisher by executor web access on 2026-11-24 and reviewer 7122631239; not a new full bibliography audit.'))
     shutil.copy2(OUT/'bibliography-generation.json',d/'bibliography-generation.json')
@@ -273,7 +274,7 @@ def register():
       fixed=['Law','BIB/BBL','repeatable build route','source provenance','persistent publication receipt'],
       open=['author metadata/rights/funding','NSCF identity/profile provenance','A4 scope decision','changed-page/full7x visual check','independent addressed acceptance']))
     put(target/'SHA256.json',{p.relative_to(target).as_posix():sha(p) for p in sorted(target.rglob('*')) if p.is_file() and p.name!='SHA256.json'})
-    status='# STATUS — R1.5: адресный технический этап завершён\n\n24.11.2026. Владелец #7124374400 явно ОСВОБОДИЛ запись после успешной публикации. Старый #7115035873 также закрыт. Незавершённого push этого workflow нет. Только night/fefc-v3; PR#2 не слит.\n\nИсходники: '+pub['source_sha']+'. Коммит артефактов: '+expected+'. Run '+os.environ.get('GITHUB_RUN_ID','unknown')+'. Последующие метаданные не меняют PDF/ZIP.\nPDF SHA256 '+receipt['pdf_sha256']+'\nZIP SHA256 '+receipt['submission_zip_sha256']+'\n\nLaw title/edition/ISBN: PASS по тексту PDF. Настоящие BIB/BBL/BST: PASS, BBL подключён; изолированный ZIP→build.sh→BibTeX+pdflatex: PASS. diff-pdf выполнен для изменённого PDF. Девять анонимных загрузок с хешами сохранены в deliverables/r15/publication.json. Официальный класс не изменён. Старый отказ C9 закрыт.\n\nВизуальная проверка: прежняя #7117633710 относится к PDF '+BASE_PDF+'. Новое сравнение страниц — page-review.json; пиксельное равенство не называется собственным осмотром. Изменённые страницы '+str(receipt['changed_pages'])+' и обе полные схемы7× требуют просмотра. Поздний #7123877180 сообщает отсутствие нового просмотра, не отменяет исторический отчёт.\n\nСрез07:00 не расширен: статья131, отдельный кэш162. Новых симуляций/bootstrap/обучения нет. Принятые решения6–9 и условный вывод сохранены. A4/независимое подтверждение не завершены. [ДЛЯ АВТОРА] решение о сокращённом исследовании, авторский состав/организации/финансирование/фото/права/согласия и сведения НСКФ. Вердикт #7122631239 НЕ ГОТОВО сохраняется до адресной независимой приёмки.\n\nСледующий шаг: читать publication/release-status/page-review, осмотреть только изменённые страницы и обе схемы; получить подтверждённые авторские сведения; обновить описание PR ссылкой на эту регистрацию без слияния. Исправный PDF и научные тесты не повторять.\n\nЖурнал 24.11.2026 · BT26-R15-EXEC-20261124-10 · источник: реальные журналы текущего run, реестры и отзывы #7122631239/#7123877180 · технические исправления выполнены, отправка не разрешена, запись освобождена.\n'
+    status='# STATUS — R1.5: адресный технический этап завершён\n\n24.11.2026. Владелец #7124374400 явно ОСВОБОДИЛ запись после успешной публикации. Старый #7115035873 также закрыт. Незавершённого push этого workflow нет. Только night/fefc-v3; PR#2 не слит.\n\nИсходники: '+pub['source_sha']+'. Коммит артефактов: '+expected+'. Run '+os.environ.get('GITHUB_RUN_ID','unknown')+'. Последующие метаданные не меняют PDF/ZIP.\nPDF SHA256 '+receipt['pdf_sha256']+'\nZIP SHA256 '+receipt['submission_zip_sha256']+'\n\nLaw title/edition/ISBN: PASS по тексту PDF. Настоящие BIB/BBL/BST: PASS, BBL подключён; изолированный ZIP→build.sh→BibTeX+pdflatex: PASS. diff-pdf выполнен для изменённого PDF. Девять анонимных загрузок с хешами сохранены в deliverables/r15/publication.json. Официальный класс не изменён. Старый отказ C9 закрыт.\n\nВизуальная проверка: прежняя #7117633710 относится к PDF '+BASE_PDF+'. Новое сравнение страниц — page-review.json; пиксельное равенство не называется собственным осмотром. Изменённые страницы '+str(receipt['changed_pages'])+' и все полные схемы7× требуют просмотра. Поздний #7123877180 сообщает отсутствие нового просмотра, не отменяет исторический отчёт.\n\nСрез07:00 не расширен: статья131, отдельный кэш162. Новых симуляций/bootstrap/обучения нет. Принятые решения6–9 и условный вывод сохранены. A4/независимое подтверждение не завершены. [ДЛЯ АВТОРА] решение о сокращённом исследовании, авторский состав/организации/финансирование/фото/права/согласия и сведения НСКФ. Вердикт #7122631239 НЕ ГОТОВО сохраняется до адресной независимой приёмки.\n\nСледующий шаг: читать publication/release-status/page-review, осмотреть только изменённые страницы и все схемы; получить подтверждённые авторские сведения; обновить описание PR ссылкой на эту регистрацию без слияния. Исправный PDF и научные тесты не повторять.\n\nЖурнал 24.11.2026 · BT26-R15-EXEC-20261124-10 · источник: реальные журналы текущего run, реестры и отзывы #7122631239/#7123877180 · технические исправления выполнены, отправка не разрешена, запись освобождена.\n'
     (ROOT/'docs/STATUS.md').write_text(status,encoding='utf-8')
     paths=['docs/STATUS.md']+['deliverables/r15/'+n for n in ('publication.json','build-receipt.json','release-status.json','SHA256.json')]
     final=commit(paths,'Issue #5 R1.5: сохранить фактическую доставку и освободить запись исполнителя',expected)

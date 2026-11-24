@@ -30,7 +30,7 @@ def finalize(out):
 
 
 def publish(out):
-    expected=os.environ.get('R15_SOURCE_SHA',os.environ['GITHUB_SHA']);ref='refs/heads/'+BRANCH
+    expected=os.environ.get('R15_EXPECTED_HEAD',os.environ.get('R15_SOURCE_SHA',os.environ['GITHUB_SHA']));ref='refs/heads/'+BRANCH
     def remote():return git('ls-remote','origin',ref).split()[0]
     if remote()!=expected:raise RuntimeError('HEAD lease lost; preserve artifact, do not overwrite another executor')
     request=urllib.request.Request(f'https://api.github.com/repos/{REPO}',headers={'User-Agent':'FEFC-R15-public-check'})
@@ -58,7 +58,7 @@ def publish(out):
             while b:=f.read(1<<20):h.update(b);size+=len(b)
         if h.hexdigest()!=sha(target/name):raise ValueError('Anonymous download differs: '+name)
         checks.append(dict(file=name,url=url,sha256=h.hexdigest(),bytes=size,authenticated=False))
-    result=dict(status='PUBLIC_DOWNLOAD_VERIFIED',source_sha=expected,delivery_sha=published,branch=BRANCH,checks=checks,
+    result=dict(status='PUBLIC_DOWNLOAD_VERIFIED',source_sha=json.loads((out/'delivery/build-receipt.json').read_text())['source_sha'],verification_sha=expected,delivery_sha=published,branch=BRANCH,checks=checks,
                 visibility_changed=False,article_sent=False,ready_to_submit=False,
                 reason='Author metadata, permissions, page inspection and independent acceptance remain open.')
     put(out/'publication.json',result);print('PUBLICATION_RECEIPT',json.dumps(result,ensure_ascii=False),flush=True)
