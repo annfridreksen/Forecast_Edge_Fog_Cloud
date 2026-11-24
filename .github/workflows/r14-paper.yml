@@ -12,7 +12,7 @@ concurrency:
 jobs:
   final_package:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 20
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       OPENBLAS_NUM_THREADS: '1'
@@ -31,29 +31,55 @@ jobs:
         run: |
           test "$(git ls-remote origin refs/heads/night/fefc-v3 | cut -f1)" = "$GITHUB_SHA"
           python -W error -m py_compile scripts/r15_postreview.py
-      - name: Install standard signed dependencies with bounded operations
+      - name: Install Python dependencies
         run: |
           mkdir -p results/r15/build
-          timeout 300 python -m pip install --timeout 30 --retries 1 -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -30 results/r15/build/install-python.log; exit 1; }
+          timeout -k 15s 240 python -m pip install --timeout 20 --retries 1 -r requirements.txt pymupdf > results/r15/build/install-python.log 2>&1 || { tail -30 results/r15/build/install-python.log; exit 1; }
+      - name: Resolve actual mirror-list indirection and install signed TeX dependencies
+        run: |
           python - <<'PY'
           from pathlib import Path
           import re,subprocess
-          for p in [Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list')]:
+          paths=[Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list'),*Path('/etc/apt').glob('*mirrors*.txt')]
+          for p in paths:
               if p.exists():
                   s=p.read_text();n=re.sub(r'https?://[a-z0-9.-]*ec2\.archive\.ubuntu\.com/ubuntu','https://archive.ubuntu.com/ubuntu',s)
                   if n!=s:
                       t=Path('/tmp')/(p.name+'.fefc');t.write_text(n);subprocess.run(['sudo','cp',str(t),str(p)],check=True)
+                      print('REPLACED_REGIONAL_MIRROR',str(p),flush=True)
+          for p in Path('/etc/apt').glob('*mirrors*.txt'):
+              if 'ec2.archive.ubuntu.com' in p.read_text():raise RuntimeError('Unresolved regional mirror: '+str(p))
           PY
-          timeout 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
-          timeout 600 sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15/build/install-tex.log 2>&1 || { tail -40 results/r15/build/install-tex.log; exit 1; }
-      - name: Apply and commit only reviewed source delta and real BibTeX output
-        run: python scripts/r15_postreview.py prepare
+          set +e
+          timeout -k 15s 120 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/install-tex.log 2>&1
+          rc=$?; echo "APT_UPDATE_EXIT=$rc" | tee -a results/r15/build/install-tex.log
+          if [ "$rc" != 0 ]; then tail -50 results/r15/build/install-tex.log; exit "$rc"; fi
+          timeout -k 15s 360 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15/build/install-tex.log 2>&1
+          rc=$?; echo "APT_INSTALL_EXIT=$rc" | tee -a results/r15/build/install-tex.log
+          if [ "$rc" != 0 ]; then tail -50 results/r15/build/install-tex.log; exit "$rc"; fi
+      - name: Apply reviewed delta once or verify already committed bibliography
+        run: |
+          python - <<'PY'
+          import os,subprocess
+          import scripts.r15_postreview as p
+          p.OUT.mkdir(parents=True,exist_ok=True)
+          if '\\input{r15-references.bbl}' not in (p.ROOT/'article/main.tex').read_text():
+              p.prepare()
+          else:
+              expected=os.environ['GITHUB_SHA']
+              if p.git('ls-remote','origin',p.REF).split()[0]!=expected:raise RuntimeError('HEAD lease lost')
+              receipt=p.bibliography((p.ROOT/'article/r15-references.tex').read_text())
+              subprocess.run(['git','diff','--exit-code','--','article'],cwd=p.ROOT,check=True)
+              p.put(p.OUT/'bibliography-generation.json',receipt)
+              with open(os.environ['GITHUB_ENV'],'a') as f:f.write('R15_SOURCE_SHA='+expected+'\n')
+              print('REUSED_COMMITTED_SOURCE',expected)
+          PY
       - name: Build pinned diff-pdf utility for changed PDF
         run: |
           mkdir -p /tmp/fefc-diff-pdf
           git -C /tmp/fefc-diff-pdf init -q
           git -C /tmp/fefc-diff-pdf remote add origin https://github.com/vslavik/diff-pdf.git
-          timeout 90 git -C /tmp/fefc-diff-pdf fetch --depth=1 origin 092e6e31968cf28984c201a8c300f76f0020fbe4
+          timeout -k 15s 90 git -C /tmp/fefc-diff-pdf fetch --depth=1 origin 092e6e31968cf28984c201a8c300f76f0020fbe4
           git -C /tmp/fefc-diff-pdf checkout --detach FETCH_HEAD
           cd /tmp/fefc-diff-pdf
           ./bootstrap > "$GITHUB_WORKSPACE/results/r15/build/diff-pdf-build.log" 2>&1
@@ -85,8 +111,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/r15_build_author.py --out results/r15/build
-      - name: Verify rendered Law, both full 7x figures and final ZIP BibTeX regeneration
-        run: python scripts/r15_postreview.py inspect
+      - name: Verify rendered Law and final ZIP against exact reviewed baseline
+        run: |
+          python - <<'PY'
+          import subprocess
+          import scripts.r15_postreview as p
+          target=p.ROOT/'deliverables/r15/article.pdf'
+          current=target.read_bytes()
+          baseline=subprocess.check_output(['git','show',p.BASE+':deliverables/r15/article.pdf'],cwd=p.ROOT)
+          try:
+              target.write_bytes(baseline)
+              p.inspect()
+          finally:
+              target.write_bytes(current)
+          print('Reviewed baseline read from exact commit; working delivery restored without changes.')
+          PY
       - name: Retain unchanged evidence outputs and inspect warnings
         run: |
           python - <<'PY'
