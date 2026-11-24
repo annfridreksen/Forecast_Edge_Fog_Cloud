@@ -269,6 +269,8 @@ def latex(M,A,body,keys,figs,captions):
   return '{\\small\\setlength{\\tabcolsep}{3pt}\n'+block+'\n}'
  t=re.sub(r'\\begin\{longtable\}.*?\\end\{longtable\}',table,t,flags=re.S)
  for name in ('Метод выбора конфигурации','Результаты','Обсуждение и ограничения'):t=t.replace('\\section{'+name+'}','\\FloatBarrier\n\\section{'+name+'}')
+ from scripts.r15_psta_readability import body_links_and_captions, author_blocks
+ t=body_links_and_captions(t)
  (S/'body.tex').write_text(t)
  title=lambda s:pandoc_text(s).strip()
  short_titles={'ru': 'Моделирование краевой и туманной среды', 'en': 'Edge--fog simulation and reassignment'}
@@ -300,6 +302,7 @@ def latex(M,A,body,keys,figs,captions):
 \raggedbottom\input{references.bbl}
 \English\maketitle\section*{Extended summary}
 '''+pandoc_text(M['extended_summary'])+'\n\\end{document}\n'
+ base=author_blocks(base)
  (S/'main.tex').write_text(base)
  script=r'''#!/bin/sh
 set -eu
@@ -320,6 +323,7 @@ if grep -E 'Undefined control sequence|LaTeX Error|There were undefined referenc
  warnings=[x for x in log.splitlines() if any(w in x for w in ('Warning','Overfull','Underfull'))]
  put(D/'tex-warnings.json',warnings)
  require('Overfull' not in log,'PSTA has no overfull boxes')
+ require('pdfTeX warning (dest)' not in log,'All PDF destinations exist')
  return warnings
 
 
