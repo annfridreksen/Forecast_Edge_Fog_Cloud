@@ -1,4 +1,4 @@
-name: R1.5 resume actual rendered Word and finish PSTA targets
+name: R1.5 saved Word checkpoint then scoped P and F
 on:
   push:
     branches: [night/fefc-v3]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   finish_saved:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 18
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       SOURCE_DATE_EPOCH: '1795478400'
@@ -25,9 +25,122 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install only remaining PDF and comparison dependencies
+      - name: Restore last exact artifact without exporting Word again
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           mkdir -p results/r15-visual/logs
+          timeout -k 15s 120 python -m pip install --timeout 20 --retries 1 lxml pymupdf > results/r15-visual/logs/staged-python-install.log 2>&1
+          python - <<'PY'
+          import os,subprocess
+          from pathlib import Path
+          from scripts.build_r15_submission import download,unpack
+          from scripts import r15_visual_finish as p
+          if p.git('ls-remote','origin',p.REF).split()[0]!=os.environ['GITHUB_SHA']:raise RuntimeError('HEAD lease lost')
+          if p.git('status','--porcelain','--untracked-files=no'):raise RuntimeError('Unsaved tracked changes on fresh runner')
+          z=Path('results/preserved-14971626698.zip')
+          digest='1f0d84b03ca52e2dfe0531a88b512c7f2ef06f8bfad30a6b17e7c321a2257eb2'
+          download('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/14971626698/zip',z,digest,github=True)
+          unpack(z,p.OUT)
+          report=__import__('json').loads((p.D/'word-render-checks.json').read_text())
+          for t in report['tests']:
+              if 'file' in t and p.sha(p.D/t['file'])!=t['pdf_sha256']:raise ValueError('Changed saved Word PDF')
+          p.put(p.OUT/'staged-resume.json',dict(artifact_id=14971626698,artifact_sha256=digest,word_export_run=45501213211,last_run=45502720699,word_regenerated=False,figures_regenerated=False,local_private_workspace='INACCESSIBLE_NOT_MODIFIED',runner_tracked_changes=False))
+          with open(os.environ['GITHUB_ENV'],'a') as f:f.write('VISUAL_HEAD='+os.environ['GITHUB_SHA']+'\n')
+          print('EXACT_ARTIFACT_RESTORED',digest)
+          PY
+      - name: W - validate and immediately publish preserved DOCX and PDF
+        run: |
+          python - <<'PY'
+          import os,json,shutil,re
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          from lxml import etree as E
+          import pymupdf as fitz
+          from scripts import r15_visual_finish as p
+          from scripts.r15_word_math_compat import NS,mathematical_tokens
+          target=p.ROOT/'deliverables/r15-word-readable';target.mkdir(parents=True,exist_ok=True)
+          tests=[];pages=[];texts=[]
+          for path in sorted(p.D.glob('Статья*.docx')):
+              with ZipFile(path) as z,ZipFile(p.INPUT/path.name) as old:
+                  a=E.fromstring(z.read('word/document.xml'));b=E.fromstring(old.read('word/document.xml'))
+                  words=a.xpath('//w:t/text()',namespaces=NS)
+                  if words!=b.xpath('//w:t/text()',namespaces=NS):raise ValueError('Scientific words changed')
+                  maths=[mathematical_tokens(e) for e in a.xpath('//m:oMath',namespaces=NS)]
+                  if maths!=[mathematical_tokens(e) for e in b.xpath('//m:oMath',namespaces=NS)]:raise ValueError('Mathematical tokens changed')
+                  if len(maths)!=116 or len(a.xpath('//m:oMathPara',namespaces=NS))!=9:raise ValueError('OMML count differs')
+                  texts.append((words,maths))
+              pdf=path.with_suffix('.pdf');tests.append(p.check_word_pdf(pdf))
+              for f in (path,pdf):shutil.copy2(f,target/f.name)
+              with fitz.open(pdf) as doc:
+                  label='reading' if 'для_чтения' in path.name else 'red'
+                  controls=target/'control-pages'/label;controls.mkdir(parents=True,exist_ok=True)
+                  txt=[]
+                  for i,page in enumerate(doc):
+                      text=page.get_text();txt.append(f'--- PAGE {i+1} ---\n'+text)
+                      page.get_pixmap(matrix=fitz.Matrix(1.5,1.5),alpha=False).save(controls/f'{i+1:02}.png')
+                      pages.append(dict(file=pdf.name,page=i+1,pdf_sha256=p.sha(pdf),rendered=True,visual_inspection='PENDING_NOT_REPLACED_BY_TEXT_CHECK'))
+                  (target/(label+'-actual-pdf-text.txt')).write_text('\n'.join(txt),encoding='utf-8')
+          if len(texts)!=2 or texts[0]!=texts[1]:raise ValueError('Reading and red Word differ in content')
+          try:p.check_word_pdf(p.INPUT/'Статья_FEFC_R15_v3_для_чтения.pdf')
+          except ValueError as exc:negative=str(exc)
+          else:raise ValueError('Known broken export was not rejected')
+          shutil.copy2(p.D/'word-render-checks.json',target/'original-export-checks.json')
+          receipt=dict(stage='W',source_sha=os.environ['VISUAL_HEAD'],word_export_run=45501213211,verification_run=os.environ['GITHUB_RUN_ID'],preserved_artifact=14971626698,tests=tests,negative_original=negative,omml=116,display_equations=9,same_content_in_both_copies=True,word_regenerated=False,scientific_results_unchanged=True,visual_acceptance=False,ready_to_submit=False)
+          p.put(target/'W_CHECK.json',receipt);p.put(target/'page-review.json',pages)
+          (target/'README.md').write_text('# W — читаемые Word-копии, отдельная сохранённая выдача\n\nСохранённый экспорт run45501213211. Две DOCX и соответствующие PDF, 116 OMML/9 формул; слова и математические токены неизменны. Проверка фактического PDF-текста включает математические знаки и подписи/ветви трёх схем; исходный сломанный экспорт отклонён. Контрольные изображения всех страниц приложены. Машинная проверка не названа личным визуальным просмотром; независимая приёмка открыта. Красная копия выделяет разделы целиком, не посимвольный Track Changes.\n')
+          p.put(target/'SHA256.json',{f.relative_to(target).as_posix():p.sha(f) for f in target.rglob('*') if f.is_file() and f.name not in ('SHA256.json','FEFC_W_Word_PDF.zip')})
+          with ZipFile(target/'FEFC_W_Word_PDF.zip','w',ZIP_DEFLATED) as z:
+              for f in sorted(target.rglob('*')):
+                  if f.is_file() and f.name!='FEFC_W_Word_PDF.zip':z.write(f,f.relative_to(target))
+          status=p.ROOT/'docs/STATUS.md';status.write_text('# STATUS — W сохранён отдельно; далее P\n\n25.11.2026 | W | deliverables/r15-word-readable, W_CHECK/SHA256 | фактические PDF-формулы/подписи и OMML проверены; личный просмотр открыт | run '+os.environ['GITHUB_RUN_ID']+' / владелец #7146889767 | далее P: устранить ref*→russian--*; затем F. Готовые Word/векторы не регенерировались. Частная среда недоступна, не изменялась.\n\n'+status.read_text())
+          value=p.commit(['deliverables/r15-word-readable','docs/STATUS.md'],'Issue #5 W: отдельно предъявить сохранённые Word/PDF с формулами, подписями и проверкой')
+          p.put(p.OUT/'W_publication.json',dict(sha=value,files='deliverables/r15-word-readable',stage='W',ready_to_submit=False))
+          print('W_DELIVERY_SHA',value,flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FEFC-W-readable-${{ github.run_id }}
+          path: deliverables/r15-word-readable/
+          if-no-files-found: error
+      - name: P - fix class-compatible table references and run scoped source tests
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os,re,subprocess,urllib.request,json
+          from pathlib import Path
+          from scripts import r15_visual_finish as p
+          req=urllib.request.Request('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5/comments?since=2026-11-24T22%3A25%3A20Z&per_page=50',headers={'Authorization':'Bearer '+os.environ['GITHUB_TOKEN'],'User-Agent':'FEFC-staged-review'})
+          with urllib.request.urlopen(req,timeout=30) as f:comments=json.load(f)
+          p.put(p.OUT/'new-review-comments-before-P.json',[dict(id=x['id'],updated_at=x['updated_at'],body=x['body']) for x in comments])
+          unknown=[x['id'] for x in comments if x['id']!=7146889767]
+          if unknown:raise RuntimeError('New comments require reading before P: '+repr(unknown))
+          f=Path('scripts/r15_psta_readability.py');s=f.read_text()
+          old="                            r'\\hyperlink{' + target + r'}{\\ref*{tab:' + str(n) + '}}')"
+          new="                            r'\\hyperlink{' + target + r'}{\\getrefnumber{russian--tab:' + str(n) + '}}')"
+          if s.count(old)!=1:raise ValueError('Exact incompatible ref* anchor changed')
+          s=s.replace(old,new)
+          anchor="        text = text.replace(r'\\ref{tab:' + str(n) + '}',"
+          prefix="        text = text.replace(r'\\ref*{tab:' + str(n) + '}', r'\\getrefnumber{russian--tab:' + str(n) + '}')\n"
+          if s.count(anchor)!=1:raise ValueError('Table reference anchor changed')
+          s=s.replace(anchor,prefix+anchor);f.write_text(s)
+          subprocess.run(['python','-W','error','-m','py_compile',str(f)],check=True)
+          from scripts.r15_psta_readability import body_links_and_captions,table_targets
+          source=(p.INPUT/'LaTeX/body.tex').read_text();repaired=body_links_and_captions(source)
+          if body_links_and_captions(repaired)!=repaired:raise ValueError('Not idempotent')
+          for n in range(1,4):
+              if ('russian--tab:'+str(n)) not in repaired or ('fefc-tab:'+str(n)) not in repaired:raise ValueError('Lost table reference')
+          if r'\ref*' in repaired:raise ValueError('Unsupported class reference retained')
+          try:body_links_and_captions('No captions here')
+          except ValueError:pass
+          else:raise ValueError('Malformed source not rejected')
+          p.put(p.OUT/'P-source-tests.json',dict(idempotent=True,three_table_targets=True,class_compatible_numbers=True,malformed_source_rejected=True,scientific_text_changed=False))
+          status=Path('docs/STATUS.md');status.write_text('# STATUS — P: несовместимый ref* исправлен; W сохранён\n\n25.11.2026 | P | scripts/r15_psta_readability.py | источник/refcount/idempotence/отрицательный тест выполнены, PDF ещё не проверен | run '+os.environ['GITHUB_RUN_ID']+' / #7146889767 | одна затронутая PSTA-сборка и реальные переходы, затем F. Исправление equation.6 по AUX уже принято из сохранённого кода и не повторено.\n\n'+status.read_text())
+          print('P_FIX_SHA',p.commit([str(f),'docs/STATUS.md'],'Issue #5 P: совместимые с psta.cls номера ссылок таблиц без ref*'),flush=True)
+          PY
+      - name: Install remaining PSTA and comparison dependencies only
+        run: |
           python - <<'PY'
           from pathlib import Path
           import re,subprocess
@@ -37,14 +150,37 @@ jobs:
                   if n!=s:
                       q=Path('/tmp')/(p.name+'.fefc');q.write_text(n);subprocess.run(['sudo','cp',str(q),str(p)],check=True)
           PY
-          timeout -k 15s 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15-visual/logs/resume-install.log 2>&1 || { tail -40 results/r15-visual/logs/resume-install.log; exit 1; }
-          timeout -k 15s 420 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=25 -o Acquire::https::Timeout=25 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15-visual/logs/resume-install.log 2>&1 || { tail -40 results/r15-visual/logs/resume-install.log; exit 1; }
-          timeout -k 15s 120 python -m pip install --timeout 20 --retries 1 lxml pymupdf > results/r15-visual/logs/resume-python.log 2>&1 || { tail -30 results/r15-visual/logs/resume-python.log; exit 1; }
-      - name: Restore exact successful Word rendering and save continuation
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python -m scripts.r15_visual_resume restore
-      - name: Build pinned PDF comparison utility
+          timeout -k 15s 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15-visual/logs/staged-apt.log 2>&1
+          timeout -k 15s 420 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=25 -o Acquire::https::Timeout=25 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15-visual/logs/staged-apt.log 2>&1
+      - name: P - build changed journal PDF and publish independent checkpoint
+        run: |
+          python - <<'PY'
+          import os,json,shutil,re
+          import pymupdf as fitz
+          from scripts import r15_visual_finish as p
+          from scripts.r15_psta_readability import apply_saved,verify_pdf
+          apply_saved(p.S);p.cmd(['sh','build.sh'],p.S,'P-build.log')
+          log=(p.S/'main.log').read_text(errors='replace')
+          if any(x in log for x in ('Overfull','pdfTeX warning (dest)','undefined references','LaTeX Error')):raise ValueError('Journal PDF guard failed')
+          checks=verify_pdf(p.S/'main.pdf')
+          try:verify_pdf(p.INPUT/'LaTeX/main.pdf')
+          except (ValueError,FileNotFoundError) as exc:checks['negative_original_rejected']=str(exc)
+          else:raise ValueError('Broken baseline was accepted')
+          p.put(p.D/'psta-readability-checks.json',checks)
+          shutil.copy2(p.S/'main.pdf',p.D/'Статья_FEFC_R15_v3_ПСТА.pdf')
+          target=p.ROOT/'deliverables/r15-psta-readable';target.mkdir(parents=True,exist_ok=True)
+          for source,name in [(p.S/'main.pdf','Статья_FEFC_R15_v3_ПСТА.pdf'),(p.S/'main.log','main.log'),(p.S/'main.aux','main.aux'),(p.D/'psta-readability-checks.json','P_CHECK.json')]:shutil.copy2(source,target/name)
+          with fitz.open(p.S/'main.pdf') as doc:
+              folder=target/'control-pages';folder.mkdir(exist_ok=True)
+              for i,page in enumerate(doc):page.get_pixmap(matrix=fitz.Matrix(1.5,1.5),alpha=False).save(folder/f'{i+1:02}.png')
+              (target/'actual-pdf-text.txt').write_text('\n'.join(f'--- PAGE {i+1} ---\n'+page.get_text() for i,page in enumerate(doc)))
+          p.put(target/'SHA256.json',{f.relative_to(target).as_posix():p.sha(f) for f in target.rglob('*') if f.is_file() and f.name!='SHA256.json'})
+          status=p.ROOT/'docs/STATUS.md';status.write_text('# STATUS — P технически завершён, W выдан; далее F\n\n25.11.2026 | P | deliverables/r15-psta-readable, P_CHECK | авторские справки/реальные переходы/(6)/рис.3/табл.3, подпись с данными, Overfull и missing-destination отсутствуют | run '+os.environ['GITHUB_RUN_ID']+' / #7146889767 | F: незавершённый ZIP и diff; личная приёмка отдельно.\n\n'+status.read_text())
+          result=p.commit(['deliverables/r15-psta-readable','docs/STATUS.md'],'Issue #5 P: предъявить журнальный PDF с авторскими справками и рабочими переходами')
+          p.put(p.OUT/'P_publication.json',dict(sha=result,pdf_sha256=p.sha(p.S/'main.pdf'),technical_checks=checks,personal_visual_review=False))
+          print('P_DELIVERY_SHA',result,flush=True)
+          PY
+      - name: Build pinned comparison tool for F
         run: |
           mkdir -p /tmp/fefc-diff-pdf
           git -C /tmp/fefc-diff-pdf init -q
@@ -52,22 +188,68 @@ jobs:
           timeout -k 15s 90 git -C /tmp/fefc-diff-pdf fetch --depth=1 origin 092e6e31968cf28984c201a8c300f76f0020fbe4
           git -C /tmp/fefc-diff-pdf checkout --detach FETCH_HEAD
           cd /tmp/fefc-diff-pdf
-          ./bootstrap > "$GITHUB_WORKSPACE/results/r15-visual/logs/diff-build-resume.log" 2>&1
-          ./configure >> "$GITHUB_WORKSPACE/results/r15-visual/logs/diff-build-resume.log" 2>&1
-          make -j2 >> "$GITHUB_WORKSPACE/results/r15-visual/logs/diff-build-resume.log" 2>&1
+          ./bootstrap > "$GITHUB_WORKSPACE/results/r15-visual/logs/staged-diff-tool.log" 2>&1
+          ./configure >> "$GITHUB_WORKSPACE/results/r15-visual/logs/staged-diff-tool.log" 2>&1
+          make -j2 >> "$GITHUB_WORKSPACE/results/r15-visual/logs/staged-diff-tool.log" 2>&1
           echo 'DIFF_PDF_BIN=/tmp/fefc-diff-pdf/diff-pdf' >> "$GITHUB_ENV"
-      - name: Verify actual destinations, isolated ZIP and exact comparison
-        run: python -m scripts.r15_visual_resume finish
-      - name: Guard scientific sources
+      - name: F - unchanged science, isolated ZIP, diff and coherent packet
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os,json,shutil,subprocess,urllib.request
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          from scripts import r15_visual_finish as p
+          from scripts import r15_full_rework as m
+          from scripts.r15_psta_readability import body_links_and_captions
+          req=urllib.request.Request('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5/comments?since=2026-11-24T22%3A25%3A20Z&per_page=50',headers={'Authorization':'Bearer '+os.environ['GITHUB_TOKEN'],'User-Agent':'FEFC-staged-review'})
+          with urllib.request.urlopen(req,timeout=30) as f:comments=json.load(f)
+          p.put(p.OUT/'new-review-comments-before-F.json',[dict(id=x['id'],updated_at=x['updated_at'],body=x['body']) for x in comments])
+          if any(x['id']!=7146889767 for x in comments):raise RuntimeError('New comments require reading before F')
+          m.OUT=p.OUT;m.D=p.D;m.S=p.S;m.CHECKS=[]
+          before={f.relative_to(p.D).as_posix():p.sha(f) for f in p.D.rglob('*') if f.is_file() and (f.suffix=='.docx' or 'figures' in f.parts or (f.suffix=='.pdf' and f.parent==p.D and 'ПСТА' not in f.name))}
+          m.inspect_pdf();m.package()
+          for name,digest in before.items():
+              if p.sha(p.D/name)!=digest:raise ValueError('Preserved W or figure changed: '+name)
+          for name in ('empirical-evidence.json','conditional-evidence.json','service-reference.json'):
+              if p.sha(p.D/name)!=p.sha(p.INPUT/name):raise ValueError('Science changed')
+          if p.sha(p.S/'article_body.md')!=p.sha(p.INPUT/'LaTeX/article_body.md'):raise ValueError('Authored article changed')
+          if (p.S/'body.tex').read_text()!=body_links_and_captions((p.INPUT/'LaTeX/body.tex').read_text()):raise ValueError('Unexpected body transformation')
+          baseline=p.ROOT/'deliverables/r15/article.pdf'
+          if p.sha(baseline)!='5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f':raise ValueError('Wrong diff baseline')
+          args=['xvfb-run','-a',os.environ['DIFF_PDF_BIN'],'--output-diff='+str(p.D/'Сравнение_с_R15_390b232a.pdf'),str(baseline),str(p.S/'main.pdf')]
+          result=subprocess.run(args,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=180)
+          (p.OUT/'logs/F-diff.log').write_bytes(result.stdout)
+          if result.returncode not in (0,1) or not (p.D/'Сравнение_с_R15_390b232a.pdf').exists():raise RuntimeError('diff-pdf failed')
+          p.put(p.D/'comparison-provenance.json',dict(method='diff-pdf',tool_commit='092e6e31968cf28984c201a8c300f76f0020fbe4',baseline_delivery='390b232a24b10d303b4f6646af8fc1414f7f182a',before_sha256=p.sha(baseline),after_sha256=p.sha(p.S/'main.pdf'),exit=result.returncode))
+          for n in ('CHECK_RESULT.json','receipt.json','tex-warnings.json'):
+              old=p.D/n
+              if old.exists():shutil.copy2(old,p.D/'checks'/('historical-'+n))
+          log=(p.ROOT/'deliverables/r15-psta-readable/main.log').read_text(errors='replace')
+          p.put(p.D/'tex-warnings.json',[x for x in log.splitlines() if any(w in x for w in ('Warning','warning','Overfull','Underfull'))])
+          receipt=dict(stage='F',source_sha=os.environ['VISUAL_HEAD'],run_id=os.environ['GITHUB_RUN_ID'],word_export_run=45501213211,restored_artifact=14971626698,checks=m.CHECKS,isolated_source_zip=json.loads((p.D/'isolated-build.json').read_text()),word_regenerated=False,figures_regenerated=False,scientific_text_and_data_unchanged=True,simulation_executed=False,bootstrap_recomputed=False,neural_training=False,visual_review='PENDING_PERSONAL_PAGE_REVIEW',ready_to_submit=False,article_sent=False)
+          for n in ('CHECK_RESULT.json','receipt.json'):p.put(p.D/n,receipt)
+          shutil.copy2(p.ROOT/'deliverables/r15-word-readable/W_CHECK.json',p.D/'W_CHECK.json')
+          (p.D/'README.md').write_text('# FEFC R1.5 v3 — фиксированный комплект W/P/F\n\nWord-экспорт сохранён из run45501213211, повторно не создавался: читаемая и красная DOCX с Microsoft Equation, соответствующие PDF. Word-текст и математические токены сохранены. Три SVG/PDF/TikZ включены. Журнальный PDF исправляет вывод авторских справок, переходы и подписи таблиц; научный текст/числа неизменны.\n\nF включает изолированную сборку исходного ZIP и настоящий diff-PDF к доставке390b232a. Машинные проверки не равны личному просмотру; независимая приёмка и личные поля открыты. Красная копия выделяет разделы, не является посимвольным Track Changes. Подписи и отправка в журнал не выполнялись. Исторические журналы в checks/historical-* не описывают статус этого комплекта.\n')
+          p.put(p.D/'SHA256.json',{f.relative_to(p.D).as_posix():p.sha(f) for f in sorted(p.D.rglob('*')) if f.is_file() and f.name not in ('SHA256.json','FEFC_R15_v3_полный_комплект.zip') and 'review-images' not in f.parts})
+          with ZipFile(p.D/'FEFC_R15_v3_полный_комплект.zip','w',ZIP_DEFLATED) as z:
+              for f in sorted(p.D.rglob('*')):
+                  if f.is_file() and f.name!='FEFC_R15_v3_полный_комплект.zip' and 'review-images' not in f.parts and f.suffix.lower() not in p.FONT:z.write(f,f.relative_to(p.D))
+          target=p.ROOT/'deliverables/r15-visual-final';shutil.copytree(p.D,target,dirs_exist_ok=True)
+          status=p.ROOT/'docs/STATUS.md';status.write_text('# STATUS — W/P/F сохранены; требуется завершить личную приёмку\n\n25.11.2026 | F | deliverables/r15-visual-final, receipt/isolated-build/comparison-provenance/SHA256 | техническая сборка/ZIP/сохранность научных данных/новый diff выполнены | run '+os.environ['GITHUB_RUN_ID']+' / #7146889767 | просмотреть изменённые и ещё непринятые страницы; не повторять W/P/F без изменений. Предыдущий комментарий прочитан перед P и F. Авторские поля и отправка открыты. Расписания неизменны.\n\nОЦЕНКА токенов: чтение приращения/диагностика 8–12 тыс.; сохранение W и адресное завершение P/F 8–12 тыс.; не биллинг.\n\n'+status.read_text())
+          value=p.commit(['deliverables/r15-visual-final','docs/STATUS.md'],'Issue #5 F: сохранить согласованный технический комплект, изолированный ZIP и новый diff-PDF')
+          p.put(p.OUT/'F_publication.json',dict(sha=value,pdf_sha256=p.sha(p.S/'main.pdf'),source_zip_sha256=p.sha(p.D/'Исходники_ПСТА_v3.zip'),personal_review=False))
+          print('F_DELIVERY_SHA',value,flush=True)
+          PY
+      - name: Guard unchanged scientific sources and persist execution environment
         if: always()
         run: |
           git diff --exit-code fc50bb56800a2723aafd0d7e3d5d62b8976300bd HEAD -- efc v2 colab configs article/rework/article_body.md article/rework/metadata.json results/r14/article_evidence.json results/r15/conditional_analysis.json docs/Журнал_проверок_Perplexity.md
-          python -m pip freeze > results/r15-visual/resume-python-environment.txt
-      - name: Publish completed technical packet with HEAD lease
-        run: python -m scripts.r15_visual_resume publish
+          python -m pip freeze > results/r15-visual/staged-environment.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: FEFC-R15-visual-complete-${{ github.run_id }}
+          name: FEFC-WPF-${{ github.run_id }}
           path: results/r15-visual/
           if-no-files-found: error
