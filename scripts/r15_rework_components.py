@@ -183,7 +183,7 @@ def documents():
  for p in (clean,marked):embed_svg(p)
  with zipfile.ZipFile(clean) as z:
   xml=etree.fromstring(z.read('word/document.xml'));math=xml.xpath('//m:oMath',namespaces=NS)
-  require(len(math)>=10,'Word: formulas are native OMML, not images')
+  require(len(math)==len(re.findall(r'\$\$.*?\$\$|\$[^$\n]+\$',text,re.S)),'Word: all source formulas are native OMML, not images')
   require(len([n for n in z.namelist() if n.endswith('.svg')])==3,'Word: SVG originals embedded with PNG fallbacks')
   math_text=[''.join(m.itertext()) for m in math]
  with zipfile.ZipFile(marked) as z:
@@ -273,7 +273,7 @@ def records():
 |Полная статья и 31правка|Последняя авторская Word-основа|Нельзя молча заменить её репозиторной версией|Не завершено; этот пакет содержит только разрешённые независимые компоненты|
 '''
  (D/'Реестр_правок.md').write_text(register)
- put(D/'receipt.json',{'source_sha':os.environ.get('GITHUB_SHA'),'base_sha':BASE,'execution':'GitHub Actions; Graphviz; pandoc; LibreOffice; pdflatex','checks':CHECKS,'checks_passed':sum(x['pass'] for x in CHECKS),'simulation_executed':False,'bootstrap_recomputed':False,'notebooks_executed':False,'input_word_read':False,'whole_article_created':False,'visual_review':'NOT_PERFORMED_BY_EXECUTOR','ready_to_submit':False,'protected_paths_unchanged':True})
+ put(D/'receipt.json',{'source_sha':os.environ.get('COMPONENT_SOURCE_SHA',os.environ.get('GITHUB_SHA')),'base_sha':BASE,'execution':'GitHub Actions; Graphviz; pandoc; LibreOffice; pdflatex','checks':CHECKS,'checks_passed':sum(x['pass'] for x in CHECKS),'simulation_executed':False,'bootstrap_recomputed':False,'notebooks_executed':False,'input_word_read':False,'whole_article_created':False,'visual_review':'NOT_PERFORMED_BY_EXECUTOR','ready_to_submit':False,'protected_paths_unchanged':True})
 
 
 def build():
@@ -290,7 +290,7 @@ def build():
 
 
 def publish():
- branch='refs/heads/night/fefc-v3';expected=os.environ['GITHUB_SHA']
+ branch='refs/heads/night/fefc-v3';expected=os.environ.get('COMPONENT_SOURCE_SHA',os.environ['GITHUB_SHA'])
  git=lambda *a:run(['git',*a]).decode().strip()
  if git('ls-remote','origin',branch).split()[0]!=expected:raise RuntimeError('HEAD changed; preserve artifact, do not overwrite')
  target=ROOT/'deliverables/r15-components';shutil.copytree(D,target,dirs_exist_ok=True)
