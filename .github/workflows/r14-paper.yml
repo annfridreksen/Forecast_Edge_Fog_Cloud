@@ -1,4 +1,4 @@
-name: R1.5 resume verified PDF and finish delivery
+name: R1.5 finish saved submission after inspection fix
 on:
   push:
     branches: [night/fefc-v3]
@@ -28,33 +28,29 @@ jobs:
         with:
           python-version: '3.13'
           cache: pip
-      - name: Commit exact validator fix and separate artifact source from HEAD lease
+      - name: Fix escaped figure marker, reject control characters and save validator
         run: |
           python - <<'PY'
           import os,subprocess
           import scripts.r15_postreview as p
           expected=os.environ['GITHUB_SHA']
           if p.git('ls-remote','origin',p.REF).split()[0]!=expected:raise RuntimeError('HEAD lease lost')
-          def fix(text,old,new):
-              if old in text:return p.once(text,old,new)
-              if new not in text:raise ValueError('Unexpected patch state: '+old[:90])
-              return text
-          file=p.ROOT/'scripts/r15_postreview.py';text=file.read_text()
-          text=fix(text,"if len(captions)!=2 or len(figure_pages)!=2:raise ValueError('Both figure pages not identified: '+repr((captions,figure_pages)))", "if not captions or len(captions)!=main.count(r'\begin{figure}') or len(figure_pages)!=len(captions):raise ValueError('Not all source figure pages identified: '+repr((captions,figure_pages)))")
-          text=fix(text,"old=ROOT/'deliverables/r15/article.pdf';new=d/'article.pdf'", "old=OUT/'reviewed-baseline.pdf';new=d/'article.pdf'\n    old.write_bytes(subprocess.check_output(['git','show',BASE+':deliverables/r15/article.pdf'],cwd=ROOT))")
-          for old,new in [('обе страницы рисунков','все страницы рисунков'),('обеих схем7×','всех схем7×'),('обоих полных рисунков7×','всех полных рисунков7×'),('и обе полные схемы7×','и все полные схемы7×'),('и обе схемы;','и все схемы;'),('both-figure visual review','all-figure visual review')]:
-              text=text.replace(old,new)
-          file.write_text(text,encoding='utf-8')
-          file=p.ROOT/'scripts/r15_publish.py';text=file.read_text()
-          text=fix(text,"expected=os.environ.get('R15_SOURCE_SHA',os.environ['GITHUB_SHA']);ref='refs/heads/'+BRANCH", "expected=os.environ.get('R15_EXPECTED_HEAD',os.environ.get('R15_SOURCE_SHA',os.environ['GITHUB_SHA']));ref='refs/heads/'+BRANCH")
-          text=fix(text,"result=dict(status='PUBLIC_DOWNLOAD_VERIFIED',source_sha=expected,delivery_sha=published,branch=BRANCH,checks=checks,", "result=dict(status='PUBLIC_DOWNLOAD_VERIFIED',source_sha=json.loads((out/'delivery/build-receipt.json').read_text())['source_sha'],verification_sha=expected,delivery_sha=published,branch=BRANCH,checks=checks,")
-          file.write_text(text,encoding='utf-8')
-          subprocess.run(['python','-W','error','-m','py_compile','scripts/r15_postreview.py','scripts/r15_publish.py'],cwd=p.ROOT,check=True)
-          note='\n\n## Продолжение после локализованной ошибки проверки рисунков\nRun45346285838: исходники fa4b6f23, PDF/изолированный ZIP/diff успешно созданы. Проверка ошибочно ожидала2 рисунка, фактически3 на страницах5,9,14. Ошибка исполнителя исправляется по числу figure в исходнике. Готовый PDF не пересобирается. Артефакт14898826993, SHA256 a7aae92b3963664a58094d1eac76b8ab7f309da1f58c6e1700a93af7bcfbce1d. Текущий run '+os.environ['GITHUB_RUN_ID']+' восстанавливает только оставшиеся проверки, финальную упаковку и публикацию. Владелец #7124374400 активен до завершения этого процесса; научный срез не меняется.\n'
-          status=p.ROOT/'docs/STATUS.md';status.write_text(status.read_text()+note,encoding='utf-8')
-          new=p.commit(['scripts/r15_postreview.py','scripts/r15_publish.py','docs/STATUS.md'],'Issue #5 R1.5: проверять все три рисунка и отделить SHA статьи от проверки',expected)
+          path=p.ROOT/'scripts/r15_postreview.py';lines=path.read_text().split('\n')
+          indices=[i for i,s in enumerate(lines) if 'Not all source figure pages identified:' in s]
+          if len(indices)!=1:raise ValueError('Expected one figure assertion')
+          lines[indices[0]]="        if not captions or len(captions)!=main.count(chr(92)+'begin{figure}') or len(figure_pages)!=len(captions):raise ValueError('Not all source figure pages identified: '+repr((captions,figure_pages)))"
+          text='\n'.join(lines)
+          if any(ord(c)<32 and c not in '\n\r\t' for c in text):raise ValueError('Unexpected source control character')
+          path.write_text(text,encoding='utf-8')
+          manuscript=(p.ROOT/'article/main.tex').read_text()
+          count=manuscript.count(chr(92)+'begin{figure}')
+          if count!=3:raise ValueError('Unexpected current figure count: '+str(count))
+          subprocess.run(['python','-W','error','-m','py_compile','scripts/r15_postreview.py'],cwd=p.ROOT,check=True)
+          note='\n\n## Исправление строки проверки\nRun45347456111 восстановил PDF с точным хешем, но ошибочная строка исправления внесла управляющий символ backspace вместо обратной косой черты. Проверка теперь использует chr(92), исходник проверен на запрещённые управляющие символы, фактическое число figure равно3. Статья и PDF не изменены. Текущий run '+os.environ['GITHUB_RUN_ID']+' завершает прежний атомарный этап.\n'
+          s=p.ROOT/'docs/STATUS.md';s.write_text(s.read_text()+note,encoding='utf-8')
+          new=p.commit(['scripts/r15_postreview.py','docs/STATUS.md'],'Issue #5 R1.5: устранить backspace и проверить фактические три рисунка',expected)
           with open(os.environ['GITHUB_ENV'],'a') as f:f.write('R15_EXPECTED_HEAD='+new+'\n')
-          print('VALIDATOR_SHA',new)
+          print('VALIDATOR_SHA',new,'SOURCE_FIGURES',count)
           PY
       - name: Restore exact completed build without recompiling manuscript
         env:
