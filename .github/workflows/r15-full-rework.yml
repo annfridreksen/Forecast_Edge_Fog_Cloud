@@ -1,4 +1,4 @@
-name: R1.5 resume saved PDF checks and isolated source ZIP
+name: R1.5 finish Word rendering and addressed PSTA readability
 on:
   push:
     branches: [night/fefc-v3]
@@ -9,11 +9,13 @@ concurrency:
   group: fefc-r15-full-rework
   cancel-in-progress: false
 jobs:
-  resume_checks:
+  visual_finish:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       PYTHONDONTWRITEBYTECODE: '1'
+      SOURCE_DATE_EPOCH: '1795478400'
+      FORCE_SOURCE_DATE: '1'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,16 +24,74 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install only dependencies for saved PDF checks and isolated TeX build
+      - name: Install bounded document dependencies including the missing Math component
         run: |
-          python -m pip install --timeout 30 --retries 1 pymupdf lxml
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super
-      - name: Verify saved bytes, test actual function, unpack and compile source ZIP
-        run: python -m scripts.r15_resume_checks
+          mkdir -p results/r15-visual/logs
+          python - <<'PY'
+          from pathlib import Path
+          import re,subprocess
+          for p in [Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list'),*Path('/etc/apt').glob('*mirrors*.txt')]:
+              if p.exists():
+                  s=p.read_text();n=re.sub(r'https?://[a-z0-9.-]*ec2\.archive\.ubuntu\.com/ubuntu','https://archive.ubuntu.com/ubuntu',s)
+                  if n!=s:
+                      q=Path('/tmp')/(p.name+'.fefc');q.write_text(n);subprocess.run(['sudo','cp',str(q),str(p)],check=True)
+          PY
+          timeout -k 15s 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15-visual/logs/install.log 2>&1 || { tail -40 results/r15-visual/logs/install.log; exit 1; }
+          timeout -k 15s 480 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=25 -o Acquire::https::Timeout=25 install -y --no-install-recommends libreoffice-writer libreoffice-math fonts-liberation texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15-visual/logs/install.log 2>&1 || { tail -40 results/r15-visual/logs/install.log; exit 1; }
+          timeout -k 15s 180 python -m pip install --timeout 20 --retries 1 lxml pymupdf > results/r15-visual/logs/python-install.log 2>&1 || { tail -30 results/r15-visual/logs/python-install.log; exit 1; }
+      - name: Preserve inputs and commit the two scoped renderer integrations
+        run: python -m scripts.r15_visual_finish prepare
+      - name: Integrate tested PSTA helpers and preserve fail-closed PDF destinations
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import scripts.r15_visual_finish as p
+          def once(text,old,new):
+              if new in text:return text
+              if text.count(old)!=1:raise ValueError('Changed patch anchor: '+old[:100])
+              return text.replace(old,new)
+          f=Path('scripts/r15_full_rework.py');s=f.read_text()
+          s=once(s," (S/'body.tex').write_text(t)"," from scripts.r15_psta_readability import body_links_and_captions, author_blocks\n t=body_links_and_captions(t)\n (S/'body.tex').write_text(t)")
+          s=once(s," (S/'main.tex').write_text(base)"," base=author_blocks(base)\n (S/'main.tex').write_text(base)")
+          s=once(s," require('Overfull' not in log,'PSTA has no overfull boxes')", " require('Overfull' not in log,'PSTA has no overfull boxes')\n require('pdfTeX warning (dest)' not in log,'All PDF destinations exist')")
+          f.write_text(s)
+          f=Path('scripts/r15_visual_finish.py');s=f.read_text()
+          s=once(s,'def finish():\n import fitz','def finish():\n import fitz\n from scripts.r15_psta_readability import apply_saved, body_links_and_captions, verify_pdf')
+          s=once(s," cmd(['sh','build.sh'],S,'psta-affected-build.log')"," apply_saved(S)\n cmd(['sh','build.sh'],S,'psta-affected-build.log')")
+          s=once(s," m.inspect_pdf();m.package()", " put(D/'psta-readability-checks.json',verify_pdf(S/'main.pdf'))\n put(D/'tex-warnings.json',[x for x in log.splitlines() if any(w in x for w in ('Warning','warning','Overfull','Underfull'))])\n shutil.copy2(S/'main.log',D/'checks/main.log')\n m.inspect_pdf();m.package()")
+          s=once(s,"if sha(S/'article_body.md')!=sha(INPUT/'LaTeX/article_body.md') or sha(S/'body.tex')!=sha(INPUT/'LaTeX/body.tex'):raise ValueError('Article body changed')", "if sha(S/'article_body.md')!=sha(INPUT/'LaTeX/article_body.md') or (S/'body.tex').read_text()!=body_links_and_captions((INPUT/'LaTeX/body.tex').read_text()):raise ValueError('Unexpected article body change')")
+          f.write_text(s)
+          subprocess.run(['python','-W','error','-m','py_compile','scripts/r15_full_rework.py','scripts/r15_visual_finish.py','scripts/r15_word_math_compat.py','scripts/r15_psta_readability.py'],check=True)
+          status=Path('docs/STATUS.md');status.write_text(status.read_text()+'\nАдресные дополнения #7146021685 updated_at2026-11-24T22:16:18Z: штатные авторские справки, активные ссылки, подписи longtable. Удалена неподтверждённая автоматическая фраза о равном вкладе; вместо неё красное авторское поле. Это не новое научное содержание. Изменения встроены в генератор; проверка PDF destinations обязательна.\n')
+          print('READABILITY_SOURCE',p.commit(['scripts/r15_full_rework.py','scripts/r15_visual_finish.py','docs/STATUS.md'],'Issue #5 п.5: восстановить авторские блоки и переходы без изменения научного текста'))
+          PY
+      - name: Build the pinned comparison utility
+        run: |
+          mkdir -p /tmp/fefc-diff-pdf
+          git -C /tmp/fefc-diff-pdf init -q
+          git -C /tmp/fefc-diff-pdf remote add origin https://github.com/vslavik/diff-pdf.git
+          timeout -k 15s 90 git -C /tmp/fefc-diff-pdf fetch --depth=1 origin 092e6e31968cf28984c201a8c300f76f0020fbe4
+          git -C /tmp/fefc-diff-pdf checkout --detach FETCH_HEAD
+          cd /tmp/fefc-diff-pdf
+          ./bootstrap > "$GITHUB_WORKSPACE/results/r15-visual/logs/diff-build.log" 2>&1
+          ./configure >> "$GITHUB_WORKSPACE/results/r15-visual/logs/diff-build.log" 2>&1
+          make -j2 >> "$GITHUB_WORKSPACE/results/r15-visual/logs/diff-build.log" 2>&1
+          echo 'DIFF_PDF_BIN=/tmp/fefc-diff-pdf/diff-pdf' >> "$GITHUB_ENV"
+      - name: Export saved editable Word and build only the affected manuscript
+        run: python -m scripts.r15_visual_finish finish
+      - name: Guard scientific sources and record environment
+        if: always()
+        run: |
+          python -m pip freeze > results/r15-visual/python-environment.txt
+          libreoffice --version > results/r15-visual/libreoffice-version.txt
+          dpkg-query -W libreoffice-math >> results/r15-visual/libreoffice-version.txt
+          git diff --exit-code fc50bb56800a2723aafd0d7e3d5d62b8976300bd HEAD -- efc v2 colab configs article/rework/article_body.md article/rework/metadata.json results/r14/article_evidence.json results/r15/conditional_analysis.json docs/Журнал_проверок_Perplexity.md
+      - name: Publish verified files under HEAD lease
+        run: python -m scripts.r15_visual_finish publish
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: FEFC-R15-resume-checks-${{ github.run_id }}
-          path: results/r15-resume-checks/
-          if-no-files-found: warn
+          name: FEFC-R15-visual-${{ github.run_id }}
+          path: results/r15-visual/
+          if-no-files-found: error
