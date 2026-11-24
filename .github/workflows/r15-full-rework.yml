@@ -1,10 +1,11 @@
-name: R1.5 full restored editorial v3
+name: R1.5 complete full editorial v3
 on:
   push:
     branches: [night/fefc-v3]
     paths: ['.github/workflows/r15-full-rework.yml']
 permissions:
   contents: write
+  actions: read
 concurrency:
   group: fefc-r15-full-rework
   cancel-in-progress: false
@@ -25,35 +26,75 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Confirm exact HEAD and syntax without changing sources
+      - name: Fix only Word namespace traversal and idempotent footer under lease
         run: |
-          test "$(git ls-remote origin refs/heads/night/fefc-v3 | cut -f1)" = "$GITHUB_SHA"
-          python -W error -m py_compile scripts/r15_full_rework.py article/rework/figures/render_figures.py
-          python -m json.tool article/rework/metadata.json > /dev/null
+          python - <<'PY'
+          from pathlib import Path
+          import os,subprocess
+          def git(*a):return subprocess.check_output(['git',*a],text=True).strip()
+          ref='refs/heads/night/fefc-v3';expected=os.environ['GITHUB_SHA']
+          if git('ls-remote','origin',ref).split()[0]!=expected:raise RuntimeError('HEAD changed')
+          p=Path('scripts/r15_full_rework.py');s=p.read_text()
+          pairs=[("for r in el.xpath('.//w:r|.//m:r'):","for r in [v for v in el.iter() if v.tag in (qn('w:r'),qn('m:r'))]:"),
+                 ("footer=sec.footer.paragraphs[0];footer.alignment=", "footer=sec.footer.paragraphs[0];footer.clear();footer.alignment="),
+                 ("run(['pdflatex','-interaction=nonstopmode','-halt-on-error',d['name']+'.tex'],f,d['name']+'.log')", "if not (f/(d['name']+'.pdf')).exists():run(['pdflatex','-interaction=nonstopmode','-halt-on-error',d['name']+'.tex'],f,d['name']+'.log')")]
+          for old,new in pairs:
+              if new in s:continue
+              if s.count(old)!=1:raise RuntimeError('Unexpected patch anchor: '+old[:80])
+              s=s.replace(old,new)
+          if 'REWORK_SOURCE_SHA' not in s:
+              s=s.replace("os.environ['GITHUB_SHA']","os.environ.get('REWORK_SOURCE_SHA',os.environ['GITHUB_SHA'])")
+              s=s.replace("os.environ.get('GITHUB_SHA')","os.environ.get('REWORK_SOURCE_SHA',os.environ.get('GITHUB_SHA'))")
+          p.write_text(s)
+          subprocess.run(['python','-W','error','-m','py_compile',str(p)],check=True)
+          if git('diff','--name-only'):
+              git('config','user.name','FEFC editorial executor');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+              git('add','--',str(p))
+              if git('diff','--cached','--name-only')!=str(p):raise RuntimeError('Unexpected staged path')
+              if git('ls-remote','origin',ref).split()[0]!=expected:raise RuntimeError('HEAD lease lost')
+              git('commit','-m','Issue #5 п.5: исправить обработку красного OMML и дублирование поля страницы')
+              git('push','origin','HEAD:'+ref)
+          source=git('rev-parse','HEAD')
+          with open(os.environ['GITHUB_ENV'],'a') as f:f.write('REWORK_SOURCE_SHA='+source+'\n')
+          print('REWORK_SOURCE_SHA',source)
+          PY
+      - name: Restore exact completed figure stage, not a new experiment
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          from scripts.build_r15_submission import download,unpack
+          subprocess.run(['git','diff','--exit-code','e7190d6175690efd085b28a62269ee118a2caca0','HEAD','--','article/rework'],check=True)
+          z=Path('results/v3-resume.zip')
+          download('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/14959165778/zip',z,'20cc2b372306c41a673c5fe06832e088a60bee77dccaef9b9d58c86f7aff1134',github=True)
+          unpack(z,'results/r15-rework-v3')
+          print('Previous full text and vector outputs restored; only unfinished document stages continue.')
+          PY
       - name: Install signed document dependencies with bounded operations
         run: |
           mkdir -p results/r15-rework-v3/logs
           python - <<'PY'
           from pathlib import Path
           import re,subprocess
-          paths=[Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list'),*Path('/etc/apt').glob('*mirrors*.txt')]
-          for p in paths:
+          for p in [Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list'),*Path('/etc/apt').glob('*mirrors*.txt')]:
               if p.exists():
                   s=p.read_text();n=re.sub(r'https?://[a-z0-9.-]*ec2\.archive\.ubuntu\.com/ubuntu','https://archive.ubuntu.com/ubuntu',s)
                   if n!=s:
                       q=Path('/tmp')/(p.name+'.fefc');q.write_text(n);subprocess.run(['sudo','cp',str(q),str(p)],check=True)
           PY
-          timeout -k 15s 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15-rework-v3/logs/install.log 2>&1 || { tail -40 results/r15-rework-v3/logs/install.log; exit 1; }
-          timeout -k 15s 480 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=25 -o Acquire::https::Timeout=25 install -y --no-install-recommends pandoc libreoffice-writer fonts-liberation texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super >> results/r15-rework-v3/logs/install.log 2>&1 || { tail -40 results/r15-rework-v3/logs/install.log; exit 1; }
-          timeout -k 15s 120 python -m pip install --timeout 20 --retries 1 python-docx lxml pymupdf pillow > results/r15-rework-v3/logs/python-install.log 2>&1 || { tail -30 results/r15-rework-v3/logs/python-install.log; exit 1; }
-      - name: Build full Word and PSTA article; verify figures and isolated ZIP
+          timeout -k 15s 150 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15-rework-v3/logs/resume-install.log 2>&1 || { tail -40 results/r15-rework-v3/logs/resume-install.log; exit 1; }
+          timeout -k 15s 480 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=25 -o Acquire::https::Timeout=25 install -y --no-install-recommends pandoc libreoffice-writer fonts-liberation texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super >> results/r15-rework-v3/logs/resume-install.log 2>&1 || { tail -40 results/r15-rework-v3/logs/resume-install.log; exit 1; }
+          timeout -k 15s 120 python -m pip install --timeout 20 --retries 1 python-docx lxml pymupdf pillow > results/r15-rework-v3/logs/resume-python-install.log 2>&1 || { tail -30 results/r15-rework-v3/logs/resume-python-install.log; exit 1; }
+      - name: Complete full Word and PSTA article; verify isolated source ZIP
         run: python scripts/r15_full_rework.py build
       - name: Record environment and verify source protection
         if: always()
         run: |
           python -m pip freeze > results/r15-rework-v3/python-environment.txt
           git diff --exit-code -- article submission efc v2 colab configs scripts docs
-      - name: Publish complete article and actual checkpoint under HEAD lease
+      - name: Publish complete article under current HEAD lease
         run: python scripts/r15_full_rework.py publish
       - uses: actions/upload-artifact@v4
         if: always()
