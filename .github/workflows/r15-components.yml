@@ -1,4 +1,4 @@
-name: R1.5 finish independent editorial components
+name: R1.5 complete independent editorial components
 on:
   push:
     branches: [night/fefc-v3]
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Commit addressed style resolution and compatible vector reuse
+      - name: Fix heading assignment by style object under HEAD lease
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -35,19 +35,12 @@ jobs:
           ref='refs/heads/night/fefc-v3';expected=os.environ['GITHUB_SHA']
           if git('ls-remote','origin',ref).split()[0]!=expected:raise RuntimeError('HEAD lease lost')
           p=Path('scripts/r15_rework_components.py');s=p.read_text()
-          helper="\ndef ensure_style(doc,name):\n from docx.enum.style import WD_STYLE_TYPE\n key=name.replace(' ','').casefold()\n for st in doc.styles:\n  if st.style_id.replace(' ','').casefold()==key:\n   st.name=name\n   return st\n return doc.styles.add_style(name,WD_STYLE_TYPE.PARAGRAPH)\n\n"
-          if 'def ensure_style(' not in s:s=s.replace('CHECKS=[]\n','CHECKS=[]\n'+helper)
-          s=s.replace('st=doc.styles[name]','st=ensure_style(doc,name)')
-          old='  shutil.copy2(source,fig/source.name)'
-          new="  if (fig/source.name).exists():require(sha(fig/source.name)==sha(source),name+': restored vector source is unchanged')\n  shutil.copy2(source,fig/source.name)"
-          if new not in s:s=s.replace(old,new)
-          old="run(['dot','-T'+fmt,source,'-o',fig/(name+'.'+fmt)],name=name+'-'+fmt+'.log')"
-          new="if not (fig/(name+'.'+fmt)).exists():run(['dot','-T'+fmt,source,'-o',fig/(name+'.'+fmt)],name=name+'-'+fmt+'.log')"
-          if new not in s:s=s.replace(old,new)
-          for suf,scale in [('-preview.png','1.4'),('-7x.png','7')]:
-              old="doc[0].get_pixmap(matrix=fitz.Matrix("+scale+","+scale+"),alpha=False).save(fig/(name+'"+suf+"'))"
-              new="if not (fig/(name+'"+suf+"')).exists():"+old
-              if new not in s:s=s.replace(old,new)
+          old="  doc.add_heading(ru.split('.')[0]+'. Схема',1)"
+          new="  heading=doc.add_paragraph(ru.split('.')[0]+'. Схема');heading.style=ensure_style(doc,'Heading 1')"
+          if old in s:
+              if s.count(old)!=1:raise RuntimeError('Non-unique heading source')
+              s=s.replace(old,new)
+          elif new not in s:raise RuntimeError('Unexpected heading state')
           p.write_text(s)
           subprocess.run(['python','-W','error','-m','py_compile',str(p)],check=True)
           if git('diff','--name-only'):
@@ -55,13 +48,13 @@ jobs:
               git('add','--',str(p))
               if git('diff','--cached','--name-only')!=str(p):raise RuntimeError('Unexpected stage')
               if git('ls-remote','origin',ref).split()[0]!=expected:raise RuntimeError('HEAD lease lost before push')
-              git('commit','-m','Issue #5 п.5: разрешать стили по ID и не перестраивать сохранённые векторные рисунки')
+              git('commit','-m','Issue #5 п.5: назначать заголовку существующий объект стиля Pandoc')
               git('push','origin','HEAD:'+ref)
           source=git('rev-parse','HEAD')
           with open(os.environ['GITHUB_ENV'],'a') as f:f.write('COMPONENT_SOURCE_SHA='+source+'\n')
           print('COMPONENT_SOURCE_SHA',source)
           PY
-      - name: Restore completed vector stage by measured archive checksum
+      - name: Restore unchanged completed vector stage
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
