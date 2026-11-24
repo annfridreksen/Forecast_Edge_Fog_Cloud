@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "byte_identical_pdf": true,
+  "command": "sh build.sh",
+  "execution": "GitHub Actions; isolated temporary directory"
+}

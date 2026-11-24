@@ -1,0 +1,273 @@
+\begin{thebibliography}{99}
+\Bibitem{bonomi}
+\by Bonomi F., Milito R., Zhu J., Addepalli S.
+\paper Fog computing and its role in the internet of things
+\inbook Proceedings of the first edition of the MCC workshop on Mobile cloud
+  computing
+\yr 2012
+\pages 13--16
+\doi 10.1145/2342509.2342513
+
+\Bibitem{shi}
+\by Shi W., Cao J., Zhang Q., Li Y., Xu L.
+\paper Edge Computing: Vision and Challenges
+\jour IEEE Internet of Things Journal
+\vol 3
+\issue 5
+\yr 2016
+\pages 637--646
+\doi 10.1109/JIOT.2016.2579198
+
+\Bibitem{ifogsim}
+\by Gupta H., Dastjerdi A. V., Ghosh S. K., Buyya R.
+\paper iFogSim: A toolkit for modeling and simulation of resource management
+  techniques in the Internet of Things, Edge and Fog computing environments
+\jour Software: Practice and Experience
+\vol 47
+\issue 9
+\yr 2017
+\pages 1275--1296
+\doi 10.1002/spe.2509
+
+\Bibitem{ifogsim2}
+\by Mahmud R., Pallewatta S., Goudarzi M., Buyya R.
+\paper iFogSim2: An extended iFogSim simulator for mobility, clustering, and
+  microservice management in edge and fog computing environments
+\jour Journal of Systems and Software
+\vol 190
+\yr 2022
+\pages 111351
+\doi 10.1016/j.jss.2022.111351
+
+\Bibitem{edgecloudsim}
+\by Sonmez C., Ozgovde A., Ersoy C.
+\paper EdgeCloudSim: An environment for performance evaluation of edge
+  computing systems
+\jour Transactions on Emerging Telecommunications Technologies
+\vol 29
+\issue 11
+\yr 2018
+\pages e3493
+\doi 10.1002/ett.3493
+
+\Bibitem{yafs}
+\by Lera I., Guerrero C., Juiz C.
+\paper YAFS: A Simulator for IoT Scenarios in Fog Computing
+\jour IEEE Access
+\vol 7
+\yr 2019
+\pages 91745--91758
+\doi 10.1109/ACCESS.2019.2927895
+
+\Bibitem{edgesimpy}
+\by Souza P. S., Ferreto T., Calheiros R. N.
+\paper EdgeSimPy: Python-based modeling and simulation of edge computing
+  resource management policies
+\jour Future Generation Computer Systems
+\vol 148
+\yr 2023
+\pages 446--459
+\doi 10.1016/j.future.2023.06.013
+
+\Bibitem{enigma}
+\by del Pozo Pu\~nal E., Garc\'ia-Carballeira F., Camarmas-Alonso D.
+\paper A scalable simulator for cloud, fog and edge computing platforms with
+  mobility support
+\jour Future Generation Computer Systems
+\vol 144
+\yr 2023
+\pages 117--130
+\doi 10.1016/j.future.2023.02.010
+
+\Bibitem{vonedge}
+\by Alsenani Y.
+\paper VonEdgeSim: A Framework for Simulating IoT Application in Volunteer Edge
+  Computing
+\jour Electronics
+\vol 13
+\issue 20
+\yr 2024
+\pages 4124
+\doi 10.3390/electronics13204124
+
+\Bibitem{mintedge}
+\by G\'omez B., Coronado E., Villal\'on J., Garrido A.
+\paper Energy-focused simulation of edge computing architectures in 5G networks
+\jour The Journal of Supercomputing
+\vol 80
+\yr 2024
+\pages 12564--12584
+\doi 10.1007/s11227-024-05926-z
+
+\Bibitem{edgeaisim}
+\by Nandhakumar A. R., Baranwal A., Choudhary P., Golec M., Gill S. S.
+\paper EdgeAISim: A toolkit for simulation and modelling of AI models in edge
+  computing environments
+\jour Measurement: Sensors
+\vol 31
+\yr 2024
+\pages 100939
+\doi 10.1016/j.measen.2023.100939
+
+\Bibitem{mecsim}
+\by Islam A., Ghose M.
+\paper MECSim: A comprehensive simulation platform for multi-access edge
+  computing
+\jour Journal of Systems Architecture
+\vol 173
+\yr 2026
+\pages 103706
+\doi 10.1016/j.sysarc.2026.103706
+
+\Bibitem{quality}
+\by Mechalikh C., Silem A. E. H., Safavifar Z., Golpayegani F.
+\paper Quality matters: A comprehensive comparative study of edge computing
+  simulators
+\jour Simulation Modelling Practice and Theory
+\vol 138
+\yr 2025
+\pages 103042
+\doi 10.1016/j.simpat.2024.103042
+
+\Bibitem{kendall}
+\by Kendall D. G.
+\paper Stochastic Processes Occurring in the Theory of Queues and their
+  Analysis by the Method of the Imbedded Markov Chain
+\jour The Annals of Mathematical Statistics
+\vol 24
+\issue 3
+\yr 1953
+\pages 338--354
+\doi 10.1214/aoms/1177728975
+
+\Bibitem{little}
+\by Little J. D. C.
+\paper A Proof for the Queuing Formula: $L=\lambda W$
+\jour Operations Research
+\vol 9
+\issue 3
+\yr 1961
+\pages 383--387
+\doi 10.1287/opre.9.3.383
+
+\Bibitem{law}
+\by Law A. M.
+\book Simulation Modeling and Analysis
+\edition 5th edition
+\publ McGraw-Hill Education
+\yr 2015
+\isbn 978-0-07-340132-4
+\URL
+  https://www.mheducation.ca/product/simulation-modeling-and-analysis-9780073401324-can
+
+\Bibitem{sargent}
+\by Sargent R. G.
+\paper Verification and validation of simulation models
+\jour Journal of Simulation
+\vol 7
+\issue 1
+\yr 2013
+\pages 12--24
+\doi 10.1057/jos.2012.20
+
+\Bibitem{efron}
+\by Efron B.
+\paper Bootstrap Methods: Another Look at the Jackknife
+\jour The Annals of Statistics
+\vol 7
+\issue 1
+\yr 1979
+\pages 1--26
+\doi 10.1214/aos/1176344552
+
+\Bibitem{barton}
+\by Barton R. R., Rhodes-Leader L. A.
+\paper Bootstrap Confidence Intervals for Simulation Output Parameters
+\inbook 2023 Winter Simulation Conference (WSC)
+\yr 2023
+\pages 421--432
+\doi 10.1109/WSC60868.2023.10407467
+
+\Bibitem{fogsurvey}
+\by Brogi A., Forti S., Guerrero C., Lera I.
+\paper How to place your apps in the fog: State of the art and open challenges
+\jour Software: Practice and Experience
+\vol 50
+\issue 5
+\yr 2020
+\pages 719--740
+\doi 10.1002/spe.2766
+
+\Bibitem{heft}
+\by Topcuoglu H., Hariri S., Wu M.-Y.
+\paper Performance-effective and low-complexity task scheduling for
+  heterogeneous computing
+\jour IEEE Transactions on Parallel and Distributed Systems
+\vol 13
+\issue 3
+\yr 2002
+\pages 260--274
+\doi 10.1109/71.993206
+
+\Bibitem{lykouris18}
+\by Lykouris T., Vassilvitskii S.
+\paper Competitive Caching with Machine Learned Advice
+\inbook Proceedings of the 35th International Conference on Machine Learning
+\serial Proceedings of Machine Learning Research
+\vol 80
+\yr 2018
+\pages 3296--3305
+\URL https://proceedings.mlr.press/v80/lykouris18a.html
+
+\Bibitem{lykouris21}
+\by Lykouris T., Vassilvitskii S.
+\paper Competitive Caching with Machine Learned Advice
+\jour Journal of the ACM
+\vol 68
+\issue 4
+\yr 2021
+\pages 24:1--24:25
+\doi 10.1145/3447579
+
+\Bibitem{advice}
+\by Wei A.
+\paper Better and Simpler Learning-Augmented Online Caching
+\inbook APPROX/RANDOM 2020
+\serial Leibniz International Proceedings in Informatics
+\vol 176
+\yr 2020
+\pages 60:1--60:17
+\doi 10.4230/LIPIcs.APPROX/RANDOM.2020.60
+
+\Bibitem{angelopoulos}
+\by Angelopoulos A. N., Bates S.
+\paper Conformal Prediction: A Gentle Introduction
+\jour Foundations and Trends in Machine Learning
+\vol 16
+\issue 4
+\yr 2023
+\pages 494--591
+\doi 10.1561/2200000101
+
+\Bibitem{barber}
+\by Barber R. F., Cand\`es E. J., Ramdas A., Tibshirani R. J.
+\paper Conformal prediction beyond exchangeability
+\jour The Annals of Statistics
+\vol 51
+\issue 2
+\yr 2023
+\pages 816--845
+\doi 10.1214/23-AOS2276
+
+\Bibitem{clopper}
+\by Clopper C. J., Pearson E. S.
+\paper The Use of Confidence or Fiducial Limits Illustrated in the Case of the
+  Binomial
+\jour Biometrika
+\vol 26
+\issue 4
+\yr 1934
+\pages 404--413
+\doi 10.1093/biomet/26.4.404
+
+\end{thebibliography}

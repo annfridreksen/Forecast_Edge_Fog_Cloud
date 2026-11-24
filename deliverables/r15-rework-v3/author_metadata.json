@@ -1,0 +1,21 @@
+{
+  "schema": "FEFC-approved-author-fields-1",
+  "source_comments": [7130900462, 7131272024, 7132932227],
+  "authors_in_order": [
+    {"ru": "Орда-Жигулина Марина Владимировна", "en": "Marina Vladimirovna Orda-Zhigulina", "affiliation": "ЮНЦ РАН", "orcid": null},
+    {"ru": "Орда-Жигулина Дина Владимировна", "en": "Dina Vladimirovna Orda-Zhigulina", "affiliation": "ЮНЦ РАН", "orcid": null},
+    {"ru": "Игнатенко Александр Сергеевич", "en": "Alexander Sergeevich Ignatenko", "affiliation": "ЮНЦ РАН", "orcid": null}
+  ],
+  "affiliation_ru": "Федеральное государственное бюджетное учреждение науки «Федеральный исследовательский центр Южный научный центр Российской академии наук»",
+  "biography_ru_for_each": "Учёный-исследователь в области распределённых вычислительных систем и искусственного интеллекта",
+  "biography_en_for_each": "Researcher in distributed computing systems and artificial intelligence",
+  "corresponding_author": "М. В. Орда-Жигулина",
+  "correspondence_email": "jigulina@mail.ru",
+  "funding_statement_ru": "Публикация подготовлена в рамках реализации ГЗ ЮНЦ РАН, № гос. рег. 125011200147-2",
+  "funding_basis": "Приказ №1252-04 от 12.01.2026, п.4; точная формулировка передана рецензентом в #7132932227",
+  "shortened_scope_approved": true,
+  "photos": null,
+  "personal_consents_signed": false,
+  "article_sent": false,
+  "open_fields": ["ORCID при наличии", "файлы портретов и права", "личные заявления и подписи", "номер и выходные сведения НСКФ", "ссылка в статье при использовании предшествующего материала"]
+}

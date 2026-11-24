@@ -1,0 +1,530 @@
+[
+  {
+    "file": "Сопроводительное_письмо_ПСТА_v3.pdf",
+    "page": 1,
+    "pdf_sha256": "be592765b560bded3cc254c30b5c1640b3e3db074f91830bf142137e4f91495c",
+    "text_characters": 2522,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 1,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2283,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 2,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2343,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 3,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2126,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 4,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2240,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 5,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1182,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 6,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1650,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 7,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2105,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 8,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1662,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 9,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2151,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 10,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1922,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 11,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 741,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 12,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 860,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 13,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1799,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 14,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1605,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 15,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2253,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 16,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2300,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 17,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1862,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 18,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1302,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 19,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2272,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 20,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2317,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 21,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2749,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 22,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2731,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 23,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2221,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 24,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 2676,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+    "page": 25,
+    "pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+    "text_characters": 1775,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 1,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2838,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 2,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2926,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 3,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2430,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 4,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 1666,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 5,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2356,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 6,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2405,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 7,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2698,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 8,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 1093,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 9,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 1287,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 10,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 1890,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 11,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2883,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 12,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 2799,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 13,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 1483,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 14,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 1324,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 15,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 3079,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 16,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 3285,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 17,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 3048,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 18,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 3455,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 19,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 3202,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+    "page": 20,
+    "pdf_sha256": "a24a730f81fe3735997b8813447a6195a3c3af5f5734d694bb8d9ce21e87eb9c",
+    "text_characters": 320,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 1,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2838,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 2,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2926,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 3,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2430,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 4,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 1666,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 5,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2356,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 6,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2405,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 7,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2698,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 8,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 1093,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 9,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 1287,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 10,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 1890,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 11,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2883,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 12,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 2799,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 13,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 1483,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 14,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 1324,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 15,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 3079,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 16,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 3285,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 17,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 3048,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 18,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 3455,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 19,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 3202,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  },
+  {
+    "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+    "page": 20,
+    "pdf_sha256": "3cb5561930ffcf7ef5faed1c0010cca486ca3ccd116931d1a8528c47f3eb7d40",
+    "text_characters": 320,
+    "personal_visual_review": "NOT_CLAIMED_ON_NEW_BINARY",
+    "rendered": true
+  }
+]

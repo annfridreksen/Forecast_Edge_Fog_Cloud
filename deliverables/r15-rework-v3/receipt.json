@@ -1,0 +1,144 @@
+{
+  "status": "TECHNICAL_CHECKS_COMPLETED_VISUAL_REVIEW_OPEN",
+  "saved_source_sha": "2048573b64840417f4e471cf5c1b3ebe28779743",
+  "checking_code_sha": "9eaa942d310c2e80ff020667545ca79c8d58bf63",
+  "run_id": "45496991824",
+  "original_manifest_entries": 64,
+  "checks": [
+    {
+      "check": "Exact four expected document PDFs",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: required complete letter content",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: Law title rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: late sections and English summary rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: Law title rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: late sections and English summary rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: Law title rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: late sections and English summary rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Unpacked source ZIP rebuild has identical page texts",
+      "pass": true
+    },
+    {
+      "check": "Unpacked source ZIP regenerates the same actual BBL",
+      "pass": true
+    },
+    {
+      "check": "Unpacked source ZIP has no Overfull boxes",
+      "pass": true
+    },
+    {
+      "check": "No font files distributed",
+      "pass": true
+    }
+  ],
+  "address_tests": [
+    {
+      "case": "complete_saved_one_page_letter_and_three_articles",
+      "passed": true,
+      "pages": {
+        "Сопроводительное_письмо_ПСТА_v3.pdf": 1,
+        "Статья_FEFC_R15_v3_ПСТА.pdf": 25,
+        "Статья_FEFC_R15_v3_для_чтения.pdf": 20,
+        "Статья_FEFC_R15_v3_красные_изменения.pdf": 20
+      }
+    },
+    {
+      "case": "empty",
+      "passed": true,
+      "rejection": "Сопроводительное_письмо_ПСТА_v3.pdf: confirmed contact rendered"
+    },
+    {
+      "case": "incomplete",
+      "passed": true,
+      "rejection": "Сопроводительное_письмо_ПСТА_v3.pdf: required complete letter content"
+    },
+    {
+      "case": "one_page_article",
+      "passed": true,
+      "rejection": "Статья_FEFC_R15_v3_ПСТА.pdf: bounded complete page count"
+    }
+  ],
+  "isolated_build": {
+    "passed": true,
+    "byte_identical_pdf": true,
+    "command": "sh build.sh",
+    "execution": "GitHub Actions; isolated temporary directory"
+  },
+  "saved_pdf_sha256": "6763fa870fd69c049dcfca2709e4637be2ae9efb36bffb4c23c1c8cc5ae8c4df",
+  "source_zip_sha256": "0f7481bc45b23c6e26954e0c27ec49a0379b3c919c284ec46c746ccb359b6e9b",
+  "word_figures_science_regenerated": false,
+  "personal_visual_review_complete": false,
+  "ready_to_submit": false,
+  "article_sent": false
+}
