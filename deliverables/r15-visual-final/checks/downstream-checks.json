@@ -1,0 +1,14 @@
+[
+  {
+    "check": "Full bilingual PSTA manuscript compiled",
+    "pass": true
+  },
+  {
+    "check": "PSTA has no overfull boxes",
+    "pass": true
+  },
+  {
+    "check": "Сопроводительное_письмо_ПСТА_v3.pdf: bounded complete page count",
+    "pass": false
+  }
+]

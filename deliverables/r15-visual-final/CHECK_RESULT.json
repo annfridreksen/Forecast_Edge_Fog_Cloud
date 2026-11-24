@@ -1,0 +1,222 @@
+{
+  "stage": "F_COMPLETE_EXECUTOR_REVIEW",
+  "source_sha": "b5fab8472f9850ecb1b53cf2c354a736c10fea62",
+  "run_id": "45510082462",
+  "W_delivery": "de3e2d2c8fc9f907014146c092f15b9ba42e3a33",
+  "P_delivery": "d09c28ef486728a25e14c3472aba5ab45b6f2644",
+  "isolated_build_run": 45507766222,
+  "isolated_source_zip": {
+    "passed": true,
+    "byte_identical_pdf": true,
+    "command": "sh build.sh",
+    "execution": "GitHub Actions; isolated temporary directory"
+  },
+  "completed_checks": [
+    {
+      "check": "Exact four expected document PDFs",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: required complete letter content",
+      "pass": true
+    },
+    {
+      "check": "Сопроводительное_письмо_ПСТА_v3.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: Law title rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: late sections and English summary rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_ПСТА.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: Law title rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: late sections and English summary rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_для_чтения.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: bounded complete page count",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: confirmed contact rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: Law title rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: late sections and English summary rendered",
+      "pass": true
+    },
+    {
+      "check": "Статья_FEFC_R15_v3_красные_изменения.pdf: text bounds do not leave the page",
+      "pass": true
+    },
+    {
+      "check": "Unpacked source ZIP rebuild has identical page texts",
+      "pass": true
+    },
+    {
+      "check": "Unpacked source ZIP regenerates the same actual BBL",
+      "pass": true
+    },
+    {
+      "check": "Unpacked source ZIP has no Overfull boxes",
+      "pass": true
+    },
+    {
+      "check": "No font files distributed",
+      "pass": true
+    }
+  ],
+  "preserved": [
+    {
+      "file": "Статья_FEFC_R15_v3_ПСТА.pdf",
+      "sha256": "a7af28cb4453c86f469ef31ff86a5cfbe8091986b2998f7bc9b1654927e5efd2"
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_для_чтения.docx",
+      "sha256": "7b50db6d4da4e33ddde2f7a459dba7cb12430ad5e05c25fb8d9b33425f9f8eb2"
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+      "sha256": "caf8e70cb3824fc8c184bb5f28da38f1ecc4e932b2b7f843e2268a46affb6be2"
+    },
+    {
+      "file": "Сопроводительное_письмо_ПСТА_v3.pdf",
+      "sha256": "be592765b560bded3cc254c30b5c1640b3e3db074f91830bf142137e4f91495c"
+    },
+    {
+      "file": "Сопроводительное_письмо_ПСТА_v3.docx",
+      "sha256": "e65e9a19f89b7acacc276027d9327e6a38af54f2ff7ace2f6321404485b87e13"
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_красные_изменения.docx",
+      "sha256": "1c7457c52dddfb364eb409db92a908759dbc55fd6466ed8c6e49afe5fdb65282"
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+      "sha256": "45542646c837cc130c4a2071dc5f8b3b9e1a15c9c71ab51b9a8543589af3fbe5"
+    },
+    {
+      "file": "LaTeX/figures/03_reassignment.pdf",
+      "sha256": "ddf2138e1177fb05f6160e1142a113d3d420069f55141f78bfaf44ab8bba4b17"
+    },
+    {
+      "file": "LaTeX/figures/03_reassignment.svg",
+      "sha256": "f5a38c057ce82f4ae6af00f99e1f4987a4580f00e2442497eb41969ad322df08"
+    },
+    {
+      "file": "LaTeX/figures/01_environment.pdf",
+      "sha256": "5f01ac11a741b80881481d5297085c885990056a34676852a06c06e68a715720"
+    },
+    {
+      "file": "LaTeX/figures/03_reassignment.tex",
+      "sha256": "bace38695019b6c1ebdd96bf6979c59aad78af124a4b8dc43a01e9045b59b27a"
+    },
+    {
+      "file": "LaTeX/figures/02_verification.pdf",
+      "sha256": "f071bb073024913cbca911fe53802d10994b5db16dc2d5e0a51c5702238ebd49"
+    },
+    {
+      "file": "LaTeX/figures/diagrams.json",
+      "sha256": "6d24c48a1b2719ebeb1269d9cc10122e9effd6ef4f1c474a19265ca90acc8280"
+    },
+    {
+      "file": "LaTeX/figures/02_verification.tex",
+      "sha256": "fd92530f9ff4a8861a1ab8a2bc793622a036cf9c78e0da95380d49959854c333"
+    },
+    {
+      "file": "LaTeX/figures/01_environment.tex",
+      "sha256": "eb33f1619cc777aae94e303761cf0476090b65d7a65057ce2fb5c2aa5c69aa54"
+    },
+    {
+      "file": "LaTeX/figures/01_environment.png",
+      "sha256": "5a6c2e206be9a8d9772ea202230206b820d39a215ece1ebb7bb5b25dc363cbb8"
+    },
+    {
+      "file": "LaTeX/figures/render_figures.py",
+      "sha256": "b5166738ffdcc600c5a3bbb969cd929f52f2dbfa9df7aaeb3376187f0e19f6b8"
+    },
+    {
+      "file": "LaTeX/figures/01_environment.svg",
+      "sha256": "658b533061a14a6a99ce66d28b2e089e5a78d052b8c694a61ccb7c6890b40b37"
+    },
+    {
+      "file": "LaTeX/figures/03_reassignment.png",
+      "sha256": "cdd912a29bf8af3870a5aaa8a440271f1c650622d99018c4dfb2c37261d104b2"
+    },
+    {
+      "file": "LaTeX/figures/02_verification.tikz",
+      "sha256": "12e7249c419a07dab7663f9b08021f0c9f172225fcff0244f5cfa455424847a1"
+    },
+    {
+      "file": "LaTeX/figures/02_verification.svg",
+      "sha256": "b39e9ab6c1554d0a04570d7c573265f71374335f6c85cccc0ad8e6c80d772263"
+    },
+    {
+      "file": "LaTeX/figures/02_verification.png",
+      "sha256": "2ab9f3201740de043a14420c8b0be0362e9a884dc1a1279ec6915107bdb2c28b"
+    },
+    {
+      "file": "LaTeX/figures/01_environment.tikz",
+      "sha256": "981c40f313cde80c42e76bf96f7ecc2a54a6ff1fb11069ef157f151f82873676"
+    },
+    {
+      "file": "LaTeX/figures/03_reassignment.tikz",
+      "sha256": "3bb7ca6750ae65bd299e460e0301ae017483038bc42d2ab601d82ed84d946945"
+    }
+  ],
+  "word_regenerated": false,
+  "figures_regenerated": false,
+  "science_repeated": false,
+  "visual_review": "PASS_EXECUTOR_68_PAGES_AND_3_FIGURES",
+  "independent_final_acceptance": false,
+  "ready_to_submit": false,
+  "article_sent": false,
+  "remaining_author_fields": [
+    "NSCF bibliographic details and citation decision",
+    "ORCID if any; portraits and permission; additional confirmed biographical details",
+    "individual contributions, conflict of interest, consents and signature"
+  ]
+}

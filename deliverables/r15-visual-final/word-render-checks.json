@@ -1,0 +1,45 @@
+{
+  "environment": "install ok installed",
+  "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+  "edits": [
+    {
+      "file": "Статья_FEFC_R15_v3_красные_изменения.docx",
+      "math_objects": 116,
+      "compatibility_edits": 5,
+      "mathematical_tokens_unchanged": true,
+      "word_text_unchanged": true,
+      "equations_are_editable_omml": true
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_для_чтения.docx",
+      "math_objects": 116,
+      "compatibility_edits": 5,
+      "mathematical_tokens_unchanged": true,
+      "word_text_unchanged": true,
+      "equations_are_editable_omml": true
+    }
+  ],
+  "tests": [
+    {
+      "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+      "nine_equation_numbers": true,
+      "math_probe_glyphs": true,
+      "branch_and_frame_labels": true,
+      "pdf_sha256": "45542646c837cc130c4a2071dc5f8b3b9e1a15c9c71ab51b9a8543589af3fbe5"
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+      "nine_equation_numbers": true,
+      "math_probe_glyphs": true,
+      "branch_and_frame_labels": true,
+      "pdf_sha256": "caf8e70cb3824fc8c184bb5f28da38f1ecc4e932b2b7f843e2268a46affb6be2"
+    },
+    {
+      "negative_original_bad_export": "REJECTED",
+      "reason": "Missing rendered mathematics: #"
+    }
+  ],
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "text_rewritten": false
+}

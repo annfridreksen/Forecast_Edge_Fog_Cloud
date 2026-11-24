@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "links_removed": 116,
+  "reason": "No actual link to equation.russian---4.6",
+  "aux_supplied": true,
+  "compile_repeated": false,
+  "prior_missing_aux_probe": "Not counted as a content-negative test"
+}
