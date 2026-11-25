@@ -1,158 +1,103 @@
-name: R1.5 finalize completed ZIP and reviewed documents
+name: R1.5 correct final delivery log only
 on:
   push:
     branches: [night/fefc-v3]
     paths: ['.github/workflows/r15-full-rework.yml']
 permissions:
   contents: write
-  actions: read
 concurrency:
   group: fefc-r15-full-rework
   cancel-in-progress: false
 jobs:
   delivery:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
-    env:
-      PYTHONDONTWRITEBYTECODE: '1'
-      SOURCE_DATE_EPOCH: '1795478400'
-      FORCE_SOURCE_DATE: '1'
+    timeout-minutes: 6
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-      - name: Restore finished isolated build and retain exact scientific evidence
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p results/r15-visual/logs
-          python -m pip install --timeout 20 --retries 1 lxml pymupdf pyyaml > results/r15-visual/logs/final-install-python.log 2>&1
-          python - <<'PY'
-          import os,json,subprocess,urllib.request
-          from pathlib import Path
-          from scripts import r15_visual_finish as p
-          from scripts.build_r15_submission import download,unpack
-          if p.git('ls-remote','origin',p.REF).split()[0]!=os.environ['GITHUB_SHA']:raise RuntimeError('HEAD lease lost')
-          if p.git('status','--porcelain','--untracked-files=no'):raise RuntimeError('Unsaved tracked changes')
-          req=urllib.request.Request('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5/comments?since=2026-11-24T23%3A06%3A09Z&per_page=50',headers={'Authorization':'Bearer '+os.environ['GITHUB_TOKEN'],'User-Agent':'FEFC-F-final'})
-          with urllib.request.urlopen(req,timeout=30) as f:comments=json.load(f)
-          if any(x['id']!=7146889767 for x in comments):raise RuntimeError('Read new comments before F')
-          for aid,digest,target in [(14974501472,'5ba544fae9fc816ed5c7f7172e6f2578c1975fabb1b480cbd3e52f3e9f33a3b6',p.OUT),(14973474880,'086e18dee590173b6db5ca83a843979b006946568f4bac76987900f4feca7ab6',Path('/tmp/fefc-before-packaging'))]:
-              z=Path('results')/(str(aid)+'.zip');download(f'https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/{aid}/zip',z,digest,github=True);unpack(z,target)
-          checks=json.loads((p.OUT/'checks-in-progress.json').read_text());isolated=json.loads((p.D/'isolated-build.json').read_text())
-          if len(checks)!=24 or not all(x['pass'] for x in checks):raise ValueError('Previous completed checks incomplete')
-          if not isolated['passed'] or not isolated['byte_identical_pdf']:raise ValueError('Isolated build did not pass')
-          if p.sha(p.D/'Исходники_ПСТА_v3.zip')!='7c4bea14a2da5e68a717c1f9bd1b1821e02f1e02d9b1bb7d0c96b380c8834453':raise ValueError('Source ZIP changed')
-          with open(os.environ['GITHUB_ENV'],'a') as f:f.write('VISUAL_HEAD='+os.environ['GITHUB_SHA']+'\n')
-          p.put(p.OUT/'final-resume.json',dict(completed_checks_run=45507766222,completed_checks=checks,isolated_build_repeated=False,word_repeated=False,journal_pdf_recompiled=False,local_access_restored=True,executor_visual_review='All 20 reading pages, 20 red pages, 27 journal pages, 1 cover-letter page and three 7x figures directly viewed.'))
-          # Reuse only the pinned tool-install step; no document compilation.
-          import yaml
-          source=subprocess.check_output(['git','show','1540f4c2049ae1e4a2fbc8b3c667d11cd6cc6785:.github/workflows/r15-full-rework.yml'],text=True)
-          step=next(x['run'] for x in yaml.safe_load(source)['jobs']['finish_saved']['steps'] if x.get('name')=='Build pinned comparison tool for F')
-          Path('/tmp/fefc-build-diff.sh').write_text(step)
-          PY
-      - name: Install only comparison utility dependencies
+      - name: Verify and correct log, manifest and full ZIP without recompilation
         run: |
           python - <<'PY'
+          import hashlib, json, os, subprocess
           from pathlib import Path
-          import re,subprocess
-          for p in [Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list'),*Path('/etc/apt').glob('*mirrors*.txt')]:
-              if p.exists():
-                  s=p.read_text();n=re.sub(r'https?://[a-z0-9.-]*ec2\.archive\.ubuntu\.com/ubuntu','https://archive.ubuntu.com/ubuntu',s)
-                  if n!=s:
-                      q=Path('/tmp')/(p.name+'.fefc');q.write_text(n);subprocess.run(['sudo','cp',str(q),str(p)],check=True)
+          from zipfile import ZipFile, ZIP_DEFLATED
+          def git(*args):
+              return subprocess.check_output(['git',*args],text=True).strip()
+          def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+          def put(p,x): p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          ref='refs/heads/night/fefc-v3'
+          expected=os.environ['GITHUB_SHA']
+          assert git('ls-remote','origin',ref).split()[0]==expected, 'HEAD lease lost'
+          assert not git('status','--porcelain'), 'Unexpected working changes'
+          d=Path('deliverables/r15-visual-final')
+          m=d/'SHA256.json'
+          archive=d/'FEFC_R15_v3_полный_комплект.zip'
+          old=json.loads(m.read_text())
+          assert len(old)==83
+          for n,h in old.items(): assert sha(d/n)==h, n
+          with ZipFile(archive) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())==len(set(z.namelist()))
+              assert set(z.namelist())==set(old)|{'SHA256.json'}
+              assert z.read('SHA256.json')==m.read_bytes()
+              for n,h in old.items(): assert hashlib.sha256(z.read(n)).hexdigest()==h,n
+          log=d/'checks/main.log'
+          src=Path('deliverables/r15-psta-readable/main.log')
+          historic=d/'checks/historical-main.log'
+          evidence=d/'checks/F-log-correction.json'
+          assert not historic.exists() and not evidence.exists()
+          assert git('hash-object',str(log))=='db8f08e59bf14a127f00b0ef3622b87c679e0f66'
+          assert git('hash-object',str(src))=='551dc55f7b5b76fae99e24dde2781a03e87838df'
+          old_bytes=log.read_bytes(); new_bytes=src.read_bytes()
+          assert old_bytes.count(b'pdfTeX warning (dest)')==5
+          assert b'Output written on main.pdf (25 pages, 865618 bytes).' in old_bytes
+          assert b'Output written on main.pdf (27 pages, 923039 bytes).' in new_bytes
+          assert b'pdfTeX warning (dest)' not in new_bytes and b'Overfull' not in new_bytes and b'undefined references' not in new_bytes.lower()
+          assert sha(d/'LaTeX/main.pdf')==sha(Path('deliverables/r15-psta-readable/main.pdf'))=='a7af28cb4453c86f469ef31ff86a5cfbe8091986b2998f7bc9b1654927e5efd2'
+          historic.write_bytes(old_bytes); log.write_bytes(new_bytes)
+          assert sha(historic)==old['checks/main.log']
+          readme=d/'README.md'
+          readme.write_text(readme.read_text(encoding='utf-8')+'\nПриёмка P и целостности F: #7148176273. Актуальный checks/main.log — журнал 27-страничного PDF; checks/historical-main.log — исторический журнал 25-страничной редакции, не результат текущей проверки. Доказательство замены: checks/F-log-correction.json. Независимый визуальный просмотр остальных страниц и личные поля открыты.\n',encoding='utf-8')
+          changed={'checks/main.log','README.md'}
+          preserved={n:h for n,h in old.items() if n not in changed}
+          for n,h in preserved.items(): assert sha(d/n)==h,n
+          assert len(preserved)==81
+          put(evidence,dict(status='PASS',review_comment=7148176273,review_updated_at='2026-11-25T00:07:44Z',base_delivery='14afe9a5879e7dc67ff669f577ddf63b96d4192f',run_id=os.environ['GITHUB_RUN_ID'],log_source_commit='d09c28ef486728a25e14c3472aba5ab45b6f2644',log_source_blob='551dc55f7b5b76fae99e24dde2781a03e87838df',old_log_sha256=sha(historic),current_log_sha256=sha(log),pdf_sha256=sha(d/'LaTeX/main.pdf'),missing_destinations=0,overfull=0,preserved_files=preserved,source_zip_unchanged=True,document_recompiled=False,science_repeated=False))
+          new={**old,**{n:sha(d/n) for n in changed|{'checks/historical-main.log','checks/F-log-correction.json'}}}
+          put(m,dict(sorted(new.items())))
+          assert len(new)==85
+          tmp=archive.with_suffix('.tmp')
+          with ZipFile(tmp,'w',ZIP_DEFLATED) as z:
+              for n in sorted(set(new)|{'SHA256.json'}): z.write(d/n,n)
+          with ZipFile(tmp) as z:
+              assert z.testzip() is None
+              assert set(z.namelist())==set(new)|{'SHA256.json'}
+              assert z.read('SHA256.json')==m.read_bytes()
+              for n,h in new.items(): assert hashlib.sha256(z.read(n)).hexdigest()==h,n
+              for n,h in preserved.items(): assert hashlib.sha256(z.read(n)).hexdigest()==h,n
+              assert not any(Path(n).suffix.lower() in {'.ttf','.otf','.woff','.woff2','.pfb','.pfa','.tfm'} for n in z.namelist())
+          tmp.replace(archive)
+          status=Path('docs/STATUS.md')
+          prior=status.read_text(encoding='utf-8')
+          status.write_text('# STATUS — F: актуальный журнал исправлен\n\n25.11.2026 | F | deliverables/r15-visual-final/checks/main.log, historical-main.log, F-log-correction.json, README, SHA256, полный ZIP | 83 прежних и 85 новых хешей сверены; 81 прежний файл неизменён; CRC/состав ZIP PASS; без пересборки | run '+os.environ['GITHUB_RUN_ID']+' / BT26-R15-EXEC-20261125-04 | #7148176273 updated_at 2026-11-25T00:07:44Z: P принят адресно, целостность F принята, журнал исправлен; после успешного push запись освобождена. Следующий шаг: независимая приёмка исправления, оставшиеся личные поля.\n\n---\n'+prior,encoding='utf-8')
+          paths=[str(d/n) for n in changed|{'checks/historical-main.log','checks/F-log-correction.json','SHA256.json',archive.name}]+[str(status)]
+          git('config','user.name','FEFC executor');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          git('add','--',*paths)
+          staged=subprocess.check_output(['git','diff','--cached','--name-only','-z']).decode().rstrip('\0').split('\0')
+          assert set(staged)==set(paths),staged
+          assert git('ls-remote','origin',ref).split()[0]==expected,'HEAD lease lost before push'
+          git('commit','-m','FEFC R1.5 F: correct published log and verify archive without rebuild')
+          git('push','origin','HEAD:'+ref)
+          assert git('ls-remote','origin',ref).split()[0]==git('rev-parse','HEAD')
+          print('PUBLISHED',git('rev-parse','HEAD'),'manifest',sha(m),'full ZIP',sha(archive),'preserved',len(preserved))
           PY
-          timeout -k 15s 120 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 update -qq > results/r15-visual/logs/final-diff-install.log 2>&1
-          timeout -k 15s 300 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=25 install -y --no-install-recommends make automake g++ libpoppler-glib-dev libwxgtk3.2-dev libcairo2-dev xvfb xauth >> results/r15-visual/logs/final-diff-install.log 2>&1
-          bash -e /tmp/fefc-build-diff.sh
-      - name: Preserve deliverables, test actual bad links, register visual review, publish F
-        run: |
-          python - <<'PY'
-          import os,json,shutil,subprocess,tempfile
-          from pathlib import Path
-          from zipfile import ZipFile,ZIP_DEFLATED
-          import pymupdf as fitz
-          from scripts import r15_visual_finish as p
-          from scripts.r15_psta_readability import verify_pdf,body_links_and_captions
-          before=Path('/tmp/fefc-before-packaging/delivery');preserved=[]
-          extensions={'.svg','.pdf','.tikz','.tex','.png','.json','.py'}
-          for f in before.rglob('*'):
-              if not f.is_file():continue
-              relevant=(f.suffix=='.docx' or ('figures' in f.parts and f.suffix in extensions) or (f.suffix=='.pdf' and f.parent==before))
-              if relevant:
-                  rel=f.relative_to(before);current=p.D/rel
-                  if not current.exists() or p.sha(f)!=p.sha(current):raise ValueError('Changed final deliverable: '+str(rel))
-                  preserved.append(dict(file=str(rel),sha256=p.sha(current)))
-          for name in ('empirical-evidence.json','conditional-evidence.json','service-reference.json'):
-              if p.sha(p.D/name)!=p.sha(p.INPUT/name):raise ValueError('Changed scientific data')
-          if p.sha(p.S/'article_body.md')!=p.sha(p.INPUT/'LaTeX/article_body.md'):raise ValueError('Changed authored text')
-          if (p.S/'body.tex').read_text()!=body_links_and_captions((p.INPUT/'LaTeX/body.tex').read_text()):raise ValueError('Unexpected P transformation')
-          with ZipFile(p.D/'Исходники_ПСТА_v3.zip') as z:
-              if z.read('main.pdf')!=(p.S/'main.pdf').read_bytes() or z.read('references.bbl')!=(p.S/'references.bbl').read_bytes():raise ValueError('Source ZIP not aligned')
-          # A missing AUX file is not a valid content-negative test. Supply AUX and remove real PDF links.
-          with tempfile.TemporaryDirectory(prefix='fefc-real-negative-') as tmp:
-              tmp=Path(tmp);broken=tmp/'main.pdf';shutil.copy2(p.ROOT/'deliverables/r15-psta-readable/main.aux',tmp/'main.aux')
-              doc=fitz.open(p.S/'main.pdf');removed=0
-              for page in doc:
-                  for link in list(page.get_links()):page.delete_link(link);removed+=1
-              doc.save(broken);doc.close()
-              try:verify_pdf(broken)
-              except ValueError as e:negative=str(e)
-              else:raise ValueError('PDF with missing actual transitions was accepted')
-              if not removed:raise ValueError('No links removed in negative fixture')
-          p.put(p.D/'P-negative-transitions.json',dict(status='PASS',links_removed=removed,reason=negative,aux_supplied=True,compile_repeated=False,prior_missing_aux_probe='Not counted as a content-negative test'))
-          checks=json.loads((p.D/'psta-readability-checks.json').read_text());checks.pop('negative_original_rejected',None);checks['negative_actual_transitions']='P-negative-transitions.json';p.put(p.D/'psta-readability-checks.json',checks)
-          baseline=p.ROOT/'deliverables/r15/article.pdf'
-          if p.sha(baseline)!='5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f':raise ValueError('Wrong comparison baseline')
-          cmd=['xvfb-run','-a',os.environ['DIFF_PDF_BIN'],'--output-diff='+str(p.D/'Сравнение_с_R15_390b232a.pdf'),str(baseline),str(p.S/'main.pdf')]
-          r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=180);(p.OUT/'logs/F-final-diff.log').write_bytes(r.stdout)
-          if r.returncode not in (0,1) or not (p.D/'Сравнение_с_R15_390b232a.pdf').exists():raise RuntimeError('diff-pdf failed')
-          p.put(p.D/'comparison-provenance.json',dict(method='diff-pdf',tool_commit='092e6e31968cf28984c201a8c300f76f0020fbe4',baseline_delivery='390b232a24b10d303b4f6646af8fc1414f7f182a',before_sha256=p.sha(baseline),after_sha256=p.sha(p.S/'main.pdf'),exit=r.returncode,command=cmd))
-          reviewed={'Статья_FEFC_R15_v3_для_чтения.pdf':('45542646c837cc130c4a2071dc5f8b3b9e1a15c9c71ab51b9a8543589af3fbe5',20),'Статья_FEFC_R15_v3_красные_изменения.pdf':('caf8e70cb3824fc8c184bb5f28da38f1ecc4e932b2b7f843e2268a46affb6be2',20),'Статья_FEFC_R15_v3_ПСТА.pdf':('a7af28cb4453c86f469ef31ff86a5cfbe8091986b2998f7bc9b1654927e5efd2',27),'Сопроводительное_письмо_ПСТА_v3.pdf':('be592765b560bded3cc254c30b5c1640b3e3db074f91830bf142137e4f91495c',1)}
-          pages=[]
-          for name,(digest,count) in reviewed.items():
-              if p.sha(p.D/name)!=digest:raise ValueError('Visual review refers to different bytes')
-              with fitz.open(p.D/name) as doc:
-                  if len(doc)!=count:raise ValueError('Visual page count mismatch')
-              pages.extend(dict(file=name,page=i,pdf_sha256=digest,reviewer='GPT-Исполнитель текущего чата',personal_visual_review='PASS_EXECUTOR',review_date_moscow='2026-11-25',scope='Actual page images viewed; no clipped or invisible equations, captions or headers found; author fields remain red.') for i in range(1,count+1))
-          p.put(p.D/'page-review.json',pages)
-          p.put(p.D/'executor-visual-review.json',dict(pages_reviewed=68,reading=20,red=20,journal=27,letter=1,figures_7x=[1,2,3],all_nine_equations_visible=True,bilingual_table3_together=True,biographies_visible=True,substantive_scope='Consistency of approved numerical result, RU/EN abstracts, conclusions, formulas and proposed-control boundaries; not new scientific validation or literature audit.',reviewer_W_acceptance=7147014652,independent_P_F_acceptance=False,local_tools_restored=True,author_fields_remain=True))
-          for name in ('CHECK_RESULT.json','receipt.json','tex-warnings.json'):
-              f=p.D/name
-              if f.exists():
-                  history=p.D/'checks'/('historical-'+name);history.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,history)
-          receipt=dict(stage='F_COMPLETE_EXECUTOR_REVIEW',source_sha=os.environ['VISUAL_HEAD'],run_id=os.environ['GITHUB_RUN_ID'],W_delivery='de3e2d2c8fc9f907014146c092f15b9ba42e3a33',P_delivery='d09c28ef486728a25e14c3472aba5ab45b6f2644',isolated_build_run=45507766222,isolated_source_zip=json.loads((p.D/'isolated-build.json').read_text()),completed_checks=json.loads((p.OUT/'checks-in-progress.json').read_text()),preserved=preserved,word_regenerated=False,figures_regenerated=False,science_repeated=False,visual_review='PASS_EXECUTOR_68_PAGES_AND_3_FIGURES',independent_final_acceptance=False,ready_to_submit=False,article_sent=False,remaining_author_fields=['NSCF bibliographic details and citation decision','ORCID if any; portraits and permission; additional confirmed biographical details','individual contributions, conflict of interest, consents and signature'])
-          for name in ('CHECK_RESULT.json','receipt.json'):p.put(p.D/name,receipt)
-          log=(p.ROOT/'deliverables/r15-psta-readable/main.log').read_text(errors='replace');p.put(p.D/'tex-warnings.json',[x for x in log.splitlines() if any(w in x for w in ('Warning','warning','Overfull','Underfull'))])
-          for name in ('W_CHECK.json','original-export-checks.json'):shutil.copy2(p.ROOT/'deliverables/r15-word-readable'/name,p.D/name)
-          (p.D/'README.md').write_text('# FEFC R1.5 v3 — комплект W/P/F\n\nW: сохранённые читаемая и красная DOCX (116 OMML, девять формул) и их PDF. Красная копия выделяет переработанные разделы, это не посимвольный Track Changes. P: журнальный PDF с авторскими справками и рабочими переходами. F: проверенный исходный ZIP, реальный diff-PDF к390b232a, реестры и осмотр68страниц/трёх схем исполнителем. Схемы SVG/PDF/TikZ — LaTeX/figures.\n\nНаучный результат, числа, критерии и сокращённый объём неизменны. Никакого нового моделирования, bootstrap, обучения. Прогнозное управление — концептуальная часть. Старые журналы в checks/historical-* сохранены как история и не задают актуальный статус.\n\nЛичные авторские поля остаются красными. Независимая приёмка P/F открыта, статья не отправлена и письмо не подписано.\n',encoding='utf-8')
-          (p.D/'Оставшиеся_поля_автора.md').write_text('# Требует автора\n\n1. Номер/выходные сведения НСКФ и решение о ссылке на источник диапазонов.\n2. ORCID при наличии, портреты и права, дополнительные подтверждённые сведения для биографий.\n3. Индивидуальные вклады, конфликт интересов, личные согласия, дата и подпись письма.\n\nСостав/порядок авторов, ЮНЦ РАН, контакт М.В. Орда-Жигулина — jigulina@mail.ru, поддержка и сокращённый объём уже согласованы; повторное решение не требуется.\n',encoding='utf-8')
-          p.put(p.D/'SHA256.json',{f.relative_to(p.D).as_posix():p.sha(f) for f in sorted(p.D.rglob('*')) if f.is_file() and f.name not in ('SHA256.json','FEFC_R15_v3_полный_комплект.zip') and 'review-images' not in f.parts})
-          with ZipFile(p.D/'FEFC_R15_v3_полный_комплект.zip','w',ZIP_DEFLATED) as z:
-              for f in sorted(p.D.rglob('*')):
-                  if f.is_file() and f.name!='FEFC_R15_v3_полный_комплект.zip' and 'review-images' not in f.parts and f.suffix.lower() not in p.FONT:z.write(f,f.relative_to(p.D))
-          with ZipFile(p.D/'FEFC_R15_v3_полный_комплект.zip') as z:
-              if z.testzip() is not None:raise ValueError('Corrupt final ZIP')
-              for name,digest in json.loads(z.read('SHA256.json')).items():
-                  import hashlib
-                  if hashlib.sha256(z.read(name)).hexdigest()!=digest:raise ValueError('Final ZIP manifest mismatch: '+name)
-          target=p.ROOT/'deliverables/r15-visual-final';shutil.copytree(p.D,target,dirs_exist_ok=True)
-          status=p.ROOT/'docs/STATUS.md';old=status.read_text();status.write_text('# STATUS — W/P/F завершены исполнителем, переданы на приёмку\n\n25.11.2026 | F | deliverables/r15-visual-final, receipt/page-review/isolated-build/SHA256 | 68страниц и три схемы7× просмотрены;24сохранённые технические проверки/изолированная сборка PASS; новый реальный diff-PDF и контроль конечного ZIP выполнены | run '+os.environ['GITHUB_RUN_ID']+' / владелец #7146889767 | следующий шаг: адресная независимая приёмка P/F и оставшиеся авторские поля. После успешного push запись ОСВОБОЖДЕНА; исправные сборки не повторять.\n\nW de3e2d2c, P d09c28ef. Исходная причина45501213211 — неверно заданный equation.6; устранена чтением AUX. Следующий отказref* исправлен e9e05741. F45507766222 прошёл ZIP-сборку, затем ошибочно проверил удалённый временный журнал рисунка; сопоставление теперь касается настоящих PDF/SVG/TikZ/исходников/Word, они побайтово совпали. Готовые W/P и ZIP-сборка не повторялись.\n\nЛокальный доступ восстановлен; проверены точные скачанные архивы. Частные прежние рабочие папки не удалялись; новых локальных git-копий/параллельных процессов не создавалось. Научные данные/текст и main/v2/журнал Perplexity неизменны. Расписания не менялись. Письмо не подписано, статья не отправлена.\n\nОЦЕНКА расхода хода:15–25тыс.чтение приращения/диагностика;12–20тыс.адресные исправления и сборка;8–15тыс.просмотр/регистрация. Это приблизительная оценка, не биллинг.\n\nЖурнал:25.11.2026 · BT26-R15-WPF-RESUME-01 · источники:#7146208659/#7147014652, фактические архивы/Actions, непосредственные рендеры · решение: W/P/F предъявлены без нового исследования · статус: технически и визуально проверено исполнителем; независимая приёмка открыта.\n\n---\nИстория:\n'+old)
-          final=p.commit(['deliverables/r15-visual-final','docs/STATUS.md'],'Issue #5 F: предъявить проверенный комплект W/P/F и полный визуальный контроль')
-          p.put(p.OUT/'F_publication.json',dict(sha=final,pdf_sha256=p.sha(p.S/'main.pdf'),source_zip_sha256=p.sha(p.D/'Исходники_ПСТА_v3.zip'),full_zip_sha256=p.sha(p.D/'FEFC_R15_v3_полный_комплект.zip'),writer_released=True,ready_to_submit=False));print('FINAL_DELIVERY_SHA',final,flush=True)
-          PY
-      - name: Guard science and persist environment
-        if: always()
-        run: |
-          git diff --exit-code fc50bb56800a2723aafd0d7e3d5d62b8976300bd HEAD -- efc v2 colab configs article/rework/article_body.md article/rework/metadata.json results/r14/article_evidence.json results/r15/conditional_analysis.json docs/Журнал_проверок_Perplexity.md
-          python -m pip freeze > results/r15-visual/final-environment.txt
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
-          name: FEFC-final-WPF-${{ github.run_id }}
-          path: results/r15-visual/
+          name: r15-F-log-correction-${{ github.run_id }}
+          path: |
+            deliverables/r15-visual-final/checks/F-log-correction.json
+            deliverables/r15-visual-final/SHA256.json
           if-no-files-found: error
