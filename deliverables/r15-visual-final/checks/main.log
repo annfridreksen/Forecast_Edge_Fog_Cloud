@@ -1173,32 +1173,32 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1206,9 +1206,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 46.
+(Font)              using `T2A/cmr/m/n' instead on input line 47.
 
-Package hyperref Info: Link coloring ON on input line 46.
+Package hyperref Info: Link coloring ON on input line 47.
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -1257,7 +1257,7 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 \flrow@LT@prelastfoot=\box130
 \c@FBLTpage=\count316
 )
-LaTeX Info: Redefining \th on input line 46.
+LaTeX Info: Redefining \th on input line 47.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1282,13 +1282,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 maketitle russian
-<psta/CC-BY-OO.pdf, id=122, 511.14964pt x 243.94136pt>
+<psta/CC-BY-OO.pdf, id=130, 511.14964pt x 243.94136pt>
 File: psta/CC-BY-OO.pdf Graphic file (type pdf)
 <use psta/CC-BY-OO.pdf>
-Package pdftex.def Info: psta/CC-BY-OO.pdf  used on input line 46.
+Package pdftex.def Info: psta/CC-BY-OO.pdf  used on input line 47.
 (pdftex.def)             Requested size: 16.76112pt x 8.0pt.
 LaTeX Font Info:    Trying to load font information for T2A+cmss on input line 
-46.
+47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmss.fd
 File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
@@ -1296,35 +1296,35 @@ File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 {hyperlink{english--authorsinfo}{}}{{hyperlink{russian--abstract}{}}}
 \russian--thanks-authors-len=macro:->0.0pt
 \russian--address-authors-len=macro:->8.78517pt
-<psta/envelope.pdf, id=125, 16.06pt x 8.03pt>
+<psta/envelope.pdf, id=133, 16.06pt x 8.03pt>
 File: psta/envelope.pdf Graphic file (type pdf)
 <use psta/envelope.pdf>
-Package pdftex.def Info: psta/envelope.pdf  used on input line 46.
+Package pdftex.def Info: psta/envelope.pdf  used on input line 47.
 (pdftex.def)             Requested size: 5.0001pt x 4.00003pt.
 \Num-of-common-russian-addresses=\relax
 \russian--address.current=macro:->1
 \russian--address-authors-len=macro:->8.78517pt
 File: psta/envelope.pdf Graphic file (type pdf)
 <use psta/envelope.pdf>
-Package pdftex.def Info: psta/envelope.pdf  used on input line 46.
+Package pdftex.def Info: psta/envelope.pdf  used on input line 47.
 (pdftex.def)             Requested size: 5.0001pt x 4.00003pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/e
 nc/dvips/cm-super/cm-super-t2a.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/c
 m-super-ts1.enc} <./psta/CC-BY-OO.pdf> <./psta/envelope.pdf>] (./body.tex [2] [
 3]
-<figures/01_environment.pdf, id=229, 330.82094pt x 352.74185pt>
+<figures/01_environment.pdf, id=238, 330.82094pt x 352.74185pt>
 File: figures/01_environment.pdf Graphic file (type pdf)
 <use figures/01_environment.pdf>
 Package pdftex.def Info: figures/01_environment.pdf  used on input line 73.
 (pdftex.def)             Requested size: 330.05788pt x 351.92824pt.
  [4] [5 <./figures/01_environment.pdf>] [6] [7] [8] [9] [10]
-<figures/02_verification.pdf, id=335, 330.82094pt x 391.10417pt>
+<figures/02_verification.pdf, id=349, 330.82094pt x 391.10417pt>
 File: figures/02_verification.pdf Graphic file (type pdf)
 <use figures/02_verification.pdf>
-Package pdftex.def Info: figures/02_verification.pdf  used on input line 226.
+Package pdftex.def Info: figures/02_verification.pdf  used on input line 224.
 (pdftex.def)             Requested size: 312.87982pt x 369.89378pt.
 
-Underfull \hbox (badness 2865) in paragraph at lines 227--227
+Underfull \hbox (badness 2865) in paragraph at lines 225--225
 \T2A/cmr/m/up/9 недо-ста-точ-но-сти дан-ных и по-сле-ду-ю-щее под-твер-жде-ние
  []
 
@@ -1332,17 +1332,17 @@ Underfull \hbox (badness 2865) in paragraph at lines 227--227
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12 <./figures/02_verification.pdf>] [13] [14] [15] [16]
-<figures/03_reassignment.pdf, id=404, 330.82094pt x 427.4118pt>
+<figures/03_reassignment.pdf, id=428, 330.82094pt x 427.4118pt>
 File: figures/03_reassignment.pdf Graphic file (type pdf)
 <use figures/03_reassignment.pdf>
-Package pdftex.def Info: figures/03_reassignment.pdf  used on input line 394.
+Package pdftex.def Info: figures/03_reassignment.pdf  used on input line 388.
 (pdftex.def)             Requested size: 286.2975pt x 369.88875pt.
  [17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18 <./figures/03_reassignment.pdf>] [19]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-434.
+428.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
@@ -1352,67 +1352,69 @@ File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 \openout4 = `main.brf'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 []\T2A/cmr/bx/n/10 ƒоступность ма-те-ри-а-лов. \T2A/cmr/m/up/10 ѕер-вич-ные рас
 -чЉ-ты вы-пол-не-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 \T2A/cmr/m/up/10 ны на вер-сии \T2A/cmtt/m/n/10 b45bfee84d9b0727243faf6cd28eeda
 776813566 \T2A/cmr/m/up/10 ре-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 \T2A/cmr/m/up/10 по-зи-то-ри€ Forecast_Edge_Fog_Cloud. Ѕо-лее позд-н€€ вер-си€
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 \T2A/cmtt/m/n/10 1801dd37898e2d53eb2ab22a8dee532fd1083f5d \T2A/cmr/m/up/10 со-д
 ер-жит код и от-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 \T2A/cmr/m/up/10 дель-ный услов-ный ана-лиз. ƒан-ные фик-си-ро-ван-но-го сре-за
  из
  []
 
 
-Underfull \hbox (badness 5460) in paragraph at lines 434--1
+Underfull \hbox (badness 5460) in paragraph at lines 428--1
 \T2A/cmr/m/up/10 131 рас-чЉт-но-го за-про-са до-ступ-ны без ав-то-ри-за-ции: []
 []$\T2A/cmtt/m/n/10 https : / /
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 434--1
+Underfull \hbox (badness 2181) in paragraph at lines 428--1
 \T2A/cmtt/m/n/10 github . com / annfridreksen / Forecast _ Edge _ Fog _ Cloud /
  tree /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 \T2A/cmtt/m/n/10 390b232a24b10d303b4f6646af8fc1414f7f182a / deliverables / r15$
 [][]\T2A/cmr/m/up/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--1
+Underfull \hbox (badness 10000) in paragraph at lines 428--1
 \T2A/cmr/m/up/10 –е-дак-ци-он-на€ пе-ре-ра-бот-ка не из-ме-н€-ет пер-вич-ные на
 -блю-де-
  []
 
 [20{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./psta/DOI_logo
-.png>] [21]) [22 <./psta/URL_logo.png>]
+.png>] [21]) [22 <./psta/URL_logo.png>] [23
+
+]
 maketitle english
 File: psta/CC-BY-OO.pdf Graphic file (type pdf)
 <use psta/CC-BY-OO.pdf>
-Package pdftex.def Info: psta/CC-BY-OO.pdf  used on input line 49.
+Package pdftex.def Info: psta/CC-BY-OO.pdf  used on input line 51.
 (pdftex.def)             Requested size: 16.76112pt x 8.0pt.
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 4
-9.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 5
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -1422,17 +1424,19 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \english--address-authors-len=macro:->8.68524pt
 File: psta/envelope.pdf Graphic file (type pdf)
 <use psta/envelope.pdf>
-Package pdftex.def Info: psta/envelope.pdf  used on input line 49.
+Package pdftex.def Info: psta/envelope.pdf  used on input line 51.
 (pdftex.def)             Requested size: 5.0001pt x 4.00003pt.
 \Num-of-common-english-addresses=\relax
 \english--address.current=macro:->1
 \english--address-authors-len=macro:->8.68524pt
 File: psta/envelope.pdf Graphic file (type pdf)
 <use psta/envelope.pdf>
-Package pdftex.def Info: psta/envelope.pdf  used on input line 49.
+Package pdftex.def Info: psta/envelope.pdf  used on input line 51.
 (pdftex.def)             Requested size: 5.0001pt x 4.00003pt.
- [23] [24] [25]
-(./main.aux)
+ [24] [25] [26]
+[27
+
+] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1442,63 +1446,52 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 48FC5DD83B38F9E7B2F54AC73235CB97;10061.
+(rerunfilecheck)             Checksum: 1421E824D88948D492D21E7B9F8D7D36;10523.
 Package rerunfilecheck Info: File `main.brf' has not changed.
 (rerunfilecheck)             Checksum: 654CB5104FBE98F619D1DB7CD4CDFA8C;1673.
  )
-pdfTeX warning (dest): name{russian--authorsinfo} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{-author.3} has been referenced but does not exist, 
-replaced by a fixed one
-
-
-pdfTeX warning (dest): name{-author.2} has been referenced but does not exist, 
-replaced by a fixed one
-
-
-pdfTeX warning (dest): name{-author.1} has been referenced but does not exist, 
-replaced by a fixed one
-
-
-pdfTeX warning (dest): name{english--authorsinfo} has been referenced but does 
-not exist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfbx0700.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx100
-0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/te
-xmf/fonts/type1/public/cm-super/sfcc0600.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfcc0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0900
-.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfso0600.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfso0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sfsx0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx0800.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfti0600.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (25 pages, 865618 bytes).
+(\end occurred when \iffalse on line 294 was incomplete)
+(\end occurred when \ifx on line 294 was incomplete)
+(\end occurred when \iffalse on line 252 was incomplete)
+(\end occurred when \ifx on line 252 was incomplete)
+(\end occurred when \iffalse on line 89 was incomplete)
+(\end occurred when \ifx on line 89 was incomplete)</usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfbx0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfcc0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0700.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfcc0900.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfsi0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi0800.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfso0600.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfso0700.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfso0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfsx0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx0800.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfti0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+fti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (27 pages, 923039 bytes).
 PDF statistics:
- 750 PDF objects out of 1000 (max. 8388607)
- 599 compressed objects within 6 object streams
- 129 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 809 PDF objects out of 1000 (max. 8388607)
+ 649 compressed objects within 7 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
