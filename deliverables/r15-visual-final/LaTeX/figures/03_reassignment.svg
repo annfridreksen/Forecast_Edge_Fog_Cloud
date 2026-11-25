@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116mm" height="150.075mm" viewBox="0 0 800 1035">
+<title>03_reassignment</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#111"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="22" y="10" width="738" height="98" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="15" y="145" width="748" height="878" fill="none" stroke="#111" stroke-width="2" stroke-dasharray="10 7"/>
+<polyline points="222,108 222,190" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<polyline points="222,264 222,291" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="222,389 222,417" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="222,482 222,500" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="222,596 222,607 127,607 127,619" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="222,596 222,607 348,607 348,619" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="127,669 127,707" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="348,669 348,707" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="222,815 222,852" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="402,762 428,762 428,822 455,822" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="595,855 595,905" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="402,227 431,227 431,371 455,371" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<polyline points="595,292 595,338" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="455,410 431,410 431,548 402,548" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="735,390 742,390 742,822 735,822" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="735,246 751,246 751,684 418,684 418,730 402,730" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<polyline points="735,945 787,945 787,60 760,60" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<rect x="42" y="190" width="360" height="74" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="222.0" y="222.0" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" font-weight="normal" fill="#111">
+<tspan x="222.0" dy="0">Будущий интерфейс наблюдений</tspan>
+<tspan x="222.0" dy="23.2">Узел/зона, окно, единицы, время</tspan>
+</text>
+<rect x="455" y="190" width="280" height="102" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="595.0" y="215.62" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" font-weight="normal" fill="#111">
+<tspan x="595.0" dy="0">Входы задачи: граф;</tspan>
+<tspan x="595.0" dy="20.88">фиксированное разбиение;</tspan>
+<tspan x="595.0" dy="20.88">прежний план;</tspan>
+<tspan x="595.0" dy="20.88">ограничения</tspan>
+</text>
+<rect x="42" y="291" width="360" height="98" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="222.0" y="314.62" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" font-weight="normal" fill="#111">
+<tspan x="222.0" dy="0">Внешние оцениватели</tspan>
+<tspan x="222.0" dy="20.88">Задержка и потери конфигурации</tspan>
+<tspan x="222.0" dy="20.88">Риск переполнения Fog</tspan>
+<tspan x="222.0" dy="20.88">Риск отказа источника</tspan>
+</text>
+<rect x="455" y="338" width="280" height="100" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="595.0" y="362.62" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" font-weight="normal" fill="#111">
+<tspan x="595.0" dy="0">М2.3. Проверить план</tspan>
+<tspan x="595.0" dy="20.88">Сохранить допустимый</tspan>
+<tspan x="595.0" dy="20.88">либо повторить выбор</tspan>
+<tspan x="595.0" dy="20.88">Записать основание</tspan>
+</text>
+<rect x="42" y="417" width="360" height="65" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="222.0" y="444.5" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" font-weight="normal" fill="#111">
+<tspan x="222.0" dy="0">Адаптер порядковых команд</tspan>
+<tspan x="222.0" dy="23.2">Правило и калибровка</tspan>
+</text>
+<polygon points="222.0,500 402,548.0 222.0,596 42,548.0" stroke="#111" stroke-width="1.8" fill="white"/>
+<text x="222.0" y="543.75" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="17" font-weight="normal" fill="#111">
+<tspan x="222.0" dy="0">М2.1: применимость</tspan>
+<tspan x="222.0" dy="19.72">Актуальны и сопоставимы?</tspan>
+</text>
+<rect x="34" y="619" width="186" height="50" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="127.0" y="639.0" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" font-weight="normal" fill="#111">
+<tspan x="127.0" dy="0">С прогнозом</tspan>
+<tspan x="127.0" dy="23.2">(R, T, N, id)</tspan>
+</text>
+<rect x="255" y="619" width="186" height="50" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="348.0" y="639.0" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" font-weight="normal" fill="#111">
+<tspan x="348.0" dy="0">Без прогноза</tspan>
+<tspan x="348.0" dy="23.2">(T, N, id)</tspan>
+</text>
+<rect x="42" y="707" width="360" height="108" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="222.0" y="732.8000000000001" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" font-weight="normal" fill="#111">
+<tspan x="222.0" dy="0">М2.2. Полные назначения</tspan>
+<tspan x="222.0" dy="23.2">целых подграфов</tspan>
+<tspan x="222.0" dy="23.2">Проверка полного плана</tspan>
+<tspan x="222.0" dy="23.2">Выбор по заданному порядку</tspan>
+</text>
+<rect x="42" y="852" width="360" height="68" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="222.0" y="881.25" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="19" font-weight="normal" fill="#111">
+<tspan x="222.0" dy="0">Допустимый план не найден</tspan>
+<tspan x="222.0" dy="22.04">Не доказательство невозможности</tspan>
+</text>
+<rect x="455" y="789" width="280" height="66" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="595.0" y="817.5" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" font-weight="bold" fill="#111">
+<tspan x="595.0" dy="0">План + протокол</tspan>
+<tspan x="595.0" dy="20.88">Новый либо сохранённый</tspan>
+</text>
+<rect x="455" y="905" width="280" height="70" rx="5" fill="white" stroke="#111" stroke-width="1.8"/>
+<text x="595.0" y="935.0" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" font-weight="normal" fill="#111">
+<tspan x="595.0" dy="0">Будущее применение плана</tspan>
+<tspan x="595.0" dy="23.2">в разрешённой точке</tspan>
+</text>
+<rect x="460" y="606" width="270" height="46" fill="white" stroke="none"/>
+<text x="595.0" y="624.5" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" font-weight="normal" fill="#111">
+<tspan x="595.0" dy="0">Команды — не секунды</tspan>
+<tspan x="595.0" dy="20.88">и не вероятности</tspan>
+</text>
+<text x="391" y="34" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="22" fill="white" stroke="white" stroke-width="3" aria-hidden="true">РЕАЛИЗОВАННАЯ ИМИТАЦИОННАЯ СРЕДА</text>
+<text x="391" y="34" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="22" fill="#111">РЕАЛИЗОВАННАЯ ИМИТАЦИОННАЯ СРЕДА</text>
+<text x="391" y="63" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="22" fill="white" stroke="white" stroke-width="3" aria-hidden="true">Датчики → Edge → Fog → Cloud</text>
+<text x="391" y="63" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="22" fill="#111">Датчики → Edge → Fog → Cloud</text>
+<text x="391" y="89" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" fill="white" stroke="white" stroke-width="3" aria-hidden="true">События, очереди и исходы сообщений</text>
+<text x="391" y="89" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="20" fill="#111">События, очереди и исходы сообщений</text>
+<text x="390" y="170" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="21" fill="white" stroke="white" stroke-width="3" aria-hidden="true">ПРОЕКТИРУЕМЫЕ ИНТЕРФЕЙСЫ И УПРАВЛЕНИЕ</text>
+<text x="390" y="170" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="21" fill="#111">ПРОЕКТИРУЕМЫЕ ИНТЕРФЕЙСЫ И УПРАВЛЕНИЕ</text>
+<text x="120" y="598" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="white" stroke="white" stroke-width="3" aria-hidden="true">да</text>
+<text x="120" y="598" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="#111">да</text>
+<text x="348" y="598" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="white" stroke="white" stroke-width="3" aria-hidden="true">нет</text>
+<text x="348" y="598" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="#111">нет</text>
+<text x="284" y="839" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="white" stroke="white" stroke-width="3" aria-hidden="true">не найден</text>
+<text x="284" y="839" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="#111">не найден</text>
+<text x="476" y="748" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="white" stroke="white" stroke-width="3" aria-hidden="true">найден</text>
+<text x="476" y="748" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="#111">найден</text>
+<text x="543" y="478" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="white" stroke="white" stroke-width="3" aria-hidden="true">повторить выбор</text>
+<text x="543" y="478" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="#111">повторить выбор</text>
+<text x="682" y="577" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="white" stroke="white" stroke-width="3" aria-hidden="true">сохранить</text>
+<text x="682" y="577" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="16" fill="#111">сохранить</text>
+<text x="585" y="676" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="17" fill="white" stroke="white" stroke-width="3" aria-hidden="true">граф, разбиение, ограничения</text>
+<text x="585" y="676" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="17" fill="#111">граф, разбиение, ограничения</text>
+<text x="600" y="998" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" fill="white" stroke="white" stroke-width="3" aria-hidden="true">Обратная связь — ещё не реализована</text>
+<text x="600" y="998" text-anchor="middle" font-family="Times New Roman,Liberation Serif,serif" font-size="18" fill="#111">Обратная связь — ещё не реализована</text>
+</svg>

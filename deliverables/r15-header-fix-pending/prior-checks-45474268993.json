@@ -1,0 +1,162 @@
+[
+  {
+    "check": "Eight source sections preserved",
+    "pass": true
+  },
+  {
+    "check": "Nine numbered source equations",
+    "pass": true
+  },
+  {
+    "check": "Three source figure anchors",
+    "pass": true
+  },
+  {
+    "check": "Published cohort counts and minimum unchanged",
+    "pass": true
+  },
+  {
+    "check": "Frozen p95 and 131-request snapshot unchanged",
+    "pass": true
+  },
+  {
+    "check": "Original zero-loss bootstrap outcome unchanged",
+    "pass": true
+  },
+  {
+    "check": "Displayed values occur consistently: 170,9",
+    "pass": true
+  },
+  {
+    "check": "Displayed values occur consistently: 170.9",
+    "pass": true
+  },
+  {
+    "check": "Plan time and future gains not confused with measured p95",
+    "pass": true
+  },
+  {
+    "check": "RU/EN both exclude executed forecast control",
+    "pass": true
+  },
+  {
+    "check": "Approved contact not requested again",
+    "pass": true
+  },
+  {
+    "check": "Approved funding statement retained",
+    "pass": true
+  },
+  {
+    "check": "Unconfirmed NSCF record removed as in the exact Word basis",
+    "pass": true
+  },
+  {
+    "check": "BIB removes the same unconfirmed record",
+    "pass": true
+  },
+  {
+    "check": "27 real BBL records, NSCF not reintroduced",
+    "pass": true
+  },
+  {
+    "check": "Law title and ISBN retained",
+    "pass": true
+  },
+  {
+    "check": "01_environment: actual PDF is vector",
+    "pass": true
+  },
+  {
+    "check": "01_environment: SVG contains no raster",
+    "pass": true
+  },
+  {
+    "check": "01_environment: node bounds within canvas",
+    "pass": true
+  },
+  {
+    "check": "02_verification: actual PDF is vector",
+    "pass": true
+  },
+  {
+    "check": "02_verification: SVG contains no raster",
+    "pass": true
+  },
+  {
+    "check": "02_verification: node bounds within canvas",
+    "pass": true
+  },
+  {
+    "check": "03_reassignment: actual PDF is vector",
+    "pass": true
+  },
+  {
+    "check": "03_reassignment: SVG contains no raster",
+    "pass": true
+  },
+  {
+    "check": "03_reassignment: node bounds within canvas",
+    "pass": true
+  },
+  {
+    "check": "C02: insufficiency has no outgoing edge",
+    "pass": true
+  },
+  {
+    "check": "C02: only frozen candidate reaches confirmation",
+    "pass": true
+  },
+  {
+    "check": "C03: both ranking modes",
+    "pass": true
+  },
+  {
+    "check": "C03: not-found result does not apply a plan",
+    "pass": true
+  },
+  {
+    "check": "C03: retain/reselect and separate application",
+    "pass": true
+  },
+  {
+    "check": "C03: feedback is proposed",
+    "pass": true
+  },
+  {
+    "check": "Negative check: false insufficiency-confirmation edge rejected",
+    "pass": true
+  },
+  {
+    "check": "Word contains exactly three new figures",
+    "pass": true
+  },
+  {
+    "check": "Native Word math: all nine display equations and inline OMML",
+    "pass": true
+  },
+  {
+    "check": "Obsolete contact question removed",
+    "pass": true
+  },
+  {
+    "check": "Red Word has the same content and equations as reading copy",
+    "pass": true
+  },
+  {
+    "check": "Reworked sections and unresolved fields highlighted red",
+    "pass": true
+  },
+  {
+    "check": "Every DOCX rendered to corresponding PDF",
+    "pass": true
+  },
+  {
+    "check": "Full bilingual PSTA manuscript compiled",
+    "pass": true
+  },
+  {
+    "check": "PSTA has no overfull boxes",
+    "pass": false
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "source_files": {
+    "stationary_summary.csv": "31261a5479b3266bf79b68fdf112b68b6a3461bb3aab8bb17c6dff4ccc2cb993",
+    "sensitivity_summary.csv": "64d0993c70323d2f8f382627a28460bb6989434d631429d55a7c821e21d2bf9a",
+    "component_shares.csv": "0f41883c0baaeaacbc8bc4dc395201ff9d425432c00ec315d5eff9536551b2c1",
+    "level_shares.csv": "6fbcfb0675f4de25a1098d42023b961e5f7a211e695f2adb619173b0a186fe3b",
+    "forecast_metrics.csv": "293d10477b186bbdae54f338fe9ce9f9e46abe93726755e3103ab619faebd35a",
+    "neural_placement.csv": "a6dbe009c454c2b696a58a5344fd7cee8768bf9a17772e72c6024b5e55e8eb22"
+  },
+  "claims_added": 1068,
+  "article_sha256": "d2f31ef25970f578cf55535e25ad3c8808c18a73f68314c3c348dfdf09a3b448",
+  "all_new_tables_from_results": true,
+  "stationary_replications": 180,
+  "independent_seeds_per_scenario": 10,
+  "limitations": [
+    "Synthetic data only",
+    "Constant offered input and finite warmup are not proof of exact stationarity",
+    "t CI for mean of run estimates; maxima not a population bound",
+    "Conformal guarantee not established on dependent shifted time series",
+    "Single placement snapshot is not a comparative study"
+  ]
+}

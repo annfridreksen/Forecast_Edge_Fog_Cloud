@@ -1,0 +1,103 @@
+name: R1.5 correct final delivery log only
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['.github/workflows/r15-full-rework.yml']
+permissions:
+  contents: write
+concurrency:
+  group: fefc-r15-full-rework
+  cancel-in-progress: false
+jobs:
+  delivery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify and correct log, manifest and full ZIP without recompilation
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          def git(*args):
+              return subprocess.check_output(['git',*args],text=True).strip()
+          def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+          def put(p,x): p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          ref='refs/heads/night/fefc-v3'
+          expected=os.environ['GITHUB_SHA']
+          assert git('ls-remote','origin',ref).split()[0]==expected, 'HEAD lease lost'
+          assert not git('status','--porcelain'), 'Unexpected working changes'
+          d=Path('deliverables/r15-visual-final')
+          m=d/'SHA256.json'
+          archive=d/'FEFC_R15_v3_полный_комплект.zip'
+          old=json.loads(m.read_text())
+          assert len(old)==83
+          for n,h in old.items(): assert sha(d/n)==h, n
+          with ZipFile(archive) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())==len(set(z.namelist()))
+              assert set(z.namelist())==set(old)|{'SHA256.json'}
+              assert z.read('SHA256.json')==m.read_bytes()
+              for n,h in old.items(): assert hashlib.sha256(z.read(n)).hexdigest()==h,n
+          log=d/'checks/main.log'
+          src=Path('deliverables/r15-psta-readable/main.log')
+          historic=d/'checks/historical-main.log'
+          evidence=d/'checks/F-log-correction.json'
+          assert not historic.exists() and not evidence.exists()
+          assert git('hash-object',str(log))=='db8f08e59bf14a127f00b0ef3622b87c679e0f66'
+          assert git('hash-object',str(src))=='551dc55f7b5b76fae99e24dde2781a03e87838df'
+          old_bytes=log.read_bytes(); new_bytes=src.read_bytes()
+          assert old_bytes.count(b'pdfTeX warning (dest)')==5
+          assert b'Output written on main.pdf (25 pages, 865618 bytes).' in old_bytes
+          assert b'Output written on main.pdf (27 pages, 923039 bytes).' in new_bytes
+          assert b'pdfTeX warning (dest)' not in new_bytes and b'Overfull' not in new_bytes and b'undefined references' not in new_bytes.lower()
+          assert sha(d/'LaTeX/main.pdf')==sha(Path('deliverables/r15-psta-readable/Статья_FEFC_R15_v3_ПСТА.pdf'))=='a7af28cb4453c86f469ef31ff86a5cfbe8091986b2998f7bc9b1654927e5efd2'
+          historic.write_bytes(old_bytes); log.write_bytes(new_bytes)
+          assert sha(historic)==old['checks/main.log']
+          readme=d/'README.md'
+          readme.write_text(readme.read_text(encoding='utf-8')+'\nПриёмка P и целостности F: #7148176273. Актуальный checks/main.log — журнал 27-страничного PDF; checks/historical-main.log — исторический журнал 25-страничной редакции, не результат текущей проверки. Доказательство замены: checks/F-log-correction.json. Независимый визуальный просмотр остальных страниц и личные поля открыты.\n',encoding='utf-8')
+          changed={'checks/main.log','README.md'}
+          preserved={n:h for n,h in old.items() if n not in changed}
+          for n,h in preserved.items(): assert sha(d/n)==h,n
+          assert len(preserved)==81
+          put(evidence,dict(status='PASS',review_comment=7148176273,review_updated_at='2026-11-25T00:07:44Z',base_delivery='14afe9a5879e7dc67ff669f577ddf63b96d4192f',run_id=os.environ['GITHUB_RUN_ID'],log_source_commit='d09c28ef486728a25e14c3472aba5ab45b6f2644',log_source_blob='551dc55f7b5b76fae99e24dde2781a03e87838df',old_log_sha256=sha(historic),current_log_sha256=sha(log),pdf_sha256=sha(d/'LaTeX/main.pdf'),missing_destinations=0,overfull=0,preserved_files=preserved,source_zip_unchanged=True,document_recompiled=False,science_repeated=False))
+          new={**old,**{n:sha(d/n) for n in changed|{'checks/historical-main.log','checks/F-log-correction.json'}}}
+          put(m,dict(sorted(new.items())))
+          assert len(new)==85
+          tmp=archive.with_suffix('.tmp')
+          with ZipFile(tmp,'w',ZIP_DEFLATED) as z:
+              for n in sorted(set(new)|{'SHA256.json'}): z.write(d/n,n)
+          with ZipFile(tmp) as z:
+              assert z.testzip() is None
+              assert set(z.namelist())==set(new)|{'SHA256.json'}
+              assert z.read('SHA256.json')==m.read_bytes()
+              for n,h in new.items(): assert hashlib.sha256(z.read(n)).hexdigest()==h,n
+              for n,h in preserved.items(): assert hashlib.sha256(z.read(n)).hexdigest()==h,n
+              assert not any(Path(n).suffix.lower() in {'.ttf','.otf','.woff','.woff2','.pfb','.pfa','.tfm'} for n in z.namelist())
+          tmp.replace(archive)
+          status=Path('docs/STATUS.md')
+          prior=status.read_text(encoding='utf-8')
+          status.write_text('# STATUS — F: актуальный журнал исправлен\n\n25.11.2026 | F | deliverables/r15-visual-final/checks/main.log, historical-main.log, F-log-correction.json, README, SHA256, полный ZIP | 83 прежних и 85 новых хешей сверены; 81 прежний файл неизменён; CRC/состав ZIP PASS; без пересборки | run '+os.environ['GITHUB_RUN_ID']+' / BT26-R15-EXEC-20261125-05 | #7149195320 updated_at 2026-11-25T01:05:28Z; #7148176273: P принят адресно, целостность F принята, журнал исправлен; после успешного push запись освобождена. Следующий шаг: независимая приёмка исправления, оставшиеся личные поля.\n\n---\n'+prior,encoding='utf-8')
+          paths=[str(d/n) for n in changed|{'checks/historical-main.log','checks/F-log-correction.json','SHA256.json',archive.name}]+[str(status)]
+          git('config','user.name','FEFC executor');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          git('add','--',*paths)
+          staged=subprocess.check_output(['git','diff','--cached','--name-only','-z']).decode().rstrip('\0').split('\0')
+          assert set(staged)==set(paths),staged
+          assert git('ls-remote','origin',ref).split()[0]==expected,'HEAD lease lost before push'
+          git('commit','-m','FEFC R1.5 F: correct published log and verify archive without rebuild')
+          git('push','origin','HEAD:'+ref)
+          assert git('ls-remote','origin',ref).split()[0]==git('rev-parse','HEAD')
+          print('PUBLISHED',git('rev-parse','HEAD'),'manifest',sha(m),'full ZIP',sha(archive),'preserved',len(preserved))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: r15-F-log-correction-${{ github.run_id }}
+          path: |
+            deliverables/r15-visual-final/checks/F-log-correction.json
+            deliverables/r15-visual-final/SHA256.json
+          if-no-files-found: error

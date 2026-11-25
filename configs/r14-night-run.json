@@ -1,0 +1,11 @@
+{
+  "request_id": "20261123-compact-slice-08",
+  "mode": "slice",
+  "restore_run_id": 45184289739,
+  "restore_artifact_name": "r14-map-45184289739",
+  "wall_seconds": 900,
+  "max_expected_events": 1100000,
+  "migrate_storage": false,
+  "source_manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+  "source_zip_sha256": "9849c24d15f397c129ba0eda34f605f4ba42f5b3ad0291e453921a96c48c4efa"
+}

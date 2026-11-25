@@ -1,0 +1,258 @@
+{
+  "figures": [
+    {
+      "file": "article/figures/architecture.pdf",
+      "bytes": 17467,
+      "sha256": "14b2efcf1c47d06d4a8d5bd225976b66879a81851e239123a4f3821bec5fb3c8"
+    },
+    {
+      "file": "article/figures/architecture.png",
+      "bytes": 20277,
+      "sha256": "332cafbfead3c33d95b93cca76a1c84efc8bbc20f4aa8bf1a650fdf000f71d15"
+    },
+    {
+      "file": "article/figures/six_path.pdf",
+      "bytes": 15156,
+      "sha256": "b0414b30ad39d20d21ad314a2d06d565941ed3e6984bb4a585466afeed6c1b1e"
+    },
+    {
+      "file": "article/figures/six_path.png",
+      "bytes": 20801,
+      "sha256": "c90d76d5bd7be60aa10dcb940e70a92427b4dbe0a9dadce493c00e6ad9ba4542"
+    },
+    {
+      "file": "article/figures/inputs_outputs.pdf",
+      "bytes": 12744,
+      "sha256": "c35bc9dfb10aad0b78d9b552041d94f9f155ce52a4ce84186af5c28eed15a02f"
+    },
+    {
+      "file": "article/figures/inputs_outputs.png",
+      "bytes": 17195,
+      "sha256": "5ef878fe342f9541fc056562dd70a2627732add11aca2cf90d42ae302f07ae03"
+    },
+    {
+      "file": "article/figures/components.pdf",
+      "bytes": 18328,
+      "sha256": "0142b4882da9a8c24b775215f2891714e7640b93e1f76341df8fcf906b5f2411"
+    },
+    {
+      "file": "article/figures/components.png",
+      "bytes": 32266,
+      "sha256": "f09be446199a7d2366ec432118b0107f053ad07bc3922b2eda364ee334c17561"
+    },
+    {
+      "file": "article/figures/ratio.pdf",
+      "bytes": 13802,
+      "sha256": "8e7a08048b373888b9a6a03204a8a17113e268ec42ee13c30123701d9794ee13"
+    },
+    {
+      "file": "article/figures/ratio.png",
+      "bytes": 25449,
+      "sha256": "bbf2b0881c2105093a2844dd1203a96d12a4881b8fe13e67ceb87f80829ea80e"
+    },
+    {
+      "file": "article/figures/buffer.pdf",
+      "bytes": 15412,
+      "sha256": "ce94e6081f21bcde653839395773a5da82ef40e9a8c375561013b69988d52a05"
+    },
+    {
+      "file": "article/figures/buffer.png",
+      "bytes": 30609,
+      "sha256": "089dd7b4b11ad2d6f83d4174dadc504d6c2bd51f30438ecb5e408cfff534c4e5"
+    },
+    {
+      "file": "article/figures/queue.pdf",
+      "bytes": 14719,
+      "sha256": "8fb9ee95a4e194b981bc71c96295992f7f7e0bf5485549c5d51e6c493020a86d"
+    },
+    {
+      "file": "article/figures/queue.png",
+      "bytes": 28729,
+      "sha256": "a837be0c27ba22ebd705a8d362e346e21c606814c30aca133ee76d03bf03dd40"
+    },
+    {
+      "file": "article/figures/forecast_socket.pdf",
+      "bytes": 17273,
+      "sha256": "7e2e01c3bb3a8b1f41c4f58dba3c2a50172c8dfd819ee415457635ee186feb81"
+    },
+    {
+      "file": "article/figures/forecast_socket.png",
+      "bytes": 23219,
+      "sha256": "69eaee68ec237e57d1eda6720a8649404e5b8b32a574c17f01ac3493cb3dde32"
+    },
+    {
+      "file": "article/figures/forecast_mae.pdf",
+      "bytes": 12301,
+      "sha256": "3275293e6634221d94c1828f4c498f6de740229d6e466f569236457499e48f1a"
+    },
+    {
+      "file": "article/figures/forecast_mae.png",
+      "bytes": 28132,
+      "sha256": "248afb1007c72515bb7a7079d9d214da08f3260a2ad5b9a8c0ffe6bf6f09390d"
+    },
+    {
+      "file": "article/figures/forecast_coverage.pdf",
+      "bytes": 16123,
+      "sha256": "08037785dcc2dee16f3cf3d1608d381e151ed80e29c91d2cfe19ad04fdb12267"
+    },
+    {
+      "file": "article/figures/forecast_coverage.png",
+      "bytes": 30262,
+      "sha256": "de63583fbac4cf5f0e318c3759bd5046f0941a0bc557fb8c9e2b46ebf0b35a4c"
+    },
+    {
+      "file": "article/figures/forecast_trace.pdf",
+      "bytes": 18929,
+      "sha256": "72ae2ece3f7db65a9c6dbf4c0fc04bcfcb4ef564ba12a1fe4841f1003cac0262"
+    },
+    {
+      "file": "article/figures/forecast_trace.png",
+      "bytes": 142010,
+      "sha256": "15b27f229df8ea197ef72728fbed83d7e7cc0916fe9d88cf20284bc96ec4c866"
+    },
+    {
+      "file": "article/figures/placement_chain.pdf",
+      "bytes": 16053,
+      "sha256": "c399a646993fb4a8a030a80f19f9ac62af29f902aa4f99a21a908278efa77089"
+    },
+    {
+      "file": "article/figures/placement_chain.png",
+      "bytes": 22527,
+      "sha256": "578e7eefe730640c5b34fa7b622ba43e15fdbdb4c4c2b5f410cbd57621e59600"
+    },
+    {
+      "file": "article/figures/graph_P.pdf",
+      "bytes": 8349,
+      "sha256": "8ffc477283b5167e3366da0da6a604c2fd4cd4acf7c8204bb2101e705e5db1c3"
+    },
+    {
+      "file": "article/figures/graph_P.png",
+      "bytes": 13348,
+      "sha256": "394470039e21a07a6715c2104e93e21e3a74c88568ab0f9dd0ecd3bce2104c7e"
+    },
+    {
+      "file": "article/figures/graph_B.pdf",
+      "bytes": 7837,
+      "sha256": "a628259abcee730de211ea614c218d7e0dfbde5c7fb4614c1c81b02dbc66c4f5"
+    },
+    {
+      "file": "article/figures/graph_B.png",
+      "bytes": 12887,
+      "sha256": "0b039fb7302af6589c03737caa37ba66606e1fc8d02affc6a7b5f7480e52dcd2"
+    },
+    {
+      "file": "article/figures/gantt_P.pdf",
+      "bytes": 12717,
+      "sha256": "83641a1d5a2eee8121f2712ace00f07c562b1c85957476a5fe65f4b7c4e521c2"
+    },
+    {
+      "file": "article/figures/gantt_P.png",
+      "bytes": 14006,
+      "sha256": "919945cc4d7e7b2a0889b3e76b35b9632a8361499289b04b006a98139cdeea92"
+    },
+    {
+      "file": "article/figures/gantt_B.pdf",
+      "bytes": 11133,
+      "sha256": "9d204f5e30214b9863f1f4b66f429ebcaeabc985575b491d3856a1cd67197bea"
+    },
+    {
+      "file": "article/figures/gantt_B.png",
+      "bytes": 15084,
+      "sha256": "16bc532fadab6c2e235eac1f9f4e536c87839867839454596a49714c83dad967"
+    },
+    {
+      "file": "article/figures/neural_placement.pdf",
+      "bytes": 13947,
+      "sha256": "6626a57f362bf93a873d66b9a405bb97630880bef72018f04e6c258fb80c58fa"
+    },
+    {
+      "file": "article/figures/neural_placement.png",
+      "bytes": 22136,
+      "sha256": "d1f5afd1a881355b8773eb2af48b03eb6a1bc09f7ce83e2e506bf40af5adf8af"
+    },
+    {
+      "file": "article/figures/rho_latency.pdf",
+      "bytes": 20520,
+      "sha256": "f66e8b5a272b5e86c72d239748bb6336b810b6baa259a543dce5d3a051f99911"
+    },
+    {
+      "file": "article/figures/rho_latency.png",
+      "bytes": 51778,
+      "sha256": "c76957f6aff5092c78ad7989d4754883fe4de2fd10a1832ec19935bc66d4f6eb"
+    },
+    {
+      "file": "article/figures/rho_wait.pdf",
+      "bytes": 20887,
+      "sha256": "422378745fc9aeeb2f1f86002aeba90c83e89cef6a4b1900dc9c0944608d8e40"
+    },
+    {
+      "file": "article/figures/rho_wait.png",
+      "bytes": 62700,
+      "sha256": "2c175d90a5a76bd67513c933ecc30417003dc8502681389f38c7d55ba06906de"
+    },
+    {
+      "file": "article/figures/stationary_ratio.pdf",
+      "bytes": 18400,
+      "sha256": "3bb3474b0d3cecdf91526d564ccc8603db0b78fa6c754a789b4e50185f07764f"
+    },
+    {
+      "file": "article/figures/stationary_ratio.png",
+      "bytes": 51111,
+      "sha256": "41f304de3fe6d05688aa57c6b0137a41a108110c6575e103995ed0cc4105d9cf"
+    },
+    {
+      "file": "article/figures/stationary_buffer.pdf",
+      "bytes": 19197,
+      "sha256": "6d34b8b83c252af662fb7cfde2de1a3606949bc48714ef4bb9d5d252f29cec74"
+    },
+    {
+      "file": "article/figures/stationary_buffer.png",
+      "bytes": 46861,
+      "sha256": "0a53565fc24b9ae4e2d22d88dece7cbb2db590966819001cfe07dc69182fd9ad"
+    },
+    {
+      "file": "article/figures/stationary_losses.pdf",
+      "bytes": 18269,
+      "sha256": "623d996d356f42f2c92ca4366f6b5eb9ed0a02369665e131b832553c19a89de1"
+    },
+    {
+      "file": "article/figures/stationary_losses.png",
+      "bytes": 42007,
+      "sha256": "90b55902659817a2100416a8482dd91d0c8714184fc43422312927c90c4c4b4a"
+    },
+    {
+      "file": "article/figures/sensitivity_edge.pdf",
+      "bytes": 20610,
+      "sha256": "e7bcb3d31d16e8a29bcf24663bd40a650b8f5db4cc02c65244de396aa1e95c9d"
+    },
+    {
+      "file": "article/figures/sensitivity_edge.png",
+      "bytes": 64797,
+      "sha256": "66be205a16913c8ce66c577acfc3b517eda27900a26344bc68450beea2b2a8d5"
+    },
+    {
+      "file": "article/figures/sensitivity_link.pdf",
+      "bytes": 20295,
+      "sha256": "9bed3e7f264a80d7fec61bc48e9f81e5654dbec52942a4a875a00f32922ecde1"
+    },
+    {
+      "file": "article/figures/sensitivity_link.png",
+      "bytes": 62344,
+      "sha256": "44239b7f7f32ec628d82078990b7b308736972ef299af7fd8225c6ff1b67ec25"
+    },
+    {
+      "file": "article/figures/forecast_calibration.pdf",
+      "bytes": 19551,
+      "sha256": "20bd2eb3ceb8e1a3721578c69ec4d5a9e92e5badda8fe51e161ba4720981341f"
+    },
+    {
+      "file": "article/figures/forecast_calibration.png",
+      "bytes": 43244,
+      "sha256": "1af7837a8a21cf12e9420bf36886cc1a7c6f19edd79ba9ae6a0262b2c341e93c"
+    }
+  ],
+  "figures_pdf_png": 25,
+  "checks": "file signatures, expected names, control endpoints, recomputed forecast metrics and component-share sums",
+  "visual_review": "not automated; PDF contact-sheet inspection separate",
+  "status": "OK"
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "case": "complete_saved_one_page_letter_and_three_articles",
+    "passed": true,
+    "pages": {
+      "Сопроводительное_письмо_ПСТА_v3.pdf": 1,
+      "Статья_FEFC_R15_v3_ПСТА.pdf": 25,
+      "Статья_FEFC_R15_v3_для_чтения.pdf": 20,
+      "Статья_FEFC_R15_v3_красные_изменения.pdf": 20
+    }
+  },
+  {
+    "case": "empty",
+    "passed": true,
+    "rejection": "Сопроводительное_письмо_ПСТА_v3.pdf: confirmed contact rendered"
+  },
+  {
+    "case": "incomplete",
+    "passed": true,
+    "rejection": "Сопроводительное_письмо_ПСТА_v3.pdf: required complete letter content"
+  },
+  {
+    "case": "one_page_article",
+    "passed": true,
+    "rejection": "Статья_FEFC_R15_v3_ПСТА.pdf: bounded complete page count"
+  }
+]

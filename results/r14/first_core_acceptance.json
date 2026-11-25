@@ -1,0 +1,54 @@
+{
+  "scope": "First addressed R1.4 core result; NOT full round-2 acceptance",
+  "source_commit": "29530c15b92b91911766a9ca7b6df5fb77be9064",
+  "workflow_run_id": 45064920542,
+  "job_id": 137338823118,
+  "artifact_id": 14770916145,
+  "artifact_zip_sha256": "83f468436fecdf597eb8eac767dadd1643bbcc9faafc189910ced9c89502984b",
+  "execution": "GitHub Actions + nbconvert; also local Python container",
+  "actions_python": "3.13.18",
+  "local_python": "3.13.5",
+  "actions_status": "success",
+  "model_tests": {"run": 31, "passed": 31, "new_clock_tests": 14},
+  "logging_tests": {"run": 2, "passed": 2},
+  "notebook": "colab/validation/00_R14_core.ipynb",
+  "executed_code_cells": 5,
+  "rendered_png_outputs": 1,
+  "clock_unit": "integer nanosecond; nearest, ties to even",
+  "boundary_cases": [
+    {"case": "equal", "fog_release_tick": 12000000, "second_arrival_tick": 12000000, "completed": 2, "dropped": 0},
+    {"case": "early", "fog_release_tick": 12000000, "second_arrival_tick": 11999999, "completed": 1, "dropped": 1},
+    {"case": "late", "fog_release_tick": 12000000, "second_arrival_tick": 12000001, "completed": 2, "dropped": 0}
+  ],
+  "manual_five": {
+    "data_kind": "synthetic literal oracle",
+    "fog_order_one_based": [1, 2, 3, 5],
+    "waiting_ms": [0, 9, 18, null, 20],
+    "latency_ms": [14, 23, 32, null, 34],
+    "completed": 4,
+    "dropped": 1
+  },
+  "previous_counterexample": {
+    "source_commit": "2340c0d1ff82d7387ddce1bd1321ece7024fdc66",
+    "model_git_blob": "a61c2573a09a5a1f85e58a6c56dc6935432efbb7",
+    "reproduced_by_executor": true,
+    "execution": "local Python 3.13.5 container",
+    "completed": 1,
+    "dropped": 1,
+    "first_end_s_repr": "0.012",
+    "second_arrival_s_repr": "0.011999999999999999"
+  },
+  "artifact_files": ["report.json", "model-tests.txt", "model-tests.txt.raw", "pipeline-tests.txt", "pipeline-tests.txt.raw", "nbconvert.txt", "nbconvert.txt.raw", "00_R14_core.ipynb", "clock-boundaries.json", "manual-five.json", "manual-five.png"],
+  "checked_python_sources_match_local_sha256": ["efc/model.py", "efc/timebase.py", "tests/test_model_time.py", "scripts/check_r14_core.py", "tests/test_r14_pipeline.py"],
+  "colab_web_ui_tested": false,
+  "full_configuration_grid_run": false,
+  "forecast_training_run": false,
+  "pdf_built": false,
+  "open": [
+    "Configuration-independent paired workload and migration of stationary path to one kernel",
+    "R1.4 statistical protocol and configuration map",
+    "Main beginner-facing notebook and manual sensor switch",
+    "Actual article-number verification and round-3 article/PDF",
+    "Old PDF build had Undefined control sequence at \\misc; not repaired or rerun here"
+  ]
+}

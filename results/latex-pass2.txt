@@ -1,0 +1,188 @@
+$ pdflatex -interaction=nonstopmode -halt-on-error main.tex
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(./psta.cls
+Document Class: psta 2026/10/16 18:44:16 Document class for PSTA journal and ot
+her bilingual proceedings
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsproc.cls
+Document Class: amsproc 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/pdfx/glyphtounicode-cmr.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfx/glyphtounicode-ntx.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amscd.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/backref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))))
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/t2/mathtext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2aenc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t2aenc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/floatrow/floatrow.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-russian/russianb.ldf)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+
+Package xcolor Warning: Package option `hyperref' is obsolete and ignored on in
+put line 265.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(./psta/psta-utf8.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/upref.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/extdash.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./main.aux) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+
+LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 23.
+
+(./main.out) (./main.out)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmss.fd) [1{/var/lib/texmf
+/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/
+cm-super-t2a.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <
+./psta/CC-BY-OO.pdf>] (./related.tex [2]) [3] [4 <./figures/architecture.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\T2A/cmr/m/up/9 \xd7\xe8\xf1\xeb\xee
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T2A/cmr/m/up/9 \xd1\xf3\xec\xec\xe0\xf0\xed\xfb\xe9 \xef\xee-\xf2\xee\xea;
+
+Underfull \hbox (badness 1769) in paragraph at lines 59--59
+[]|\T2A/cmr/m/up/9 \xc7\xe0\xe4\xe0\xed\xe8\xe5; \xef\xf3\xe0\xf1-\xf1\xee-\xed\xee\xe2-\xf1\xea\xe8\xe9 \xef\xee-
+
+Underfull \hbox (badness 5189) in paragraph at lines 60--60
+[]|\T2A/cmr/m/up/9 \xcd\xe0\xf7\xe0\xeb\xfc\xed\xee\xe5 \xe7\xed\xe0-\xf7\xe5-\xed\xe8\xe5
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]|\T2A/cmr/m/up/9 \xc2\xee\xf1\xef\xf0\xee\xe8\xe7\xe2\xee\xe4\xe8\xec\xee\xf1\xf2\xfc \xea\xee\xed-
+[5] [6 <./figures/six_path.pdf>] [7] [8] [9 <./figures/components.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+\T2A/cmr/m/sc/9 \xd0\xe8\xf1\xf3\xed\xee\xea 9.[]\T2A/cmr/m/up/9 \xd7\xf3\xe2\xf1\xf2\xe2\xe8\xf2\xe5\xeb\xfc\xed\xee\xf1\xf2\xfc \xf0\xe0\xf1-\xef\xf0\xe5-\xe4\xe5-\xeb\xe5-\xed\xe8\xff 
+Edge-
+[10 <./figures/rho_wait.pdf>]
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd)
+Underfull \hbox (badness 1102) in paragraph at lines 192--195
+[]\T2A/cmr/m/up/10 \xc2\xf1\xe5 \xef\xf0\xee-\xe3\xed\xee-\xe7\xe8-\xf0\xee\xe2-\xf9\xe8-\xea\xe8 \xef\xf0\xe5\xe4\xee-\xf1\xf2\xe0\xe2-\xeb\xff-\xfe\xf2 \xee\xef\xe5-\xf0\xe0-\xf6\xe8\xe8 \T2A/cm
+tt/m/n/10 fit(\xe8\xf1\xf2\xee\xf0\xe8\xff) \T2A/cmr/m/up/10 \xe8
+
+Underfull \vbox (badness 10000) has occurred while \output is active [11 <./fig
+ures/rho_latency.pdf>] [12] [13 <./figures/stationary_ratio.pdf> <./figures/sta
+tionary_buffer.pdf>] [14 <./figures/stationary_losses.pdf> <./figures/sensitivi
+ty_edge.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+[]\T2A/cmr/m/up/10 Naive \xe8\xf1-\xef\xee\xeb\xfc-\xe7\xf3-\xe5\xf2 \xef\xee-\xf1\xeb\xe5\xe4-\xed\xe5\xe5 \xe4\xee-\xf1\xf2\xf3\xef-\xed\xee\xe5 \xed\xe0-\xe1\xeb\xfe-\xe4\xe5-\xed\xe8\xe5 \xf3\xe7
+-\xeb\xe0;
+[15 <./figures/sensitivity_link.pdf> <./figures/forecast_socket.pdf>] [16]
+[17]
+Underfull \hbox (badness 2556) in paragraph at lines 255--255
+\T2A/cmr/m/sc/9 \xd0\xe8\xf1\xf3\xed\xee\xea 12.[]\T2A/cmr/m/up/9 \xdd\xec\xef\xe8\xf0\xe8\xf7\xe5\xf1\xea\xee\xe5 \xef\xee-\xea\xf0\xfb-\xf2\xe8\xe5 \xe2\xe5\xf0\xf5-\xed\xe5-\xe3\xee
+ \xef\xee-\xf0\xee-\xe3\xe0;
+[18 <./figures/forecast_coverage.pdf>] [19 <./figures/placement_chain.pdf>]
+[20 <./figures/graph_P.pdf>] [21 <./figures/gantt_P.pdf>] [22]
+(./availability.tex) (./references_verified.tex (./main.brf) [23{/usr/share/tex
+mf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./psta/DOI_logo.png>] [24])
+[25] [26] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{russian--authorsinfo} has been referenced but does 
+not exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfcc0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0700.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfcc0900.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfti0600.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (26 pages, 822990 bytes).
+Transcript written on main.log.

@@ -1,0 +1,35 @@
+digraph C02 {
+ graph [rankdir=TB, bgcolor="white", pad=0.15, nodesep=0.28, ranksep=0.30, splines=polyline, fontname="Liberation Serif", fontsize=12, label="C02. Проверка конфигурации: три разных исхода", labelloc=t];
+ node [shape=box, style="rounded", fontname="Liberation Serif", fontsize=11, margin="0.10,0.07"];
+ edge [fontname="Liberation Serif", fontsize=10, arrowsize=0.65];
+ input [label="Зафиксировать поток, конфигурацию, генератор\nи группы seed; сравнивать одинаковые внешние входы"];
+ pilot [label="Пилот: seed 100–109\nпрогрев, половины окна, полнота когорты и точность"];
+ pilot_ok [shape=diamond, style=solid, fontsize=10, label="Критерии выбора окон\nвыполнены?"];
+ freeze_windows [label="Зафиксировать окна W, T_o, G_o\nдо итоговой серии"];
+ main [label="Итоговая серия: seed 0–9\nA = C + N_L + N_U; Q = p95 завершённых; L = N_L/A"];
+ prerequisites [shape=diamond, style=solid, fontsize=10, label="Полнота, применимость\nоценок и точность\nподтверждены?"];
+ joint [label="СОВМЕСТНАЯ проверка до округления\nU_Q ≤ 200 мс И U_L ≤ 0,001\nноль потерь: отдельное допущение независимости"];
+ outcome [shape=diamond, style=solid, fontsize=10, label="Что позволяют заключить\nграницы обеих метрик?"];
+ acceptable [label="ДОПУСТИМА\nпри явно указанных\nстатистических допущениях"];
+ insufficient [style="rounded,bold", label="НЕДОСТАТОЧНО ДАННЫХ\nотдельный конечный исход\nне исключает конфигурацию"];
+ unacceptable [label="НЕДОПУСТИМА\nобоснованная нижняя граница\nпревысила хотя бы один порог"];
+ input -> pilot -> pilot_ok;
+ pilot_ok -> freeze_windows [label="да"];
+ pilot_ok -> insufficient [label="нет; предел пилота"];
+ freeze_windows -> main -> prerequisites;
+ prerequisites -> joint [label="да"];
+ prerequisites -> insufficient [label="нет"];
+ joint -> outcome;
+ outcome -> acceptable [label="оба верхних\nпорога соблюдены"];
+ outcome -> insufficient [label="решение\nне определено"];
+ outcome -> unacceptable [label="нарушение\nобосновано"];
+ {rank=same; acceptable; insufficient; unacceptable;}
+ subgraph cluster_future {
+  label="В данном опыте НЕ выполнено"; style=dashed;
+  candidate [style="rounded,dashed", label="Выбрать кандидата среди исследованных допустимых\nконфигураций; фиксировать (n_F, B) и допущения\nэто не доказанный минимум всей сетки"];
+  freeze_candidate [style="rounded,dashed", label="Зафиксировать кандидата\nдо открытия подтверждающих данных"];
+  confirmation [style="rounded,dashed", label="Независимая проверка: seed 200–209\nтолько зафиксированный кандидат\nбез повторного подбора на тех же данных"];
+  candidate -> freeze_candidate -> confirmation [style=dashed];
+ }
+ acceptable -> candidate [style=dashed];
+}

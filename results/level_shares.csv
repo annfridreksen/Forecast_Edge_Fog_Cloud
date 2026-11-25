@@ -1,0 +1,4 @@
+level,components,mean_ms,share_pct
+Edge,edge_ms + edge_fog_ms,11.118207067438206,9.206293641551607
+Fog,fog_wait_ms + fog_service_ms + fog_cloud_ms,89.98699315602732,74.51261501874225
+Cloud,cloud_ms,19.66226060634712,16.28109133970761

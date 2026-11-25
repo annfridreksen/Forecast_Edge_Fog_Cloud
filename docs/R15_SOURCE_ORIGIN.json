@@ -1,0 +1,36 @@
+{
+  "scientific_source_sha": "b45bfee84d9b0727243faf6cd28eeda776813566",
+  "editorial_analysis_sha": "1801dd37898e2d53eb2ab22a8dee532fd1083f5d",
+  "core_blob_comparison": [
+    {
+      "path": "efc/model.py",
+      "scientific_blob": "28539aa3173544d003b58231388ffadb18b63efc",
+      "editorial_blob": "28539aa3173544d003b58231388ffadb18b63efc"
+    },
+    {
+      "path": "efc/workload.py",
+      "scientific_blob": "3497c507ae6e47f94df46703ef1507983fd26744",
+      "editorial_blob": "3497c507ae6e47f94df46703ef1507983fd26744"
+    },
+    {
+      "path": "efc/grid.py",
+      "scientific_blob": "1d8a9342e7f97ca01f4e35afd904bb6d3d8d7b2f",
+      "editorial_blob": "1d8a9342e7f97ca01f4e35afd904bb6d3d8d7b2f"
+    },
+    {
+      "path": "efc/pilot.py",
+      "scientific_blob": "17d09ab268628097a1dc4a833c8c6c2232cc169a",
+      "editorial_blob": "17d09ab268628097a1dc4a833c8c6c2232cc169a"
+    },
+    {
+      "path": "efc/statistics.py",
+      "scientific_blob": "4f746f4bc22d77f0db85019be6c329de98638b9f",
+      "editorial_blob": "4f746f4bc22d77f0db85019be6c329de98638b9f"
+    }
+  ],
+  "frozen_snapshot_requests": 131,
+  "latest_scientific_cache_requests": 162,
+  "snapshots_combined": false,
+  "simulation_executed": false,
+  "bootstrap_recomputed": false
+}

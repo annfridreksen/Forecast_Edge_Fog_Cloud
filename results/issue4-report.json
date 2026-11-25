@@ -1,0 +1,91 @@
+{
+  "source_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+  "workflow_run_id": "45012597897",
+  "tests": 64,
+  "v2_tests": 98,
+  "figures": 25,
+  "stationary_replicates": 180,
+  "doi_verified": 18,
+  "items": {
+    "1": {
+      "implementation_commit": "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+      "decision": "Постоянный поток, rho .1–.95, 50 очередей, прогрев и хвост; таблицы и рисунки в §4",
+      "evidence": "stationary_replicates.csv; stationary_summary.csv"
+    },
+    "2": {
+      "implementation_commit": "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+      "decision": "10 seed; 95% t-ДИ для среднего, p95 и конечного максимума; смысл интервалов ограничен",
+      "evidence": "stationary_summary.csv; §3–4"
+    },
+    "3": {
+      "implementation_commit": "9f939992e1fb48d931dd2a099ff59d784ae8dde6",
+      "decision": "Прежние 1200/с и 2000 поступлений названы переходным пиком, не смешаны с новой серией",
+      "evidence": "§3–4"
+    },
+    "4": {
+      "implementation_commit": "94eaec6b65973867889338c8e82c2ce27bfe3b40",
+      "decision": "Шесть долей и три уровня; каналы относятся отправителю; суммы 100%",
+      "evidence": "component_shares.csv; level_shares.csv"
+    },
+    "5": {
+      "implementation_commit": "94eaec6b65973867889338c8e82c2ce27bfe3b40",
+      "decision": "Доля Edge .3/.5/.7; десять seed и одинаковые окна, ДИ",
+      "evidence": "sensitivity_summary.csv"
+    },
+    "6": {
+      "implementation_commit": "94eaec6b65973867889338c8e82c2ce27bfe3b40",
+      "decision": "Fog→Cloud 10–30/20–50/30–70; явное допущение и чувствительность",
+      "evidence": "sensitivity_summary.csv"
+    },
+    "7": {
+      "implementation_commit": "e5fcbe515fc9333174665a517b55755d9c2156de",
+      "decision": "Queueing учитывает q/b и Config; безусловный метод сохранён отдельно",
+      "evidence": "forecast_metrics.csv; §5"
+    },
+    "8": {
+      "implementation_commit": "e5fcbe515fc9333174665a517b55755d9c2156de",
+      "decision": "ceil((n+1)*.95) только по калибровке; покрытие до/после без гарантии 95%",
+      "evidence": "forecast_metadata.json; forecast_metrics.csv"
+    },
+    "9": {
+      "implementation_commit": "1294a989b5212043695d6fbe00bffc25e32b1dec",
+      "decision": "Один снимок: план без фона/с фоном, разность и приоритет R раньше T",
+      "evidence": "neural_placement.csv; §6"
+    },
+    "10": {
+      "implementation_commit": "fafd98a489020c2d86bcac3f15cda15bad509c2e",
+      "decision": "18 DOI и тезисы с неполными сведениями; подраздел обзора; репозиторий/коммит",
+      "evidence": "citation-check.json; references_verified.tex; availability.tex"
+    },
+    "11": {
+      "implementation_commit": "fafd98a489020c2d86bcac3f15cda15bad509c2e",
+      "decision": "quote(safe=\"\") сохранён; 404 вызван другим регистратором; Crossref/DataCite",
+      "evidence": "doi-check.json"
+    },
+    "12": {
+      "implementation_commit": "f74734d014ed57b9a90de13393b67e75f940aaf1",
+      "decision": "В 00 схема, анимация и числовая таблица; общий claims во всех четырёх",
+      "evidence": "colab/00_Старт.ipynb; claims.json"
+    },
+    "13": {
+      "implementation_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+      "decision": "Технический PASS не закрывает научную рецензию; нет обещания фоновой работы и заднего датирования",
+      "evidence": "Этот отчёт; Issue #3"
+    },
+    "14": {
+      "implementation_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+      "decision": "Краткий план прямо описывает вырожденность низкой нагрузки и новые диагностические серии",
+      "evidence": "Краткий_план_статьи.md"
+    },
+    "15": {
+      "implementation_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+      "decision": "Фактические коммиты, Actions и длительности; ошибки чтения не заменяются нулём; токены неизвестны",
+      "evidence": "work-history.json; этот отчёт"
+    }
+  },
+  "history_api_error": null,
+  "publication_ready": false,
+  "history_audit_commit": "310ee2c757fc45861c7ed91285b1f3583e9603c1",
+  "history_runs": 17,
+  "history_commits": 42
+}

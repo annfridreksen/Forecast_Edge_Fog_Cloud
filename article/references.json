@@ -1,0 +1,16 @@
+[
+  {"key":"bonomi","doi":"10.1145/2342509.2342513","title":"Fog computing and its role in the internet of things"},
+  {"key":"shi","doi":"10.1109/JIOT.2016.2579198","title":"Edge Computing: Vision and Challenges"},
+  {"key":"heft","doi":"10.1109/71.993206","title":"Performance-effective and low-complexity task scheduling for heterogeneous computing"},
+  {"key":"fogsurvey","doi":"10.1002/spe.2766","title":"How to place your apps in the fog"},
+  {"key":"advice","doi":"10.4230/LIPIcs.APPROX/RANDOM.2020.60","title":"Better and Simpler Learning-Augmented Online Caching"},
+  {"key":"little","doi":"10.1287/opre.9.3.383","title":"A Proof for the Queuing Formula"},
+  {"key":"ifogsim","doi":"10.1002/spe.2509","title":"iFogSim: A toolkit for modeling and simulation of resource management techniques in the Internet of Things, Edge and Fog computing environments"},
+  {"key":"edgecloudsim","doi":"10.1002/ett.3493","title":"EdgeCloudSim: An environment for performance evaluation of edge computing systems"},
+  {"key":"wang","doi":"10.1109/TPDS.2016.2604814","title":"Dynamic Service Placement for Mobile Micro-Clouds With Predicted Future Costs"},
+  {"key":"fogbrain","doi":"10.1093/logcom/exab083","title":"Declarative continuous reasoning in the cloud-IoT continuum"},
+  {"key":"kendall","doi":"10.1214/aoms/1177728975","title":"Stochastic Processes Occurring in the Theory of Queues and their Analysis by the Method of the Imbedded Markov Chain"},
+  {"key":"lei","doi":"10.1080/01621459.2017.1307116","title":"Distribution-Free Predictive Inference for Regression"},
+  {"key":"v2x","doi":"10.1109/GLOBECOM42002.2020.9348104","title":"Latency Prediction for Delay-sensitive V2X Applications in Mobile Cloud/Edge Computing Systems"},
+  {"key":"lykouris","doi":"10.1145/3447579","title":"Competitive Caching with Machine Learned Advice"}
+]

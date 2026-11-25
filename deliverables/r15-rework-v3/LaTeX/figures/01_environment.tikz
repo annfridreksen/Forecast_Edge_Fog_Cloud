@@ -1,0 +1,34 @@
+\begin{tikzpicture}[x=0.5480314960629922pt,y=-0.5480314960629922pt,>=Stealth]
+\path[use as bounding box] (0,0) rectangle (600,640);
+\draw[->,line width=0.6pt] (205,54) -- (205,78);
+\draw[->,line width=0.6pt] (205,140) -- (205,164);
+\draw[->,line width=0.6pt] (205,226) -- (205,251);
+\draw[->,line width=0.6pt] (205,315) -- (205,341);
+\draw[->,line width=0.6pt] (205,385) -- (205,409);
+\draw[->,line width=0.6pt] (205,453) -- (205,477);
+\draw[->,line width=0.6pt] (205,539) -- (205,563);
+\draw[->,line width=0.6pt] (378,283) -- (420,283);
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,10) rectangle (378,54);
+\node[align=center,inner sep=0pt,font=\fontsize{9.317}{10.807}\selectfont\bfseries] at (205.0,32.0){1000 датчиков $\rightarrow$ сообщение};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,78) rectangle (378,140);
+\node[align=center,inner sep=0pt,font=\fontsize{9.317}{10.807}\selectfont] at (205.0,109.0){1. Edge: ожидание + обработка\\d\_E; отдельный ресурс датчика};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,164) rectangle (378,226);
+\node[align=center,inner sep=0pt,font=\fontsize{8.769}{10.171}\selectfont] at (205.0,195.0){2. Входной канал: ожидание + передача\\d\_EF; канал закреплённого Fog};
+\draw[fill=white,line width=0.6pt] (205.0,251) -- (378,283.0) -- (205.0,315) -- (32,283.0) -- cycle;
+\node[align=center,inner sep=0pt,font=\fontsize{8.220}{9.536}\selectfont] at (205.0,283.0){Fog свободен или есть\\место в буфере B?};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,341) rectangle (378,385);
+\node[align=center,inner sep=0pt,font=\fontsize{9.317}{10.807}\selectfont] at (205.0,363.0){3. Ожидание Fog: w\_F};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,409) rectangle (378,453);
+\node[align=center,inner sep=0pt,font=\fontsize{9.317}{10.807}\selectfont] at (205.0,431.0){4. Обслуживание Fog: s\_F};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,477) rectangle (378,539);
+\node[align=center,inner sep=0pt,font=\fontsize{9.317}{10.807}\selectfont] at (205.0,508.0){5. Выходной канал:\\ожидание + передача, d\_FC};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (32,563) rectangle (378,625);
+\node[align=center,inner sep=0pt,font=\fontsize{9.317}{10.807}\selectfont] at (205.0,594.0){6. Cloud: ожидание + обработка\\d\_C; пул из 40 серверов $\rightarrow$ результат};
+\draw[fill=white,rounded corners=2pt,line width=0.6pt] (420,254) rectangle (580,316);
+\node[align=center,inner sep=0pt,font=\fontsize{9.865}{11.443}\selectfont\bfseries] at (500.0,285.0){Потеря\\сообщения};
+\node[align=center,inner sep=0pt,font=\fontsize{8.769}{10.171}\selectfont] at (500.0,138.0){Источник отключён:\\новое сообщение\\не создаётся.\\Это не потеря\\в очереди Fog.};
+\node[align=center,inner sep=0pt,font=\fontsize{8.769}{10.171}\selectfont] at (500.0,410.0){B — только места\\ожидания.\\Вместимость Fog:\\K = B + 1.};
+\node[align=center,inner sep=0pt,font=\fontsize{8.769}{10.171}\selectfont] at (500.0,556.0){Прочие очереди\\не ограничены.\\Все ожидания\\включены в D\\ровно один раз.};
+\node[fill=white,inner sep=1pt,font=\fontsize{8.220}{9.454}\selectfont] at (233,326.5){да};
+\node[fill=white,inner sep=1pt,font=\fontsize{8.769}{10.084}\selectfont] at (400,265.2){нет};
+\end{tikzpicture}

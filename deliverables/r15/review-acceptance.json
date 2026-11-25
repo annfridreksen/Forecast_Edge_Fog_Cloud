@@ -1,0 +1,65 @@
+{
+  "schema": "R1.5-round3-review-registration-1",
+  "date": "2026-11-24",
+  "review_comment": 7127677687,
+  "review_url": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7127677687",
+  "reviewer_role": "GPT-Рецензент",
+  "registration_role": "GPT-Исполнитель",
+  "reviewed_metadata_sha": "9d91f560839656343e1e1df4307ebb4130f5ff83",
+  "source_sha": "fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191",
+  "artifact_delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a",
+  "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "submission_zip_sha256": "b82a7b8384f37e2e84a756473da7c8fdb6dd91e8f1e9e6ff41c7c447525f59a2",
+  "difference_pdf_sha256": "ee5f9bb09b270dbb945ff76f697a1e2ac10a40da3b79b60955eebe733c70d1a7",
+  "technical_acceptance": "ACCEPTED_BY_REVIEWER",
+  "visual_acceptance": "ACCEPTED_BY_REVIEWER_FOR_EXACT_PDF",
+  "accepted": [
+    "C7",
+    "Law rendering",
+    "BIB/BBL/BST",
+    "isolated ZIP build",
+    "technical delivery",
+    "source provenance",
+    "C9"
+  ],
+  "visual_scope": {
+    "directly_viewed_pages": [
+      16,
+      17
+    ],
+    "full_7x_figure_pages": [
+      5,
+      9,
+      14
+    ],
+    "pixel_comparison_pages": 21,
+    "unchanged_pages": 19,
+    "unchanged_page_basis": "Prior reviewer record 7117633710 plus reviewer pixel comparison in 7127677687; not a new complete personal reread."
+  },
+  "evidence_basis": "Exact reviewer comment. Registration does not claim to repeat the reviewer tests, downloads or visual inspection.",
+  "executor_visual_inspection": false,
+  "reviewer_reported_archive_sha256": "fea6debfbdc76361d34ede27e088fef946d0716711af71d2224c0c11328bf3f5",
+  "reviewer_reported_review_json_sha256": "ef9f02d04e2991d9174f334427523bd5ec43ea3a708685e789955ded219a2610",
+  "reviewer_archive_rehashed_by_registrar": false,
+  "warnings_preserved": [
+    "Font",
+    "xcolor",
+    "Underfull"
+  ],
+  "remaining_blockers": [
+    "A4 scope decision and unfinished comparisons/independent confirmation",
+    "NSCF bibliographic status and RU/EN author mismatch",
+    "new article author metadata, rights, funding and personal declarations"
+  ],
+  "profile_ranges_origin": "Confirmed in supplied theses, paragraph 19; not hardware measurements.",
+  "scientific_scope_approved": false,
+  "ready_to_submit": false,
+  "article_sent": false,
+  "author_signed": false,
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "notebook_executed": false,
+  "pdf_rebuilt": false,
+  "zip_repacked": false,
+  "frozen_archive_note": "PDF/ZIP and their internal historical checklists are unchanged. This external registration supersedes pre-review status, not the archived bytes."
+}

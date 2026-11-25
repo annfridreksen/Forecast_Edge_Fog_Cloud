@@ -1,0 +1,5 @@
+scenario,requested_method,effective_method,forecast_status,assignment,time_ms,status,checked
+minimal,P,P,synthetic_control,"E,F,E",8.0,FEASIBLE_CERTIFIED,2
+minimal,B,B,not_used,"F,F,F",4.0,FEASIBLE_CERTIFIED,6
+deadline_filter,P,P,synthetic_control,"E,F,F",6.0,FEASIBLE_CERTIFIED,5
+no_feasible,P,P,synthetic_control,,,NO_PLAN_IN_CLASS,6

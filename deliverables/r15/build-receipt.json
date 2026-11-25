@@ -1,0 +1,109 @@
+{
+  "schema": "R1.5-author69-build-1",
+  "source_sha": "fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191",
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "ready_to_submit": false,
+  "author_signed": false,
+  "visual_review": "ACCEPTED_BY_REVIEWER_7127677687_FOR_EXACT_PDF",
+  "static_validation": {
+    "sections": 8,
+    "references": 28,
+    "identified_references": 27,
+    "recent_identified_references": 10,
+    "empirical_display_fields": 12,
+    "analytic_display_fields": 3,
+    "known_missing_reference": "nskf",
+    "scientific_acceptance": false,
+    "submission_ready": false
+  },
+  "conditional_status": "CONDITIONALLY_ACCEPTABLE",
+  "n_i": [
+    200298,
+    199701,
+    200008,
+    199114,
+    200298,
+    200255,
+    199726,
+    199959,
+    200445,
+    199997
+  ],
+  "conditional_analysis_sha256": "11c91a69c81242a5d27fdead0a69e29caa73d2a98b85db250d62be942c33d016",
+  "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "style": {
+    "url": "https://psta.psiras.ru/publ-conditions/psta.zip",
+    "retrieved_utc": "2026-11-24T07:15:43.876829+00:00",
+    "official_downloaded": true,
+    "archive_sha256": "42e95b53f26272a9275afa8e513009630b609c1409e589f244a687950c9bec61",
+    "used_class_sha256": "f0fdb7c786dd54fb5f066a58630a7b67235a01871457f5dcd26c48b6d476ea1b",
+    "provides_class": "\\ProvidesClass{psta}[2026/10/16 18:44:16 Document class for PSTA journal and other bilingual proceedings]"
+  },
+  "isolated_zip_rebuild": "PASS",
+  "isolated_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "pages": 21,
+  "section_boundaries": {
+    "section6": {
+      "page": 12,
+      "y": 355.4458312988281,
+      "height": 595.2760009765625
+    },
+    "section7": {
+      "page": 14,
+      "y": 370.5586242675781,
+      "height": 595.2760009765625
+    }
+  },
+  "diff": {
+    "baseline_sha": "59914cea5dc733ec857ae3d4157d77398bae7cd5",
+    "baseline_pdf_sha256": "2c24e693106be38e9e56de8ff33610b7a45eab1e10905dfac3d0a0be2b41e920",
+    "after_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "method": "diff-pdf",
+    "requested_utility_success": true,
+    "utility_exit": 1,
+    "tool_commit": "092e6e31968cf28984c201a8c300f76f0020fbe4",
+    "command": [
+      "xvfb-run",
+      "-a",
+      "/tmp/fefc-diff-pdf/diff-pdf",
+      "--output-diff=/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/delivery/difference.pdf",
+      "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/work/baseline-artifact/FEFC_R14_partial_article.pdf",
+      "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/work/manuscript/main.pdf"
+    ],
+    "interpretation": "Exit1 means actual PDF differences, not a tool error."
+  },
+  "submission_zip_sha256": "b82a7b8384f37e2e84a756473da7c8fdb6dd91e8f1e9e6ff41c7c447525f59a2",
+  "difference_pdf_sha256": "ee5f9bb09b270dbb945ff76f697a1e2ac10a40da3b79b60955eebe733c70d1a7",
+  "data_complete_for_frozen_131": true,
+  "public_access": "PUBLIC_DOWNLOAD_VERIFIED",
+  "final_zip_build_sh": "PASS",
+  "final_zip_bibtex_regeneration": "PASS",
+  "final_zip_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "final_zip_byte_identical": true,
+  "changed_pages": [
+    16,
+    17
+  ],
+  "figure_7x_pages": [
+    5,
+    9,
+    14
+  ],
+  "law_render": "PASS",
+  "bibtex_generation": "PASS",
+  "build_run": 45346285838,
+  "verification_run": 45348075688,
+  "verification_sha": "7bd572fff40ee72ea7d0f3d08e98c1360729ca62",
+  "restored_artifact_id": 14898826993,
+  "main_pdf_recompiled_on_resume": false,
+  "diff_recomputed_on_resume": false,
+  "publication_receipt": "publication.json",
+  "artifact_delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a",
+  "visual_review_at_build": "PENDING_CHANGED_PAGES_AND_FULL_7X_FIGURES",
+  "independent_review": {
+    "comment_id": 7127677687,
+    "record": "review-acceptance.json",
+    "ready_to_submit": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "baseline_sha": "59914cea5dc733ec857ae3d4157d77398bae7cd5",
+  "baseline_pdf_sha256": "2c24e693106be38e9e56de8ff33610b7a45eab1e10905dfac3d0a0be2b41e920",
+  "after_pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+  "method": "diff-pdf",
+  "requested_utility_success": true,
+  "utility_exit": 1,
+  "tool_commit": "092e6e31968cf28984c201a8c300f76f0020fbe4",
+  "command": [
+    "xvfb-run",
+    "-a",
+    "/tmp/fefc-diff-pdf/diff-pdf",
+    "--output-diff=/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/delivery/difference.pdf",
+    "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/work/baseline-artifact/FEFC_R14_partial_article.pdf",
+    "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/r15/build/work/manuscript/main.pdf"
+  ],
+  "interpretation": "Exit1 means actual PDF differences, not a tool error."
+}

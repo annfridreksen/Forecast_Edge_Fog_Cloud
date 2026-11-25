@@ -1,0 +1,153 @@
+name: R1.5 finish saved submission after inspection fix
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['.github/workflows/r14-paper.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: fefc-r14-paper
+  cancel-in-progress: false
+jobs:
+  final_package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+      R15_SOURCE_SHA: fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Fix escaped figure marker, reject control characters and save validator
+        run: |
+          python - <<'PY'
+          import os,subprocess
+          import scripts.r15_postreview as p
+          expected=os.environ['GITHUB_SHA']
+          if p.git('ls-remote','origin',p.REF).split()[0]!=expected:raise RuntimeError('HEAD lease lost')
+          path=p.ROOT/'scripts/r15_postreview.py';lines=path.read_text().split('\n')
+          indices=[i for i,s in enumerate(lines) if 'Not all source figure pages identified:' in s]
+          if len(indices)!=1:raise ValueError('Expected one figure assertion')
+          lines[indices[0]]="        if not captions or len(captions)!=main.count(chr(92)+'begin{figure}') or len(figure_pages)!=len(captions):raise ValueError('Not all source figure pages identified: '+repr((captions,figure_pages)))"
+          text='\n'.join(lines)
+          if any(ord(c)<32 and c not in '\n\r\t' for c in text):raise ValueError('Unexpected source control character')
+          path.write_text(text,encoding='utf-8')
+          manuscript=(p.ROOT/'article/main.tex').read_text()
+          count=manuscript.count(chr(92)+'begin{figure}')
+          if count!=3:raise ValueError('Unexpected current figure count: '+str(count))
+          subprocess.run(['python','-W','error','-m','py_compile','scripts/r15_postreview.py'],cwd=p.ROOT,check=True)
+          note='\n\n## Исправление строки проверки\nRun45347456111 восстановил PDF с точным хешем, но ошибочная строка исправления внесла управляющий символ backspace вместо обратной косой черты. Проверка теперь использует chr(92), исходник проверен на запрещённые управляющие символы, фактическое число figure равно3. Статья и PDF не изменены. Текущий run '+os.environ['GITHUB_RUN_ID']+' завершает прежний атомарный этап.\n'
+          s=p.ROOT/'docs/STATUS.md';s.write_text(s.read_text()+note,encoding='utf-8')
+          new=p.commit(['scripts/r15_postreview.py','docs/STATUS.md'],'Issue #5 R1.5: устранить backspace и проверить фактические три рисунка',expected)
+          with open(os.environ['GITHUB_ENV'],'a') as f:f.write('R15_EXPECTED_HEAD='+new+'\n')
+          print('VALIDATOR_SHA',new,'SOURCE_FIGURES',count)
+          PY
+      - name: Restore exact completed build without recompiling manuscript
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil,subprocess
+          from scripts.build_r15_submission import download,unpack,sha,put
+          root=Path.cwd();out=root/'results/r15/build';out.mkdir(parents=True,exist_ok=True)
+          archive=root/'results/r15/restored-14898826993.zip'
+          digest='a7aae92b3963664a58094d1eac76b8ab7f309da1f58c6e1700a93af7bcfbce1d'
+          download('https://api.github.com/repos/annfridreksen/Forecast_Edge_Fog_Cloud/actions/artifacts/14898826993/zip',archive,digest,github=True)
+          unpack(archive,out)
+          receipt=json.loads((out/'delivery/build-receipt.json').read_text())
+          assert receipt['source_sha']=='fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191'
+          assert sha(out/'delivery/article.pdf')==receipt['pdf_sha256']=='5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f'
+          assert receipt['isolated_zip_rebuild']=='PASS' and receipt['diff']['requested_utility_success'] and receipt['diff']['method']=='diff-pdf'
+          assert sha(out/'delivery/submission.zip')==receipt['submission_zip_sha256']
+          assert sha(out/'delivery/difference.pdf')==receipt['difference_pdf_sha256']
+          subprocess.run(['git','diff','--exit-code',receipt['source_sha'],'HEAD','--','article','submission','efc','colab','configs','results/r14/article_evidence.json','results/r15/service_reference.json','results/r15/conditional_analysis.json'],check=True)
+          unpack(out/'delivery/submission.zip',out/'work/submission')
+          unpack(out/'delivery/reproducibility.zip',out/'work/reproducibility')
+          manifest=json.loads((out/'delivery/data-parts.json').read_text())
+          for part in manifest['parts']:
+              src=root/'deliverables/r15'/part['name']
+              assert sha(src)==part['sha256'] and src.stat().st_size==part['size']
+              shutil.copy2(src,out/'delivery'/part['name'])
+          put(out/'resume-provenance.json',dict(artifact_id=14898826993,artifact_sha256=digest,build_run=45346285838,source_sha=receipt['source_sha'],pdf_sha256=receipt['pdf_sha256'],main_pdf_recompiled=False,diff_pdf_recomputed=False,simulation_executed=False,bootstrap_recomputed=False))
+          print('RESTORED_VERIFIED_PDF',receipt['pdf_sha256'])
+          PY
+      - name: Install only remaining final ZIP inspection dependencies
+        run: |
+          timeout -k 15s 240 python -m pip install --timeout 20 --retries 1 -r requirements.txt pymupdf > results/r15/build/resume-install-python.log 2>&1 || { tail -30 results/r15/build/resume-install-python.log; exit 1; }
+          python - <<'PY'
+          from pathlib import Path
+          import re,subprocess
+          paths=[Path('/etc/apt/sources.list'),*Path('/etc/apt/sources.list.d').glob('*.sources'),*Path('/etc/apt/sources.list.d').glob('*.list'),*Path('/etc/apt').glob('*mirrors*.txt')]
+          for p in paths:
+              if p.exists():
+                  s=p.read_text();n=re.sub(r'https?://[a-z0-9.-]*ec2\.archive\.ubuntu\.com/ubuntu','https://archive.ubuntu.com/ubuntu',s)
+                  if n!=s:
+                      t=Path('/tmp')/(p.name+'.fefc');t.write_text(n);subprocess.run(['sudo','cp',str(t),str(p)],check=True)
+                      print('REPLACED_REGIONAL_MIRROR',str(p),flush=True)
+          PY
+          set +e
+          timeout -k 15s 120 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq > results/r15/build/resume-install-tex.log 2>&1
+          rc=$?; echo "APT_UPDATE_EXIT=$rc" | tee -a results/r15/build/resume-install-tex.log
+          if [ "$rc" != 0 ]; then tail -40 results/r15/build/resume-install-tex.log; exit "$rc"; fi
+          timeout -k 15s 360 sudo apt-get -o Acquire::Retries=0 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super poppler-utils >> results/r15/build/resume-install-tex.log 2>&1
+          rc=$?; echo "APT_INSTALL_EXIT=$rc" | tee -a results/r15/build/resume-install-tex.log
+          if [ "$rc" != 0 ]; then tail -40 results/r15/build/resume-install-tex.log; exit "$rc"; fi
+      - name: Complete all-figure check and final ZIP BibTeX regeneration
+        run: python scripts/r15_postreview.py inspect
+      - name: Preserve exact build provenance and all actual output checks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,os,shutil,subprocess
+          from scripts.build_r15_submission import put,sha
+          o=Path('results/r15/build');d=o/'delivery'
+          receipt=json.loads((d/'build-receipt.json').read_text())
+          resume=json.loads((o/'resume-provenance.json').read_text())
+          assert sha(d/'article.pdf')==resume['pdf_sha256']
+          assert receipt['source_sha']==os.environ['R15_SOURCE_SHA']
+          resume.update(verification_run=int(os.environ['GITHUB_RUN_ID']),verification_sha=os.environ['R15_EXPECTED_HEAD'],final_zip_build_sh=receipt['final_zip_build_sh'],final_zip_bibtex_regeneration=receipt['final_zip_bibtex_regeneration'])
+          put(d/'resume-provenance.json',resume)
+          receipt.update(build_run=45346285838,verification_run=int(os.environ['GITHUB_RUN_ID']),verification_sha=os.environ['R15_EXPECTED_HEAD'],restored_artifact_id=14898826993,main_pdf_recompiled_on_resume=False,diff_recomputed_on_resume=False)
+          put(d/'build-receipt.json',receipt);put(o/'receipt.json',receipt)
+          shutil.copytree(o/'conditional-trace',d/'validation/conditional-trace',dirs_exist_ok=True)
+          for n in ('dependencies.txt','tex-version.txt','bibtex-version.txt'):
+              shutil.copy2(o/n,d/n);shutil.copy2(o/n,o/'work/reproducibility'/n)
+          subprocess.run(['python','-m','pip','freeze'],stdout=(d/'verification-python-versions.txt').open('w'),check=True)
+          subprocess.run(['pdflatex','--version'],stdout=(d/'verification-tex-version.txt').open('w'),check=True)
+          shutil.copy2(d/'resume-provenance.json',o/'work/reproducibility/resume-provenance.json')
+          verification=o/'work/reproducibility/verification';verification.mkdir(exist_ok=True)
+          for n in ('r15_postreview.py','r15_publish.py'):shutil.copy2(Path('scripts')/n,verification/n)
+          warnings=json.loads((o/'tex-logs/warnings.json').read_text())
+          print('SAVED_PDF_WARNINGS',warnings)
+          if any('Overfull' in s for s in warnings):raise ValueError('Overfull in saved PDF')
+          diff=json.loads((d/'difference-provenance.json').read_text())
+          assert diff['method']=='diff-pdf' and diff['requested_utility_success']
+          print('COMPLETED_CHECKS',json.dumps(receipt,ensure_ascii=False))
+          PY
+      - name: Guard committed sources
+        if: always()
+        run: git diff --exit-code -- v2 efc docs tests scripts colab configs article submission results/r14/article_evidence.json results/r15/service_reference.json results/r15/conditional_analysis.json
+      - name: Publish restored verified delivery with current HEAD lease
+        run: python scripts/r15_publish.py --out results/r15/build
+      - name: Persist anonymous download receipt and release writer
+        run: python scripts/r15_postreview.py register
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r15-resume-${{ github.sha }}
+          path: |
+            results/r15/build/
+            !results/r15/build/work/**
+            !results/r15/build/delivery/frozen131.zip.part*
+          if-no-files-found: error

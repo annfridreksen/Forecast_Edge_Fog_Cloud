@@ -1,0 +1,2 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/add_placement_diagnostics.py
+Placement counterfactual added without changing v2 or reranking.

@@ -1,0 +1,304 @@
+{
+  "utc": "2026-11-22T10:33:41.358506+00:00",
+  "workflow_run_id": "45012597897",
+  "source_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276",
+  "branch": "night/fefc-v3",
+  "python": "3.13.18 (main, Oct 26 2026, 14:19:33) [GCC 15.2.0]",
+  "platform": "Linux-7.0.0-1016-aws-x86_64-with-glibc2.43",
+  "notebooks": {
+    "00_Старт.ipynb": 16.602778572000034,
+    "01_Среда_и_конфигурация.ipynb": 150.94830164400003,
+    "02_Прогноз_и_нейросеть.ipynb": 3.993472431999976,
+    "03_Алгоритм_переразмещения.ipynb": 3.2957895609999923
+  },
+  "notebooks_under_300s_runner": {
+    "00_Старт.ipynb": true,
+    "01_Среда_и_конфигурация.ipynb": true,
+    "02_Прогноз_и_нейросеть.ipynb": true,
+    "03_Алгоритм_переразмещения.ipynb": true
+  },
+  "all_available_stages_passed": true,
+  "article_built": true,
+  "cloud_colab_run": false,
+  "protected_v2_unchanged": true,
+  "reviewer_journal_unchanged": true,
+  "dependencies": {
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "pandas": "2.3.3",
+    "matplotlib": "3.11.2",
+    "networkx": "3.7",
+    "scikit-learn": "1.9.1",
+    "nbformat": "5.11.1",
+    "nbconvert": "7.17.2",
+    "ipywidgets": "8.1.9"
+  },
+  "steps": [
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "model-tests.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 2.568394175000037
+    },
+    {
+      "command": [
+        "sha256sum",
+        "-c",
+        "MANIFEST.sha256"
+      ],
+      "log": "v2-manifest-before.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.00508632500003614
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "v2-tests.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 10.53796055700002
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/verify_doi.py"
+      ],
+      "log": "doi-check.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 4.262052127000004
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/make_notebooks.py"
+      ],
+      "log": "make_notebooks.py.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.18764591900003325
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/make_forecast_notebook.py"
+      ],
+      "log": "make_forecast_notebook.py.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.1326619519999781
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/make_placement_notebook.py"
+      ],
+      "log": "make_placement_notebook.py.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.13126711799998247
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/complete_notebooks.py"
+      ],
+      "log": "complete_notebooks.py.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.13159461100002545
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/add_placement_diagnostics.py"
+      ],
+      "log": "add_placement_diagnostics.py.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.12628002100001368
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "-m",
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "notebook",
+        "--execute",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/00_Старт.ipynb",
+        "--output-dir",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab",
+        "--ExecutePreprocessor.timeout=600"
+      ],
+      "log": "00_Старт-execution.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 16.602778572000034
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "-m",
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "notebook",
+        "--execute",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/01_Среда_и_конфигурация.ipynb",
+        "--output-dir",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab",
+        "--ExecutePreprocessor.timeout=600"
+      ],
+      "log": "01_Среда_и_конфигурация-execution.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 150.94830164400003
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "-m",
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "notebook",
+        "--execute",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/02_Прогноз_и_нейросеть.ipynb",
+        "--output-dir",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab",
+        "--ExecutePreprocessor.timeout=600"
+      ],
+      "log": "02_Прогноз_и_нейросеть-execution.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 3.993472431999976
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "-m",
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "notebook",
+        "--execute",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/03_Алгоритм_переразмещения.ipynb",
+        "--output-dir",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab",
+        "--ExecutePreprocessor.timeout=600"
+      ],
+      "log": "03_Алгоритм_переразмещения-execution.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 3.2957895609999923
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/check_figures.py"
+      ],
+      "log": "figure-check.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.2710473480000246
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/extend_article.py"
+      ],
+      "log": "article-extension.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.018330676999994466
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/write_article.py"
+      ],
+      "log": "article-generation.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.2906880479999927
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.18/x64/bin/python",
+        "scripts/review_article.py"
+      ],
+      "log": "article-review.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 3.1214474330000144
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "log": "latex-pass1.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 9.383724696999991
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "log": "latex-pass2.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.6110892350000086
+    },
+    {
+      "command": [
+        "pdfinfo",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf"
+      ],
+      "log": "pdf-info.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.009537902000033682
+    },
+    {
+      "command": [
+        "pdftotext",
+        "-layout",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/article-extracted.txt"
+      ],
+      "log": "pdf-text.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.08046539199995095
+    },
+    {
+      "command": [
+        "pdftoppm",
+        "-scale-to",
+        "800",
+        "-png",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf",
+        "/home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/pdf-review/page"
+      ],
+      "log": "pdf-render.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 2.011121193000008
+    },
+    {
+      "command": [
+        "sha256sum",
+        "-c",
+        "MANIFEST.sha256"
+      ],
+      "log": "v2-manifest-after.txt",
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.00392436600009205
+    }
+  ],
+  "clock": "perf_counter elapsed wall time; not CPU time"
+}

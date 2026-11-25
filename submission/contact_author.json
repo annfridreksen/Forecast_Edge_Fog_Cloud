@@ -1,0 +1,16 @@
+{
+  "schema": "FEFC-confirmed-corresponding-author-1",
+  "confirmed_by": "author",
+  "confirmed_date": "2026-11-24",
+  "name_ru": "М. В. Орда-Жигулина",
+  "email": "jigulina@mail.ru",
+  "source": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7131272024",
+  "also_confirmed_in_current_user_message": true,
+  "appointment_requires_further_confirmation": false,
+  "author_order_source": "Attached Word copy; not readable in this execution environment",
+  "consent_inferred": false,
+  "signature_added": false,
+  "article_sent": false,
+  "applied_to_repository_letter": true,
+  "applied_to_uploaded_word_copy": false
+}

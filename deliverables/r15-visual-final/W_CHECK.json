@@ -1,0 +1,31 @@
+{
+  "stage": "W",
+  "source_sha": "1540f4c2049ae1e4a2fbc8b3c667d11cd6cc6785",
+  "word_export_run": 45501213211,
+  "verification_run": "45506343474",
+  "preserved_artifact": 14971626698,
+  "tests": [
+    {
+      "file": "Статья_FEFC_R15_v3_для_чтения.pdf",
+      "nine_equation_numbers": true,
+      "math_probe_glyphs": true,
+      "branch_and_frame_labels": true,
+      "pdf_sha256": "45542646c837cc130c4a2071dc5f8b3b9e1a15c9c71ab51b9a8543589af3fbe5"
+    },
+    {
+      "file": "Статья_FEFC_R15_v3_красные_изменения.pdf",
+      "nine_equation_numbers": true,
+      "math_probe_glyphs": true,
+      "branch_and_frame_labels": true,
+      "pdf_sha256": "caf8e70cb3824fc8c184bb5f28da38f1ecc4e932b2b7f843e2268a46affb6be2"
+    }
+  ],
+  "negative_original": "Missing rendered mathematics: #",
+  "omml": 116,
+  "display_equations": 9,
+  "same_content_in_both_copies": true,
+  "word_regenerated": false,
+  "scientific_results_unchanged": true,
+  "visual_acceptance": false,
+  "ready_to_submit": false
+}

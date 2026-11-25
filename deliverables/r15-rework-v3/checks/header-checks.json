@@ -1,0 +1,38 @@
+[
+  {
+    "check": "Only recorded prior failure is the running-header overflow",
+    "pass": true
+  },
+  {
+    "check": "Saved real Word copies present before continuation",
+    "pass": true
+  },
+  {
+    "check": "Retained BBL has 27 entries; not regenerated for the main build",
+    "pass": true
+  },
+  {
+    "check": "Generated main.tex differs ONLY by two optional short titles",
+    "pass": true
+  },
+  {
+    "check": "Generated scientific body is byte-identical",
+    "pass": true
+  },
+  {
+    "check": "All saved Word, Word-PDF and figure files reused byte-for-byte",
+    "pass": true
+  },
+  {
+    "check": "Real final PSTA log has no Overfull",
+    "pass": true
+  },
+  {
+    "check": "Page count unchanged by short running titles",
+    "pass": true
+  },
+  {
+    "check": "Every page running header stays within PDF page bounds",
+    "pass": true
+  }
+]

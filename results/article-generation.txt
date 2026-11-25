@@ -1,0 +1,2 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/write_article.py
+Article written; traced 816 scalar source records. No new numerical result invented.

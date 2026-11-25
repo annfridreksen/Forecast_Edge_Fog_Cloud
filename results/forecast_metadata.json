@@ -1,0 +1,48 @@
+{
+  "config": {
+    "n_edge": 80,
+    "n_fog": 4,
+    "n_cloud": 8,
+    "buffer": 50,
+    "n_tasks": 6000,
+    "arrival_rate_s": 60,
+    "mobile_fraction": 0.3,
+    "edge_fixed_ms": [
+      5.0,
+      15.0
+    ],
+    "edge_mobile_ms": [
+      8.0,
+      20.0
+    ],
+    "edge_processing_share": 0.5,
+    "fog_service_ms": [
+      30.0,
+      80.0
+    ],
+    "fog_cloud_ms": [
+      20.0,
+      50.0
+    ],
+    "cloud_service_ms": [
+      10.0,
+      30.0
+    ],
+    "fog_weights": [
+      4,
+      2,
+      1,
+      1
+    ],
+    "seed": 42
+  },
+  "cut_train_s": 61.79136771171639,
+  "cut_test_s": 82.38851137729432,
+  "dropped": 1079,
+  "train_end_max_s": 61.78021912067352,
+  "calibration_end_max_s": 82.33916734998782,
+  "notes": "MLP fit/scaling: train only. Before: empirical higher 95th residual percentile; after: rank ceil((n+1)*.95) of calibration residuals only. Frozen margin before test. Online baselines observe past completions. Queue time series are dependent and shifted: no finite-sample coverage guarantee is claimed; coverage is empirical and conditional on completion.",
+  "queueing": "Queueing uses (q+0.5*b+1)*configured mean service plus configured downstream means; QueueingMM1K retained separately. Neither observes future calendars.",
+  "conformal": "one-sided split-conformal residual rule, alpha=.05; finite-sample theorem requires exchangeability, not established here",
+  "network_warnings": []
+}

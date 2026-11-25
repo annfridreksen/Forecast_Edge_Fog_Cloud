@@ -1,0 +1,41 @@
+{
+  "schema": "R1.4-checkpoint-audit-1",
+  "date": "2026-11-23",
+  "scope": "read-only audit; no independent new simulation",
+  "run_id": 45150444610,
+  "artifact_id": 14808050097,
+  "source_commit": "a712dfdddd3bbecfb336011a53158fc1fcc3fa27",
+  "measured_zip_sha256": "95e3446649e47101d6d14eb99588abe7aa947011541bf5fde0f60ffdb53d1623",
+  "extracted_files_verified": 114,
+  "manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+  "protocol_status": "PAUSED",
+  "stop_reason": "wall budget reached between replications",
+  "elapsed_wall_seconds": 911.45089035,
+  "peak_rss_kib": 1301052,
+  "address_space_limit_bytes": 6442450944,
+  "max_expected_events": 1100000,
+  "new_replications": 14,
+  "cache_reads": 35,
+  "prior_primary_files_byte_identical": 75,
+  "unique_primary_requests": 89,
+  "unique_journal_requests": 89,
+  "journal_duplicate_rows": 0,
+  "missing_primary": 0,
+  "primary_without_journal_row": 0,
+  "paired_source_comparisons": 49,
+  "main_seed_requests": 0,
+  "confirmation_seed_requests": 0,
+  "map_statuses": {"INSUFFICIENT_DATA": 2, "NOT_CALCULATED": 268},
+  "cells": [
+    {"key": "r0.10_F30_B000", "unique_primary_requests": 40, "map_status": "INSUFFICIENT_DATA"},
+    {"key": "r0.10_F30_B002", "unique_primary_requests": 40, "map_status": "INSUFFICIENT_DATA"},
+    {"key": "r0.10_F30_B005", "unique_primary_requests": 9, "map_status": "NOT_CALCULATED"}
+  ],
+  "audit_execution": "local Python 3.13.5; no Colab browser",
+  "all_display_chains_checked": 270,
+  "limitations": [
+    "INSUFFICIENT_DATA is a terminal pilot precision outcome, not scientific inadmissibility.",
+    "The full map and minimum are not established. No final or confirmation seeds yet.",
+    "progress.next_command is a generic hint, not the bounded wrapper command; use STATUS exact resume instructions."
+  ]
+}

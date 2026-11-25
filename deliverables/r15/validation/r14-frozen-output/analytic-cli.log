@@ -1,0 +1,70 @@
+{
+  "schema": "FEFC-R15-service-reference-1",
+  "distribution": "continuous model-law marginal over random sensor labels, not an empirical or conditional-on-completion quantile",
+  "source_blobs": {
+    "efc/model.py": "28539aa3173544d003b58231388ffadb18b63efc",
+    "efc/workload.py": "3497c507ae6e47f94df46703ef1507983fd26744",
+    "efc/timebase.py": "5e990f9dd058bc5f2290f2fdcebde8f4ae9c1ccf"
+  },
+  "weights": {
+    "fixed": 0.7,
+    "mobile": 0.3
+  },
+  "uniform_ranges_ms": {
+    "fixed": [
+      [
+        5,
+        15
+      ],
+      [
+        30,
+        80
+      ],
+      [
+        20,
+        50
+      ],
+      [
+        10,
+        30
+      ]
+    ],
+    "mobile": [
+      [
+        8,
+        20
+      ],
+      [
+        30,
+        80
+      ],
+      [
+        20,
+        50
+      ],
+      [
+        10,
+        30
+      ]
+    ]
+  },
+  "mean_ms": 121.2,
+  "p95_ms": {
+    "fixed": 149.5828446076638,
+    "mobile": 153.75078381937016,
+    "mixture": 150.98936926348205
+  },
+  "cdf_at_mixture_p95": 0.95,
+  "max_service_ms": 180,
+  "service_cdf_at_200ms": 1,
+  "rounding_bound_ms": 0.000002,
+  "tests": [
+    "both support endpoints",
+    "one uniform and triangular oracle",
+    "conditional midpoint symmetry",
+    "mixture monotonicity and range",
+    "quantile bracket and CDF residual",
+    "service support below deadline"
+  ],
+  "interpretation": "Model-law marginal uses independent uniform primitive draws conditional on sensor type; Edge and EF are split from one draw, not independent. Sensor types fixed within a replication, realized mobile share may differ from 0.30. Sum excludes all waiting. Four primitive durations rounded to nearest ns; split conserves ticks. No claim of lower bound on p95 conditional on completion, no grid pruning, no new simulation/bootstrap."
+}

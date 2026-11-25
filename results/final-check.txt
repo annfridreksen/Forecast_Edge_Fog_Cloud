@@ -1,0 +1,96 @@
+CLEAN CHECKOUT VERIFICATION
+source_commit=fc75e2a5119ed0b3d691961094fcc62998caf276
+branch=night/fefc-v3
+utc=2026-11-22T10:33:41.358506+00:00
+
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
+exit=0; elapsed_wall_seconds=2.568394175000037
+log=results/model-tests.txt
+$ sha256sum -c MANIFEST.sha256
+exit=0; elapsed_wall_seconds=0.00508632500003614
+log=results/v2-manifest-before.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
+exit=0; elapsed_wall_seconds=10.53796055700002
+log=results/v2-tests.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/verify_doi.py
+exit=0; elapsed_wall_seconds=4.262052127000004
+log=results/doi-check.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_notebooks.py
+exit=0; elapsed_wall_seconds=0.18764591900003325
+log=results/make_notebooks.py.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_forecast_notebook.py
+exit=0; elapsed_wall_seconds=0.1326619519999781
+log=results/make_forecast_notebook.py.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/make_placement_notebook.py
+exit=0; elapsed_wall_seconds=0.13126711799998247
+log=results/make_placement_notebook.py.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/complete_notebooks.py
+exit=0; elapsed_wall_seconds=0.13159461100002545
+log=results/complete_notebooks.py.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/add_placement_diagnostics.py
+exit=0; elapsed_wall_seconds=0.12628002100001368
+log=results/add_placement_diagnostics.py.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/00_Старт.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=600
+exit=0; elapsed_wall_seconds=16.602778572000034
+log=results/00_Старт-execution.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/01_Среда_и_конфигурация.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=600
+exit=0; elapsed_wall_seconds=150.94830164400003
+log=results/01_Среда_и_конфигурация-execution.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/02_Прогноз_и_нейросеть.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=600
+exit=0; elapsed_wall_seconds=3.993472431999976
+log=results/02_Прогноз_и_нейросеть-execution.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m jupyter nbconvert --to notebook --execute /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab/clean/03_Алгоритм_переразмещения.ipynb --output-dir /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/colab --ExecutePreprocessor.timeout=600
+exit=0; elapsed_wall_seconds=3.2957895609999923
+log=results/03_Алгоритм_переразмещения-execution.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/check_figures.py
+exit=0; elapsed_wall_seconds=0.2710473480000246
+log=results/figure-check.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/extend_article.py
+exit=0; elapsed_wall_seconds=0.018330676999994466
+log=results/article-extension.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/write_article.py
+exit=0; elapsed_wall_seconds=0.2906880479999927
+log=results/article-generation.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/review_article.py
+exit=0; elapsed_wall_seconds=3.1214474330000144
+log=results/article-review.txt
+$ pdflatex -interaction=nonstopmode -halt-on-error main.tex
+exit=0; elapsed_wall_seconds=9.383724696999991
+log=results/latex-pass1.txt
+$ pdflatex -interaction=nonstopmode -halt-on-error main.tex
+exit=0; elapsed_wall_seconds=0.6110892350000086
+log=results/latex-pass2.txt
+$ pdfinfo /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf
+exit=0; elapsed_wall_seconds=0.009537902000033682
+log=results/pdf-info.txt
+$ pdftotext -layout /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/article-extracted.txt
+exit=0; elapsed_wall_seconds=0.08046539199995095
+log=results/pdf-text.txt
+$ pdftoppm -scale-to 800 -png /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/pdf-review/page
+exit=0; elapsed_wall_seconds=2.011121193000008
+log=results/pdf-render.txt
+$ sha256sum -c MANIFEST.sha256
+exit=0; elapsed_wall_seconds=0.00392436600009205
+log=results/v2-manifest-after.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m pip freeze
+exit=0; elapsed_wall_seconds=0.19683897299989894
+log=results/requirements-executed.txt
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/write_report.py
+exit=0; elapsed_wall_seconds=0.39584265599989976
+log=results/report-generation.txt
+
+v2 SHA256 before/after: MATCH
+reviewer journal: UNCHANGED
+all code cells in notebooks 00-03 executed; no error outputs; shared claim tables OK
+stationary diagnostic: 18 cases x 10 seeds, warm-up, confidence intervals
+article: two pdflatex passes; no undefined references/overfull hbox
+cited DOI: all verified, supplied thesis explicitly incomplete
+PDF rendered for inspection; automatic numeric checks do not imply manual review
+Google Colab UI: NOT directly tested
+FINAL CHECK: PASS
+
+AUTHENTICATED HISTORY AUDIT: PASS
+audit_source_commit=310ee2c757fc45861c7ed91285b1f3583e9603c1
+audit_utc=2026-11-22T10:40:33.594174+00:00
+scientific_runs_not_repeated=True
+history_runs=17

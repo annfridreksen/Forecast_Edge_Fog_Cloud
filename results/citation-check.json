@@ -1,0 +1,48 @@
+{
+  "cited_keys": [
+    "bonomi",
+    "shi",
+    "nskf",
+    "ifogsim",
+    "ifogsim2",
+    "edgecloudsim",
+    "yafs",
+    "heft",
+    "fogsurvey",
+    "fogbrain",
+    "wang",
+    "advice",
+    "v2x",
+    "chu",
+    "hyndman",
+    "lei",
+    "angelopoulos",
+    "kendall",
+    "little"
+  ],
+  "doi_keys": [
+    "bonomi",
+    "shi",
+    "ifogsim",
+    "ifogsim2",
+    "edgecloudsim",
+    "yafs",
+    "heft",
+    "fogsurvey",
+    "fogbrain",
+    "wang",
+    "advice",
+    "v2x",
+    "chu",
+    "hyndman",
+    "lei",
+    "angelopoulos",
+    "kendall",
+    "little"
+  ],
+  "all_cited_doi_ok": true,
+  "non_doi_exception": {
+    "nskf": "supplied thesis, publication metadata pending; no invented DOI"
+  },
+  "source_commit": "fc75e2a5119ed0b3d691961094fcc62998caf276"
+}

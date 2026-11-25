@@ -1,0 +1,52 @@
+name: FEFC R1.4 core regressions
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['efc/**', 'tests/**', 'scripts/check_r14_core.py', 'scripts/check_r14_statistics.py', 'scripts/check_r14_grid.py', 'scripts/check_r14_storage.py', 'colab/validation/**', 'colab/00_Старт.ipynb', 'colab/01_Среда_и_конфигурация.ipynb', 'colab/02_Прогноз_и_нейросеть.ipynb', 'colab/03_Алгоритм_переразмещения.ipynb', 'scripts/check_r14_dashboard.py', 'scripts/check_r14_companions.py', 'requirements.txt', '.github/workflows/fefc.yml']
+permissions:
+  contents: read
+concurrency:
+  group: fefc-r14-core
+  cancel-in-progress: true
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - name: Preserve exact sources for continuation
+        run: |
+          mkdir -p results/r14/current
+          git archive --format=tar.gz HEAD -o results/r14/current/source.tar.gz
+      - name: Run scoped model regressions and manual notebook (no training or PDF)
+        run: python scripts/check_r14_core.py
+      - name: Check clustered statistics and pilot controller on small oracles
+        run: python scripts/check_r14_statistics.py
+      - name: Check persistent resume and candidate registry
+        run: python scripts/check_r14_grid.py
+      - name: Read-only checkpoint report and idempotent resume tests (no scientific grid)
+        run: python -m unittest discover -s tests -p test_cache_report.py -v
+      - name: Verify compact storage, real journal replay and explicit cache migration
+        run: python scripts/check_r14_storage.py
+      - name: Author dashboard, real widget callbacks and notebook (no scientific grid)
+        run: python scripts/check_r14_dashboard.py
+      - name: Companion notebooks 01-03, disabled ports and protected reference reading
+        run: python scripts/check_r14_companions.py
+      - name: Ensure protected and source files were not rewritten
+        if: always()
+        run: git diff --exit-code -- v2 docs efc tests scripts colab
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r14-core-${{ github.sha }}
+          path: results/r14/current/
+          if-no-files-found: error

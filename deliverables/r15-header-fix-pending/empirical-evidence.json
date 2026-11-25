@@ -1,0 +1,166 @@
+{
+  "schema": "R1.4-paper-evidence-1",
+  "scientific_run_id": 45174257711,
+  "artifact_id": 14820151165,
+  "scientific_sha": "b45bfee84d9b0727243faf6cd28eeda776813566",
+  "zip_sha256": "2cb91dbc964a641c36fb53e02ddea3590bf8fe939933f43b31399267508d40ef",
+  "frozen_snapshot": true,
+  "manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+  "map_sha256": "5e686b96948e600153d7528fb37bf606bf8c1b48fdbb2fab6045e007cef69533",
+  "main_path": "cells/r0.10_F30_B005/main.json",
+  "main_byte_sha256": "814bd879686d8a8a117a46e8b299475246f0c9a2476b9623eeaa02bc0db74e6b",
+  "main_canonical_sha256": "85eee58b11b4b04b64d02217a398208f38ab75c305a5e92cf337dc965824f2eb",
+  "status": "INSUFFICIENT_DATA",
+  "reasons": [
+    "zero_loss_degenerate_bootstrap"
+  ],
+  "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8",
+  "plan_sha256": "49e263e998f8436124e21d4520a76607082144b24c4febdcc7e4d4c5c60f45cc",
+  "primary": [
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/a0aa34e576afde92ade9691c95e11d84197eac6a8be0bb13d8fac1696395edda.json.gz",
+      "byte_sha256": "73f787b6ef6065da81e11eb62495732f470c8bef435ded0fb484f50562d6f9fc",
+      "request": {
+        "seed": 0,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/e0ad233783fb6e9235f52520a84757bfc786e3523385080b6acbac5cf0297c9a.json.gz",
+      "byte_sha256": "045acf46a4bea694c39eff8998f701e28bb10e8608430fb7c049c9a3e17760c0",
+      "request": {
+        "seed": 1,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/70fa9c7927c619d416c62e683b1e98d521606896195a11c9f7999a9dee0f5d19.json.gz",
+      "byte_sha256": "c3e2cfed5532663a80a2d61d7e7a8dac003858d8a2902d402b6f5365885c7ade",
+      "request": {
+        "seed": 2,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/4e1e65ffcaf9df36847620c780dc3e133bf8ba90707948a9d317ee8567be72e1.json.gz",
+      "byte_sha256": "71eb00f6249a2b0a9cd855fc59852b32c9ca80a5d26fe341856ed684c764bdc1",
+      "request": {
+        "seed": 3,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/d2637bf9c12a6d03d7acf5ac20aaba011b8379a5198176f2fafa86e7af94b174.json.gz",
+      "byte_sha256": "31743b218f1173a937a7b9127859d7846c7f61d9fce26ab9fe7b624ebf3c1221",
+      "request": {
+        "seed": 4,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/a06045ad15cf4c0c4a7cfb362d0bdbf236ea587c5f8b73b378c652a31ca4cbda.json.gz",
+      "byte_sha256": "406d28795b35dab4a0cdcea0abc04dbddeda868fb22b150024ccf277c410c079",
+      "request": {
+        "seed": 5,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/ac447a3789b0ce8dabecdda7338f10ca7887965ae454abe3aa145a040df8d5f5.json.gz",
+      "byte_sha256": "a4eba9da90549a531b499a211609431c39453a6e08392c282229bb29084dd0b5",
+      "request": {
+        "seed": 6,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/33fdee3158fc80749be6716df7cc0daa5255f72ce73856ca1b8d6bed65c3fb81.json.gz",
+      "byte_sha256": "93f76053361e763936bb84aa5163cc3623cdc452804f1d98aa0dadacc536b5ee",
+      "request": {
+        "seed": 7,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/bc3060d6c6b016a1b1673e5439131c0aa4301235cf1d1abbb39aeb56e88f3a4b.json.gz",
+      "byte_sha256": "d5bb7fe5a8ccdc946dbeaee4fca90e6605092640cfc3bc8d6306380561f5a3e8",
+      "request": {
+        "seed": 8,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    },
+    {
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/7397434d01fcb5ec6077a8dc8f68cd69d84bdb596a7c905cf67f440658fbee3b.json.gz",
+      "byte_sha256": "3715f95eae9c8e945f994a046414021cfa6f0f8a77c2f3064920ead420ac1891",
+      "request": {
+        "seed": 9,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      }
+    }
+  ],
+  "point": {
+    "arrivals": 1999801,
+    "completed": 1999801,
+    "dropped": 0,
+    "unfinished": 0,
+    "mean_ms": 127.2249159616942,
+    "p95_ms": 170.863296,
+    "drop_fraction": 0.0,
+    "H200": 0.9862251294003753
+  },
+  "q_interval": {
+    "lower": 170.64918,
+    "upper": 171.01545105250003,
+    "half_width": 0.1831355262500125,
+    "descriptive_level": 0.95,
+    "one_sided_level": 0.975
+  },
+  "loss_interval": {
+    "lower": 0.0,
+    "upper": 0.0,
+    "half_width": 0.0,
+    "descriptive_level": 0.95,
+    "one_sided_level": 0.975
+  },
+  "counts": {
+    "requests": 131,
+    "pilot": 121,
+    "main": 10,
+    "confirmation": 0,
+    "insufficient": 3,
+    "missing": 267
+  },
+  "intervals_recomputed": false,
+  "points_recomputed_from_ticks": true,
+  "scientific_acceptance": false
+}

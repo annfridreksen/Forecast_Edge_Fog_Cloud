@@ -1,0 +1,233 @@
+[
+  {
+    "page": 1,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 2,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 3,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 4,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 5,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 6,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 7,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 8,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 9,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 10,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 11,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 12,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 13,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 14,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 15,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 16,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": false,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PENDING_CHANGED_PAGE_VISUAL_REVIEW",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 17,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": false,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PENDING_CHANGED_PAGE_VISUAL_REVIEW",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 18,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 19,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 20,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  },
+  {
+    "page": 21,
+    "pdf_sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+    "prior_pdf_sha256": "0672dff5958633b6119b436a88a41331c6e8c76c0b0a0dfe617525acee79e78a",
+    "pixel_equal_to_prior": true,
+    "visual_status": "ACCEPTED_BY_REVIEWER_7127677687",
+    "prior_review": "https://github.com/annfridreksen/Forecast_Edge_Fog_Cloud/issues/5#issuecomment-7117633710",
+    "own_visual_review": false,
+    "visual_status_at_build": "PRIOR_REVIEW_RECORDED_PIXEL_IDENTICAL",
+    "independent_review_comment": 7127677687
+  }
+]

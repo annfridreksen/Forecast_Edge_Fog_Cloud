@@ -1,0 +1,2 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/extend_article.py
+Template includes prepared; final cited metadata will be checked after article integration.

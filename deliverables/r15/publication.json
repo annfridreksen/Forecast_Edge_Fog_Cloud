@@ -1,0 +1,76 @@
+{
+  "status": "PUBLIC_DOWNLOAD_VERIFIED",
+  "source_sha": "fa4b6f23a43cfa3c312f12f32d0f4bd6e082d191",
+  "verification_sha": "7bd572fff40ee72ea7d0f3d08e98c1360729ca62",
+  "delivery_sha": "390b232a24b10d303b4f6646af8fc1414f7f182a",
+  "branch": "night/fefc-v3",
+  "checks": [
+    {
+      "file": "article.pdf",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/article.pdf",
+      "sha256": "5d0424d9c8f0b0af18f009e3b1549a764aaf5f1d490cfaaee0e07348911f596f",
+      "bytes": 674081,
+      "authenticated": false
+    },
+    {
+      "file": "submission.zip",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/submission.zip",
+      "sha256": "b82a7b8384f37e2e84a756473da7c8fdb6dd91e8f1e9e6ff41c7c447525f59a2",
+      "bytes": 834960,
+      "authenticated": false
+    },
+    {
+      "file": "reproducibility.zip",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/reproducibility.zip",
+      "sha256": "513049312b0d2872bdc37d78e2e5c56a38204001813acbd80657a4daff6deb5a",
+      "bytes": 1182268,
+      "authenticated": false
+    },
+    {
+      "file": "difference.pdf",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/difference.pdf",
+      "sha256": "ee5f9bb09b270dbb945ff76f697a1e2ac10a40da3b79b60955eebe733c70d1a7",
+      "bytes": 13653951,
+      "authenticated": false
+    },
+    {
+      "file": "data-parts.json",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/data-parts.json",
+      "sha256": "6e7668d520b42dd0e4e683daf577fb6573f5f2abee555ced7f421170f8317b0e",
+      "bytes": 825,
+      "authenticated": false
+    },
+    {
+      "file": "frozen131.zip.part00",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/frozen131.zip.part00",
+      "sha256": "d3cd0a6b539e7e7fa4e8c8870cdff1926a447b81f4154bf983209442b67069ce",
+      "bytes": 83886080,
+      "authenticated": false
+    },
+    {
+      "file": "frozen131.zip.part01",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/frozen131.zip.part01",
+      "sha256": "c3d467fffb90025aefde2d655d0d64dff67cfaf1f5aa841f931510d19e6a19de",
+      "bytes": 83886080,
+      "authenticated": false
+    },
+    {
+      "file": "frozen131.zip.part02",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/frozen131.zip.part02",
+      "sha256": "bb558d35e63e20774149f512fcfaedfe5d990ad20598d9ab2f24be73c532e703",
+      "bytes": 83886080,
+      "authenticated": false
+    },
+    {
+      "file": "frozen131.zip.part03",
+      "url": "https://raw.githubusercontent.com/annfridreksen/Forecast_Edge_Fog_Cloud/390b232a24b10d303b4f6646af8fc1414f7f182a/deliverables/r15/frozen131.zip.part03",
+      "sha256": "55e54da6882c5a5478168b35820b01538c030d06832c87bb9ff8bdaa6c2b2384",
+      "bytes": 13624692,
+      "authenticated": false
+    }
+  ],
+  "visibility_changed": false,
+  "article_sent": false,
+  "ready_to_submit": false,
+  "reason": "Author metadata, permissions, page inspection and independent acceptance remain open."
+}

@@ -1,0 +1,21 @@
+{
+  "sections": 8,
+  "references": 27,
+  "identified_references": 26,
+  "recent_identified_references": 10,
+  "empirical_display_fields": 12,
+  "analytic_display_fields": 3,
+  "known_missing_reference": "nskf",
+  "scientific_acceptance": false,
+  "submission_ready": false,
+  "tests_run": 10,
+  "primary_archive_verified": true,
+  "notebook_actual_fields": 16,
+  "notebook_code_cells": 6,
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "executed_source_sha": "5b2a5987d1a148545eae678dba770d66df9a9cb7",
+  "execution": "GitHub Actions / nbconvert / Node",
+  "article_sha256": "f2f7132b1f5ca898fe836e9142a02285e7cd82ce31a529a0ebd12c542047ff84",
+  "biblio_sha256": "ffda60415d61f10cfa524dedbe4c16d7a6466f9e4080d37dc74ce57ae04e7471"
+}

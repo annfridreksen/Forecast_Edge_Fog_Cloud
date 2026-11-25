@@ -1,0 +1,174 @@
+{
+  "minimal_P": {
+    "checked_assignments": [
+      [
+        "E",
+        "F",
+        "E"
+      ],
+      [
+        "F",
+        "E",
+        "E"
+      ]
+    ],
+    "frontier": [
+      {
+        "bound": [
+          "2",
+          "2",
+          "1"
+        ],
+        "prefix": [
+          "E",
+          "F",
+          "F"
+        ]
+      },
+      {
+        "bound": [
+          "2",
+          "2",
+          "1"
+        ],
+        "prefix": [
+          "F",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "bound": [
+          "2",
+          "2",
+          "1"
+        ],
+        "prefix": [
+          "F",
+          "F"
+        ]
+      }
+    ],
+    "stop_reason": "ordinal_bound",
+    "effective_method": "P"
+  },
+  "minimal_B": {
+    "checked_assignments": [
+      [
+        "E",
+        "F",
+        "E"
+      ],
+      [
+        "E",
+        "F",
+        "F"
+      ],
+      [
+        "F",
+        "E",
+        "E"
+      ],
+      [
+        "F",
+        "E",
+        "F"
+      ],
+      [
+        "F",
+        "F",
+        "E"
+      ],
+      [
+        "F",
+        "F",
+        "F"
+      ]
+    ],
+    "frontier": [],
+    "stop_reason": "exhausted",
+    "effective_method": "B"
+  },
+  "deadline_filter_P": {
+    "checked_assignments": [
+      [
+        "E",
+        "F",
+        "E"
+      ],
+      [
+        "F",
+        "E",
+        "E"
+      ],
+      [
+        "E",
+        "F",
+        "F"
+      ],
+      [
+        "F",
+        "E",
+        "F"
+      ],
+      [
+        "F",
+        "F",
+        "E"
+      ]
+    ],
+    "frontier": [
+      {
+        "bound": [
+          "2",
+          "2",
+          "2"
+        ],
+        "prefix": [
+          "F",
+          "F",
+          "F"
+        ]
+      }
+    ],
+    "stop_reason": "ordinal_bound",
+    "effective_method": "P"
+  },
+  "no_feasible_P": {
+    "checked_assignments": [
+      [
+        "E",
+        "F",
+        "E"
+      ],
+      [
+        "F",
+        "E",
+        "E"
+      ],
+      [
+        "E",
+        "F",
+        "F"
+      ],
+      [
+        "F",
+        "E",
+        "F"
+      ],
+      [
+        "F",
+        "F",
+        "E"
+      ],
+      [
+        "F",
+        "F",
+        "F"
+      ]
+    ],
+    "frontier": [],
+    "stop_reason": "exhausted",
+    "effective_method": "P"
+  }
+}

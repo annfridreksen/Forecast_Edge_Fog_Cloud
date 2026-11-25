@@ -1,0 +1,107 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python -m unittest discover -s tests -v
+test_D_same_exact_result (test_core.CoreTests.test_D_same_exact_result) ... ok
+test_bad_arrival (test_core.CoreTests.test_bad_arrival) ... ok
+test_bad_coverage (test_core.CoreTests.test_bad_coverage) ... ok
+test_bad_duration (test_core.CoreTests.test_bad_duration) ... ok
+test_bad_message (test_core.CoreTests.test_bad_message) ... ok
+test_bad_route (test_core.CoreTests.test_bad_route) ... ok
+test_busy (test_core.CoreTests.test_busy) ... ok
+test_cloud (test_core.CoreTests.test_cloud) ... ok
+test_constant (test_core.CoreTests.test_constant) ... ok
+test_cycle (test_core.CoreTests.test_cycle) ... ok
+test_deadline_boundary (test_core.CoreTests.test_deadline_boundary) ... ok
+test_deadline_filter (test_core.CoreTests.test_deadline_filter) ... ok
+test_direction (test_core.CoreTests.test_direction) ... ok
+test_disconnected (test_core.CoreTests.test_disconnected) ... ok
+test_duplicate_member (test_core.CoreTests.test_duplicate_member) ... ok
+test_empty_block (test_core.CoreTests.test_empty_block) ... ok
+test_empty_candidates (test_core.CoreTests.test_empty_candidates) ... ok
+test_future (test_core.CoreTests.test_future) ... ok
+test_incomplete (test_core.CoreTests.test_incomplete) ... ok
+test_joint_memory (test_core.CoreTests.test_joint_memory) ... ok
+test_limited_D (test_core.CoreTests.test_limited_D) ... ok
+test_local (test_core.CoreTests.test_local) ... ok
+test_memory_boundary (test_core.CoreTests.test_memory_boundary) ... ok
+test_minimal_B (test_core.CoreTests.test_minimal_B) ... ok
+test_minimal_P (test_core.CoreTests.test_minimal_P) ... ok
+test_missing_forecast (test_core.CoreTests.test_missing_forecast) ... ok
+test_monotone (test_core.CoreTests.test_monotone) ... ok
+test_multihop (test_core.CoreTests.test_multihop) ... ok
+test_nan_command (test_core.CoreTests.test_nan_command) ... ok
+test_negative_budget (test_core.CoreTests.test_negative_budget) ... ok
+test_no_feasible_deadline (test_core.CoreTests.test_no_feasible_deadline) ... ok
+test_no_network (test_core.CoreTests.test_no_network) ... ok
+test_no_repartition (test_core.CoreTests.test_no_repartition) ... ok
+test_overheads (test_core.CoreTests.test_overheads) ... ok
+test_partial (test_core.CoreTests.test_partial) ... ok
+test_previous_partition (test_core.CoreTests.test_previous_partition) ... ok
+test_quotient_cycle (test_core.CoreTests.test_quotient_cycle) ... ok
+test_reconsider_authorized (test_core.CoreTests.test_reconsider_authorized) ... ok
+test_reconsider_keep (test_core.CoreTests.test_reconsider_keep) ... ok
+test_reference_matches (test_core.CoreTests.test_reference_matches) ... ok
+test_roundtrip (test_core.CoreTests.test_roundtrip) ... ok
+test_shared_slot (test_core.CoreTests.test_shared_slot) ... ok
+test_snapshot (test_core.CoreTests.test_snapshot) ... ok
+test_source_immutable (test_core.CoreTests.test_source_immutable) ... ok
+test_stale (test_core.CoreTests.test_stale) ... ok
+test_touching (test_core.CoreTests.test_touching) ... ok
+test_unfavourable_not_excluded (test_core.CoreTests.test_unfavourable_not_excluded) ... ok
+test_unknown_profile (test_core.CoreTests.test_unknown_profile) ... ok
+test_zero_bandwidth (test_core.CoreTests.test_zero_bandwidth) ... ok
+test_zero_budget (test_core.CoreTests.test_zero_budget) ... ok
+test_zero_duration (test_core.CoreTests.test_zero_duration) ... ok
+test_D_not_first_certificate (test_extended.ExtendedTests.test_D_not_first_certificate) ... ok
+test_bad_forecast_container (test_extended.ExtendedTests.test_bad_forecast_container) ... ok
+test_bound_all_completions (test_extended.ExtendedTests.test_bound_all_completions) ... ok
+test_calendar_overlap (test_extended.ExtendedTests.test_calendar_overlap) ... ok
+test_equal_route_order (test_extended.ExtendedTests.test_equal_route_order) ... ok
+test_extra_20_differential (test_extended.ExtendedTests.test_extra_20_differential) ... ok
+test_fork_join_shared (test_extended.ExtendedTests.test_fork_join_shared) ... ok
+test_full_equal_group (test_extended.ExtendedTests.test_full_equal_group) ... ok
+test_hidden_busy (test_extended.ExtendedTests.test_hidden_busy) ... ok
+test_input_list_permutation (test_extended.ExtendedTests.test_input_list_permutation) ... ok
+test_keep_monotone (test_extended.ExtendedTests.test_keep_monotone) ... ok
+test_limit_is_not_infeasibility (test_extended.ExtendedTests.test_limit_is_not_infeasibility) ... ok
+test_load_scope (test_extended.ExtendedTests.test_load_scope) ... ok
+test_malformed_contract (test_extended.ExtendedTests.test_malformed_contract) ... ok
+test_mutated_collision (test_extended.ExtendedTests.test_mutated_collision) ... ok
+test_mutated_memory (test_extended.ExtendedTests.test_mutated_memory) ... ok
+test_nan_profile (test_extended.ExtendedTests.test_nan_profile) ... ok
+test_repeatability (test_extended.ExtendedTests.test_repeatability) ... ok
+test_replan_busy (test_extended.ExtendedTests.test_replan_busy) ... ok
+test_replay_identical (test_extended.ExtendedTests.test_replay_identical) ... ok
+test_replay_unavailable (test_extended.ExtendedTests.test_replay_unavailable) ... ok
+test_routes_vs_simple_paths (test_extended.ExtendedTests.test_routes_vs_simple_paths) ... ok
+test_bound_precomputed_equals_public_convenience (test_review.ReviewTests.test_bound_precomputed_equals_public_convenience) ... ok
+test_budget_audit_preserves_popped_completion (test_review.ReviewTests.test_budget_audit_preserves_popped_completion) ... ok
+test_cli_deterministic_export (test_review.ReviewTests.test_cli_deterministic_export) ... ok
+test_cyclic_route_code (test_review.ReviewTests.test_cyclic_route_code) ... ok
+test_declared_scale_mismatch_falls_back (test_review.ReviewTests.test_declared_scale_mismatch_falls_back) ... ok
+test_makespan_mismatch_code (test_review.ReviewTests.test_makespan_mismatch_code) ... ok
+test_manual_eight_rows (test_review.ReviewTests.test_manual_eight_rows) ... ok
+test_message_size_code (test_review.ReviewTests.test_message_size_code) ... ok
+test_mismatch_written_before_failure (test_review.ReviewTests.test_mismatch_written_before_failure) ... /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/v2/code/tests/test_review.py:207: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpv6txg2m9/reference_comparison.csv' mode='r' encoding='UTF-8'>
+  rows=list(csv.DictReader((out/'reference_comparison.csv').open()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_no_declared_scale_is_presence_only (test_review.ReviewTests.test_no_declared_scale_is_presence_only) ... ok
+test_nonempty_local_route_code (test_review.ReviewTests.test_nonempty_local_route_code) ... ok
+test_optional_first_forecast_is_named (test_review.ReviewTests.test_optional_first_forecast_is_named) ... ok
+test_propagation_delay_code (test_review.ReviewTests.test_propagation_delay_code) ... ok
+test_raw_rational_integer_memory_supported (test_review.ReviewTests.test_raw_rational_integer_memory_supported) ... ok
+test_release_code (test_review.ReviewTests.test_release_code) ... ok
+test_requested_effective_seed20 (test_review.ReviewTests.test_requested_effective_seed20) ... ok
+test_serialization_duration_code (test_review.ReviewTests.test_serialization_duration_code) ... ok
+test_single_relevant_device_and_memory_reason (test_review.ReviewTests.test_single_relevant_device_and_memory_reason) ... ok
+test_source_candidates_corruption (test_review.ReviewTests.test_source_candidates_corruption) ... ok
+test_source_duration_corruption (test_review.ReviewTests.test_source_duration_corruption) ... ok
+test_source_memory_corruption (test_review.ReviewTests.test_source_memory_corruption) ... ok
+test_source_messages_corruption (test_review.ReviewTests.test_source_messages_corruption) ... ok
+test_stop_frontier_and_active_deadlines (test_review.ReviewTests.test_stop_frontier_and_active_deadlines) ... ok
+test_strict_bound_mutation_is_detected (test_review.ReviewTests.test_strict_bound_mutation_is_detected) ... ok
+test_wall_clock_fields (test_review.ReviewTests.test_wall_clock_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 98 tests in 10.360s
+
+OK

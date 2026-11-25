@@ -1,0 +1,2 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/complete_notebooks.py
+All four notebooks have figures and claim checks; steady and sensitivity series included.

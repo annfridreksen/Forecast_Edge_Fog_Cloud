@@ -1,0 +1,16 @@
+{
+  "source_sha": "30ac4c3efe1e0a7fd90ea697a051f11aa9816b3a",
+  "input_basis": {
+    "basis": "Verbatim authored text recovered from the previous interrupted execution record; the original Word had been directly inspected in that execution.",
+    "input_zip_sha256": "a9326283db76e0146d7a84cbe0d1677f0c4373330037ceb56a76849db2f77ce0",
+    "input_docx_sha256": "8be375f6dc06aae6f7a2b67798e84d490cda2c8b8fe40913cb0f0d1c48526ef8",
+    "prior_issue_comment": 7133290317,
+    "current_input_binary_available": false,
+    "prior_binary_delivery_reused": false,
+    "figures_must_be_rebuilt_from_recovered_sources": true
+  },
+  "prior_read_comment": 7133290317,
+  "recovery_note": "Previous exact-source inspection and authored text are preserved in the execution record. Expired local DOCX/PDF bytes are not claimed recovered. This build creates new binaries from restored sources.",
+  "new_simulation": false,
+  "new_bootstrap": false
+}

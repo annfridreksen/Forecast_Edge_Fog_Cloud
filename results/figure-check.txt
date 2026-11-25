@@ -1,0 +1,2 @@
+$ /opt/hostedtoolcache/Python/3.13.18/x64/bin/python scripts/check_figures.py
+OK: 25 PDF/PNG pairs and primary numerical checks.

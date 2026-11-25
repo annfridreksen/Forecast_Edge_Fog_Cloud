@@ -1,0 +1,276 @@
+{
+  "schema": "R1.5-author69-conditional-analysis-1",
+  "key": "r0.10_F30_B005",
+  "author_decisions": [
+    7115069628,
+    7115236266
+  ],
+  "source_run_id": 45174257711,
+  "source_zip_sha256": "2cb91dbc964a641c36fb53e02ddea3590bf8fe939933f43b31399267508d40ef",
+  "main_sha256": "814bd879686d8a8a117a46e8b299475246f0c9a2476b9623eeaa02bc0db74e6b",
+  "manifest_sha256": "71c70b7013ebc39b377b3e59cc0f551e9003c4f30297258242494d1e5856b023",
+  "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8",
+  "analysis_code_sha256": "6cb010a4315769827a4af9b9741a75673c644fcfbdd7e36c45a13e7c475f2fcb",
+  "rows": [
+    {
+      "seed": 0,
+      "arrivals": 200298,
+      "completed": 200298,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 0,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/a0aa34e576afde92ade9691c95e11d84197eac6a8be0bb13d8fac1696395edda.json.gz",
+      "sha256": "73f787b6ef6065da81e11eb62495732f470c8bef435ded0fb484f50562d6f9fc"
+    },
+    {
+      "seed": 1,
+      "arrivals": 199701,
+      "completed": 199701,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 1,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/e0ad233783fb6e9235f52520a84757bfc786e3523385080b6acbac5cf0297c9a.json.gz",
+      "sha256": "045acf46a4bea694c39eff8998f701e28bb10e8608430fb7c049c9a3e17760c0"
+    },
+    {
+      "seed": 2,
+      "arrivals": 200008,
+      "completed": 200008,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 2,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/70fa9c7927c619d416c62e683b1e98d521606896195a11c9f7999a9dee0f5d19.json.gz",
+      "sha256": "c3e2cfed5532663a80a2d61d7e7a8dac003858d8a2902d402b6f5365885c7ade"
+    },
+    {
+      "seed": 3,
+      "arrivals": 199114,
+      "completed": 199114,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 3,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/4e1e65ffcaf9df36847620c780dc3e133bf8ba90707948a9d317ee8567be72e1.json.gz",
+      "sha256": "71eb00f6249a2b0a9cd855fc59852b32c9ca80a5d26fe341856ed684c764bdc1"
+    },
+    {
+      "seed": 4,
+      "arrivals": 200298,
+      "completed": 200298,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 4,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/d2637bf9c12a6d03d7acf5ac20aaba011b8379a5198176f2fafa86e7af94b174.json.gz",
+      "sha256": "31743b218f1173a937a7b9127859d7846c7f61d9fce26ab9fe7b624ebf3c1221"
+    },
+    {
+      "seed": 5,
+      "arrivals": 200255,
+      "completed": 200255,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 5,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/a06045ad15cf4c0c4a7cfb362d0bdbf236ea587c5f8b73b378c652a31ca4cbda.json.gz",
+      "sha256": "406d28795b35dab4a0cdcea0abc04dbddeda868fb22b150024ccf277c410c079"
+    },
+    {
+      "seed": 6,
+      "arrivals": 199726,
+      "completed": 199726,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 6,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/ac447a3789b0ce8dabecdda7338f10ca7887965ae454abe3aa145a040df8d5f5.json.gz",
+      "sha256": "a4eba9da90549a531b499a211609431c39453a6e08392c282229bb29084dd0b5"
+    },
+    {
+      "seed": 7,
+      "arrivals": 199959,
+      "completed": 199959,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 7,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/33fdee3158fc80749be6716df7cc0daa5255f72ce73856ca1b8d6bed65c3fb81.json.gz",
+      "sha256": "93f76053361e763936bb84aa5163cc3623cdc452804f1d98aa0dadacc536b5ee"
+    },
+    {
+      "seed": 8,
+      "arrivals": 200445,
+      "completed": 200445,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 8,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/bc3060d6c6b016a1b1673e5439131c0aa4301235cf1d1abbb39aeb56e88f3a4b.json.gz",
+      "sha256": "d5bb7fe5a8ccdc946dbeaee4fca90e6605092640cfc3bc8d6306380561f5a3e8"
+    },
+    {
+      "seed": 9,
+      "arrivals": 199997,
+      "completed": 199997,
+      "dropped": 0,
+      "unfinished": 0,
+      "request": {
+        "seed": 9,
+        "warmup": 4000,
+        "observe": 4000,
+        "guard": 1000,
+        "config_id": "651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8"
+      },
+      "path": "observations/651081c0451287faef712ca7f2557d97350ef58179bfc6841ea89c8ad0c31be8/7397434d01fcb5ec6077a8dc8f68cd69d84bdb596a7c905cf67f440658fbee3b.json.gz",
+      "sha256": "3715f95eae9c8e945f994a046414021cfa6f0f8a77c2f3064920ead420ac1891"
+    }
+  ],
+  "decision": {
+    "n_min": 199114,
+    "U_L": 1.8526297916613364e-05,
+    "U_Q_ms": 171.01545105250003,
+    "loss_interval": [
+      0.0,
+      1.8526297916613364e-05
+    ],
+    "prerequisites_ok": true,
+    "precision_ok": true,
+    "joint_thresholds_ok": true,
+    "status": "CONDITIONALLY_ACCEPTABLE",
+    "interpretation": "допустима при указанном допущении",
+    "assumption": "Independent Bernoulli message-loss outcomes with a common probability; dependence of the actual queue has not been established or removed."
+  },
+  "previous_R14_status": "INSUFFICIENT_DATA",
+  "previous_R14_reasons": [
+    "zero_loss_degenerate_bootstrap"
+  ],
+  "removed_reason_for_conditional_analysis_only": "zero_loss_degenerate_bootstrap",
+  "other_reasons": [],
+  "pilot_ready": true,
+  "sensitivity": [
+    {
+      "reduction_factor": 1,
+      "n_eff": 199114.0,
+      "U_L": 1.8526297916613364e-05,
+      "loss_threshold_pass": true,
+      "old_precision_pass": true,
+      "interpretation": "assumed effective-volume scenario, not measured dependence"
+    },
+    {
+      "reduction_factor": 5,
+      "n_eff": 39822.8,
+      "U_L": 9.262805740950791e-05,
+      "loss_threshold_pass": true,
+      "old_precision_pass": true,
+      "interpretation": "assumed effective-volume scenario, not measured dependence"
+    },
+    {
+      "reduction_factor": 10,
+      "n_eff": 19911.4,
+      "U_L": 0.0001852475348619964,
+      "loss_threshold_pass": true,
+      "old_precision_pass": false,
+      "interpretation": "assumed effective-volume scenario, not measured dependence"
+    },
+    {
+      "reduction_factor": 50,
+      "n_eff": 3982.28,
+      "U_L": 0.0009258945713831161,
+      "loss_threshold_pass": true,
+      "old_precision_pass": false,
+      "interpretation": "assumed effective-volume scenario, not measured dependence"
+    },
+    {
+      "reduction_factor": 100,
+      "n_eff": 1991.14,
+      "U_L": 0.0018509318620089155,
+      "loss_threshold_pass": false,
+      "old_precision_pass": false,
+      "interpretation": "assumed effective-volume scenario, not measured dependence"
+    }
+  ],
+  "sufficient_threshold_n": 3689,
+  "U_at_3689": 0.000999467522167866,
+  "max_reduction_for_sufficient_threshold": 53.97506099213879,
+  "precision_required_n": 36887,
+  "mm1k": {
+    "lambda_total": 90.9090909090909,
+    "mu": 18.181818181818183,
+    "F": 30,
+    "B": 5,
+    "K": 6,
+    "groups": [
+      {
+        "sensors_per_node": 33,
+        "nodes": 20,
+        "lambda_per_s": 3.0,
+        "rho": 0.16499999999999998,
+        "blocking": 1.684967726015698e-05,
+        "arrival_weight": 0.66
+      },
+      {
+        "sensors_per_node": 34,
+        "nodes": 10,
+        "lambda_per_s": 3.090909090909091,
+        "rho": 0.16999999999999998,
+        "blocking": 2.0034264478334993e-05,
+        "arrival_weight": 0.34
+      }
+    ],
+    "arrival_weighted_loss": 1.7932436914337507e-05,
+    "interpretation": "Approximation for Poisson arrivals directly to separate Fog queues and exponential service, unlike the full FEFC model; not a bound."
+  },
+  "raw_data_mutated": false,
+  "simulation_executed": false,
+  "bootstrap_recomputed": false,
+  "independent_confirmation": false,
+  "minimum_configuration_established": false
+}

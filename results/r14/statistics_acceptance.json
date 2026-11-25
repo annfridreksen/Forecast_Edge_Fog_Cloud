@@ -1,0 +1,32 @@
+{
+  "scope": "R1.4 TASK section 4: statistical module and small pilot-controller regression; NOT scientific map",
+  "executable_commit": "6a6d72ca17f2a8ac81264e60f24b64b4c1da48ee",
+  "statistics_commit": "5a52782573fcdedbfe3929b6b4ae4afb850be980",
+  "workflow_run_id": 45071782039,
+  "job_id": 137360121411,
+  "actions_conclusion": "success",
+  "artifact_id": 14773333368,
+  "artifact_sha256": "2fcb67e507c49ff33cc7bb1ddeef95c50ee648b2e3e2375c4fea6d00525ac643",
+  "artifact_downloaded_and_parsed": true,
+  "commands": ["python scripts/check_r14_core.py", "python scripts/check_r14_statistics.py"],
+  "actions_python": "3.13.18",
+  "local_python": "3.13.5",
+  "local_new_tests_passed": 34,
+  "actions_tests_passed": {"model": 50, "window": 10, "logging": 2, "statistics": 22, "pilot": 12, "total": 96},
+  "nbconvert_code_cells": {"00_R14_core.ipynb": 7, "01_R14_statistics.ipynb": 4},
+  "colab_web_ui_run": false,
+  "full_scientific_grid_run": false,
+  "training_run": false,
+  "pdf_built": false,
+  "whole_map_or_candidate_controller_accepted": false,
+  "primary_files_in_artifact": ["statistics/report.json", "statistics/statistics-oracles.json", "statistics/controller-oracles.json", "statistics/kernel-adapter.json", "statistics/test_statistics.py.txt", "statistics/test_pilot.py.txt", "statistics/01_R14_statistics.ipynb"],
+  "six_new_source_files_match_local_sha256": true,
+  "source_sha256": {
+    "efc/statistics.py": "59cf2c40ce5165c97cbe2f25bf2a09090cfafe2f958c7c99c15e50919fd26ab2",
+    "efc/pilot.py": "9ec2285a1674748582db64a992f7f2a893e2cf73f71c6c9cd1e98ecc88182cba",
+    "tests/test_statistics.py": "6e181a44e54f96317c28c1c71adfc4de2afef816a3d1a783c0474512f774ee5f",
+    "tests/test_pilot.py": "3e2248ea5ca2e9e10fbc3891d04d82147bfc535dc5eb195ce6146779f370f1fa",
+    "scripts/check_r14_statistics.py": "f967abe421823fc43b023b66b979b8d809288d2df7a879c7102d1e44d55ec7cb",
+    "colab/validation/01_R14_statistics.ipynb": "b3669662ac2ba9b23fa3339fbc10454bd84428076f370f1e8be04596b59c0c39"
+  }
+}

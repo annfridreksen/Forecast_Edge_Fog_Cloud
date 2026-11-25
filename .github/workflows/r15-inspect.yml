@@ -1,0 +1,40 @@
+name: R1.5 isolate bibliography syntax only
+on:
+  push:
+    branches: [night/fefc-v3]
+    paths: ['.github/workflows/r15-inspect.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install TeX for minimal syntax probe
+        run: |
+          sudo apt-get update -qq > /tmp/install.log 2>&1
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended cm-super >> /tmp/install.log 2>&1 || { tail -50 /tmp/install.log; exit 1; }
+      - name: Compile one reference at a time without source/data modifications
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re,subprocess,shutil,tempfile,json
+          source=Path('article'); text=(source/'main.tex').read_text(); bib=(source/'r15-references.tex').read_text()
+          entries=re.findall(r'(\\R?Bibitem\{([^}]+)\}.*?)(?=\\R?Bibitem|\\end\{thebibliography\})',bib,re.S)
+          results=[]
+          with tempfile.TemporaryDirectory() as tmp:
+              root=Path(tmp)
+              shutil.copytree(source/'psta',root/'psta')
+              shutil.copy2(source/'psta.cls',root/'psta.cls')
+              shutil.copy2(source/'r15-values.tex',root/'r15-values.tex')
+              (root/'main.tex').write_text(text)
+              for block,key in entries:
+                  (root/'r15-references.tex').write_text('\\begin{thebibliography}{99}\n'+block+'\\end{thebibliography}\n')
+                  r=subprocess.run(['pdflatex','-interaction=nonstopmode','-halt-on-error','-file-line-error','-jobname=probe-'+key,'main.tex'],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+                  lines=r.stdout.decode(errors='replace').splitlines()
+                  results.append({'key':key,'exit':r.returncode})
+                  if r.returncode:
+                      print('FAILED ENTRY',key,'\n'+'\n'.join(lines[-18:]))
+          print('BIBLIOGRAPHY_SYNTAX_REPORT',json.dumps(results))
+          PY

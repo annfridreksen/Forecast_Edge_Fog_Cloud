@@ -1,0 +1,1 @@
+$ pdftotext -layout /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/article/main.pdf /home/runner/work/Forecast_Edge_Fog_Cloud/Forecast_Edge_Fog_Cloud/results/article-extracted.txt
