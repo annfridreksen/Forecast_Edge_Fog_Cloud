@@ -55,7 +55,7 @@ jobs:
           assert b'Output written on main.pdf (25 pages, 865618 bytes).' in old_bytes
           assert b'Output written on main.pdf (27 pages, 923039 bytes).' in new_bytes
           assert b'pdfTeX warning (dest)' not in new_bytes and b'Overfull' not in new_bytes and b'undefined references' not in new_bytes.lower()
-          assert sha(d/'LaTeX/main.pdf')==sha(Path('deliverables/r15-psta-readable/main.pdf'))=='a7af28cb4453c86f469ef31ff86a5cfbe8091986b2998f7bc9b1654927e5efd2'
+          assert sha(d/'LaTeX/main.pdf')==sha(Path('deliverables/r15-psta-readable/Статья_FEFC_R15_v3_ПСТА.pdf'))=='a7af28cb4453c86f469ef31ff86a5cfbe8091986b2998f7bc9b1654927e5efd2'
           historic.write_bytes(old_bytes); log.write_bytes(new_bytes)
           assert sha(historic)==old['checks/main.log']
           readme=d/'README.md'
@@ -81,7 +81,7 @@ jobs:
           tmp.replace(archive)
           status=Path('docs/STATUS.md')
           prior=status.read_text(encoding='utf-8')
-          status.write_text('# STATUS — F: актуальный журнал исправлен\n\n25.11.2026 | F | deliverables/r15-visual-final/checks/main.log, historical-main.log, F-log-correction.json, README, SHA256, полный ZIP | 83 прежних и 85 новых хешей сверены; 81 прежний файл неизменён; CRC/состав ZIP PASS; без пересборки | run '+os.environ['GITHUB_RUN_ID']+' / BT26-R15-EXEC-20261125-04 | #7148176273 updated_at 2026-11-25T00:07:44Z: P принят адресно, целостность F принята, журнал исправлен; после успешного push запись освобождена. Следующий шаг: независимая приёмка исправления, оставшиеся личные поля.\n\n---\n'+prior,encoding='utf-8')
+          status.write_text('# STATUS — F: актуальный журнал исправлен\n\n25.11.2026 | F | deliverables/r15-visual-final/checks/main.log, historical-main.log, F-log-correction.json, README, SHA256, полный ZIP | 83 прежних и 85 новых хешей сверены; 81 прежний файл неизменён; CRC/состав ZIP PASS; без пересборки | run '+os.environ['GITHUB_RUN_ID']+' / BT26-R15-EXEC-20261125-05 | #7149195320 updated_at 2026-11-25T01:05:28Z; #7148176273: P принят адресно, целостность F принята, журнал исправлен; после успешного push запись освобождена. Следующий шаг: независимая приёмка исправления, оставшиеся личные поля.\n\n---\n'+prior,encoding='utf-8')
           paths=[str(d/n) for n in changed|{'checks/historical-main.log','checks/F-log-correction.json','SHA256.json',archive.name}]+[str(status)]
           git('config','user.name','FEFC executor');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
           git('add','--',*paths)
